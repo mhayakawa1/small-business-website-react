@@ -90,4 +90,4 @@ Uses React routing to show different pages. Redirects to an error page if invali
 Image in hero section of home page switches automatically. Uses CSS fade-in transition, useEffect hook, and setInterval method.
 
 ### Shop
-Different categories of projects are viewable using Bootstrap dropdown menu. Products can be viewed in a three column or two column grid. LocalStorage saves data to be use in cart and checkout pages.
+Different categories of projects are viewable using Bootstrap dropdown menu. Products can be viewed in a three column or two column grid. LocalStorage saves data so that it can be used in other pages. If customer reloads the page, switches back and forth between pages, or deletes items from cart, that information stays consistent throughout the site.
