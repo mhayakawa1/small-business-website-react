@@ -84,10 +84,10 @@ A multipage website for a small business that includes an online shop. Customer 
 
 ## Features
 ### Navigation
-    Uses React routing to show different pages. Redirects to an error page if invalid URL is entered.
+Uses React routing to show different pages. Redirects to an error page if invalid URL is entered.
 
 ### Image Slideshow
-    Image in hero section of home page switches automatically. Uses CSS fade-in transition, useEffect hook, and setInterval method.
+Image in hero section of home page switches automatically. Uses CSS fade-in transition, useEffect hook, and setInterval method.
 
 ### Shop
-    Different categories of projects are viewable using Bootstrap dropdown menu. Products can be viewed in a three column or two column grid. LocalStorage saves data to be use in cart and checkout pages.
+Different categories of projects are viewable using Bootstrap dropdown menu. Products can be viewed in a three column or two column grid. LocalStorage saves data to be use in cart and checkout pages.
