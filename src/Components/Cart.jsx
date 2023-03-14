@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../logo.svg';
 const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
 
 function Cart(){
@@ -194,8 +195,8 @@ function Cart(){
                     <div key={i} className='cart-product'>
                         <img src={products[i][3]} className='cart-product-image'></img>
                         <p className='cart-product-name'>{products[i][0]}</p>
-                        <p className='cart-unit-price'>Unit Price: ${products[i][1]}</p>
-                        <p className='cart-quantity'>Quantity: {products[i][2]}</p>
+                        <p className='cart-unit-price'>${products[i][1]}</p>
+                        <p className='cart-quantity'>{products[i][2]}</p>
                         <button className='cart-item-button' onClick={() => deleteItem(products[i])}><i className='fas fa-x'></i></button>
                     </div>
                 )
@@ -274,26 +275,41 @@ function Cart(){
         e.preventDefault()
     }
     return(
-        <div className='cart-page'>
-            <div className='cart-container'>
-                <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> Your Cart</h3>
-                <p>You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</p>
-                <div className='items-in-cart'>            
-                    {data === '' ? <p className='cart-empty'>Your cart is empty.</p>
-                        : getItemsInCart()}
+        <div>
+            <div className='shop-header'>
+                <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                <div className='shop-header-container'>
+                    <img className='logo shop-logo' src={logo}></img>
+                    <h1>Lorem Ipsum Dolor</h1>
+                    <h2>Your Cart</h2>
                 </div>
             </div>
-            
-            <div className='subtotal-checkout-container'>
-                <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
-                <p>Tax, shipping and discounts calculated at checkout</p>
-                <NavLink to='/checkout' className='checkout-link nav-link-button'>
-                    <button style={{textDecoration: 'none'}} className='col-xs-1 checkout-button'>
-                        Checkout<i className='fas fa-arrow-right'></i>
-                    </button>
-                </NavLink>
+            <div className='cart-page'>            
+                <div className='cart-container'>
+                    <div className='items-in-cart'>
+                            {/*<h4><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</h4>*/}
+                        <div className='cart-table-header'>
+                            <div className='column-names'>
+                                <p className='column-name column-name-product'>Product:</p>
+                                <p className='column-name'>Unit Price:</p>
+                                <p className='column-name'>Quantity:</p>
+                            </div>
+                        </div>
+                    {data === '' ? <p className='cart-empty'>Your cart is empty.</p>
+                            : getItemsInCart()}
+                    </div>
+                </div>            
+                <div className='subtotal-checkout-container'>
+                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</h3>
+                    <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
+                    <p>Tax, shipping and discounts calculated at checkout</p>
+                    <NavLink to='/checkout' className='checkout-link nav-link-button'>
+                        <button style={{textDecoration: 'none'}} className='col-xs-1 checkout-button'>
+                            Checkout<i className='fas fa-arrow-right'></i>
+                        </button>
+                    </NavLink>
+                </div>            
             </div>
-            
         </div>
     )
 }
