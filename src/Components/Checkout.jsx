@@ -223,11 +223,11 @@ function Checkout(){
                         <div className='name-container'>
                             <div className='input-item'>
                                 <input type='text'></input>
-                                <label className='font-extra-small'>First</label>
+                                <label className='font-extra-small'>First <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
                                 <input type='text'></input>
-                                <label className='font-extra-small'>Last</label>
+                                <label className='font-extra-small'>Last <i className='fas fa-asterisk'></i></label>
                             </div>
                         </div>
                     </div>
