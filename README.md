@@ -1,3 +1,4 @@
+<!--
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-->
+# Small Business Website
+
+## Overview
+A multipage website for a small business that includes an online shop. Customer can view different categories of products, add items to their cart, and fill out a purchase form. Try the coupon code 'REACTJS' for 10% off.
+
+## Technologies & Languages
+- React
+- Javascript
+- HTML
+- CSS
+- Bootstrap
+
+## Features
+### Navigation
+    Uses React routing to show different pages. Redirects to an error page if invalid URL is entered.
+
+### Image Slideshow
+    Image in hero section of home page switches automatically. Uses CSS fade-in transition, useEffect hook, and setInterval method.
+
+### Shop
+    Different categories of projects are viewable using Bootstrap dropdown menu. Products can be viewed in a three column or two column grid. LocalStorage saves data to be use in cart and checkout pages.
