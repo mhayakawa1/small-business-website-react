@@ -52,7 +52,7 @@ function App() {
             <Route path='/shop' element={<Shop />}/>
             <Route path='/cart' element={<Cart />}/>
             <Route path='/checkout' element={<Checkout />}/>
-            <Route element={<Error/>}/>
+            <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
       </BrowserRouter>
