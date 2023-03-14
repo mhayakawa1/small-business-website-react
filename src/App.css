@@ -1164,7 +1164,7 @@ input::-webkit-inner-spin-button {
 }
 /**********CHECKOUT PAGE ENDS HERE**********/
 
-/*FOOTER STARTS HERE*/
+/**********FOOTER PAGE STARTS HERE**********/
 .footer{
     width: 100%;
     height: 22rem;
@@ -1224,3 +1224,25 @@ input::-webkit-inner-spin-button {
     font-size: .75rem;
     font-family: 'Tajawal', sans-serif;
 }
+/**********FOOTER PAGE ENDS HERE**********/
+
+/**********ERROR PAGE STARTS HERE**********/
+.error-page{
+    height: 100%;
+    width: 100%;
+}
+
+.error-background{
+    width: 100%;
+    position: fixed;
+    z-index: -1;    
+    filter: sepia(15%) contrast(90%) opacity(50%);
+}
+
+.error-page h3{
+    text-align: center;
+    padding: 30% 0 20% 0;
+    font-family: 'Tajawal', 'sans serif';
+    color: #234843;
+}
+/**********ERROR PAGE ENDS HERE**********/
