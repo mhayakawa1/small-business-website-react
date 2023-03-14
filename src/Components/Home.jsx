@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../logo.svg'
+import logo from '../logo.svg';
 const heroImage1 = 'https://images.pexels.com/photos/4466544/pexels-photo-4466544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
 const heroImage2 = 'https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
 const heroImage3 = 'https://images.pexels.com/photos/5706594/pexels-photo-5706594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
@@ -17,11 +17,11 @@ function Home(){
             <div key={'key'} className='hero-image-container'>
               <img key={image2} src={image2} className={`hero-image`} />
               <img key={image1} src={image1} className={`${fadeIn} hero-image`} />
-            </div> 
+            </div>
         );
     }
 
-    useEffect(() => {    
+    useEffect(() => {
         const interval = setInterval(() => {
             setImagesArr(imagesArr.unshift(imagesArr.pop()));
             setImage2(imagesArr[1]);
@@ -30,7 +30,7 @@ function Home(){
             getHeroImage();
         }, 8000);
         return () => clearInterval(interval);
-      }, []);  
+      }, []);
 
     return(
         <div>
