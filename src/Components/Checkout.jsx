@@ -182,7 +182,7 @@ function Checkout(){
             percentOff = discount
             
             discount = addDecimal((discount * total)/100)
-            total = ((total * 100) - (findCode[1] * total))/100            
+            total = ((total * 100) - (findCode[1] * total))/100
         }else{
             discount = 0
         }
@@ -191,7 +191,7 @@ function Checkout(){
 
         if(radioBtnVal === 'Delivery'){
             shipping = '20.00'
-            total = total + 20
+            total = ((total * 100) + 2000)/100
         }
         
         subtotal = addDecimal(subtotal)
@@ -206,9 +206,9 @@ function Checkout(){
     return(
         <div className='checkout-page'>
             <NavLink to='/cart' className='cart-link nav-link-button'>
-                <a className='back-to-cart'>
+                <button className='back-to-cart'>
                     <i className='fas fa-arrow-left'></i> Back to cart
-                </a>
+                </button>
             </NavLink>
             <h3>Checkout</h3>
             <p>You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</p>
