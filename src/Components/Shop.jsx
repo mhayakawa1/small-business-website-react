@@ -226,7 +226,7 @@ function Shop(){
             <div className='shop-header'>
                 {/*<img className='shop-background' src='https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                 */}
-                <img className='shop-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                 <div className='shop-header-container'>
                     {/*<span className='shop-header-line line-left'></span>
                     <div className='shop-header-logo-h3'>
