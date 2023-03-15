@@ -169,8 +169,8 @@ function Checkout(){
         }
         if(subtotal === 0){
             for(let i = 0; i < products.length; i++){
-                if(products[i][2] > 0){
-                    subtotal = subtotal + (Number(products[i][1]) * products[i][2])
+                if(quantities[i * 2] > 0){
+                    subtotal = subtotal + (Number(products[i][1]) * quantities[i * 2])
                 }
             }
         }
