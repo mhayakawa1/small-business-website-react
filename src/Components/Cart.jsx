@@ -242,8 +242,10 @@ function Cart(){
             return num
         }
         if(subtotal === 0){
+            console.log('test a')
             for(let i = 0; i < products.length; i++){
                 if(products[i][2] > 0){
+                    console.log('test b')
                     subtotal = subtotal + (Number(products[i][1]) * products[i][2])
                 }
             }
