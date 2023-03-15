@@ -268,7 +268,9 @@ function Cart(){
         }*/}
         
         subtotal = addDecimal(subtotal)
+        console.log(subtotal)
     }
+    calculateTotal()
     calculateTotal()
     
     const submitForm = (e) =>{
