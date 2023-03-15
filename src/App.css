@@ -1062,11 +1062,15 @@ h2{
 
 .back-to-cart{
     color:#173935;
-    font-size: .8rem;
+    background-color: #E9A8A5;
+    border: none;
+    padding: .5rem;
+    width: 10rem;
+    transition: all .5s;
 }
 
 .back-to-cart:hover{
-    color:#3D6347;
+    background-color: #E8908F;
 }
 
 .checkout-page h3{
