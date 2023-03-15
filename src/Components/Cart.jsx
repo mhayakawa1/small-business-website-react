@@ -241,10 +241,11 @@ function Cart(){
             }
             return num
         }
-        if(subtotal === '0.00'){
+        if(subtotal === 0){
             for(let i = 0; i < products.length; i++){
                 if(products[i][2] > 0){
                     subtotal = subtotal + (Number(products[i][1]) * products[i][2])
+                    console.log(subtotal)
                 }
             }
         }
@@ -270,9 +271,6 @@ function Cart(){
         subtotal = addDecimal(subtotal)
     }
     calculateTotal()
-        console.log(products)
-        console.log(subtotal)
-        console.log(quantities)
     
     const submitForm = (e) =>{
         e.preventDefault()
