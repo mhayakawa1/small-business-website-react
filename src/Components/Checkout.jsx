@@ -222,11 +222,11 @@ function Checkout(){
                         <h4>Name</h4>
                         <div className='name-container'>
                             <div className='input-item'>
-                                <input type='text'></input>
+                                <input type='text' className='font-small'></input>
                                 <label className='font-extra-small'>First <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
-                                <input type='text'></input>
+                                <input type='text' className='font-small'></input>
                                 <label className='font-extra-small'>Last <i className='fas fa-asterisk'></i></label>
                             </div>
                         </div>
@@ -235,11 +235,11 @@ function Checkout(){
                         <h4>Contact Information</h4>
                         <div>
                             <div className='input-item'>
-                                <input type='email'></input>
+                                <input type='email' className='font-small'></input>
                                 <label className='font-extra-small'>Email</label>
                             </div>
                             <div className='input-item'>
-                                <input type='tel'></input>
+                                <input type='tel' className='font-small'></input>
                                 <label className='font-extra-small'>Phone Number</label>
                             </div>                                
                         </div>
@@ -251,21 +251,21 @@ function Checkout(){
                         <div className='pickup-delivery-input'>
                             <div>
                                 <input onChange={() => onChangeValue('Pickup')} type='radio' value='pickup' id='pickup' name='pickupDelivery'/>
-                                <label htmlFor='pickup'>Pickup</label>
+                                <label htmlFor='pickup' className='font-small'>Pickup</label>
                             </div>
                             <div>
                                 <input onChange={() => onChangeValue('Delivery')} type='radio' value='delivery' id='delivery' name='pickupDelivery'/>
-                                <label htmlFor='delivery'>Delivery</label>
+                                <label htmlFor='delivery' className='font-small'>Delivery</label>
                             </div>
                             <div className='select-date-container'>
-                                <label htmlFor='select-date'>Select a Date <i className='fas fa-asterisk'></i></label>
+                                <label htmlFor='select-date' className='font-small'>Select a Date <i className='fas fa-asterisk'></i></label>
                                 <p className='order-date-statement font-extra-small'>Large orders (10+ items) must be placed at least 1 day in advance. 
                                     Same-day delivery unavailable past 4pm MST. 
                                     Same-day pickup unavailable past 6pm MST.</p>
                                 {data.split(',').length - 1 < 10 
                                     && ((radioBtnVal === 'Delivery' && time < 16) || (radioBtnVal === 'Pickup' && time < 18)) ?
-                                    <input type='date' className='select-date' min={minDate}></input>
-                                    : <input type='date' className='select-date' min={tomorrowsDate}></input>}
+                                    <input type='date' className='select-date font-extra-small' min={minDate}></input>
+                                    : <input type='date' className='select-date font-extra-small' min={tomorrowsDate}></input>}
                             </div>
                         </div>
                     </div>
@@ -273,28 +273,28 @@ function Checkout(){
                         <h4>Delivery Address</h4>
                         <div className='delivery-address-container'>
                             <div className='input-item'>
-                                {radioBtnVal === 'Delivery' ? <input type='text' required></input>
-                                : <input type='text'></input>}
+                                {radioBtnVal === 'Delivery' ? <input type='text' className='font-small' required></input>
+                                : <input type='text' className='font-small'></input>}
                                 <label className='font-extra-small'>Street Address {radioBtnVal === 'Delivery' ? <i className='fas fa-asterisk'></i> : null}</label>
                             </div>
                             <div className='input-item'>
-                                {radioBtnVal === 'Delivery' ? <input type='text' required></input>
-                                : <input type='text'></input>}
+                                {radioBtnVal === 'Delivery' ? <input type='text' className='font-small' required></input>
+                                : <input type='text' className='font-small'></input>}
                                 <label className='font-extra-small'>Street Address Line 2</label>
                             </div>
                             <div className='input-item'>
-                                {radioBtnVal === 'Delivery' ? <input type='text' required></input>
-                                : <input type='text'></input>}
+                                {radioBtnVal === 'Delivery' ? <input type='text' className='font-small' required></input>
+                                : <input type='text' className='font-small'></input>}
                                 <label className='font-extra-small'>City {radioBtnVal === 'Delivery' ? <i className='fas fa-asterisk'></i> : null}</label>
                             </div>
                             <div className='input-item'>
-                                {radioBtnVal === 'Delivery' ? <input type='text' required></input>
-                                : <input type='text'></input>}
+                                {radioBtnVal === 'Delivery' ? <input type='text' className='font-small' required></input>
+                                : <input type='text' className='font-small'></input>}
                                 <label className='font-extra-small'>State {radioBtnVal === 'Delivery' ? <i className='fas fa-asterisk'></i> : null}</label>
                             </div>
                             <div className='input-item'>
-                                {radioBtnVal === 'Delivery' ? <input type='number' required></input>
-                                : <input type='number'></input>}
+                                {radioBtnVal === 'Delivery' ? <input type='number' className='font-small' required></input>
+                                : <input type='number' className='font-small'></input>}
                                 <label className='font-extra-small'>Zipcode {radioBtnVal === 'Delivery' ? <i className='fas fa-asterisk'></i> : null}</label>
                             </div> 
                         </div>
@@ -305,19 +305,19 @@ function Checkout(){
                         <h4>Debit or Credit Card</h4>
                         <div className='card-info-container'>
                             <div className='input-item'>
-                                <input type='text'></input>
+                                <input type='text' className='font-small'></input>
                                 <label className='font-extra-small'>Cardholder's Name <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
-                                <input type='number'></input>
+                                <input type='number' className='font-small'></input>
                                 <label className='font-extra-small'>Credit Card Number <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
-                                <input type='number'></input>
+                                <input type='number' className='font-small'></input>
                                 <label className='font-extra-small'>Security Code <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
-                                <input type='month'></input>
+                                <input type='month' className='font-small'></input>
                                 <label className='font-extra-small'>Card Expiration <i className='fas fa-asterisk'></i></label>
                             </div>
                         </div>
@@ -325,8 +325,8 @@ function Checkout(){
                     <div className='form-div'>
                         <h4>Coupon Code</h4>
                         <div className='input-item'>
-                            <input type='text' className='input-code' onChange={(e) => handleChange(e.target.value)}></input>
-                            <button className='col-md-3 font-extra-small form-button' onClick={(e) => submitCode(e)}>Submit Code</button>
+                            <input type='text' className='input-code font-small' onChange={(e) => handleChange(e.target.value)}></input>
+                            <button className='col-md-3 font-extra-small form-button submit-code' onClick={(e) => submitCode(e)}>Submit Code</button>
                             {codeValid === true ? <p>Congratulations! You've earned {`${percentOff}`}% off.</p>
                                 : codeValid === false ? <p>Sorry, this code is invalid.</p>
                                 : ''}
