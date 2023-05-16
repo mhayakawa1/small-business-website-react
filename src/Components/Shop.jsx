@@ -147,9 +147,9 @@ function Shop(){
             for(let i = 0; i < products.length; i++){
                 productsArr.push(
                     showCateg === products[i][4] ?
-                    <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3' : 'grid2'}`}>
+                    <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
                         <div className='product-card'>
-                            <img src={products[i][3]} className={`product-image ${gridNum === 3 ? 'grid-image-3' : 'grid-image-2'}`}></img>
+                            <img src={products[i][3]} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
                             {/*<button className='magnify-button'><i className='fas fa-magnifying-glass'></i></button>*/}
                             <div className='product-info'>
                                 <p className='product-name'>{products[i][0]}</p>
@@ -211,10 +211,16 @@ function Shop(){
         localStorage.setItem('inCart', []);
         setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-    }
+    }  
 
     return(
         <div className='shop-page'>
+            <div className='cart-counter-container'>
+                <div className='cart-counter'>
+                    <p><i className='fas fa-shopping-cart shop-shopping-cart'></i> {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'}</p> 
+                    <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
+                </div>
+            </div>
             {/* Test images
             <div>
                 <img className='test-filter' src='https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
@@ -227,24 +233,13 @@ function Shop(){
                 {/*<img className='shop-background' src='https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                 */}
                 <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                <div className='shop-header-container'>
-                    {/*<span className='shop-header-line line-left'></span>
-                    <div className='shop-header-logo-h3'>
-                        
-                    </div>*/}
+                <div className='shop-header-container'>                    
                     <img className='logo shop-logo' src={logo}></img>
                     <h1>Lorem Ipsum Dolor</h1>
                     <h2>{showCateg}</h2>
-                    {/*<span className='shop-header-line line-right'></span>*/}
                 </div>
             </div>
-            
-            {/*
-            <div className='header-counter-container'>
-            </div>
-                <h3>{showCateg}</h3>*/}
-
-            
+                        
             <div className='shop-menu'>
                 <div className='dropdown'>
                     <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'>
@@ -263,7 +258,12 @@ function Shop(){
                     </ul>
                 </div>
                 <div className='shop-menu-buttons'>
-                    <button onClick={() => shopGridButton(3)}>
+                    <button className='grid-button-1' onClick={() => shopGridButton(3)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        </svg>
+                    </button>
+                    <button className='grid-button-3' onClick={() => shopGridButton(3)}>
                         <svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' className='bi bi-grid-3x3-gap shop-grid-button' viewBox='0 0 16 16'>
                         <path d='M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z'/>
                         </svg>
@@ -274,14 +274,7 @@ function Shop(){
                         </svg>
                     </button>
                 </div>
-            </div>
-            <div className='cart-counter-container'>
-                <div className='cart-counter'>
-                    <p><i className='fas fa-shopping-cart shop-shopping-cart'></i> {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'}</p> 
-                    <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
-                </div>
-            </div>
-            
+            </div>            
             
             <div className='products-container'>
                 {showProducts()}
