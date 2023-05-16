@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Home from './Components/Home';
 import Shop from './Components/Shop';
@@ -39,7 +40,31 @@ TASKS FOR TODAY
 */}
 
 function App() {
-  const [showPage, setshowPage] = useState(1);
+  //const [showPage, setshowPage] = useState(1);
+  const [showMenu, setShowMenu] = useState(false);
+  const [hide, setHide] = useState('hide');
+  const [hideBars, setHideBars] = useState('');
+
+  const linkStyles = ({ isActive }) => ({
+    color: '#173935',
+    background: isActive ? '#E8908F' : '#E9A8A5',
+    textDecoration: 'none',
+    textAlign: 'center',
+    fontFamily: 'Tajawal, sans-serif'
+  })
+
+  const toggleMenu = () => {
+    setShowMenu(showMenu => !showMenu)
+    setTimeout(() => {
+      if(showMenu === true){
+        setHide('hide')
+        setHideBars('')
+      }else{
+        setHide('')
+        setHideBars('hide')
+      }
+    }, 250);
+  }
 
   return (
     <div className='page'>
@@ -47,6 +72,23 @@ function App() {
       <BrowserRouter>
         <div>
           <NavbarMenu />
+          <div className='hamburger-menu'>
+            <div className='show-hamburger-menu-container'>
+              <button className={`hamburger-button show-hamburger-menu ${showMenu === true ? {hideBars} : null}`} onClick={toggleMenu}><i className='fas fa-bars menu-icon'></i></button>
+            </div>
+            <div className={`hamburger-menu-container ${hide} ${showMenu === false ? 'menu-fade-out' : 'menu-fade-in'}`}>
+              <button className='hamburger-button' onClick={toggleMenu}><i className='fas fa-x menu-icon'></i></button>
+              <div className='hamburger-menu-items'>
+                <NavLink to='/' className='hamburger-link' onClick={toggleMenu}
+                    style={linkStyles}>Home</NavLink>
+                <NavLink to='/shop' className='hamburger-link' onClick={toggleMenu}
+                    style={linkStyles}>Shop</NavLink>
+                <NavLink to='/cart' className='hamburger-link cart-nav-button' onClick={toggleMenu}
+                    style={linkStyles}>
+                    <i className='fas fa-cart-shopping navbar-icon'></i>Cart</NavLink>
+              </div>
+            </div>
+          </div>
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop />}/>
@@ -58,7 +100,7 @@ function App() {
       </BrowserRouter>
 
       <div className='footer'>
-        <div className='footer-col'>
+        <div className='footer-col footer-1'>
           <ul className='footer-list contact-information font-extra-small'>
             <li><i className='fas fa-phone'></i> (012)345-6789</li>
             <br/>
@@ -71,20 +113,21 @@ function App() {
             </li>
           </ul>
         </div>
-        <div className='footer-col'>
+        <div className='footer-col footer-2'>
           <ul className='footer-list social-media-footer'>
             <li>
-              <a><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
+              <a className='footer-link'><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
             </li>
             <li>
-              <a><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
+              <a className='footer-link'><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
             </li>
             <li>
-              <a><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
+              <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
             </li>
           </ul>
+          <p className='font-extra-small shop-hours'>Hours: 9:30am-7:00pm<br/>Sunday-Saturday</p>
         </div>
-        <div className='footer-col'>
+        <div className='footer-col footer-3'>
           <ul className='footer-list other-information font-extra-small'>
             <li><a className='footer-link'>FAQs</a></li>
             <li><a className='footer-link'>Return Policy</a></li>
