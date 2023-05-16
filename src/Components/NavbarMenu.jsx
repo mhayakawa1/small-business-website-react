@@ -8,11 +8,10 @@ function NavbarMenu(){
       color: '#173935',
       background: isActive ? '#E8908F' : '#E9A8A5',
       textDecoration: 'none',
-      paddingTop: '1.25rem',
       textAlign: 'center',
       fontFamily: 'Tajawal, sans-serif'
     })
-        
+    
     return(
       <div className='navbar-menu'>
         <NavLink to='/' className='col-md-1 navbar-link'
