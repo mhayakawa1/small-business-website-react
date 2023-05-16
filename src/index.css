@@ -11,3 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.tab-icon{
+  filter: invert(34%) sepia(14%) saturate(1090%) hue-rotate(83deg) brightness(95%) contrast(88%);
+}
