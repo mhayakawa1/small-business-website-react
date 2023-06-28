@@ -164,7 +164,7 @@ p{
 }
 
 .menu-icon{
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
 }
 
@@ -808,6 +808,10 @@ h2{
         height: auto;
         padding: 4rem 0 4rem 0;
     }
+
+    .review-p{
+        font-size: .8rem;
+    }
 }
 
 @media screen and (min-width: 1921px){
@@ -874,7 +878,7 @@ h2{
 @media screen and (max-width: 376px){
     .reviews-container{
         margin: 3rem 0 auto 0 !important;
-    }    
+    }
 }
 
 @media screen and (max-width: 768px){
@@ -886,6 +890,8 @@ h2{
     
     .review-card{
         height: 30rem;
+        width: 80%;
+        margin: auto;
     }
     
     .review-card-image{
@@ -1384,7 +1390,6 @@ h2{
 
 .grid-button-1{
     display: static;
-    background-color: gray;
 }
 
 .grid-button-3{
@@ -1449,8 +1454,8 @@ h2{
 
 @media screen and (max-width: 428px){
     .products-container{
-        padding: 1%;
-        gap: 1%;
+        padding: 5%;
+        gap: 5%;
     }
 }
 
@@ -1508,11 +1513,18 @@ h2{
 
 @media screen and (max-width: 428px){
     .grid3{    
-        width: 32.6666%;
+        /*width: 32.6666%;*/
+        width: 80%;
+        margin: 0 auto 2rem auto;
     }
     
     .grid2{
-        width: 49.5%;
+        width: 47.5%;
+        margin: 0 0 2rem 0;
+    }
+
+    .grid-image-3{
+        height: 20rem !important;
     }
 }
 
@@ -1940,12 +1952,25 @@ h2{
 /**********CART PAGE STARTS HERE**********/
 
 /**********CHECKOUT PAGE STARTS HERE**********/
+/*
+376
+428
+768
+1921
+*/
+
 .checkout-page{
     min-height: 60rem;
-    padding: 8rem 15% 8rem 15%;
+    padding: 8rem 12% 8rem 12%;
     gap: 5%;
     font-family: 'Tajawal', 'sans serif';
     color: #173935;
+}
+
+@media screen and (max-width: 768px){
+    .checkout-page{
+        padding: 8rem 8% 8rem 8%;
+    }
 }
 
 @media screen and (min-width: 1921px){
@@ -2024,12 +2049,13 @@ input::-webkit-inner-spin-button {
     grid-template-columns: 40% 60%;
     margin: 1rem 0 0 0;
     padding: 0 0 1rem 0;    
-    border-bottom: 1px solid #E9A8A5;
+    border-bottom: 1px solid #173935;
 }
 
 .form-div h4{
     grid-column: 1/2;
     font-size: 1.5rem;
+    padding: 0 1rem 0 0;
 }
 
 .form-div h6{
@@ -2039,6 +2065,13 @@ input::-webkit-inner-spin-button {
 .name-container{
     display: flex;
     gap: 1rem;
+}
+
+@media screen and (max-width: 428px){
+    .form-div{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 768px){
@@ -2152,6 +2185,12 @@ input::-webkit-inner-spin-button {
     font-size: 1rem;
 }
 
+@media screen and (max-width: 768px){
+    .submit-form{
+        width: 10rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .submit-form{
         margin: 2rem auto 0 auto;
@@ -2161,7 +2200,7 @@ input::-webkit-inner-spin-button {
 
 /**********CHECKOUT PAGE ENDS HERE**********/
 
-/**********FOOTER PAGE STARTS HERE**********/
+/**********FOOTER STARTS HERE**********/
 .footer{
     width: 100%;
     height: 22rem;
