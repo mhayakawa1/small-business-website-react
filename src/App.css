@@ -660,6 +660,10 @@ h2{
     justify-self: end;
 }
 
+.bestseller-2 .bestseller-card-image{
+    object-position: 100% 90%;
+}
+
 .bestseller-3{
     width: 90%;
     height: 90%;
@@ -687,21 +691,27 @@ h2{
 .bestseller-card-info{
     position: absolute;
     z-index: 2;
-    margin: -3rem 0 0 1rem; 
+    margin: -2.25rem 0 0 .75rem; 
     background-color: rgb(255,255,255,.5);
     backdrop-filter: blur(10px);
-    padding: .5rem;
-    min-width: 10rem;
-    height: 2rem;
+    padding: .25rem 1rem .25rem .5rem;
+    min-width: 5rem;
+    width: auto;
+    min-height: 1.5rem;
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .bestseller-card-info p{
     vertical-align: middle;
     font-family: 'Gloock', serif;
     color: #234843;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.bestseller-2 .bestseller-card-info{
+    margin: -3.25rem 0 0 .75rem; 
 }
 
 @media screen and (max-width: 428px){
@@ -756,8 +766,8 @@ h2{
         line-height: 0%;
         min-width: 5rem;
         height: 3rem;
-        padding: 1rem 0 0 .5rem;
-        margin: -4rem 0 0 1rem;
+        padding: 1rem .5rem 0 .5rem;
+        margin: -3.75rem 0 0 .75rem;
     }
 }
 
@@ -795,7 +805,6 @@ h2{
 }
 
 .review-p{
-    font-size: 1rem;
     text-align: center;
     margin: 2rem auto 0 auto;
     width: 75%;
@@ -855,9 +864,11 @@ h2{
 }
 
 .review-content{
-    height: 50%;
+    height: 80%;
     width: 100%;
     padding: 1rem 0.5 1rem 0.5;
+    display: flex;
+    flex-direction: column;
 }
 
 .review-stars{
@@ -866,13 +877,18 @@ h2{
 }
 
 .review-text{
-    height: 6rem;
     color: white;
     margin: .5rem 2rem 0 2rem;
 }
 
 .review-attribution{
     margin: 0 2rem 0 2rem;
+    height: 3rem;
+
+}
+
+.review-name{
+    margin: .5rem 0 0 0;
 }
 
 @media screen and (max-width: 376px){
@@ -898,31 +914,6 @@ h2{
         height: 50%;
     }    
 }
-
-/*
-@media screen and (max-width: 768px){
-    .review-card{
-        height: 25rem;
-    }
-    
-    .review-card-image{
-        height: 40%;
-    }
-
-    .review-content{
-        height: 60%;
-        padding: 0rem 0.5 0rem 0.5;
-    }
-
-    .review-text{
-        margin: .5rem 2rem 0 2rem;
-    } 
-
-    .review-attribution{
-        margin: 2rem 2rem 1rem 2rem;
-        line-height: .5rem;
-    } 
-}*/
 
 @media screen and (min-width: 1921px){
     .reviews-container{
