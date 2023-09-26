@@ -104,12 +104,11 @@ function App() {
           <ul className='footer-list contact-information font-extra-small'>
             <li><i className='fas fa-phone'></i> (012)345-6789</li>
             <br/>
-            <li>loremipsum@abc.com<br/>Business inquiries only</li>
+            <li>greenoasisflorist@email.com<br/>Business inquiries only</li>
             <br/>
-            <li>Dolor Sit Amet<br/>
-              Lorem Ipsum Flower Shop<br/>
-              123 Sonsectetur St.<br/>
-              Adipiscing Alit 12345
+            <li>4335 Lorem Ipsum Dolor<br/>
+              582 Sonsectetur St.<br/>
+              Phoenix, AZ 85001
             </li>
           </ul>
         </div>
@@ -134,7 +133,7 @@ function App() {
             <li><a className='footer-link'>Customer Service</a></li>
           </ul>
         </div>
-        <p className='copyright-statement'>© 2023 Lorem Ipsum Flower Shop</p>
+        <p className='copyright-statement'>© 2023 Green Oasis Florist. All rights reserved.</p>
       </div>
     </div>
   );
