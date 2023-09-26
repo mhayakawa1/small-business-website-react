@@ -57,21 +57,13 @@ function Shop(){
         ['Leo a diam', '$10.00', 0, 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80', 'Birthday'],
         ['sollicitudin tempor', '$12.00', 0, 'https://images.unsplash.com/photo-1589242797586-3d9a39cd9277?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=379&q=80', 'Birthday']
     ]);
-    const [products2, setProducts2] = useState([ 
-        ['Product 1', '$10.00', 0, placeholderImg, 'Bestsellers'],
-        ['Product 2', '$12.00', 0, placeholderImg, 'Bestsellers'],
-        ['Product 3', '$10.00', 0, placeholderImg, 'Sympathy'],
-        ['Product 4', '$12.00', 0, placeholderImg, 'Sympathy']
-    ]);
+
     const [data, setData] = useState('');
     const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
 
     const [inCart, setInCart] = useState([]);
     const [showCateg, setShowCateg] = useState('Bestsellers');
-    const [customItems, setCustomItems] = useState(0);
-    const [customNum, setCustomNum] = useState(0);
     const [gridNum, setGridNum] = useState(3);
-    //const [value, setValue] = useState('Bestsellers');
     
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -81,16 +73,6 @@ function Shop(){
     };
     
     function addToCart(product, op, index){
-        {/*
-        setInCart([...inCart, product])
-        localStorage.setItem('inCart', [...inCart, product]);
-
-        let array = data.split(',').concat(product).filter(i => i.length > 0)
-        console.log('inCart: ', array)*/}
-        //setInCart(data.split(',').concat(product))
-        //localStorage.setItem('inCart', data.split(',').concat(product));
-        //let item = products.find((i) => i[0] === product)
-        //console.log(quantities)
             let array = quantities.split(',')
             function addCommas(array){
                 let array2 = []
@@ -170,35 +152,6 @@ function Shop(){
             productsArr
         )
     }
-//Add custom option after rest of site is set up
-{/*
-    const showCustom = () =>{
-        const customArr = [];
-        const allFlowers = ['flower1', 'flower2', 'flower3', 'flower4'];
-        const allFoliages = ['foliage1', 'foliage2', 'foliage3', 'foliage4'];
-        const allPapers = ['paper1', 'paper2', 'paper3', 'paper4']
-        const newCustom = () =>{
-            setCustomNum(customNum + 1)
-            console.log(customNum)
-        }
-        customArr.push(
-            <button key='customBtn' onClick={() => newCustom()}>Create New Custom Item</button>
-        )
-        for(let i = 0; i < customNum; i++){
-            customArr.push(
-                <div key={i}>
-                    <h4>Custom Item {i+1}</h4>
-                    <form>
-                        <h5>Flowers</h5>
-                        
-                    </form>
-                </div>
-            )
-        }
-        return (
-            customArr
-        )
-    }*/}
 
     const shopGridButton = (num) =>{        
         setGridNum(num)
@@ -221,17 +174,8 @@ function Shop(){
                     <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
                 </div>
             </div>
-            {/* Test images
-            <div>
-                <img className='test-filter' src='https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                <img className='test-filter' src='https://images.pexels.com/photos/6913056/pexels-photo-6913056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                <img className='test-filter' src='https://images.pexels.com/photos/6913829/pexels-photo-6913829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-            </div>
-            https://images.pexels.com/photos/4466463/pexels-photo-4466463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-            */}
+
             <div className='shop-header'>
-                {/*<img className='shop-background' src='https://images.pexels.com/photos/4041287/pexels-photo-4041287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                */}
                 <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                 <div className='shop-header-container'>                    
                     <img className='logo shop-logo' src={logo}></img>
@@ -254,7 +198,6 @@ function Shop(){
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Get Well')}>Get Well</a></li>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Love & Romance')}>Love & Romance</a></li>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Birthday')}>Birthday</a></li>
-                        {/*<li><a className='dropdown-item' href='#'  onClick={() => handleChange('Custom')}>Custom</a></li>*/}
                     </ul>
                 </div>
                 <div className='shop-menu-buttons'>
