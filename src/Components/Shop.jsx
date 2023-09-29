@@ -4,6 +4,17 @@ import React, {useState, useEffect} from 'react';
 import logo from '../logo.svg'
 const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
 
+{/*Goals
+- Update header to be more professional, title, category, and logo with 
+    plain background and fixed position
+- Default category - all
+- Allow filters - 
+- Sort - AZ, ZA, Bestseller, Price low-high high-low
+- Fix thumbnail sizes to look better with widow resizing
+- Star rating and reviews
+
+*/}
+
 function Shop(){
     //B index: 0-1
     //S&GW index: 2-3
@@ -179,7 +190,7 @@ function Shop(){
                 <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                 <div className='shop-header-container'>                    
                     <img className='logo shop-logo' src={logo}></img>
-                    <h1>Lorem Ipsum Dolor</h1>
+                    <h1>Green Oasis Florist</h1>
                     <h2>{showCateg}</h2>
                 </div>
             </div>
