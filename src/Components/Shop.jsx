@@ -5,68 +5,65 @@ import logo from '../logo.svg'
 const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
 
 {/*Goals
-- Update header to be more professional, title, category, and logo with 
-    plain background and fixed position
-- Default category - all
-- Allow filters - 
 - Sort - AZ, ZA, Bestseller, Price low-high high-low
-- Fix thumbnail sizes to look better with widow resizing
-- Star rating and reviews
-
+- Determine Item prices
+	- Small 1-3 stems - $15-20
+	- Simple all same flower $30-40
+	- Complex - 4 prices $50-60
 */}
 
 function Shop(){
     //B index: 0-1
     //S&GW index: 2-3
     const [products, setProducts] = useState([
-        ['Lorem ipsum', '$10.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['dolor sit amet', '$12.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['consectetur adipiscing', '$10.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['elit sed do', '$12.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['eiusmod tempor', '$10.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['incididunt ut', '$12.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['labore et dolore', '$10.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['magna aliqua', '$12.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['Vel quam elementum', '$10.00', 0, 'https://images.pexels.com/photos/6913829/pexels-photo-6913829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['pulvinar etiam', '$12.00', 0, 'https://images.pexels.com/photos/13804370/pexels-photo-13804370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['Vestibulum lorem', '$10.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['sed risus ultricies', '$12.00', 0, 'https://images.pexels.com/photos/9252957/pexels-photo-9252957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['tristique nulla', '$10.00', 0, 'https://images.pexels.com/photos/4428629/pexels-photo-4428629.jpeg', 'Sympathy'],
-        ['aliquet enim', '$12.00', 0, 'https://images.pexels.com/photos/13849767/pexels-photo-13849767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['Scelerisque viverra', '$10.00', 0, 'https://images.pexels.com/photos/1109561/pexels-photo-1109561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['mauris in aliquam', '$12.00', 0, 'https://images.pexels.com/photos/11831038/pexels-photo-11831038.jpeg', 'Sympathy'],
-        ['Diam quis enim', '$10.00', 0, 'https://images.pexels.com/photos/13250577/pexels-photo-13250577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['lobortis scelerisque', '$12.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['fermentum dui', '$10.00', 0, 'https://images.pexels.com/photos/12511442/pexels-photo-12511442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['faucibus elit', '$12.00', 0, 'https://images.pexels.com/photos/6913749/pexels-photo-6913749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['duis tristique', '$10.00', 0, 'https://images.pexels.com/photos/6913747/pexels-photo-6913747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['sollicitudin nibh', '$12.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['Et ultrices', '$10.00', 0, 'https://images.pexels.com/photos/5713339/pexels-photo-5713339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['neque ornare', '$12.00', 0, 'https://images.pexels.com/photos/5706233/pexels-photo-5706233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['aenean euismod', '$10.00', 0, 'https://images.pexels.com/photos/8245520/pexels-photo-8245520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['elementum non', '$12.00', 0, 'https://images.pexels.com/photos/5566042/pexels-photo-5566042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['diam phasellus', '$10.00', 0, 'https://images.pexels.com/photos/1179026/pexels-photo-1179026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['lorem diam in', '$12.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['arcu cursus', '$10.00', 0, 'https://images.pexels.com/photos/8264834/pexels-photo-8264834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['euismod quis', '$12.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['viverra nibh', '$10.00', 0, 'https://images.pexels.com/photos/4467128/pexels-photo-4467128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Senectus et netus', '$12.00', 0, 'https://images.pexels.com/photos/6913757/pexels-photo-6913757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['et malesuada fames', '$10.00', 0, 'https://images.pexels.com/photos/4464208/pexels-photo-4464208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['ac turpis egestas', '$12.00', 0, 'https://images.pexels.com/photos/4041420/pexels-photo-4041420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Enim praesent', '$10.00', 0, 'https://images.pexels.com/photos/8976495/pexels-photo-8976495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['elementum facilisis', '$12.00', 0, 'https://images.pexels.com/photos/6913052/pexels-photo-6913052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Leo a diam', '$10.00', 0, 'https://images.pexels.com/photos/5706559/pexels-photo-5706559.jpeg', 'Get Well'],
-        ['sollicitudin tempor', '$12.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['arcu cursus', '$10.00', 0, 'https://images.pexels.com/photos/6913056/pexels-photo-6913056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['euismod quis', '$12.00', 0, 'https://images.pexels.com/photos/4207475/pexels-photo-4207475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['viverra nibh', '$10.00', 0, 'https://images.pexels.com/photos/7063876/pexels-photo-7063876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['Senectus et netus', '$12.00', 0, 'https://images.pexels.com/photos/13263945/pexels-photo-13263945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['et malesuada fames', '$10.00', 0, 'https://images.pexels.com/photos/9085807/pexels-photo-9085807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['ac turpis egestas', '$12.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['Enim praesent', '$10.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['elementum facilisis', '$12.00', 0, 'https://images.unsplash.com/photo-1648993880071-188101660605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', 'Birthday'],
-        ['Leo a diam', '$10.00', 0, 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80', 'Birthday'],
-        ['sollicitudin tempor', '$12.00', 0, 'https://images.unsplash.com/photo-1589242797586-3d9a39cd9277?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=379&q=80', 'Birthday']
+        ['Lorem ipsum', '$45.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['dolor sit amet', '$35.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['consectetur adipiscing', '$30.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['elit sed do', '$17.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['eiusmod tempor', '$47.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['incididunt ut', '$10.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['labore et dolore', '$40.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['magna aliqua', '$28.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['Vel quam elementum', '$20.00', 0, 'https://images.pexels.com/photos/6913829/pexels-photo-6913829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['pulvinar etiam', '$32.00', 0, 'https://images.pexels.com/photos/13804370/pexels-photo-13804370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['Vestibulum lorem', '$30.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['sed risus ultricies', '$22.00', 0, 'https://images.pexels.com/photos/9252957/pexels-photo-9252957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['tristique nulla', '$42.00', 0, 'https://images.pexels.com/photos/4428629/pexels-photo-4428629.jpeg', 'Sympathy'],
+        ['aliquet enim', '$38.00', 0, 'https://images.pexels.com/photos/13849767/pexels-photo-13849767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['Scelerisque viverra', '$23.00', 0, 'https://images.pexels.com/photos/1109561/pexels-photo-1109561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['mauris in aliquam', '$41.00', 0, 'https://images.pexels.com/photos/11831038/pexels-photo-11831038.jpeg', 'Sympathy'],
+        ['Diam quis enim', '$47.00', 0, 'https://images.pexels.com/photos/13250577/pexels-photo-13250577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['lobortis scelerisque', '$45.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
+        ['fermentum dui', '$21.00', 0, 'https://images.pexels.com/photos/12511442/pexels-photo-12511442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['faucibus elit', '$19.00', 0, 'https://images.pexels.com/photos/6913749/pexels-photo-6913749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['duis tristique', '$19.00', 0, 'https://images.pexels.com/photos/6913747/pexels-photo-6913747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['sollicitudin nibh', '$23.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['Et ultrices', '$38.00', 0, 'https://images.pexels.com/photos/5713339/pexels-photo-5713339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['neque ornare', '$25.00', 0, 'https://images.pexels.com/photos/5706233/pexels-photo-5706233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['aenean euismod', '$32.00', 0, 'https://images.pexels.com/photos/8245520/pexels-photo-8245520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['elementum non', '$30.00', 0, 'https://images.pexels.com/photos/5566042/pexels-photo-5566042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['diam phasellus', '$36.00', 0, 'https://images.pexels.com/photos/1179026/pexels-photo-1179026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['lorem diam in', '$10.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
+        ['arcu cursus', '$22.00', 0, 'https://images.pexels.com/photos/8264834/pexels-photo-8264834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['euismod quis', '$17.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['viverra nibh', '$18.00', 0, 'https://images.pexels.com/photos/4467128/pexels-photo-4467128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['Senectus et netus', '$24.00', 0, 'https://images.pexels.com/photos/6913757/pexels-photo-6913757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['et malesuada fames', '$20.00', 0, 'https://images.pexels.com/photos/4464208/pexels-photo-4464208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['ac turpis egestas', '$17.00', 0, 'https://images.pexels.com/photos/4041420/pexels-photo-4041420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['Enim praesent', '$25.00', 0, 'https://images.pexels.com/photos/8976495/pexels-photo-8976495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['elementum facilisis', '$15.00', 0, 'https://images.pexels.com/photos/6913052/pexels-photo-6913052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['Leo a diam', '$32.00', 0, 'https://images.pexels.com/photos/5706559/pexels-photo-5706559.jpeg', 'Get Well'],
+        ['sollicitudin tempor', '$28.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
+        ['Suspendisse in', '$21.00', 0, 'https://images.pexels.com/photos/6913056/pexels-photo-6913056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['est ante in', '$19.00', 0, 'https://images.pexels.com/photos/4207475/pexels-photo-4207475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['Vestibulum', '$19.00', 0, 'https://images.pexels.com/photos/7063876/pexels-photo-7063876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['rhoncus est', '$23.00', 0, 'https://images.pexels.com/photos/13263945/pexels-photo-13263945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['pellentesque elit', '$38.00', 0, 'https://images.pexels.com/photos/9085807/pexels-photo-9085807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['ullamcorper', '$25.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['dignissim cras', '$32.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
+        ['Mattis nunc sed', '$30.00', 0, 'https://images.unsplash.com/photo-1648993880071-188101660605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', 'Birthday'],
+        ['blandit libero', '$36.00', 0, 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80', 'Birthday'],
+        ['Turpis in eu', '$10.00', 0, 'https://images.unsplash.com/photo-1589242797586-3d9a39cd9277?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=379&q=80', 'Birthday']
     ]);
 
     const [data, setData] = useState('');
@@ -206,8 +203,8 @@ function Shop(){
                     <ul className='dropdown-menu dropdown-menu-right'>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Bestsellers')}>Bestsellers</a></li>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Sympathy')}>Sympathy</a></li>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Get Well')}>Get Well</a></li>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Love & Romance')}>Love & Romance</a></li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Get Well')}>Get Well</a></li>
                         <li><a className='dropdown-item' href='#' onClick={() => handleChange('Birthday')}>Birthday</a></li>
                     </ul>
                 </div>
