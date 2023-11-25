@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
-const heroImage1 = 'https://images.pexels.com/photos/4466544/pexels-photo-4466544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-const heroImage2 = 'https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-const heroImage3 = 'https://images.pexels.com/photos/5706594/pexels-photo-5706594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+//const heroImage1 = 'https://images.pexels.com/photos/4466544/pexels-photo-4466544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+//const heroImage2 = 'https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+//const heroImage3 = 'https://images.pexels.com/photos/5706594/pexels-photo-5706594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+import heroImage1 from '../ProductImages/hero1.jpeg';
+import heroImage2 from '../ProductImages/hero2.jpeg';
+import heroImage3 from '../ProductImages/hero3.jpg';
 
 function Home(){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);

@@ -1,7 +1,37 @@
-//import { Context } from'../Context'
 import React, {useState, useEffect} from 'react';
-//import Dropdown from 'react-bootstrap/Dropdown';
 import logo from '../logo.svg'
+
+import Sympathy1 from '../ProductImages/Vel quam elementum.png';
+import Sympathy2 from '../ProductImages/pulvinar etiam.jpeg';
+import Sympathy3 from '../ProductImages/Vestibulum lorem.jpeg';
+import Sympathy4 from '../ProductImages/sed risus ultricies.jpeg';
+import Sympathy5 from '../ProductImages/tristique nulla.jpeg';
+import Sympathy6 from '../ProductImages/aliquet enim.jpeg';
+import Sympathy7 from '../ProductImages/Scelerisque viverra.png';
+import Sympathy8 from '../ProductImages/mauris in aliquam.jpeg';
+import Sympathy9 from '../ProductImages/Diam quis enim.jpeg';
+import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
+import LoveRom1 from '../ProductImages/fermentum dui.png';
+import LoveRom2 from '../ProductImages/faucibus elit.png';
+import LoveRom3 from '../ProductImages/duis tristique.jpeg';
+import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
+import LoveRom5 from '../ProductImages/Et ultrices.png';
+import LoveRom6 from '../ProductImages/neque ornare.jpeg';
+import LoveRom7 from '../ProductImages/aenean euismod.jpeg';
+import LoveRom8 from '../ProductImages/elementum non.jpeg';
+import LoveRom9 from '../ProductImages/diam phasellus.png';
+import LoveRom10 from '../ProductImages/lorem diam in.png';
+import GetWell1 from '../ProductImages/arcu cursus.jpeg';
+import GetWell2 from '../ProductImages/euismod quis.jpeg';
+import GetWell3 from '../ProductImages/viverra nibh.jpeg';
+import GetWell4 from '../ProductImages/Senectus et netus.jpeg';
+import GetWell5 from '../ProductImages/et malesuada fames.png';
+import GetWell6 from '../ProductImages/ac turpis egestas.png';
+import GetWell7 from '../ProductImages/Enim praesent.jpeg';
+import GetWell8 from '../ProductImages/elementum facilisis.jpeg';
+import GetWell9 from '../ProductImages/Leo a diam.jpeg';
+import GetWell10 from '../ProductImages/sollicitudin tempor.jpeg';
+
 const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
 
 {/*Goals
@@ -16,14 +46,14 @@ function Shop(){
     //B index: 0-1
     //S&GW index: 2-3
     const [products, setProducts] = useState([
-        ['Lorem ipsum', '$45.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['dolor sit amet', '$35.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['consectetur adipiscing', '$30.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['elit sed do', '$17.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['eiusmod tempor', '$47.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['incididunt ut', '$10.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['labore et dolore', '$40.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['magna aliqua', '$28.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['Lobortis scelerisque', '$45.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['sollicitudin nib', '$23.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['dignissim cras', '$32.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['euismod quis', '$17.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['ullamcorper', '$25.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['lorem diam in', '$10.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['Vestibulum lorem', '$30.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
+        ['sollicitudin tempor', '$28.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
         ['Vel quam elementum', '$20.00', 0, 'https://images.pexels.com/photos/6913829/pexels-photo-6913829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
         ['pulvinar etiam', '$32.00', 0, 'https://images.pexels.com/photos/13804370/pexels-photo-13804370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
         ['Vestibulum lorem', '$30.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
