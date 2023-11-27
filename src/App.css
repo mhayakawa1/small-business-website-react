@@ -763,10 +763,9 @@ h2{
     .bestseller-card-info-2{
         flex-direction: column;
         gap: .25rem;
-        line-height: 0%;
         min-width: 5rem;
         height: 3rem;
-        padding: 1rem .5rem 0 .5rem;
+        padding: .4rem .5rem 0 .5rem;
         margin: -3.75rem 0 0 .75rem;
     }
 }
