@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
-//const heroImage1 = 'https://images.pexels.com/photos/4466544/pexels-photo-4466544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-//const heroImage2 = 'https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-//const heroImage3 = 'https://images.pexels.com/photos/5706594/pexels-photo-5706594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
 import heroImage1 from '../ProductImages/hero1.jpeg';
 import heroImage2 from '../ProductImages/hero2.jpeg';
 import heroImage3 from '../ProductImages/hero3.jpg';
+import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
+import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
+import Birthday7 from '../ProductImages/dignissim cras.jpeg';
+import GetWell2 from '../ProductImages/euismod quis.jpeg';
 
 function Home(){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
-    //turn imagesArr to 'let' var
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
@@ -66,30 +66,31 @@ function Home(){
             <div className='our-bestsellers'>                
                 <div className='bestseller-cards'>
                     <div className='bestseller-card bestseller-1'>
-                        <img className='bestseller-card-image' src='https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='bestseller-card-image' src={Sympathy10}></img>
                         <div className='bestseller-card-info b-c-info-1'>
-                            <p>Lorem Ipsum</p>
-                            <p>$10.00</p>
+                            <p>Lobortis Scelerisque</p>
+                            <p>$45.00</p>
                         </div>
                     </div>
                     <div className='bestseller-card bestseller-2'>
-                        <img className='bestseller-card-image' src='https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='bestseller-card-image' src={Birthday7}></img>
                         <div className='bestseller-card-info bestseller-card-info-2'>
-                            <p>Consectetur Adipiscing<br/>$10.00</p>
+                            <p>Dignissim Cras</p>
+                            <p>$32.00</p>
                         </div>                        
                     </div>
                     <div className='bestseller-card bestseller-3'>
-                        <img className='bestseller-card-image' src='https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='bestseller-card-image' src={GetWell2}></img>
                         <div className='bestseller-card-info bestseller-card-info-2'>
-                            <p>Elit Sed Do</p>
-                            <p>$12.00</p>
+                            <p>Euismod Quis</p>
+                            <p>$17.00</p>
                         </div>                        
                     </div>
                     <div className='bestseller-card bestseller-4'>
-                        <img className='bestseller-card-image' src='https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='bestseller-card-image' src={LoveRom4}></img>
                         <div className='bestseller-card-info'>
-                            <p>Dolor Sit Amet</p>
-                            <p>$12.00</p>
+                            <p>Sollicitudin Nibh</p>
+                            <p>$23.00</p>
                         </div>
                     </div>
                 </div>
