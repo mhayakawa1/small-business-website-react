@@ -1,58 +1,104 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
+
+import Sympathy1 from '../ProductImages/Vel quam elementum.png';
+import Sympathy2 from '../ProductImages/pulvinar etiam.jpeg';
+import Sympathy3 from '../ProductImages/Vestibulum lorem.jpeg';
+import Sympathy4 from '../ProductImages/sed risus ultricies.jpeg';
+import Sympathy5 from '../ProductImages/tristique nulla.jpeg';
+import Sympathy6 from '../ProductImages/aliquet enim.jpeg';
+import Sympathy7 from '../ProductImages/Scelerisque viverra.png';
+import Sympathy8 from '../ProductImages/mauris in aliquam.jpeg';
+import Sympathy9 from '../ProductImages/Diam quis enim.jpeg';
+import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
+import LoveRom1 from '../ProductImages/fermentum dui.png';
+import LoveRom2 from '../ProductImages/faucibus elit.png';
+import LoveRom3 from '../ProductImages/duis tristique.jpeg';
+import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
+import LoveRom5 from '../ProductImages/Et ultrices.png';
+import LoveRom6 from '../ProductImages/neque ornare.jpeg';
+import LoveRom7 from '../ProductImages/aenean euismod.jpeg';
+import LoveRom8 from '../ProductImages/elementum non.jpeg';
+import LoveRom9 from '../ProductImages/diam phasellus.png';
+import LoveRom10 from '../ProductImages/lorem diam in.png';
+import GetWell1 from '../ProductImages/arcu cursus.jpeg';
+import GetWell2 from '../ProductImages/euismod quis.jpeg';
+import GetWell3 from '../ProductImages/viverra nibh.jpeg';
+import GetWell4 from '../ProductImages/Senectus et netus.jpeg';
+import GetWell5 from '../ProductImages/et malesuada fames.png';
+import GetWell6 from '../ProductImages/ac turpis egestas.png';
+import GetWell7 from '../ProductImages/Enim praesent.jpeg';
+import GetWell8 from '../ProductImages/elementum facilisis.jpeg';
+import GetWell9 from '../ProductImages/Leo a diam.jpeg';
+import GetWell10 from '../ProductImages/sollicitudin tempor.jpeg';
+import Birthday1 from '../ProductImages/Suspendisse in.png';
+import Birthday2 from '../ProductImages/est ante in.png';
+import Birthday3 from '../ProductImages/Vestibulum.png';
+import Birthday4 from '../ProductImages/rhoncus est.png';
+import Birthday5 from '../ProductImages/pellentesque elit.jpeg';
+import Birthday6 from '../ProductImages/ullamcorper.jpeg';
+import Birthday7 from '../ProductImages/dignissim cras.jpeg';
+import Birthday8 from '../ProductImages/Mattis nunc sed.png';
+import Birthday9 from '../ProductImages/blandit libero.png';
+import Birthday10 from '../ProductImages/Turpis in eu.png';
+
 const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
 
 function Cart(){
-    const [products, setProducts] = useState([ 
-        ['Lorem ipsum', '10.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['dolor sit amet', '12.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['consectetur adipiscing', '10.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['elit sed do', '12.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['eiusmod tempor', '10.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['incididunt ut', '12.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['labore et dolore', '10.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['magna aliqua', '12.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Bestsellers'],
-        ['Vel quam elementum', '10.00', 0, 'https://images.pexels.com/photos/6913829/pexels-photo-6913829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['pulvinar etiam', '12.00', 0, 'https://images.pexels.com/photos/13804370/pexels-photo-13804370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['Vestibulum lorem', '10.00', 0, 'https://images.pexels.com/photos/6913841/pexels-photo-6913841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['sed risus ultricies', '12.00', 0, 'https://images.pexels.com/photos/9252957/pexels-photo-9252957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['tristique nulla', '10.00', 0, 'https://images.pexels.com/photos/4428629/pexels-photo-4428629.jpeg', 'Sympathy'],
-        ['aliquet enim', '12.00', 0, 'https://images.pexels.com/photos/13849767/pexels-photo-13849767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['Scelerisque viverra', '10.00', 0, 'https://images.pexels.com/photos/1109561/pexels-photo-1109561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['mauris in aliquam', '12.00', 0, 'https://images.pexels.com/photos/11831038/pexels-photo-11831038.jpeg', 'Sympathy'],
-        ['Diam quis enim', '10.00', 0, 'https://images.pexels.com/photos/13250577/pexels-photo-13250577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['lobortis scelerisque', '12.00', 0, 'https://images.pexels.com/photos/4022206/pexels-photo-4022206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Sympathy'],
-        ['fermentum dui', '10.00', 0, 'https://images.pexels.com/photos/12511442/pexels-photo-12511442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['faucibus elit', '12.00', 0, 'https://images.pexels.com/photos/6913749/pexels-photo-6913749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['duis tristique', '10.00', 0, 'https://images.pexels.com/photos/6913747/pexels-photo-6913747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['sollicitudin nibh', '12.00', 0, 'https://images.pexels.com/photos/8903960/pexels-photo-8903960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['Et ultrices', '10.00', 0, 'https://images.pexels.com/photos/5713339/pexels-photo-5713339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['neque ornare', '12.00', 0, 'https://images.pexels.com/photos/5706233/pexels-photo-5706233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['aenean euismod', '10.00', 0, 'https://images.pexels.com/photos/8245520/pexels-photo-8245520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['elementum non', '12.00', 0, 'https://images.pexels.com/photos/5566042/pexels-photo-5566042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['diam phasellus', '10.00', 0, 'https://images.pexels.com/photos/1179026/pexels-photo-1179026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['lorem diam in', '12.00', 0, 'https://images.pexels.com/photos/5414333/pexels-photo-5414333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Love & Romance'],
-        ['arcu cursus', '10.00', 0, 'https://images.pexels.com/photos/8264834/pexels-photo-8264834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['euismod quis', '12.00', 0, 'https://images.pexels.com/photos/5414339/pexels-photo-5414339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['viverra nibh', '10.00', 0, 'https://images.pexels.com/photos/4467128/pexels-photo-4467128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Senectus et netus', '12.00', 0, 'https://images.pexels.com/photos/6913757/pexels-photo-6913757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['et malesuada fames', '10.00', 0, 'https://images.pexels.com/photos/4464208/pexels-photo-4464208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['ac turpis egestas', '12.00', 0, 'https://images.pexels.com/photos/4041420/pexels-photo-4041420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Enim praesent', '10.00', 0, 'https://images.pexels.com/photos/8976495/pexels-photo-8976495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['elementum facilisis', '12.00', 0, 'https://images.pexels.com/photos/6913052/pexels-photo-6913052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['Leo a diam', '10.00', 0, 'https://images.pexels.com/photos/5706559/pexels-photo-5706559.jpeg', 'Get Well'],
-        ['sollicitudin tempor', '12.00', 0, 'https://images.pexels.com/photos/4499854/pexels-photo-4499854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Get Well'],
-        ['arcu cursus', '10.00', 0, 'https://images.pexels.com/photos/6913056/pexels-photo-6913056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['euismod quis', '12.00', 0, 'https://images.pexels.com/photos/4207475/pexels-photo-4207475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['viverra nibh', '10.00', 0, 'https://images.pexels.com/photos/7063876/pexels-photo-7063876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['Senectus et netus', '12.00', 0, 'https://images.pexels.com/photos/13263945/pexels-photo-13263945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['et malesuada fames', '10.00', 0, 'https://images.pexels.com/photos/9085807/pexels-photo-9085807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['ac turpis egestas', '12.00', 0, 'https://images.pexels.com/photos/4466545/pexels-photo-4466545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['Enim praesent', '10.00', 0, 'https://images.pexels.com/photos/4466625/pexels-photo-4466625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 'Birthday'],
-        ['elementum facilisis', '12.00', 0, 'https://images.unsplash.com/photo-1648993880071-188101660605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', 'Birthday'],
-        ['Leo a diam', '10.00', 0, 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80', 'Birthday'],
-        ['sollicitudin tempor', '12.00', 0, 'https://images.unsplash.com/photo-1589242797586-3d9a39cd9277?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=379&q=80', 'Birthday']
+    const [products, setProducts] = useState([
+        ['Lobortis scelerisque', '$45.00', 0, Sympathy10, 'Bestsellers'],
+        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Bestsellers'],
+        ['dignissim cras', '$32.00', 0, Birthday7, 'Bestsellers'],
+        ['euismod quis', '$17.00', 0, GetWell2, 'Bestsellers'],
+        ['ullamcorper', '$25.00', 0, Birthday6, 'Bestsellers'],
+        ['lorem diam in', '$10.00', 0, LoveRom10, 'Bestsellers'],
+        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Bestsellers'],
+        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Bestsellers'],
+        
+        ['Vel quam elementum', '$20.00', 0, Sympathy1, 'Sympathy'],
+        ['pulvinar etiam', '$32.00', 0, Sympathy2, 'Sympathy'],
+        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Sympathy'],
+        ['sed risus ultricies', '$22.00', 0, Sympathy4, 'Sympathy'],
+        ['tristique nulla', '$42.00', 0, Sympathy5, 'Sympathy'],
+        ['aliquet enim', '$38.00', 0, Sympathy6, 'Sympathy'],
+        ['Scelerisque viverra', '$23.00', 0, Sympathy7, 'Sympathy'],
+        ['mauris in aliquam', '$41.00', 0, Sympathy8, 'Sympathy'],
+        ['Diam quis enim', '$47.00', 0, Sympathy9, 'Sympathy'],
+        ['lobortis scelerisque', '$45.00', 0, Sympathy10, 'Sympathy'],
+
+        ['fermentum dui', '$21.00', 0, LoveRom1, 'Love & Romance'],
+        ['faucibus elit', '$19.00', 0, LoveRom2, 'Love & Romance'],
+        ['duis tristique', '$19.00', 0, LoveRom3, 'Love & Romance'],
+        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Love & Romance'],
+        ['Et ultrices', '$38.00', 0, LoveRom5, 'Love & Romance'],
+        ['neque ornare', '$25.00', 0, LoveRom6, 'Love & Romance'],
+        ['aenean euismod', '$32.00', 0, LoveRom7, 'Love & Romance'],
+        ['elementum non', '$30.00', 0, LoveRom8, 'Love & Romance'],
+        ['diam phasellus', '$36.00', 0, LoveRom9, 'Love & Romance'],
+        ['lorem diam in', '$10.00', 0, LoveRom10, 'Love & Romance'],
+
+        ['arcu cursus', '$22.00', 0, GetWell1, 'Get Well'],
+        ['euismod quis', '$17.00', 0, GetWell2, 'Get Well'],
+        ['viverra nibh', '$18.00', 0, GetWell3, 'Get Well'],
+        ['Senectus et netus', '$24.00', 0, GetWell4, 'Get Well'],
+        ['et malesuada fames', '$20.00', 0, GetWell5, 'Get Well'],
+        ['ac turpis egestas', '$17.00', 0, GetWell6, 'Get Well'],
+        ['Enim praesent', '$25.00', 0, GetWell7, 'Get Well'],
+        ['elementum facilisis', '$15.00', 0, GetWell8, 'Get Well'],
+        ['Leo a diam', '$32.00', 0, GetWell9, 'Get Well'],
+        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Get Well'],
+
+        ['Suspendisse in', '$21.00', 0, Birthday1, 'Birthday'],
+        ['est ante in', '$19.00', 0, Birthday2, 'Birthday'],
+        ['Vestibulum', '$19.00', 0, Birthday3, 'Birthday'],
+        ['rhoncus est', '$23.00', 0, Birthday4, 'Birthday'],
+        ['pellentesque elit', '$38.00', 0, Birthday5, 'Birthday'],
+        ['ullamcorper', '$25.00', 0, Birthday6, 'Birthday'],
+        ['dignissim cras', '$32.00', 0, Birthday7, 'Birthday'],
+        ['Mattis nunc sed', '$30.00', 0, Birthday8, 'Birthday'],
+        ['blandit libero', '$36.00', 0, Birthday9, 'Birthday'],
+        ['Turpis in eu', '$10.00', 0, Birthday10, 'Birthday']
     ]);
     const [prices, setPrices] = useState([
         ['Lorem ipsum', '10.00'],
