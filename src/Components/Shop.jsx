@@ -187,12 +187,12 @@ function Shop(){
                             <div className='product-info'>
                                 <p className='product-name'>{products[i][0]}</p>
                                 <p className='product-price'>{products[i][1]}</p>
-                                <label className='add-to-cart'>Add to Cart</label>
-                                <div className='alter-total'>
+                                <button className='add-to-cart'>Add to Cart</button>
+                                {/*<div className='alter-total'>
                                     <button onClick={() => addToCart(products[i][0]+',', 'add', i)} className='add-button'>+</button>
                                     <p className='quantity'>{quantities.split(',')[i]}</p>
                                     <button onClick={() => addToCart(products[i][0]+',','sub', i)} className='sub-button'>-</button>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </div> : 
