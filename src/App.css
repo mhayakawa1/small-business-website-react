@@ -1436,9 +1436,7 @@ h2{
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 1rem auto auto auto; 
-    background-color: #3D6347;
-    padding: 5%;
+    margin: 1rem auto auto auto;
     gap: 5%;
 }
 
@@ -1558,20 +1556,18 @@ h2{
 .product-info{
     width: 100%;
     height: 25%;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 1rem 0 0 0;
+    padding: .5rem 0 0 0;
     font-size: .8rem;
-    color: white;
 }
 
 .product-name{
     margin: 0;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 1rem;
-    color: white;
+    color: #173935;
 }
 
 @media screen and (max-width: 428px){
@@ -1585,7 +1581,9 @@ h2{
 }
 
 .product-price{
-    color: white;
+    font-size: 1rem;
+    color: #E9A8A5;
+    font-weight: bold;
 }
 
 @media screen and (min-width: 1921px){
@@ -1607,9 +1605,14 @@ h2{
 }
 
 .add-to-cart{
+    height: 2rem;
     display: static;
     margin: -1rem 0 .5rem 0;
     font-family: 'Tajawal', 'sans serif';
+    font-size: 1rem;
+    border: none;
+    background-color: #E9A8A5;
+    color: white;
 }
 
 .alter-total button{
