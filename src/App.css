@@ -1124,7 +1124,7 @@ h2{
 .cart-counter{
     position: fixed;
     z-index: 3;
-    width: 14rem;
+    width: 10rem;
     height: 3rem;
     font-size: 1rem;
     font-family: 'Tajawal', 'sans serif';
@@ -1135,7 +1135,7 @@ h2{
     align-items: center;
     justify-content: center;
     border-radius: 2rem;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .cart-counter p{
