@@ -118,7 +118,7 @@ function Shop(){
     const [gridNum, setGridNum] = useState(3);
 
     const [viewProduct, setViewProduct] = useState(false);
-    const [productInfo, setProductInfo] = useState([])
+    const [productInfo, setProductInfo] = useState([]);
     
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -126,44 +126,6 @@ function Shop(){
           setData(newValue);
         }
     };
-    
-    {/*function addToCart(product, op, index){
-            let array = quantities.split(',')
-            function addCommas(array){
-                let array2 = []
-                for(let i = 0; i < array.length; i++){
-                    array2.push(array[i])
-                    if(i < array.length - 1){
-                        array2.push(',')
-                    }
-                }
-                array = array2
-                return array
-            }
-            let num
-
-        if(op === 'add'){
-            num = Number(array[index])+1            
-            array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))            
-            localStorage.setItem('quantities', array.join(''))
-            setData(product + data)
-            localStorage.setItem('data', product + data);
-        }else if(op === 'sub' && array[index] < 1){
-            return
-        }else if(op === 'sub'){
-            num = Number(array[index])-1
-            array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))
-            localStorage.setItem('quantities', array.join(''))
-            setData(data.replace(product, ''))
-            localStorage.setItem('data', data.replace(product, '')); 
-        }
-    }*/}
 
     useEffect(() => {
         setData(localStorage.getItem('data') || '');
@@ -179,7 +141,7 @@ function Shop(){
     };
 
     const toggleViewProduct = (product, i) =>{
-        console.log(product)
+        //console.log(product)
         setViewProduct((bool) => !bool)
         product.push(i)
         setProductInfo(product)
@@ -220,8 +182,42 @@ function Shop(){
         setGridNum(num)
     }
 
-    function addToCart(){
+    const setQuantity = (product, op, index) =>{
+        let array = quantities.split(',')
+        function addCommas(array){
+            let array2 = []
+            for(let i = 0; i < array.length; i++){
+                array2.push(array[i])
+                if(i < array.length - 1){
+                    array2.push(',')
+                }
+            }
+            array = array2
+            return array
+        }
+        let num
 
+        if(op === 'add'){
+            num = Number(array[index])+1            
+            array.splice(index, 1, num.toString())
+            array = addCommas(array)
+            array.join('')
+            setQuantities(array.join(''))            
+            localStorage.setItem('quantities', array.join(''))
+            setData(product + data)
+            localStorage.setItem('data', product + data);
+        }else if(op === 'sub' && array[index] < 1){
+            return
+        }else if(op === 'sub'){
+            num = Number(array[index])-1
+            array.splice(index, 1, num.toString())
+            array = addCommas(array)
+            array.join('')
+            setQuantities(array.join(''))
+            localStorage.setItem('quantities', array.join(''))
+            setData(data.replace(product, ''))
+            localStorage.setItem('data', data.replace(product, '')); 
+        }
     }
 
     function reset(){
@@ -233,14 +229,12 @@ function Shop(){
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     } 
     
-    console.log(productInfo)
-
     return(
         <div className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
-                    <p><i className='fas fa-shopping-cart shop-shopping-cart'></i> {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'}</p> 
-                    <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
+                    <p>{data.split(',').length - 1}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
+                    {/*<button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>*/}
                 </div>
             </div>
 
@@ -252,7 +246,7 @@ function Shop(){
                     <h2>{showCateg}</h2>
                 </div>
             </div>
-                        
+
             <div className='shop-menu'>
                 <div className='dropdown'>
                     <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'>
@@ -303,18 +297,22 @@ function Shop(){
                         <div className='view-product-info'>
                             <p className='view-product-name'>{productInfo[0]}</p>
                             <div className='view-product-reviews'>
-                                <div class='view-product-stars'>
-                                    <i class='fa fa-star'></i>
-                                    <i class='fa fa-star'></i>
-                                    <i class='fa fa-star'></i>
-                                    <i class='fa fa-star'></i>
-                                    <i class='fa fa-star-half-stroke' aria-hidden='true'></i>
+                                <div className='view-product-stars'>
+                                    <i className='fa fa-star'></i>
+                                    <i className='fa fa-star'></i>
+                                    <i className='fa fa-star'></i>
+                                    <i className='fa fa-star'></i>
+                                    <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
                                 </div>                                
                                 <a href='#'>({productInfo[5]} Reviews)</a>
                             </div>
                             <p className='view-product-price'>{productInfo[1]}</p>
-                            <div className='quantity-container' max='15' placeholder='0'>
-                                <input type='number'></input>
+                            <div className='quantity-cart-container' >
+                                <div className='quantity-container'>
+                                    <button onClick={() => setQuantity(productInfo[2]+',', 'add', productInfo[6])}>+</button>
+                                    <p>{quantities[productInfo[6]*2]}</p>
+                                    <button onClick={() => setQuantity(productInfo[2]+',', 'sub', productInfo[6])}>-</button>
+                                </div>
                                 <button>Add to Cart</button>
                             </div> 
                         </div>                                               
