@@ -200,10 +200,10 @@ function Shop(){
         if(op === 'add'){
             num = Number(array[index])+1            
             array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))            
-            localStorage.setItem('quantities', array.join(''))
+            //array = addCommas(array)
+            array.join(',')
+            setQuantities(array.join(','))            
+            localStorage.setItem('quantities', array.join(','))
             setData(product + data)
             localStorage.setItem('data', product + data);
         }else if(op === 'sub' && array[index] < 1){
@@ -211,10 +211,10 @@ function Shop(){
         }else if(op === 'sub'){
             num = Number(array[index])-1
             array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))
-            localStorage.setItem('quantities', array.join(''))
+            //array = addCommas(array)
+            array.join(',')
+            setQuantities(array.join(','))
+            localStorage.setItem('quantities', array.join('',))
             setData(data.replace(product, ''))
             localStorage.setItem('data', data.replace(product, '')); 
         }
