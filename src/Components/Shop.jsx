@@ -119,6 +119,7 @@ function Shop(){
 
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState([]);
+    const [productQty, setProductQty] = useState(0);
     
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -145,7 +146,7 @@ function Shop(){
         setViewProduct((bool) => !bool)
         product.push(i)
         setProductInfo(product)
-        //console.log(i)
+        setProductQty(Number(quantities[i*2]))
     }
 
     const showProducts = () =>{
@@ -183,7 +184,7 @@ function Shop(){
     }
 
     const setQuantity = (product, op, index) =>{
-        let array = quantities.split(',')
+{/*        let array = quantities.split(',')
         function addCommas(array){
             let array2 = []
             for(let i = 0; i < array.length; i++){
@@ -198,7 +199,7 @@ function Shop(){
         let num
 
         if(op === 'add'){
-            num = Number(array[index])+1            
+            num = Number(array[index])+1
             array.splice(index, 1, num.toString())
             //array = addCommas(array)
             array.join(',')
@@ -217,7 +218,17 @@ function Shop(){
             localStorage.setItem('quantities', array.join('',))
             setData(data.replace(product, ''))
             localStorage.setItem('data', data.replace(product, '')); 
+        }*/}
+        if(op === 'add' && productQty < 15){
+            setProductQty(productQty+1)
+        }else if(op === 'sub' && productQty >= 1){
+            setProductQty(productQty-1)
         }
+    }
+
+    const addToCart = (index) => {
+        //console.log(index)
+        console.log(index)
     }
 
     function reset(){
@@ -227,7 +238,7 @@ function Shop(){
         localStorage.setItem('inCart', []);
         setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-    } 
+    }
     
     return(
         <div className='shop-page'>
@@ -310,10 +321,10 @@ function Shop(){
                             <div className='quantity-cart-container' >
                                 <div className='quantity-container'>
                                     <button onClick={() => setQuantity(productInfo[2]+',', 'add', productInfo[6])}>+</button>
-                                    <p>{quantities[productInfo[6]*2]}</p>
+                                    <p>{productQty}</p>
                                     <button onClick={() => setQuantity(productInfo[2]+',', 'sub', productInfo[6])}>-</button>
                                 </div>
-                                <button>Add to Cart</button>
+                                <button onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
