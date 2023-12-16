@@ -227,8 +227,9 @@ function Shop(){
     }
 
     const addToCart = (index) => {
-        //console.log(index)
-        console.log(index)
+        let array = quantities.split(',')
+        array.splice(index, 1, productQty)
+        console.log(array)        
     }
 
     function reset(){
