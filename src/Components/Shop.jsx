@@ -183,42 +183,7 @@ function Shop(){
         setGridNum(num)
     }
 
-    const setQuantity = (product, op, index) =>{
-{/*        let array = quantities.split(',')
-        function addCommas(array){
-            let array2 = []
-            for(let i = 0; i < array.length; i++){
-                array2.push(array[i])
-                if(i < array.length - 1){
-                    array2.push(',')
-                }
-            }
-            array = array2
-            return array
-        }
-        let num
-
-        if(op === 'add'){
-            num = Number(array[index])+1
-            array.splice(index, 1, num.toString())
-            //array = addCommas(array)
-            array.join(',')
-            setQuantities(array.join(','))            
-            localStorage.setItem('quantities', array.join(','))
-            setData(product + data)
-            localStorage.setItem('data', product + data);
-        }else if(op === 'sub' && array[index] < 1){
-            return
-        }else if(op === 'sub'){
-            num = Number(array[index])-1
-            array.splice(index, 1, num.toString())
-            //array = addCommas(array)
-            array.join(',')
-            setQuantities(array.join(','))
-            localStorage.setItem('quantities', array.join('',))
-            setData(data.replace(product, ''))
-            localStorage.setItem('data', data.replace(product, '')); 
-        }*/}
+    const setQuantity = (op) =>{
         if(op === 'add' && productQty < 15){
             setProductQty(productQty+1)
         }else if(op === 'sub' && productQty >= 1){
@@ -227,9 +192,11 @@ function Shop(){
     }
 
     const addToCart = (index) => {
-        let array = quantities.split(',')
-        array.splice(index, 1, productQty)
-        console.log(array)        
+        let split = quantities.split(',')
+        split.splice(index, 1, productQty)
+        split = split.join(',')
+        setQuantities(split)
+        localStorage.setItem('quantities', split)
     }
 
     function reset(){
