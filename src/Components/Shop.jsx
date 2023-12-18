@@ -267,7 +267,9 @@ function Shop(){
             
             {viewProduct === false ? null : 
                 <div className='view-product-container'>
-                    <button onClick={() => toggleViewProduct([], undefined)}>X</button>
+                    <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
+                        <i className='fa-solid fa-x'></i>
+                    </button>
                     {/*
                     [name, price, quantity, source, category, reviews, i]
                     */}
@@ -292,7 +294,7 @@ function Shop(){
                                     <p>{productQty}</p>
                                     <button onClick={() => setQuantity(productInfo[2]+',', 'sub', productInfo[6])}>-</button>
                                 </div>
-                                <button onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
+                                <button  className='add-to-cart' onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
