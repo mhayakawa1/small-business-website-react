@@ -129,8 +129,14 @@ function Shop(){
     };
 
     useEffect(() => {
+        setQuantities(quantities)
         setData(localStorage.getItem('data') || '');
-        setQuantities(localStorage.getItem('quantities') || '');
+        if(quantities === ''){
+            setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
+            localStorage.setItem(quantities, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')
+        }else{
+            setQuantities(localStorage.getItem('quantities') || '');
+        }
         window.addEventListener('storage', onStorageUpdate);   
         return () => {
           window.removeEventListener('storage', onStorageUpdate);
@@ -142,11 +148,11 @@ function Shop(){
     };
 
     const toggleViewProduct = (product, i) =>{
-        //console.log(product)
         setViewProduct((bool) => !bool)
         product.push(i)
         setProductInfo(product)
-        setProductQty(Number(quantities[i*2]))
+        let split = quantities.split(',')
+        setProductQty(Number(split[i]))
     }
 
     const showProducts = () =>{
@@ -207,6 +213,7 @@ function Shop(){
         setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     }
+    console.log(quantities)
     
     return(
         <div className='shop-page'>
@@ -290,11 +297,11 @@ function Shop(){
                             <p className='view-product-price'>{productInfo[1]}</p>
                             <div className='quantity-cart-container' >
                                 <div className='quantity-container'>
-                                    <button onClick={() => setQuantity(productInfo[2]+',', 'add', productInfo[6])}>+</button>
-                                    <p>{productQty}</p>
-                                    <button onClick={() => setQuantity(productInfo[2]+',', 'sub', productInfo[6])}>-</button>
+                                    <button onClick={() => setQuantity('add')}>+</button>
+                                    <p>{productQty > 0 ? productQty : 0}</p>
+                                    <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button  className='add-to-cart' onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
