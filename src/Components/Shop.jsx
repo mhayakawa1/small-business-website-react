@@ -129,7 +129,7 @@ function Shop(){
     };
 
     useEffect(() => {
-        setQuantities(quantities)
+        setQuantities(quantities);
         setData(localStorage.getItem('data') || '');
         if(quantities === ''){
             setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
@@ -195,14 +195,46 @@ function Shop(){
         }else if(op === 'sub' && productQty >= 1){
             setProductQty(productQty-1)
         }
+        {/*
+    
+        let array = quantities.split(',')
+        let num
+
+        if(op === 'add'){
+            num = Number(array[index])+1            
+            array.splice(index, 1, num.toString())
+            array = addCommas(array)
+            array.join('')
+            setQuantities(array.join(''))            
+            localStorage.setItem('quantities', array.join(''))
+            setData(product + data)
+            localStorage.setItem('data', product + data); 
+            //console.log(quantities)
+        }else if(op === 'sub' && array[index] < 1){
+            return
+        }else if(op === 'sub'){
+            num = Number(array[index])-1
+            array.splice(index, 1, num.toString())
+            array = addCommas(array)
+            array.join('')
+            setQuantities(array.join(''))
+            localStorage.setItem('quantities', array.join(''))
+            setData(data.replace(product, ''))
+            localStorage.setItem('data', data.replace(product, '')); 
+        }
+    */}
     }
 
-    const addToCart = (index) => {
+    const addToCart = (index, productName) => {
         let split = quantities.split(',')
         split.splice(index, 1, productQty)
         split = split.join(',')
         setQuantities(split)
         localStorage.setItem('quantities', split)
+        if(data.includes(productName) === false){
+            setData(productName + data)
+            localStorage.setItem('data', productName + data)
+        }
     }
 
     function reset(){
@@ -213,14 +245,13 @@ function Shop(){
         setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     }
-    console.log(quantities)
     
     return(
         <div className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
                     <p>{data.split(',').length - 1}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
-                    {/*<button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>*/}
+                    <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
                 </div>
             </div>
 
@@ -301,7 +332,7 @@ function Shop(){
                                     <p>{productQty > 0 ? productQty : 0}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6])}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6], productInfo[0]+',')}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
