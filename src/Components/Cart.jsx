@@ -47,118 +47,64 @@ const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-i
 
 function Cart(){
     const [products, setProducts] = useState([
-        ['Lobortis scelerisque', '$45.00', 0, Sympathy10, 'Bestsellers'],
-        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Bestsellers'],
-        ['dignissim cras', '$32.00', 0, Birthday7, 'Bestsellers'],
-        ['euismod quis', '$17.00', 0, GetWell2, 'Bestsellers'],
-        ['ullamcorper', '$25.00', 0, Birthday6, 'Bestsellers'],
-        ['lorem diam in', '$10.00', 0, LoveRom10, 'Bestsellers'],
-        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Bestsellers'],
-        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Bestsellers'],
+        ['Lobortis scelerisque', '45.00', 0, Sympathy10, 'Bestsellers'],
+        ['sollicitudin nibh', '23.00', 0, LoveRom4, 'Bestsellers'],
+        ['dignissim cras', '32.00', 0, Birthday7, 'Bestsellers'],
+        ['euismod quis', '17.00', 0, GetWell2, 'Bestsellers'],
+        ['ullamcorper', '25.00', 0, Birthday6, 'Bestsellers'],
+        ['lorem diam in', '10.00', 0, LoveRom10, 'Bestsellers'],
+        ['Vestibulum lorem', '30.00', 0, Sympathy3, 'Bestsellers'],
+        ['sollicitudin tempor', '28.00', 0, GetWell10, 'Bestsellers'],
         
-        ['Vel quam elementum', '$20.00', 0, Sympathy1, 'Sympathy'],
-        ['pulvinar etiam', '$32.00', 0, Sympathy2, 'Sympathy'],
-        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Sympathy'],
-        ['sed risus ultricies', '$22.00', 0, Sympathy4, 'Sympathy'],
-        ['tristique nulla', '$42.00', 0, Sympathy5, 'Sympathy'],
-        ['aliquet enim', '$38.00', 0, Sympathy6, 'Sympathy'],
-        ['Scelerisque viverra', '$23.00', 0, Sympathy7, 'Sympathy'],
-        ['mauris in aliquam', '$41.00', 0, Sympathy8, 'Sympathy'],
-        ['Diam quis enim', '$47.00', 0, Sympathy9, 'Sympathy'],
-        ['lobortis scelerisque', '$45.00', 0, Sympathy10, 'Sympathy'],
+        ['Vel quam elementum', '20.00', 0, Sympathy1, 'Sympathy'],
+        ['pulvinar etiam', '32.00', 0, Sympathy2, 'Sympathy'],
+        ['Vestibulum lorem', '30.00', 0, Sympathy3, 'Sympathy'],
+        ['sed risus ultricies', '22.00', 0, Sympathy4, 'Sympathy'],
+        ['tristique nulla', '42.00', 0, Sympathy5, 'Sympathy'],
+        ['aliquet enim', '38.00', 0, Sympathy6, 'Sympathy'],
+        ['Scelerisque viverra', '23.00', 0, Sympathy7, 'Sympathy'],
+        ['mauris in aliquam', '41.00', 0, Sympathy8, 'Sympathy'],
+        ['Diam quis enim', '47.00', 0, Sympathy9, 'Sympathy'],
+        ['lobortis scelerisque', '45.00', 0, Sympathy10, 'Sympathy'],
 
-        ['fermentum dui', '$21.00', 0, LoveRom1, 'Love & Romance'],
-        ['faucibus elit', '$19.00', 0, LoveRom2, 'Love & Romance'],
-        ['duis tristique', '$19.00', 0, LoveRom3, 'Love & Romance'],
-        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Love & Romance'],
-        ['Et ultrices', '$38.00', 0, LoveRom5, 'Love & Romance'],
-        ['neque ornare', '$25.00', 0, LoveRom6, 'Love & Romance'],
-        ['aenean euismod', '$32.00', 0, LoveRom7, 'Love & Romance'],
-        ['elementum non', '$30.00', 0, LoveRom8, 'Love & Romance'],
-        ['diam phasellus', '$36.00', 0, LoveRom9, 'Love & Romance'],
-        ['lorem diam in', '$10.00', 0, LoveRom10, 'Love & Romance'],
+        ['fermentum dui', '21.00', 0, LoveRom1, 'Love & Romance'],
+        ['faucibus elit', '19.00', 0, LoveRom2, 'Love & Romance'],
+        ['duis tristique', '19.00', 0, LoveRom3, 'Love & Romance'],
+        ['sollicitudin nibh', '23.00', 0, LoveRom4, 'Love & Romance'],
+        ['Et ultrices', '38.00', 0, LoveRom5, 'Love & Romance'],
+        ['neque ornare', '25.00', 0, LoveRom6, 'Love & Romance'],
+        ['aenean euismod', '32.00', 0, LoveRom7, 'Love & Romance'],
+        ['elementum non', '30.00', 0, LoveRom8, 'Love & Romance'],
+        ['diam phasellus', '36.00', 0, LoveRom9, 'Love & Romance'],
+        ['lorem diam in', '10.00', 0, LoveRom10, 'Love & Romance'],
 
-        ['arcu cursus', '$22.00', 0, GetWell1, 'Get Well'],
-        ['euismod quis', '$17.00', 0, GetWell2, 'Get Well'],
-        ['viverra nibh', '$18.00', 0, GetWell3, 'Get Well'],
-        ['Senectus et netus', '$24.00', 0, GetWell4, 'Get Well'],
-        ['et malesuada fames', '$20.00', 0, GetWell5, 'Get Well'],
-        ['ac turpis egestas', '$17.00', 0, GetWell6, 'Get Well'],
-        ['Enim praesent', '$25.00', 0, GetWell7, 'Get Well'],
-        ['elementum facilisis', '$15.00', 0, GetWell8, 'Get Well'],
-        ['Leo a diam', '$32.00', 0, GetWell9, 'Get Well'],
-        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Get Well'],
+        ['arcu cursus', '22.00', 0, GetWell1, 'Get Well'],
+        ['euismod quis', '17.00', 0, GetWell2, 'Get Well'],
+        ['viverra nibh', '18.00', 0, GetWell3, 'Get Well'],
+        ['Senectus et netus', '24.00', 0, GetWell4, 'Get Well'],
+        ['et malesuada fames', '20.00', 0, GetWell5, 'Get Well'],
+        ['ac turpis egestas', '17.00', 0, GetWell6, 'Get Well'],
+        ['Enim praesent', '25.00', 0, GetWell7, 'Get Well'],
+        ['elementum facilisis', '15.00', 0, GetWell8, 'Get Well'],
+        ['Leo a diam', '32.00', 0, GetWell9, 'Get Well'],
+        ['sollicitudin tempor', '28.00', 0, GetWell10, 'Get Well'],
 
-        ['Suspendisse in', '$21.00', 0, Birthday1, 'Birthday'],
-        ['est ante in', '$19.00', 0, Birthday2, 'Birthday'],
-        ['Vestibulum', '$19.00', 0, Birthday3, 'Birthday'],
-        ['rhoncus est', '$23.00', 0, Birthday4, 'Birthday'],
-        ['pellentesque elit', '$38.00', 0, Birthday5, 'Birthday'],
-        ['ullamcorper', '$25.00', 0, Birthday6, 'Birthday'],
-        ['dignissim cras', '$32.00', 0, Birthday7, 'Birthday'],
-        ['Mattis nunc sed', '$30.00', 0, Birthday8, 'Birthday'],
-        ['blandit libero', '$36.00', 0, Birthday9, 'Birthday'],
-        ['Turpis in eu', '$10.00', 0, Birthday10, 'Birthday']
+        ['Suspendisse in', '21.00', 0, Birthday1, 'Birthday'],
+        ['est ante in', '19.00', 0, Birthday2, 'Birthday'],
+        ['Vestibulum', '19.00', 0, Birthday3, 'Birthday'],
+        ['rhoncus est', '23.00', 0, Birthday4, 'Birthday'],
+        ['pellentesque elit', '38.00', 0, Birthday5, 'Birthday'],
+        ['ullamcorper', '25.00', 0, Birthday6, 'Birthday'],
+        ['dignissim cras', '32.00', 0, Birthday7, 'Birthday'],
+        ['Mattis nunc sed', '30.00', 0, Birthday8, 'Birthday'],
+        ['blandit libero', '36.00', 0, Birthday9, 'Birthday'],
+        ['Turpis in eu', '10.00', 0, Birthday10, 'Birthday']
     ]);
-    const [prices, setPrices] = useState([
-        ['Lorem ipsum', '10.00'],
-        ['dolor sit amet', '12.00'],
-        ['consectetur adipiscing', '10.00'],
-        ['elit sed do', '12.00'],
-        ['eiusmod tempor', '10.00'],
-        ['incididunt ut', '12.00'],
-        ['labore et dolore', '10.00'],
-        ['magna aliqua', '12.00'],
-        ['Vel quam elementum', '10.00'],
-        ['pulvinar etiam', '12.00'],
-        ['Vestibulum lorem', '10.00'],
-        ['sed risus ultricies', '12.00'],
-        ['tristique nulla', '10.00'],
-        ['aliquet enim', '12.00'],
-        ['Scelerisque viverra', '10.00'],
-        ['mauris in aliquam', '12.00'],
-        ['Diam quis enim', '10.00'],
-        ['lobortis scelerisque', '12.00'],
-        ['fermentum dui', '10.00'],
-        ['faucibus elit', '12.00'],
-        ['duis tristique', '10.00'],
-        ['sollicitudin nibh', '12.00'],
-        ['Et ultrices', '10.00'],
-        ['neque ornare', '12.00'],
-        ['aenean euismod', '10.00'],
-        ['elementum non', '12.00'],
-        ['diam phasellus', '10.00'],
-        ['lorem diam in', '12.00'],
-        ['arcu cursus', '10.00'],
-        ['euismod quis', '12.00'],
-        ['viverra nibh', '10.00'],
-        ['Senectus et netus', '12.00'],
-        ['et malesuada fames', '10.00'],
-        ['ac turpis egestas', '12.00'],
-        ['Enim praesent', '10.00'],
-        ['elementum facilisis', '12.00'],
-        ['Leo a diam', '10.00'],
-        ['sollicitudin tempor', '12.00'],
-        ['arcu cursus', '10.00'],
-        ['euismod quis', '12.00'],
-        ['viverra nibh', '10.00'],
-        ['Senectus et netus', '12.00'],
-        ['et malesuada fames', '10.00'],
-        ['ac turpis egestas', '12.00'],
-        ['Enim praesent', '10.00'],
-        ['elementum facilisis', '12.00'],
-        ['Leo a diam', '10.00'],
-        ['sollicitudin tempor', '12.00']
 
-    ]);
     const [data, setData] = useState('');
     const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     let subtotal = 0;
-    let percentOff = 0;
-    let discount = 0;
-    let tax = 0;
-    let shipping = 0;
-    let total = 0;
+
 
     //Get minimum date for order
     let date = new Date()    
@@ -177,16 +123,9 @@ function Cart(){
             month = '0' + month;
         }
     let year = date.getUTCFullYear();
-    let minDate = year + '-' + month + '-' + today;
-    let tomorrowsDate = year + '-' + month + '-' + tomorrow2;
     let time = new Date()
         time = time.getHours()
-    const codes = [['REACTJS', 10], ['JAVASCRIPT', 20]]; 
-    const [inputCode, setInputCode] = useState('');
-    let submittedCode = ''
-    const [codeValid, setCodeValid] = useState('');
-    const [radioBtnVal, setRadioBtnVal] = useState('')
-
+        
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
         if (key === 'data') {
@@ -252,29 +191,7 @@ function Cart(){
             itemsArr
         )
     }
-{/*
-    const handleChange = (e) => {
-        if(codeValid !== true){
-            setInputCode(e)
-        }
-        
-    }
- 
-    const submitCode = (e) => {
-        e.preventDefault()
-        submittedCode = inputCode.toLocaleUpperCase()
-        let filtered = codes.filter(i => i[0] === submittedCode).flat()
-        if(filtered.length > 0 && filtered.includes(submittedCode) === true){
-            setCodeValid(true)
-        }else if(submittedCode.length > 0){
-            setCodeValid(false)
-        }
-    }
 
-    const onChangeValue = (string) => {
-        setRadioBtnVal(string)
-    }
-*/}
     const calculateTotal = () =>{
         //get subtotal, tax(5.6%), discount(if any) and total    
 
@@ -287,35 +204,14 @@ function Cart(){
             }
             return num
         }
+        let split = quantities.split(',')
         if(subtotal === 0){
             for(let i = 0; i < products.length; i++){
-                //console.log(quantities)
-                //console.log(quantities[i * 2])
-                if(quantities[i * 2] > 0){
-                    subtotal = subtotal + (Number(products[i][1]) * quantities[i * 2])
-                    //console.log(subtotal)
+                if(split[i] > 0){
+                    subtotal = subtotal + (Number(products[i][1]) * Number(split[i]))
                 }
             }
         }
-        {/*
-        total = subtotal
-        if(codeValid === true){
-            const findCode = codes.filter(i => i[0] === inputCode.toLocaleUpperCase()).flat()
-            discount = findCode[1]
-            percentOff = discount            
-            discount = addDecimal((discount * total)/100)
-            total = ((total * 100) - (findCode[1] * total))/100            
-        }else{
-            discount = 0
-        }
-        tax = Math.round(((total*100)*.056))/100
-        total = total + tax
-
-        if(radioBtnVal === 'Delivery'){
-            shipping = '20.00'
-            total = total + 20
-        }*/}
-        
         subtotal = addDecimal(subtotal)
     }
     calculateTotal()
