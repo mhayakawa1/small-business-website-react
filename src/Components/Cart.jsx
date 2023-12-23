@@ -132,6 +132,7 @@ function Cart(){
           setData(newValue);
         }
       };
+    
     useEffect(() => {
         setData(localStorage.getItem('data') || '');        
         setQuantities(localStorage.getItem('quantities') || '');
@@ -155,13 +156,8 @@ function Cart(){
                 products[i][2] = 0
             }
         }
-        
-        if(data === ''){
-            setData('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')
-            localStorage.setItem('data', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')
-        }
     }
-    
+    console.log(data)
     const getItemsInCart = () =>{
         const split = data.split(',');
         const itemsArr = [];
@@ -215,10 +211,7 @@ function Cart(){
         subtotal = addDecimal(subtotal)
     }
     calculateTotal()
-    
-    const submitForm = (e) =>{
-        e.preventDefault()
-    }
+
     return(
         <div>
             <div className='shop-header'>
@@ -232,7 +225,6 @@ function Cart(){
             <div className='cart-page'>            
                 <div className='cart-container'>
                     <div className='items-in-cart'>
-                            {/*<h4><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</h4>*/}
                         <div className='cart-table-header'>
                             <div className='column-names'>
                                 <p className='column-name column-name-product'>Product:</p>
@@ -243,17 +235,17 @@ function Cart(){
                     {data === '' ? <p className='cart-empty'>Your cart is empty.</p>
                             : getItemsInCart()}
                     </div>
-                </div>            
+                </div>
                 <div className='subtotal-checkout-container'>
-                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').length - 1} {data.split(',').length - 1 === 1 ? 'item' : 'items'} in your cart.</h3>
+                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').filter(i => i !== '').length} {data.split(',').length === 1 ? 'item' : 'items'} in your cart.</h3>
                     <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
                     <p>Tax, shipping and discounts calculated at checkout</p>
                     <NavLink to='/checkout' className='checkout-link nav-link-button'>
-                        <button style={{textDecoration: 'none'}} className='col-xs-1 checkout-button'>
+                        <button className='checkout-button'>
                             Checkout<i className='fas fa-arrow-right'></i>
                         </button>
                     </NavLink>
-                </div>            
+                </div>
             </div>
         </div>
     )
