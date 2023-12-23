@@ -226,18 +226,28 @@ function Shop(){
     }
 
     const addToCart = (index, productName) => {
-        let split = quantities.split(',')
-        split.splice(index, 1, productQty)
-        split = split.join(',')
-        setQuantities(split)
-        localStorage.setItem('quantities', split)
-        if(data.includes(productName) === false){
-            setData(productName + data)
-            localStorage.setItem('data', productName + data)
+        let qSplit = quantities.split(',')
+        qSplit.splice(index, 1, productQty)
+        qSplit = qSplit.join(',')
+        setQuantities(qSplit)
+        localStorage.setItem('quantities', qSplit)
+        //console.log(productQty)
+/*Changes
+filter thru data, remove all instances of product name
+then iterate thru data.split(',') up to value of productQty
+*/
+        let dSplit = data.split(',')
+        console.log(dSplit.filter(i => i !== productName))
+        for(let i = 1; i <= productQty; i++){
+            console.log(i)
         }
+        setData(productName + ',' + data)
+        localStorage.setItem('data', productName + ',' + data)
     }
 
     function reset(){
+        setProductQty(0)
+        localStorage.setItem('productQty', 0)
         setData('')
         localStorage.setItem('data', '')
         setInCart([]);
@@ -245,12 +255,12 @@ function Shop(){
         setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
         localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     }
-    
+
     return(
         <div className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
-                    <p>{data.split(',').length - 1}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
+                    <p>{data.split(',').filter(i => i !== '').length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
                     <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
                 </div>
             </div>
@@ -332,7 +342,7 @@ function Shop(){
                                     <p>{productQty > 0 ? productQty : 0}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6], productInfo[0]+',')}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6], productInfo[0])}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
