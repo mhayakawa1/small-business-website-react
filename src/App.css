@@ -2030,6 +2030,7 @@ h2{
     }
 }
 
+/*
 .checkout-link{
     width: 8rem !important;
     height: 2.5rem;
@@ -2038,11 +2039,11 @@ h2{
 
 .checkout-link:hover{
     width: 10rem;
-}
+}*/
 
 .checkout-button{
     margin: 5rem 0 0 0;
-    width: 100%;
+    width: 8rem;
     height: 2.5rem;
     transition: all .5s;
     border-style: none;
@@ -2057,6 +2058,10 @@ h2{
 
 .checkout-button:hover{
     width: 10rem;
+}
+
+.checkout-button .fa-arrow-right{
+    margin: 0 0 0 1rem;
 }
 
 @media screen and (min-width: 1921px){
