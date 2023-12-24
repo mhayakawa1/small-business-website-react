@@ -104,7 +104,14 @@ function Cart(){
     const [data, setData] = useState('');
     const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     let subtotal = 0;
-
+{/*color: '#173935',
+        background: isActive ? '#E8908F' : '#E9A8A5',
+        textDecoration: 'none',
+        textAlign: 'center',
+        fontFamily: 'Tajawal, sans-serif'*/}
+    const navButtonStyles = ({ isActive }) => ({
+        width: '8rem'
+    })
 
     //Get minimum date for order
     let date = new Date()    
@@ -157,7 +164,7 @@ function Cart(){
             }
         }
     }
-    console.log(data)
+    
     const getItemsInCart = () =>{
         const split = data.split(',');
         const itemsArr = [];
@@ -240,11 +247,11 @@ function Cart(){
                     <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').filter(i => i !== '').length} {data.split(',').length === 1 ? 'item' : 'items'} in your cart.</h3>
                     <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
                     <p>Tax, shipping and discounts calculated at checkout</p>
-                    <NavLink to='/checkout' className='checkout-link nav-link-button'>
-                        <button className='checkout-button'>
+                    <button className='checkout-button'>
+                        <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
                             Checkout<i className='fas fa-arrow-right'></i>
-                        </button>
-                    </NavLink>
+                        </NavLink>
+                    </button>
                 </div>
             </div>
         </div>
