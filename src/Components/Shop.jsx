@@ -231,18 +231,13 @@ function Shop(){
         qSplit = qSplit.join(',')
         setQuantities(qSplit)
         localStorage.setItem('quantities', qSplit)
-        //console.log(productQty)
-/*Changes
-filter thru data, remove all instances of product name
-then iterate thru data.split(',') up to value of productQty
-*/
-        let dSplit = data.split(',')
-        console.log(dSplit.filter(i => i !== productName))
+
+        let dSplit = data.split(',').filter(i => i !== productName)
         for(let i = 1; i <= productQty; i++){
-            console.log(i)
+            dSplit.push(productName)
         }
-        setData(productName + ',' + data)
-        localStorage.setItem('data', productName + ',' + data)
+        setData(dSplit.join(','))
+        localStorage.setItem('data', dSplit.join(','))
     }
 
     function reset(){
