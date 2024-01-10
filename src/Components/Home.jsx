@@ -8,6 +8,8 @@ import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
 import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
 import Birthday7 from '../ProductImages/dignissim cras.jpeg';
 import GetWell2 from '../ProductImages/euismod quis.jpeg';
+import AboutImage from '../OtherImages/About Image.png';
+import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 
 function Home(){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
@@ -37,10 +39,7 @@ function Home(){
 
     return(
         <div>
-            {/*https://images.pexels.com/photos/4207679/pexels-photo-4207679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-            <img className='home-background' src='https://images.pexels.com/photos/4207569/pexels-photo-4207569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>*/}
-            
-            <img className='home-background' src='https://images.pexels.com/photos/4207679/pexels-photo-4207679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+            <img className='home-background' src={HomeBackground} alt=''></img>
             <div className='hero-container'>
                 <div className='hero-headline'>
                     <img className='logo' src={logo}></img>
@@ -48,13 +47,13 @@ function Home(){
                     <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <ul className='social-media-hero'>
                         <li>
-                            <a><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
+                            <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
                         </li>
                         <li>
-                            <a><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
+                            <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
                         </li>
                         <li>
-                            <a><i className='fa-brands fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
+                            <a><i className='fa-brands fa-tiktok' title='TikTok' alt='Tiktok link'></i></a>
                         </li>
                     </ul>
                 </div>
@@ -190,7 +189,7 @@ function Home(){
                     </p>
                 </div>
                 <div className='about-image'>
-                    <img src='https://images.pexels.com/photos/5409713/pexels-photo-5409713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                    <img src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
                 </div>                
             </div>
         </div>

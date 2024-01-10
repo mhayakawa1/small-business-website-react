@@ -20,7 +20,7 @@ function NavbarMenu(){
           style={linkStyles}>Shop</NavLink>
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
           style={linkStyles}>
-          <i className='fas fa-cart-shopping navbar-icon'></i>
+          <i className='fas fa-cart-shopping navbar-icon' alt=''></i>
           Cart
         </NavLink>
         {/*<NavLink to='/checkout' className='col-md-1 navbar-link cart-nav-button'

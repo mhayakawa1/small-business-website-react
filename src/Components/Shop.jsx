@@ -261,9 +261,9 @@ function Shop(){
             </div>
 
             <div className='shop-header'>
-                <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt=''></img>
                 <div className='shop-header-container'>                    
-                    <img className='logo shop-logo' src={logo}></img>
+                    <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
                     <h1>Green Oasis Florist</h1>
                     <h2>{showCateg}</h2>
                 </div>
