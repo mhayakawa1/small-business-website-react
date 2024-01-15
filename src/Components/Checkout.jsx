@@ -30,10 +30,10 @@ import GetWell6 from '../ProductImages/ac turpis egestas.png';
 import GetWell7 from '../ProductImages/Enim praesent.jpeg';
 import GetWell8 from '../ProductImages/elementum facilisis.jpeg';
 import GetWell9 from '../ProductImages/Leo a diam.jpeg';
-import GetWell10 from '../ProductImages/sollicitudin tempor.jpeg';
+import GetWell10 from '../ProductImages/Temporibus autem.jpeg';
 import Birthday1 from '../ProductImages/Suspendisse in.png';
 import Birthday2 from '../ProductImages/est ante in.png';
-import Birthday3 from '../ProductImages/Vestibulum.png';
+import Birthday3 from '../ProductImages/Occaecati cupiditate.png';
 import Birthday4 from '../ProductImages/rhoncus est.png';
 import Birthday5 from '../ProductImages/pellentesque elit.jpeg';
 import Birthday6 from '../ProductImages/ullamcorper.jpeg';
@@ -90,7 +90,7 @@ function Checkout(){
 
         ['Suspendisse in', '21.00', 0, Birthday1, 'Birthday'],
         ['est ante in', '19.00', 0, Birthday2, 'Birthday'],
-        ['Vestibulum', '19.00', 0, Birthday3, 'Birthday'],
+        ['Occaecati cupiditate', '19.00', 0, Birthday3, 'Birthday'],
         ['rhoncus est', '23.00', 0, Birthday4, 'Birthday'],
         ['pellentesque elit', '38.00', 0, Birthday5, 'Birthday'],
         ['ullamcorper', '25.00', 0, Birthday6, 'Birthday'],
