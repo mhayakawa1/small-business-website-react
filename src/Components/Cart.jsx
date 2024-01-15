@@ -1,106 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
-
-import Sympathy1 from '../ProductImages/Vel quam elementum.png';
-import Sympathy2 from '../ProductImages/pulvinar etiam.jpeg';
-import Sympathy3 from '../ProductImages/Vestibulum lorem.jpeg';
-import Sympathy4 from '../ProductImages/sed risus ultricies.jpeg';
-import Sympathy5 from '../ProductImages/tristique nulla.jpeg';
-import Sympathy6 from '../ProductImages/aliquet enim.jpeg';
-import Sympathy7 from '../ProductImages/Scelerisque viverra.png';
-import Sympathy8 from '../ProductImages/mauris in aliquam.jpeg';
-import Sympathy9 from '../ProductImages/Diam quis enim.jpeg';
-import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
-import LoveRom1 from '../ProductImages/fermentum dui.png';
-import LoveRom2 from '../ProductImages/faucibus elit.png';
-import LoveRom3 from '../ProductImages/duis tristique.jpeg';
-import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
-import LoveRom5 from '../ProductImages/Et ultrices.png';
-import LoveRom6 from '../ProductImages/neque ornare.jpeg';
-import LoveRom7 from '../ProductImages/aenean euismod.jpeg';
-import LoveRom8 from '../ProductImages/elementum non.jpeg';
-import LoveRom9 from '../ProductImages/diam phasellus.png';
-import LoveRom10 from '../ProductImages/lorem diam in.png';
-import GetWell1 from '../ProductImages/arcu cursus.jpeg';
-import GetWell2 from '../ProductImages/euismod quis.jpeg';
-import GetWell3 from '../ProductImages/viverra nibh.jpeg';
-import GetWell4 from '../ProductImages/Senectus et netus.jpeg';
-import GetWell5 from '../ProductImages/et malesuada fames.png';
-import GetWell6 from '../ProductImages/ac turpis egestas.png';
-import GetWell7 from '../ProductImages/Enim praesent.jpeg';
-import GetWell8 from '../ProductImages/elementum facilisis.jpeg';
-import GetWell9 from '../ProductImages/Leo a diam.jpeg';
-import GetWell10 from '../ProductImages/Temporibus autem.jpeg';
-import Birthday1 from '../ProductImages/Suspendisse in.png';
-import Birthday2 from '../ProductImages/est ante in.png';
-import Birthday3 from '../ProductImages/Occaecati cupiditate.png';
-import Birthday4 from '../ProductImages/rhoncus est.png';
-import Birthday5 from '../ProductImages/pellentesque elit.jpeg';
-import Birthday6 from '../ProductImages/ullamcorper.jpeg';
-import Birthday7 from '../ProductImages/dignissim cras.jpeg';
-import Birthday8 from '../ProductImages/Mattis nunc sed.png';
-import Birthday9 from '../ProductImages/blandit libero.png';
-import Birthday10 from '../ProductImages/Turpis in eu.png';
-
-const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
+import axios from 'axios';
 
 function Cart(){
-    const [products, setProducts] = useState([
-        ['Lobortis scelerisque', '45.00', 0, Sympathy10, 'Bestsellers'],
-        ['sollicitudin nibh', '23.00', 0, LoveRom4, 'Bestsellers'],
-        ['dignissim cras', '32.00', 0, Birthday7, 'Bestsellers'],
-        ['euismod quis', '17.00', 0, GetWell2, 'Bestsellers'],
-        ['ullamcorper', '25.00', 0, Birthday6, 'Bestsellers'],
-        ['lorem diam in', '10.00', 0, LoveRom10, 'Bestsellers'],
-        ['Vestibulum lorem', '30.00', 0, Sympathy3, 'Bestsellers'],
-        ['sollicitudin tempor', '28.00', 0, GetWell10, 'Bestsellers'],
-        
-        ['Vel quam elementum', '20.00', 0, Sympathy1, 'Sympathy'],
-        ['pulvinar etiam', '32.00', 0, Sympathy2, 'Sympathy'],
-        ['Vestibulum lorem', '30.00', 0, Sympathy3, 'Sympathy'],
-        ['sed risus ultricies', '22.00', 0, Sympathy4, 'Sympathy'],
-        ['tristique nulla', '42.00', 0, Sympathy5, 'Sympathy'],
-        ['aliquet enim', '38.00', 0, Sympathy6, 'Sympathy'],
-        ['Scelerisque viverra', '23.00', 0, Sympathy7, 'Sympathy'],
-        ['mauris in aliquam', '41.00', 0, Sympathy8, 'Sympathy'],
-        ['Diam quis enim', '47.00', 0, Sympathy9, 'Sympathy'],
-        ['lobortis scelerisque', '45.00', 0, Sympathy10, 'Sympathy'],
-
-        ['fermentum dui', '21.00', 0, LoveRom1, 'Love & Romance'],
-        ['faucibus elit', '19.00', 0, LoveRom2, 'Love & Romance'],
-        ['duis tristique', '19.00', 0, LoveRom3, 'Love & Romance'],
-        ['sollicitudin nibh', '23.00', 0, LoveRom4, 'Love & Romance'],
-        ['Et ultrices', '38.00', 0, LoveRom5, 'Love & Romance'],
-        ['neque ornare', '25.00', 0, LoveRom6, 'Love & Romance'],
-        ['aenean euismod', '32.00', 0, LoveRom7, 'Love & Romance'],
-        ['elementum non', '30.00', 0, LoveRom8, 'Love & Romance'],
-        ['diam phasellus', '36.00', 0, LoveRom9, 'Love & Romance'],
-        ['lorem diam in', '10.00', 0, LoveRom10, 'Love & Romance'],
-
-        ['arcu cursus', '22.00', 0, GetWell1, 'Get Well'],
-        ['euismod quis', '17.00', 0, GetWell2, 'Get Well'],
-        ['viverra nibh', '18.00', 0, GetWell3, 'Get Well'],
-        ['Senectus et netus', '24.00', 0, GetWell4, 'Get Well'],
-        ['et malesuada fames', '20.00', 0, GetWell5, 'Get Well'],
-        ['ac turpis egestas', '17.00', 0, GetWell6, 'Get Well'],
-        ['Enim praesent', '25.00', 0, GetWell7, 'Get Well'],
-        ['elementum facilisis', '15.00', 0, GetWell8, 'Get Well'],
-        ['Leo a diam', '32.00', 0, GetWell9, 'Get Well'],
-        ['sollicitudin tempor', '28.00', 0, GetWell10, 'Get Well'],
-
-        ['Suspendisse in', '21.00', 0, Birthday1, 'Birthday'],
-        ['est ante in', '19.00', 0, Birthday2, 'Birthday'],
-        ['Occaecati cupiditate', '19.00', 0, Birthday3, 'Birthday'],
-        ['rhoncus est', '23.00', 0, Birthday4, 'Birthday'],
-        ['pellentesque elit', '38.00', 0, Birthday5, 'Birthday'],
-        ['ullamcorper', '25.00', 0, Birthday6, 'Birthday'],
-        ['dignissim cras', '32.00', 0, Birthday7, 'Birthday'],
-        ['Mattis nunc sed', '30.00', 0, Birthday8, 'Birthday'],
-        ['blandit libero', '36.00', 0, Birthday9, 'Birthday'],
-        ['Turpis in eu', '10.00', 0, Birthday10, 'Birthday']
-    ]);
-
     const [data, setData] = useState('');
     const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
     let subtotal = 0;
@@ -132,6 +35,34 @@ function Cart(){
     let year = date.getUTCFullYear();
     let time = new Date()
         time = time.getHours()
+
+    const [productsData, setProductsData] = useState([]);
+    function parseCSV(csvText) {
+        const rows = csvText.split(/\r?\n/);
+        const headers = rows[0].split(',');
+        const data = [];
+        for (let i = 1; i < rows.length; i++) {
+            const rowData = rows[i].split(',');
+            const rowObject = {};
+            for (let j = 0; j < headers.length; j++) {
+                rowObject[headers[j]] = rowData[j];
+            }
+            data.push(rowObject);
+        }
+        return data;
+    }
+
+    const fetchProductsData = () => {
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+        axios.get(url)
+        .then((response) => {
+            const parsedData = parseCSV(response.data);
+            setProductsData(parsedData);
+        })
+        .catch((error) => {
+            console.error('Error fetching CSV data:', error);
+        })
+    }
         
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -141,6 +72,7 @@ function Cart(){
       };
     
     useEffect(() => {
+        fetchProductsData();
         setData(localStorage.getItem('data') || '');        
         setQuantities(localStorage.getItem('quantities') || '');
         window.addEventListener('storage', onStorageUpdate);
@@ -150,7 +82,7 @@ function Cart(){
     }, []);
 
     function deleteItem(productItem){
-        let index = products.indexOf(productItem)
+        {/*let index = products.indexOf(productItem)
         setQuantities(quantities.replace(quantities.charAt(index*2), '0'))
         localStorage.setItem('quantities', quantities.replace(quantities.charAt(index*2), '0'))
 
@@ -162,14 +94,14 @@ function Cart(){
             if(products[i][0] === productItem[0]){
                 products[i][2] = 0
             }
-        }
+        }*/}
     }
     
     const getItemsInCart = () =>{
         const split = data.split(',');
         const itemsArr = [];
 
-        for(let i = 0; i < split.length; i++){
+        {/*for(let i = 0; i < split.length; i++){
             for(let j = 0; j < products.length; j++){
                 if(split[i] === products[j][0] && products[j][2] < quantities.split(',')[j]){
                     products[j][2] = products[j][2] + 1
@@ -189,7 +121,7 @@ function Cart(){
                     </div>
                 )
             }
-        }
+        }*/}
         return (
             itemsArr
         )
@@ -208,13 +140,13 @@ function Cart(){
             return num
         }
         let split = quantities.split(',')
-        if(subtotal === 0){
+        {/*if(subtotal === 0){
             for(let i = 0; i < products.length; i++){
                 if(split[i] > 0){
                     subtotal = subtotal + (Number(products[i][1]) * Number(split[i]))
                 }
             }
-        }
+        }*/}
         subtotal = addDecimal(subtotal)
     }
     calculateTotal()
