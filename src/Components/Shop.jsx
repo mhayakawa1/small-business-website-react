@@ -1,115 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import logo from '../logo.svg'
-
-import Sympathy1 from '../ProductImages/Vel quam elementum.png';
-import Sympathy2 from '../ProductImages/pulvinar etiam.jpeg';
-import Sympathy3 from '../ProductImages/Vestibulum lorem.jpeg';
-import Sympathy4 from '../ProductImages/sed risus ultricies.jpeg';
-import Sympathy5 from '../ProductImages/tristique nulla.jpeg';
-import Sympathy6 from '../ProductImages/aliquet enim.jpeg';
-import Sympathy7 from '../ProductImages/Scelerisque viverra.png';
-import Sympathy8 from '../ProductImages/mauris in aliquam.jpeg';
-import Sympathy9 from '../ProductImages/Diam quis enim.jpeg';
-import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
-import LoveRom1 from '../ProductImages/fermentum dui.png';
-import LoveRom2 from '../ProductImages/faucibus elit.png';
-import LoveRom3 from '../ProductImages/duis tristique.jpeg';
-import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
-import LoveRom5 from '../ProductImages/Et ultrices.png';
-import LoveRom6 from '../ProductImages/neque ornare.jpeg';
-import LoveRom7 from '../ProductImages/aenean euismod.jpeg';
-import LoveRom8 from '../ProductImages/elementum non.jpeg';
-import LoveRom9 from '../ProductImages/diam phasellus.png';
-import LoveRom10 from '../ProductImages/lorem diam in.png';
-import GetWell1 from '../ProductImages/arcu cursus.jpeg';
-import GetWell2 from '../ProductImages/euismod quis.jpeg';
-import GetWell3 from '../ProductImages/viverra nibh.jpeg';
-import GetWell4 from '../ProductImages/Senectus et netus.jpeg';
-import GetWell5 from '../ProductImages/et malesuada fames.png';
-import GetWell6 from '../ProductImages/ac turpis egestas.png';
-import GetWell7 from '../ProductImages/Enim praesent.jpeg';
-import GetWell8 from '../ProductImages/elementum facilisis.jpeg';
-import GetWell9 from '../ProductImages/Leo a diam.jpeg';
-import GetWell10 from '../ProductImages/sollicitudin tempor.jpeg';
-import Birthday1 from '../ProductImages/Suspendisse in.png';
-import Birthday2 from '../ProductImages/est ante in.png';
-import Birthday3 from '../ProductImages/Vestibulum.png';
-import Birthday4 from '../ProductImages/rhoncus est.png';
-import Birthday5 from '../ProductImages/pellentesque elit.jpeg';
-import Birthday6 from '../ProductImages/ullamcorper.jpeg';
-import Birthday7 from '../ProductImages/dignissim cras.jpeg';
-import Birthday8 from '../ProductImages/Mattis nunc sed.png';
-import Birthday9 from '../ProductImages/blandit libero.png';
-import Birthday10 from '../ProductImages/Turpis in eu.png';
-
-const placeholderImg = 'https://gildasclubgr.org/wp-content/uploads/2019/02/no-image.jpg';
-
-{/*Goals
-- Sort - AZ, ZA, Bestseller, Price low-high high-low
-- Determine Item prices
-	- Small 1-3 stems - $15-20
-	- Simple all same flower $30-40
-	- Complex - 4 prices $50-60
-*/}
+import logo from '../logo.svg';
+import axios from 'axios';
 
 function Shop(){
-    //B index: 0-1
-    //S&GW index: 2-3
-    const [products, setProducts] = useState([
-        ['Lobortis scelerisque', '$45.00', 0, Sympathy10, 'Bestsellers', 15],
-        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Bestsellers', 12],
-        ['dignissim cras', '$32.00', 0, Birthday7, 'Bestsellers', 10],
-        ['euismod quis', '$17.00', 0, GetWell2, 'Bestsellers', 13],
-        ['ullamcorper', '$25.00', 0, Birthday6, 'Bestsellers', 11],
-        ['lorem diam in', '$10.00', 0, LoveRom10, 'Bestsellers', 12],
-        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Bestsellers', 13],
-        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Bestsellers', 14],
-        
-        ['Vel quam elementum', '$20.00', 0, Sympathy1, 'Sympathy', 5],
-        ['pulvinar etiam', '$32.00', 0, Sympathy2, 'Sympathy', 6],
-        ['Vestibulum lorem', '$30.00', 0, Sympathy3, 'Sympathy', 13],
-        ['sed risus ultricies', '$22.00', 0, Sympathy4, 'Sympathy', 2],
-        ['tristique nulla', '$42.00', 0, Sympathy5, 'Sympathy', 4],
-        ['aliquet enim', '$38.00', 0, Sympathy6, 'Sympathy', 6],
-        ['Scelerisque viverra', '$23.00', 0, Sympathy7, 'Sympathy', 4],
-        ['mauris in aliquam', '$41.00', 0, Sympathy8, 'Sympathy', 5],
-        ['Diam quis enim', '$47.00', 0, Sympathy9, 'Sympathy', 3],
-        ['lobortis scelerisque', '$45.00', 0, Sympathy10, 'Sympathy', 15],
-
-        ['fermentum dui', '$21.00', 0, LoveRom1, 'Love & Romance', 8],
-        ['faucibus elit', '$19.00', 0, LoveRom2, 'Love & Romance', 5],
-        ['duis tristique', '$19.00', 0, LoveRom3, 'Love & Romance', 6],
-        ['sollicitudin nibh', '$23.00', 0, LoveRom4, 'Love & Romance', 12],
-        ['Et ultrices', '$38.00', 0, LoveRom5, 'Love & Romance', 7],
-        ['neque ornare', '$25.00', 0, LoveRom6, 'Love & Romance', 2],
-        ['aenean euismod', '$32.00', 0, LoveRom7, 'Love & Romance', 3],
-        ['elementum non', '$30.00', 0, LoveRom8, 'Love & Romance', 4],
-        ['diam phasellus', '$36.00', 0, LoveRom9, 'Love & Romance', 5],
-        ['lorem diam in', '$10.00', 0, LoveRom10, 'Love & Romance', 12],
-
-        ['arcu cursus', '$22.00', 0, GetWell1, 'Get Well', 7],
-        ['euismod quis', '$17.00', 0, GetWell2, 'Get Well', 13],
-        ['viverra nibh', '$18.00', 0, GetWell3, 'Get Well', 8],
-        ['Senectus et netus', '$24.00', 0, GetWell4, 'Get Well', 3],
-        ['et malesuada fames', '$20.00', 0, GetWell5, 'Get Well', 2],
-        ['ac turpis egestas', '$17.00', 0, GetWell6, 'Get Well', 3],
-        ['Enim praesent', '$25.00', 0, GetWell7, 'Get Well', 4],
-        ['elementum facilisis', '$15.00', 0, GetWell8, 'Get Well', 5],
-        ['Leo a diam', '$32.00', 0, GetWell9, 'Get Well', 6],
-        ['sollicitudin tempor', '$28.00', 0, GetWell10, 'Get Well', 14],
-
-        ['Suspendisse in', '$21.00', 0, Birthday1, 'Birthday', 5],
-        ['est ante in', '$19.00', 0, Birthday2, 'Birthday', 4],
-        ['Vestibulum', '$19.00', 0, Birthday3, 'Birthday', 3],
-        ['rhoncus est', '$23.00', 0, Birthday4, 'Birthday', 3],
-        ['pellentesque elit', '$38.00', 0, Birthday5, 'Birthday', 2],
-        ['ullamcorper', '$25.00', 0, Birthday6, 'Birthday', 11],
-        ['dignissim cras', '$32.00', 0, Birthday7, 'Birthday', 10],
-        ['Mattis nunc sed', '$30.00', 0, Birthday8, 'Birthday', 5],
-        ['blandit libero', '$36.00', 0, Birthday9, 'Birthday', 4],
-        ['Turpis in eu', '$10.00', 0, Birthday10, 'Birthday', 5]
-    ]);
-
     const [data, setData] = useState('');
     const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
 
@@ -118,8 +11,37 @@ function Shop(){
     const [gridNum, setGridNum] = useState(3);
 
     const [viewProduct, setViewProduct] = useState(false);
-    const [productInfo, setProductInfo] = useState([]);
+    const [productInfo, setProductInfo] = useState({});
     const [productQty, setProductQty] = useState(0);
+
+    const [productsData, setProductsData] = useState([]);
+
+    function parseCSV(csvText) {
+        const rows = csvText.split(/\r?\n/);
+        const headers = rows[0].split(',');
+        const data = [];
+        for (let i = 1; i < rows.length; i++) {
+            const rowData = rows[i].split(',');
+            const rowObject = {};
+            for (let j = 0; j < headers.length; j++) {
+                rowObject[headers[j]] = rowData[j];
+            }
+            data.push(rowObject);
+        }
+        return data;
+    }
+
+    const fetchProductsData = () => {
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+        axios.get(url)
+        .then((response) => {
+            const parsedData = parseCSV(response.data);
+            setProductsData(parsedData);
+        })
+        .catch((error) => {
+            console.error('Error fetching CSV data:', error);
+        })
+    }
     
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -129,6 +51,7 @@ function Shop(){
     };
 
     useEffect(() => {
+        fetchProductsData()
         setQuantities(quantities);
         setData(localStorage.getItem('data') || '');
         if(quantities === ''){
@@ -149,36 +72,32 @@ function Shop(){
 
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool)
-        product.push(i)
         setProductInfo(product)
+        Object.defineProperty(product, 'Index', {
+            value: i
+        })
         let split = quantities.split(',')
         setProductQty(Number(split[i]))
     }
 
-    const showProducts = () =>{
+    const renderProducts = () =>{
         const productsArr = []
-            for(let i = 0; i < products.length; i++){
-                productsArr.push(
-                    showCateg === products[i][4] ?
-                    <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}
-                        onClick={() => toggleViewProduct(products[i], i)}>
-                        <div className='product-card'>
-                            <img src={products[i][3]} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
-                            {/*<button className='magnify-button'><i className='fas fa-magnifying-glass'></i></button>*/}
-                            <div className='product-info'>
-                                <p className='product-name'>{products[i][0]}</p>
-                                <p className='product-price'>{products[i][1]}</p>
-                                {/*<button className='add-to-cart'>Add to Cart</button>
-                                <div className='alter-total'>
-                                    <button onClick={() => addToCart(products[i][0]+',', 'add', i)} className='add-button'>+</button>
-                                    <p className='quantity'>{quantities.split(',')[i]}</p>
-                                    <button onClick={() => addToCart(products[i][0]+',','sub', i)} className='sub-button'>-</button>
-                                </div>*/}
-                            </div>
+            for(let i = 0; i < productsData.length; i++){
+                const productCard = <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}
+                onClick={() => toggleViewProduct(productsData[i], i)}>
+                    <div className='product-card'>
+                        <img src={productsData[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
+                        <div className='product-info'>
+                            <p className='product-name'>{productsData[i].Name}</p>
+                            <p className='product-price'>${productsData[i].Price}</p>
                         </div>
-                    </div> : 
-                    null 
-                )
+                    </div>
+                </div>
+                if(showCateg === 'Bestsellers' && (/true/).test(productsData[i].Bestseller) === true){
+                    productsArr.push(productCard)
+                }else if(showCateg === productsData[i].Category){
+                    productsArr.push(productCard)
+                }
             }
         return(
             productsArr
@@ -305,7 +224,7 @@ function Shop(){
             </div>            
             
             <div className='products-container'>
-                {showProducts()}
+                {renderProducts()}
             </div>
             
             {viewProduct === false ? null : 
@@ -317,9 +236,9 @@ function Shop(){
                     [name, price, quantity, source, category, reviews, i]
                     */}
                     <div className='view-product'>
-                        <img src={productInfo[3]}></img>
+                        <img src={productInfo.ImageSource}></img>
                         <div className='view-product-info'>
-                            <p className='view-product-name'>{productInfo[0]}</p>
+                            <p className='view-product-name'>{productInfo.Name}</p>
                             <div className='view-product-reviews'>
                                 <div className='view-product-stars'>
                                     <i className='fa fa-star'></i>
@@ -328,16 +247,16 @@ function Shop(){
                                     <i className='fa fa-star'></i>
                                     <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
                                 </div>                                
-                                <a href='#'>({productInfo[5]} Reviews)</a>
+                                <a href='#'>({productInfo.Reviews} Reviews)</a>
                             </div>
-                            <p className='view-product-price'>{productInfo[1]}</p>
+                            <p className='view-product-price'>${productInfo.Price}</p>
                             <div className='quantity-cart-container' >
                                 <div className='quantity-container'>
                                     <button onClick={() => setQuantity('add')}>+</button>
                                     <p>{productQty > 0 ? productQty : 0}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productInfo[6], productInfo[0])}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productInfo.indexndex, productInfo.Name)}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
