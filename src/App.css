@@ -570,6 +570,11 @@ h2{
 
 .nav-link-button{
     text-decoration: none;
+    color: #173935;
+}
+
+.nav-link-button:hover{
+    color: #173935;
 }
 
 .bestsellers-text{
