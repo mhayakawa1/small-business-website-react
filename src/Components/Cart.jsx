@@ -4,9 +4,8 @@ import logo from '../logo.svg';
 import axios from 'axios';
 
 function Cart(){
-    const [data, setData] = useState('');
-    const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-    let subtotal = 0;
+    const [inCart, setInCart] = useState('');
+    let subtotal = 0
 {/*color: '#173935',
         background: isActive ? '#E8908F' : '#E9A8A5',
         textDecoration: 'none',
@@ -16,27 +15,8 @@ function Cart(){
         width: '8rem'
     })
 
-    //Get minimum date for order
-    let date = new Date()    
-    let today = date.getDate()
-        if(today < 10){
-            today = '0' + today;
-        }
-    let tomorrow1 = new Date(date)
-        tomorrow1.setDate(tomorrow1.getDate() + 1)
-    let tomorrow2 = tomorrow1.getDate()
-        if(tomorrow2 < 10){
-            tomorrow2 = '0' + tomorrow2;
-        }
-    let month = date.getMonth() + 1;
-        if(month < 10){
-            month = '0' + month;
-        }
-    let year = date.getUTCFullYear();
-    let time = new Date()
-        time = time.getHours()
-
     const [productsData, setProductsData] = useState([]);
+
     function parseCSV(csvText) {
         const rows = csvText.split(/\r?\n/);
         const headers = rows[0].split(',');
@@ -66,91 +46,63 @@ function Cart(){
         
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
-        if (key === 'data') {
-          setData(newValue);
+        if (key === 'inCart') {
+          setInCart(newValue);
         }
       };
     
     useEffect(() => {
         fetchProductsData();
-        setData(localStorage.getItem('data') || '');        
-        setQuantities(localStorage.getItem('quantities') || '');
+        setInCart(localStorage.getItem('inCart') || '');
+        //subtotal = localStorage.getItem('subtotal') || '';
+        if(inCart === ','){
+            setInCart('')
+            localStorage.setItem('inCart', '')
+        }
         window.addEventListener('storage', onStorageUpdate);
         return () => {
           window.removeEventListener('storage', onStorageUpdate);
         };
     }, []);
-
-    function deleteItem(productItem){
-        {/*let index = products.indexOf(productItem)
-        setQuantities(quantities.replace(quantities.charAt(index*2), '0'))
-        localStorage.setItem('quantities', quantities.replace(quantities.charAt(index*2), '0'))
-
-        const split = data.split(',');
-        setData(data.replaceAll(productItem[0]+',', ''))
-        localStorage.setItem('data', data.replaceAll(productItem[0]+',', ''))
-
-        for(let i = 0; i < products.length; i++){
-            if(products[i][0] === productItem[0]){
-                products[i][2] = 0
-            }
-        }*/}
+    
+    function deleteItem(productItem){        
+        setInCart(inCart.replaceAll(productItem, '').replaceAll(',,', ','))
+        localStorage.setItem('inCart', inCart.replaceAll(productItem, '').replaceAll(',,', ','))
     }
     
-    const getItemsInCart = () =>{
-        const split = data.split(',');
+    const getItemsInCart = () =>{//render a div for every product and calculate subtotal
+        const split = inCart.split(',');
         const itemsArr = [];
 
-        {/*for(let i = 0; i < split.length; i++){
-            for(let j = 0; j < products.length; j++){
-                if(split[i] === products[j][0] && products[j][2] < quantities.split(',')[j]){
-                    products[j][2] = products[j][2] + 1
-                }
+        for(let i = 0; i < productsData.length; i++){
+            if(split.includes(productsData[i].Name)){
+                const quantity = split.filter(element => element === productsData[i].Name).length;
+                subtotal = subtotal+productsData[i].Price*quantity;
+                localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
+                itemsArr.push(
+                    <div key={i} className='cart-product'>
+                        <img src={productsData[i].ImageSource} className='cart-product-image'></img>
+                        <p className='cart-product-name'>{productsData[i].Name}</p>
+                        <p className='cart-unit-price'>${productsData[i].Price}</p>
+                        <p className='cart-quantity'>x{quantity}</p>
+                        <button className='cart-item-button' onClick={() => deleteItem(productsData[i].Name)}><i className='fas fa-x'></i></button>
+                    </div>
+                )                
             }
         }
 
-        for(let i = 0; i < products.length; i++){
-            if(products[i][2] > 0){
-                itemsArr.push(
-                    <div key={i} className='cart-product'>
-                        <img src={products[i][3]} className='cart-product-image'></img>
-                        <p className='cart-product-name'>{products[i][0]}</p>
-                        <p className='cart-unit-price'>${products[i][1]}</p>
-                        <p className='cart-quantity'>{products[i][2]}</p>
-                        <button className='cart-item-button' onClick={() => deleteItem(products[i])}><i className='fas fa-x'></i></button>
-                    </div>
-                )
-            }
-        }*/}
+        subtotal.toString()      
+        if(/\./.test(subtotal) === false){
+            subtotal = subtotal + '.00'
+        }
+        if(subtotal[subtotal.length - 2] === '.'){
+            subtotal = subtotal + '0'
+        }
+
         return (
             itemsArr
         )
     }
-
-    const calculateTotal = () =>{
-        //get subtotal, tax(5.6%), discount(if any) and total    
-
-        function addDecimal(num){
-            num = num.toString()      
-            if(num.includes('.') === false){
-                num = num + '.00'
-            }if(num[num.length - 2] === '.'){
-               num = num + '0'
-            }
-            return num
-        }
-        let split = quantities.split(',')
-        {/*if(subtotal === 0){
-            for(let i = 0; i < products.length; i++){
-                if(split[i] > 0){
-                    subtotal = subtotal + (Number(products[i][1]) * Number(split[i]))
-                }
-            }
-        }*/}
-        subtotal = addDecimal(subtotal)
-    }
-    calculateTotal()
-
     return(
         <div>
             <div className='shop-header'>
@@ -171,12 +123,13 @@ function Cart(){
                                 <p className='column-name'>Quantity:</p>
                             </div>
                         </div>
-                    {data === '' ? <p className='cart-empty'>Your cart is empty.</p>
-                            : getItemsInCart()}
+                    {inCart === '' ? <p className='cart-empty'>Your cart is empty.</p>
+                        : getItemsInCart()}
                     </div>
                 </div>
                 <div className='subtotal-checkout-container'>
-                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> You have {data.split(',').filter(i => i !== '').length} {data.split(',').length === 1 ? 'item' : 'items'} in your cart.</h3>
+                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> 
+                        You have {inCart.split(',').filter(i => i !== '').length} {inCart !== '' && inCart.includes(',') === false ? 'item' : 'items'} in your cart.</h3>
                     <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
                     <p>Tax, shipping and discounts calculated at checkout</p>
                     <button className='checkout-button'>
