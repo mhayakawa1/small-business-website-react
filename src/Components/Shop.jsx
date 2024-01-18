@@ -3,10 +3,8 @@ import logo from '../logo.svg';
 import axios from 'axios';
 
 function Shop(){
-    const [data, setData] = useState('');
-    const [quantities, setQuantities] = useState('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
+    const [inCart, setInCart] = useState('');
 
-    const [inCart, setInCart] = useState([]);
     const [showCateg, setShowCateg] = useState('Bestsellers');
     const [gridNum, setGridNum] = useState(3);
 
@@ -45,21 +43,14 @@ function Shop(){
     
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
-        if (key === 'data') {
-          setData(newValue);
+        if (key === 'inCart') {
+          setInCart(newValue);
         }
     };
 
     useEffect(() => {
         fetchProductsData()
-        setQuantities(quantities);
-        setData(localStorage.getItem('data') || '');
-        if(quantities === ''){
-            setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-            localStorage.setItem(quantities, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')
-        }else{
-            setQuantities(localStorage.getItem('quantities') || '');
-        }
+        setInCart(localStorage.getItem('inCart') || '');
         window.addEventListener('storage', onStorageUpdate);   
         return () => {
           window.removeEventListener('storage', onStorageUpdate);
@@ -69,16 +60,6 @@ function Shop(){
     const handleChange = (categ) => {
         setShowCateg(categ);
     };
-
-    const toggleViewProduct = (product, i) =>{
-        setViewProduct((bool) => !bool)
-        setProductInfo(product)
-        Object.defineProperty(product, 'Index', {
-            value: i
-        })
-        let split = quantities.split(',')
-        setProductQty(Number(split[i]))
-    }
 
     const renderProducts = () =>{
         const productsArr = []
@@ -108,73 +89,43 @@ function Shop(){
         setGridNum(num)
     }
 
-    const setQuantity = (op) =>{
+    const setQuantity = (op) =>{        
         if(op === 'add' && productQty < 15){
-            setProductQty(productQty+1)
+            setProductQty(productQty+1);
         }else if(op === 'sub' && productQty >= 1){
-            setProductQty(productQty-1)
+            setProductQty(productQty-1);
         }
-        {/*
-    
-        let array = quantities.split(',')
-        let num
-
-        if(op === 'add'){
-            num = Number(array[index])+1            
-            array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))            
-            localStorage.setItem('quantities', array.join(''))
-            setData(product + data)
-            localStorage.setItem('data', product + data); 
-            //console.log(quantities)
-        }else if(op === 'sub' && array[index] < 1){
-            return
-        }else if(op === 'sub'){
-            num = Number(array[index])-1
-            array.splice(index, 1, num.toString())
-            array = addCommas(array)
-            array.join('')
-            setQuantities(array.join(''))
-            localStorage.setItem('quantities', array.join(''))
-            setData(data.replace(product, ''))
-            localStorage.setItem('data', data.replace(product, '')); 
-        }
-    */}
     }
-
-    const addToCart = (index, productName) => {
-        let qSplit = quantities.split(',')
-        qSplit.splice(index, 1, productQty)
-        qSplit = qSplit.join(',')
-        setQuantities(qSplit)
-        localStorage.setItem('quantities', qSplit)
-
-        let dSplit = data.split(',').filter(i => i !== productName)
-        for(let i = 1; i <= productQty; i++){
-            dSplit.push(productName)
+    const addToCart = (productName) => {
+        let stringToAdd = inCart.split(',').filter(i => i !== productName).join(',');
+        for(let i = 0; i < productQty; i++){
+            stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
         }
-        setData(dSplit.join(','))
-        localStorage.setItem('data', dSplit.join(','))
+        setInCart(stringToAdd);
+        localStorage.setItem('inCart', stringToAdd);
+    }
+    
+    const toggleViewProduct = (product, i) =>{
+        setViewProduct((bool) => !bool);
+        setProductInfo(product);
+        Object.defineProperty(product, 'Index', {
+            value: i
+        })
+        setProductQty(inCart.split(',').filter(i => i === product.Name).length);
     }
 
     function reset(){
-        setProductQty(0)
-        localStorage.setItem('productQty', 0)
-        setData('')
-        localStorage.setItem('data', '')
-        setInCart([]);
-        localStorage.setItem('inCart', []);
-        setQuantities('0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
-        localStorage.setItem('quantities', '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0');
+        setProductQty(0);
+        localStorage.setItem('productQty', 0);
+        setInCart('');
+        localStorage.setItem('inCart', '');
     }
 
     return(
         <div className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
-                    <p>{data.split(',').filter(i => i !== '').length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
+                    <p>{inCart.split(',').filter(i => i !== '').length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
                     <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
                 </div>
             </div>
@@ -256,7 +207,7 @@ function Shop(){
                                     <p>{productQty > 0 ? productQty : 0}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productInfo.indexndex, productInfo.Name)}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productInfo.Name)}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
