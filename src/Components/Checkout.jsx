@@ -5,12 +5,8 @@ import axios from 'axios';
 function Checkout(){
     const [inCart, setInCart] = useState('');
     {/*let subtotal = 0;*/}
-    let percentOff = 0;
-    let discount = 0;
-    let tax = 0;
-    let shipping = 0;
-    let total = 0;
     const [subtotal, setSubtotal] = useState(0);
+    let percentOff = 0;
 
     //Get minimum date for order
     let date = new Date()    
@@ -87,7 +83,6 @@ function Checkout(){
         for(let i = 0; i < productsData.length; i++){
             if(split.includes(productsData[i].Name)){
                 const quantity = split.filter(element => element === productsData[i].Name).length;
-                //setSubtotal(Number(subtotal)+Number(productsData[i].Price)*quantity);
                 itemsArr.push(
                     <div key={i} className='cart-product'>
                         <img src={productsData[i].ImageSource} className='cart-product-image'></img>
@@ -100,14 +95,6 @@ function Checkout(){
             }
         }
 
-        {/*subtotal.toString()      
-        if(/\./.test(subtotal) === false){
-            subtotal = subtotal + '.00'
-        }
-        if(subtotal[subtotal.length - 2] === '.'){
-            subtotal = subtotal + '0'
-        }*/}
-        
         return (
             itemsArr
         )
@@ -135,7 +122,7 @@ function Checkout(){
         setRadioBtnVal(string)
     }
 
-    const calculateTotal = () =>{
+    {/*const calculateTotal = () =>{
         //get subtotal, tax(5.6%), discount(if any) and total    
         let split = inCart.split(',');
         function addDecimal(num){
@@ -147,7 +134,7 @@ function Checkout(){
             }
             return num
         }
-        {/*
+        
         if(subtotal === 0){
             for(let i = 0; i < productsData.length; i++){
                 if(split.includes(productsData[i].Name)){
@@ -155,7 +142,7 @@ function Checkout(){
                     subtotal = subtotal + (Number(productsData[i].Price) * quantity)
                 }
             }
-        }*/}
+        }
         
         total = subtotal
         console.log(total)
@@ -180,24 +167,71 @@ function Checkout(){
         //subtotal = addDecimal(subtotal)
         tax = addDecimal(tax)
         //total = addDecimal(total)        
-    }
+    }*/}
 
     useEffect(() => {
         fetchProductsData();
         setInCart(localStorage.getItem('inCart') || '');
-        setSubtotal(localStorage.getItem('subtotal')/2 || '');
+        setSubtotal(localStorage.getItem('subtotal') || '');
         //subtotal = localStorage.getItem('subtotal') || '';
         window.addEventListener('storage', onStorageUpdate);
         return () => {
           window.removeEventListener('storage', onStorageUpdate);
         };
     }, []);
-
+    
     const submitForm = (e) =>{
         e.preventDefault()
     }
-    calculateTotal();
+    //calculateTotal();
 
+    const test = () =>{
+        let discount = 0;
+        let tax = 0;
+        let shipping = 0;
+        let total = Number(subtotal);
+        function addDecimal(num){
+            num = num.toString()      
+            if(num.includes('.') === false){
+                num = num + '.00'
+            }if(num[num.length - 2] === '.'){
+               num = num + '0'
+            }
+            return num
+        }
+
+        if(codeValid === true){
+            const findCode = codes.filter(i => i[0] === inputCode.toLocaleUpperCase()).flat()
+            discount = findCode[1]
+            percentOff = discount
+            
+            discount = addDecimal((discount * total)/100)
+            total = ((total * 100) - (findCode[1] * total))/100
+        }else{
+            discount = 0
+        }
+        tax = Math.round(((total*100)*.056))/100
+        total = total + tax
+
+        if(radioBtnVal === 'Delivery'){
+            shipping = '20.00'
+            total = ((total * 100) + 2000)/100
+        }
+        
+        //setSubtotal(addDecimal(subtotal))
+        tax = addDecimal(tax)
+        //total = addDecimal(total)  
+        return(            
+            <div className='price-info'>
+                <p className='font-extra-small'>Subtotal: ${subtotal}</p>
+                <p className='font-extra-small'>Discount: {codeValid === true ? `-$${discount} (${percentOff}%)` : '$0.00'}</p>
+                <p className='font-extra-small'>Tax: ${tax} (5.6%)</p>
+                <p className='font-extra-small'>Shipping: ${shipping}</p>
+                <p className='total'>Total: ${total}</p>
+            </div>
+        )
+    }
+    
     return(
         <div className='checkout-page'>
             <NavLink to='/cart' className='cart-link nav-link-button'>
@@ -211,13 +245,14 @@ function Checkout(){
                 {inCart === '' ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
-                <div className='price-info'>
-                    <p className='font-extra-small'>Subtotal: ${subtotal}</p>
-                    <p className='font-extra-small'>Discount: {codeValid === true ? `-$${discount} (${percentOff}%)` : '$0.00'}</p>
-                    <p className='font-extra-small'>Tax: ${tax} (5.6%)</p>
-                    <p className='font-extra-small'>Shipping: ${shipping}</p>
-                    <p className='total'>Total: ${total}</p>
-                </div>
+            {test()}
+            {/*<div className='price-info'>
+                <p className='font-extra-small'>Subtotal: ${subtotal}</p>
+                <p className='font-extra-small'>Discount: {codeValid === true ? `-$${discount} (${percentOff}%)` : '$0.00'}</p>
+                <p className='font-extra-small'>Tax: ${tax} (5.6%)</p>
+                <p className='font-extra-small'>Shipping: ${shipping}</p>
+                <p className='total'>Total: ${total}</p>
+            </div>*/}
             <form className='checkout-form'>
                 <div className='customer-info'>
                     <div className='form-div'>
@@ -329,14 +364,14 @@ function Checkout(){
                         <div className='input-item'>
                             <input type='text' className='input-code font-small' onChange={(e) => handleChange(e.target.value)}></input>
                             <button className='col-md-3 font-extra-small form-button submit-code' onClick={(e) => submitCode(e)}>Submit Code</button>
-                            {codeValid === true ? <p>Congratulations! You've earned % off.</p>
+                            {codeValid === true ? <p>Congratulations! You've earned {percentOff}% off.</p>
                                 : codeValid === false ? <p>Sorry, this code is invalid.</p>
                                 : ''}
                         </div>
-                    </div>                   
+                    </div>
                 </div>
                 <div className='submit-button-div'>
-                    <button className='col-md-5 form-button submit-form' onClick={(e) => submitForm(e)}>Submit</button>
+                    <button className='col-md-5 form-button submit-form' onClick={(e) => submitForm(e)}>Place Order</button>
                 </div>    
             
             </form>
