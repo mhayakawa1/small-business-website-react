@@ -91,18 +91,21 @@ function Cart(){
             }
         }
 
-        subtotal.toString()      
+        subtotal.toString()
         if(/\./.test(subtotal) === false){
-            subtotal = subtotal + '.00'
+            subtotal = subtotal + '.00';
+            localStorage.setItem('subtotal', subtotal)
         }
         if(subtotal[subtotal.length - 2] === '.'){
             subtotal = subtotal + '0'
+            localStorage.setItem('subtotal',  subtotal)
         }
 
         return (
             itemsArr
         )
     }
+
     return(
         <div>
             <div className='shop-header'>
