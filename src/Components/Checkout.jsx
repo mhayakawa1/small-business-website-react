@@ -4,7 +4,6 @@ import axios from 'axios';
 
 function Checkout(){
     const [inCart, setInCart] = useState('');
-    {/*let subtotal = 0;*/}
     const [subtotal, setSubtotal] = useState(0);
     let percentOff = 0;
 
@@ -122,58 +121,10 @@ function Checkout(){
         setRadioBtnVal(string)
     }
 
-    {/*const calculateTotal = () =>{
-        //get subtotal, tax(5.6%), discount(if any) and total    
-        let split = inCart.split(',');
-        function addDecimal(num){
-            num = num.toString()      
-            if(num.includes('.') === false){
-                num = num + '.00'
-            }if(num[num.length - 2] === '.'){
-               num = num + '0'
-            }
-            return num
-        }
-        
-        if(subtotal === 0){
-            for(let i = 0; i < productsData.length; i++){
-                if(split.includes(productsData[i].Name)){
-                    const quantity = split.filter(element => element === productsData[i].Name).length;
-                    subtotal = subtotal + (Number(productsData[i].Price) * quantity)
-                }
-            }
-        }
-        
-        total = subtotal
-        console.log(total)
-        if(codeValid === true){
-            const findCode = codes.filter(i => i[0] === inputCode.toLocaleUpperCase()).flat()
-            discount = findCode[1]
-            percentOff = discount
-            
-            discount = addDecimal((discount * total)/100)
-            total = ((total * 100) - (findCode[1] * total))/100
-        }else{
-            discount = 0
-        }
-        tax = Math.round(((total*100)*.056))/100
-        total = total + tax
-
-        if(radioBtnVal === 'Delivery'){
-            shipping = '20.00'
-            total = ((total * 100) + 2000)/100
-        }
-        
-        //subtotal = addDecimal(subtotal)
-        tax = addDecimal(tax)
-        //total = addDecimal(total)        
-    }*/}
-
     useEffect(() => {
         fetchProductsData();
         setInCart(localStorage.getItem('inCart') || '');
         setSubtotal(localStorage.getItem('subtotal') || '');
-        //subtotal = localStorage.getItem('subtotal') || '';
         window.addEventListener('storage', onStorageUpdate);
         return () => {
           window.removeEventListener('storage', onStorageUpdate);
@@ -183,9 +134,8 @@ function Checkout(){
     const submitForm = (e) =>{
         e.preventDefault()
     }
-    //calculateTotal();
 
-    const test = () =>{
+    const calculateTotal = () =>{
         let discount = 0;
         let tax = 0;
         let shipping = 0;
@@ -210,7 +160,7 @@ function Checkout(){
         }else{
             discount = 0
         }
-        tax = Math.round(((total*100)*.056))/100
+        tax = Math.round(((total*100)*.056))/100 //Tax rate: 5.6%
         total = total + tax
 
         if(radioBtnVal === 'Delivery'){
@@ -218,9 +168,7 @@ function Checkout(){
             total = ((total * 100) + 2000)/100
         }
         
-        //setSubtotal(addDecimal(subtotal))
         tax = addDecimal(tax)
-        //total = addDecimal(total)  
         return(            
             <div className='price-info'>
                 <p className='font-extra-small'>Subtotal: ${subtotal}</p>
@@ -245,14 +193,7 @@ function Checkout(){
                 {inCart === '' ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
-            {test()}
-            {/*<div className='price-info'>
-                <p className='font-extra-small'>Subtotal: ${subtotal}</p>
-                <p className='font-extra-small'>Discount: {codeValid === true ? `-$${discount} (${percentOff}%)` : '$0.00'}</p>
-                <p className='font-extra-small'>Tax: ${tax} (5.6%)</p>
-                <p className='font-extra-small'>Shipping: ${shipping}</p>
-                <p className='total'>Total: ${total}</p>
-            </div>*/}
+            {calculateTotal()}
             <form className='checkout-form'>
                 <div className='customer-info'>
                     <div className='form-div'>
