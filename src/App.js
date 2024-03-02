@@ -15,6 +15,7 @@ function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [hide, setHide] = useState('hide');
   const [hideBars, setHideBars] = useState('');
+  const [cartItems, setCartItems] = useState([]);
 
   const linkStyles = ({ isActive }) => ({
     color: '#173935',
@@ -35,6 +36,10 @@ function App() {
         setHideBars('hide')
       }
     }, 250);
+  }
+
+  const handleClick = (amount, string) => {
+    console.log(amount, string)
   }
 
   return (
@@ -62,7 +67,7 @@ function App() {
           </div>
           <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/shop' element={<Shop />}/>
+            <Route path='/shop' element={<Shop clickHandler={handleClick} />}/>
             <Route path='/cart' element={<Cart />}/>
             <Route path='/checkout' element={<Checkout />}/>
             <Route path='*' element={<Error/>}/>
