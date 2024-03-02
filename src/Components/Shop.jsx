@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import logo from '../logo.svg';
 import axios from 'axios';
 
-function Shop(){
+function Shop(props){
     const [inCart, setInCart] = useState('');
 
     const [showCateg, setShowCateg] = useState('Bestsellers');
@@ -85,7 +85,7 @@ function Shop(){
         )
     }
 
-    const shopGridButton = (num) =>{        
+    const shopGridButton = (num) =>{
         setGridNum(num)
     }
 
@@ -96,7 +96,8 @@ function Shop(){
             setProductQty(productQty-1);
         }
     }
-    const addToCart = (productName) => {
+    const addToCart = (productQty, productName) => {
+        props.clickHandler(productQty, productName)
         let stringToAdd = inCart.split(',').filter(i => i !== productName).join(',');
         for(let i = 0; i < productQty; i++){
             stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
@@ -183,9 +184,6 @@ function Shop(){
                     <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
                         <i className='fa-solid fa-x'></i>
                     </button>
-                    {/*
-                    [name, price, quantity, source, category, reviews, i]
-                    */}
                     <div className='view-product'>
                         <img src={productInfo.ImageSource}></img>
                         <div className='view-product-info'>
@@ -207,7 +205,7 @@ function Shop(){
                                     <p>{productQty > 0 ? productQty : 0}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productInfo.Name)}>Add to Cart</button>
+                                <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
                             </div> 
                         </div>                                               
                     </div>
