@@ -98,12 +98,13 @@ function Shop(props){
     }
     const addToCart = (productQty, productName) => {
         props.clickHandler(productQty, productName)
+        {/*
         let stringToAdd = inCart.split(',').filter(i => i !== productName).join(',');
         for(let i = 0; i < productQty; i++){
             stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
         }
         setInCart(stringToAdd);
-        localStorage.setItem('inCart', stringToAdd);
+        localStorage.setItem('inCart', stringToAdd);*/}
     }
     
     const toggleViewProduct = (product, i) =>{
