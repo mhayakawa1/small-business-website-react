@@ -38,9 +38,21 @@ function App() {
     }, 250);
   }
 
-  const handleClick = (amount, string) => {
-    console.log(amount, string)
+  const handleClick = (productQty, productName) => {
+    //console.log(productQty, productName)
+    //setCartItems();
+    let addToCart = []
+    for(let i = 0; i < productQty; i++){
+        //stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
+      //setCartItems(cartItems.split(',').filter(i => i !== productName).join(','))
+      addToCart.push(productName)
+    }
+    setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))
+    //setCartItems(stringToAdd);
+    //localStorage.setItem('cartItems', stringToAdd);{/**/}
   }
+  
+  console.log(cartItems)
 
   return (
     <div className='page'>
@@ -67,7 +79,7 @@ function App() {
           </div>
           <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/shop' element={<Shop clickHandler={handleClick} />}/>
+            <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/cart' element={<Cart />}/>
             <Route path='/checkout' element={<Checkout />}/>
             <Route path='*' element={<Error/>}/>
