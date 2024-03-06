@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
 import axios from 'axios';
 
-function Cart(){
+function Cart(props){
     const [inCart, setInCart] = useState('');
     let subtotal = 0
 {/*color: '#173935',
@@ -54,7 +54,6 @@ function Cart(){
     useEffect(() => {
         fetchProductsData();
         setInCart(localStorage.getItem('inCart') || '');
-        //subtotal = localStorage.getItem('subtotal') || '';
         if(inCart === ','){
             setInCart('')
             localStorage.setItem('inCart', '')
@@ -66,8 +65,10 @@ function Cart(){
     }, []);
     
     function deleteItem(productItem){        
-        setInCart(inCart.replaceAll(productItem, '').replaceAll(',,', ','))
-        localStorage.setItem('inCart', inCart.replaceAll(productItem, '').replaceAll(',,', ','))
+        //setInCart(inCart.replaceAll(productItem, '').replaceAll(',,', ','))
+        //localStorage.setItem('inCart', inCart.replaceAll(productItem, '').replaceAll(',,', ','))
+        //props.clickHandler(productQty, productName)
+        console.log(productItem)
     }
     
     const getItemsInCart = () =>{//render a div for every product and calculate subtotal
@@ -75,8 +76,8 @@ function Cart(){
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(split.includes(productsData[i].Name)){
-                const quantity = split.filter(element => element === productsData[i].Name).length;
+            if(props.data.includes(productsData[i].Name)){
+                const quantity = props.data.filter(element => element === productsData[i].Name).length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
@@ -126,13 +127,13 @@ function Cart(){
                                 <p className='column-name'>Quantity:</p>
                             </div>
                         </div>
-                    {inCart === '' ? <p className='cart-empty'>Your cart is empty.</p>
+                    {props.data.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
                 <div className='subtotal-checkout-container'>
                     <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> 
-                        You have {inCart.split(',').filter(i => i !== '').length} {inCart !== '' && inCart.includes(',') === false ? 'item' : 'items'} in your cart.</h3>
+                        You have {props.data.length} {inCart !== '' && inCart.includes(',') === false ? 'item' : 'items'} in your cart.</h3>
                     <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
                     <p>Tax, shipping and discounts calculated at checkout</p>
                     <button className='checkout-button'>
