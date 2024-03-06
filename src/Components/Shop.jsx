@@ -41,21 +41,9 @@ function Shop(props){
         })
     }
     
-    const onStorageUpdate = (e) => {
-        const { key, newValue } = e;
-        if (key === 'inCart') {
-          setInCart(newValue);
-        }
-    };
-
     useEffect(() => {
         fetchProductsData()
-        setInCart(localStorage.getItem('inCart') || '');
-        window.addEventListener('storage', onStorageUpdate);   
-        return () => {
-          window.removeEventListener('storage', onStorageUpdate);
-        };
-      }, []);
+    }, []);
 
     const handleChange = (categ) => {
         setShowCateg(categ);
@@ -96,38 +84,29 @@ function Shop(props){
             setProductQty(productQty-1);
         }
     }
+
     const addToCart = (productQty, productName) => {
-        props.clickHandler(productQty, productName)
-        {/*
-        let stringToAdd = inCart.split(',').filter(i => i !== productName).join(',');
-        for(let i = 0; i < productQty; i++){
-            stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
-        }
-        setInCart(stringToAdd);
-        localStorage.setItem('inCart', stringToAdd);*/}
+        props.clickHandler(productQty, productName, 'add')
     }
     
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool);
         setProductInfo(product);
+        setProductQty(props.data.filter(i => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
-        setProductQty(inCart.split(',').filter(i => i === product.Name).length);
     }
 
     function reset(){
-        setProductQty(0);
-        localStorage.setItem('productQty', 0);
-        setInCart('');
-        localStorage.setItem('inCart', '');
+        props.clickHandler('clear', 'clear')
     }
 
     return(
         <div className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
-                    <p>{inCart.split(',').filter(i => i !== '').length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
+                    <p>{props.data.length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
                     <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
                 </div>
             </div>
@@ -203,7 +182,7 @@ function Shop(props){
                             <div className='quantity-cart-container' >
                                 <div className='quantity-container'>
                                     <button onClick={() => setQuantity('add')}>+</button>
-                                    <p>{productQty > 0 ? productQty : 0}</p>
+                                    <p>{productQty}</p>
                                     <button onClick={() => setQuantity('sub')}>-</button>
                                 </div>
                                 <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
