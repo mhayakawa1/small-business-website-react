@@ -38,22 +38,21 @@ function App() {
     }, 250);
   }
 
-  const handleClick = (productQty, productName) => {
-    //console.log(productQty, productName)
-    //setCartItems();
-    let addToCart = []
-    for(let i = 0; i < productQty; i++){
-        //stringToAdd = stringToAdd+`${stringToAdd === '' ? '' : ','}`+productName
-      //setCartItems(cartItems.split(',').filter(i => i !== productName).join(','))
-      addToCart.push(productName)
+  const handleClick = (productQty, productName, cartChange) => {
+      let addToCart = []
+    if(productQty === 'clear' && productName === 'clear'){
+      setCartItems([])
+    }else if(cartChange === 'add'){
+      for(let i = 0; i < productQty; i++){
+        addToCart.push(productName)
+      }
+      setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))
+    }else if(cartChange === 'delete'){
+      setCartItems(cartItems.filter(i => i !== productName))
     }
-    setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))
-    //setCartItems(stringToAdd);
-    //localStorage.setItem('cartItems', stringToAdd);{/**/}
+    
   }
   
-  console.log(cartItems)
-
   return (
     <div className='page'>
 
@@ -80,8 +79,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
-            <Route path='/cart' element={<Cart />}/>
-            <Route path='/checkout' element={<Checkout />}/>
+            <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
+            <Route path='/checkout' element={<Checkout data={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
