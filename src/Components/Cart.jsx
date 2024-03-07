@@ -6,11 +6,6 @@ import axios from 'axios';
 function Cart(props){
     const [inCart, setInCart] = useState('');
     let subtotal = 0
-{/*color: '#173935',
-        background: isActive ? '#E8908F' : '#E9A8A5',
-        textDecoration: 'none',
-        textAlign: 'center',
-        fontFamily: 'Tajawal, sans-serif'*/}
     const navButtonStyles = ({ isActive }) => ({
         width: '8rem'
     })
@@ -64,11 +59,8 @@ function Cart(props){
         };
     }, []);
     
-    function deleteItem(productItem){        
-        //setInCart(inCart.replaceAll(productItem, '').replaceAll(',,', ','))
-        //localStorage.setItem('inCart', inCart.replaceAll(productItem, '').replaceAll(',,', ','))
-        //props.clickHandler(productQty, productName)
-        console.log(productItem)
+    function deleteItem(productQty, productName){
+        props.clickHandler(productQty, productName, 'delete')
     }
     
     const getItemsInCart = () =>{//render a div for every product and calculate subtotal
@@ -86,7 +78,7 @@ function Cart(props){
                         <p className='cart-product-name'>{productsData[i].Name}</p>
                         <p className='cart-unit-price'>${productsData[i].Price}</p>
                         <p className='cart-quantity'>x{quantity}</p>
-                        <button className='cart-item-button' onClick={() => deleteItem(productsData[i].Name)}><i className='fas fa-x'></i></button>
+                        <button className='cart-item-button' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
                     </div>
                 )                
             }
