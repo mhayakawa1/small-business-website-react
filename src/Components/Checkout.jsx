@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-function Checkout(){
+function Checkout(props){
     const [inCart, setInCart] = useState('');
     const [subtotal, setSubtotal] = useState(0);
     let percentOff = 0;
@@ -76,23 +76,34 @@ function Checkout(){
     }
     
     const getItemsInCart = () =>{
-        const split = inCart.split(',');
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(split.includes(productsData[i].Name)){
-                const quantity = split.filter(element => element === productsData[i].Name).length;
+            if(props.data.includes(productsData[i].Name)){
+                const quantity = props.data.filter(element => element === productsData[i].Name).length;
+                //subtotal = subtotal+productsData[i].Price*quantity;
+                //localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
                     <div key={i} className='cart-product'>
                         <img src={productsData[i].ImageSource} className='cart-product-image'></img>
                         <p className='cart-product-name'>{productsData[i].Name}</p>
                         <p className='cart-unit-price'>${productsData[i].Price}</p>
                         <p className='cart-quantity'>x{quantity}</p>
-                        <button className='cart-item-button' onClick={() => deleteItem(productsData[i].Name)}><i className='fas fa-x'></i></button>
+                        <button className='cart-item-button' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
                     </div>
                 )                
             }
         }
+{/*
+        subtotal.toString()
+        if(/\./.test(subtotal) === false){
+            subtotal = subtotal + '.00';
+            localStorage.setItem('subtotal', subtotal)
+        }
+        if(subtotal[subtotal.length - 2] === '.'){
+            subtotal = subtotal + '0'
+            localStorage.setItem('subtotal',  subtotal)
+        }*/}
 
         return (
             itemsArr
@@ -188,9 +199,9 @@ function Checkout(){
                 </button>
             </NavLink>
             <h3>Checkout</h3>
-            <p>You have {inCart.split(',').filter(i => i !== '').length} {inCart !== '' && inCart.includes(',') === false ? 'item' : 'items'} in your cart.</p>
+            <p>You have {props.data.length} {props.data.length === 1 ? 'item' : 'items'} in your cart.</p>
             <div className='items-in-cart'>                
-                {inCart === '' ? <p className='cart-empty'>Your cart is empty.</p>
+                {props.data.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
             {calculateTotal()}
