@@ -4,7 +4,6 @@ import logo from '../logo.svg';
 import axios from 'axios';
 
 function Cart(props){
-    const [inCart, setInCart] = useState('');
     let subtotal = 0
     const navButtonStyles = ({ isActive }) => ({
         width: '8rem'
@@ -38,25 +37,9 @@ function Cart(props){
             console.error('Error fetching CSV data:', error);
         })
     }
-        
-    const onStorageUpdate = (e) => {
-        const { key, newValue } = e;
-        if (key === 'inCart') {
-          setInCart(newValue);
-        }
-      };
-    
+
     useEffect(() => {
         fetchProductsData();
-        setInCart(localStorage.getItem('inCart') || '');
-        if(inCart === ','){
-            setInCart('')
-            localStorage.setItem('inCart', '')
-        }
-        window.addEventListener('storage', onStorageUpdate);
-        return () => {
-          window.removeEventListener('storage', onStorageUpdate);
-        };
     }, []);
     
     function deleteItem(productQty, productName){
@@ -64,7 +47,6 @@ function Cart(props){
     }
     
     const getItemsInCart = () =>{//render a div for every product and calculate subtotal
-        const split = inCart.split(',');
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
@@ -125,7 +107,7 @@ function Cart(props){
                 </div>
                 <div className='subtotal-checkout-container'>
                     <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> 
-                        You have {props.data.length} {inCart !== '' && inCart.includes(',') === false ? 'item' : 'items'} in your cart.</h3>
+                        You have {props.data.length} {props.data.length === 1 ? 'item' : 'items'} in your cart.</h3>
                     <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
                     <p>Tax, shipping and discounts calculated at checkout</p>
                     <button className='checkout-button'>
