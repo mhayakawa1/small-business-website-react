@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
@@ -16,6 +16,26 @@ function App() {
   const [hide, setHide] = useState('hide');
   const [hideBars, setHideBars] = useState('');
   const [cartItems, setCartItems] = useState([]);
+  const [saveData, setSaveData] = useState();
+
+  const onStorageUpdate = (e) => {
+    const { key, newValue } = e;
+    if (key === 'saveData') {
+      setSaveData(newValue);
+    }
+  };
+
+
+  useEffect(() => {
+    setSaveData(localStorage.getItem('saveData') || '');
+    setSaveData(cartItems.join(','))
+    localStorage.setItem('saveData', '')
+    window.addEventListener('storage', onStorageUpdate);
+    return () => {
+      window.removeEventListener('storage', onStorageUpdate);
+    };
+  }, []);
+  console.log(saveData)
 
   const linkStyles = ({ isActive }) => ({
     color: '#173935',
@@ -49,8 +69,7 @@ function App() {
       setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))
     }else if(cartChange === 'delete'){
       setCartItems(cartItems.filter(i => i !== productName))
-    }
-    
+    }    
   }
   
   return (
