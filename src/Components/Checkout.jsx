@@ -224,12 +224,12 @@ function Checkout(props){
                         <h4>Contact Information</h4>
                         <div>
                             <div className='input-item'>
-                                <input type='email' className='font-small'></input>
-                                <label className='font-extra-small'>Email</label>
+                                <input type='email' className='font-small' required></input>
+                                <label className='font-extra-small'>Email <i className='fas fa-asterisk'></i></label>
                             </div>
                             <div className='input-item'>
-                                <input type='tel' className='font-small'></input>
-                                <label className='font-extra-small'>Phone Number</label>
+                                <input type='tel' className='font-small' required></input>
+                                <label className='font-extra-small'>Phone Number <i className='fas fa-asterisk'></i></label>
                             </div>                                
                         </div>
                     </div>
@@ -239,7 +239,7 @@ function Checkout(props){
                         <h4>Pickup or Delivery</h4>
                         <div className='pickup-delivery-input'>
                             <div>
-                                <input onChange={() => onChangeValue('Pickup')} type='radio' value='pickup' id='pickup' name='pickupDelivery'/>
+                                <input onChange={() => onChangeValue('Pickup')} type='radio' value='pickup' id='pickup' name='pickupDelivery' checked/>
                                 <label htmlFor='pickup' className='font-small'>Pickup</label>
                             </div>
                             <div>
