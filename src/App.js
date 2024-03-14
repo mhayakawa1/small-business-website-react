@@ -25,17 +25,18 @@ function App() {
     }
   };
 
-
   useEffect(() => {
     setSaveData(localStorage.getItem('saveData') || '');
-    setSaveData(cartItems.join(','))
-    localStorage.setItem('saveData', '')
+    //localStorage.setItem('saveData', '')
+    if(saveData !== ''){
+      console.log(0)
+    }
     window.addEventListener('storage', onStorageUpdate);
     return () => {
       window.removeEventListener('storage', onStorageUpdate);
     };
   }, []);
-  console.log(saveData)
+  //console.log(cartItems)
 
   const linkStyles = ({ isActive }) => ({
     color: '#173935',
@@ -61,17 +62,23 @@ function App() {
   const handleClick = (productQty, productName, cartChange) => {
       let addToCart = []
     if(productQty === 'clear' && productName === 'clear'){
-      setCartItems([])
+      setCartItems([])      
+      setSaveData(localStorage.getItem('saveData') || '');
+      localStorage.setItem('saveData', '')
     }else if(cartChange === 'add'){
       for(let i = 0; i < productQty; i++){
         addToCart.push(productName)
       }
-      setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))
+      setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))      
+      setSaveData(localStorage.getItem('saveData') || cartItems.filter(i => i !== productName).concat(addToCart).join(','));
+      localStorage.setItem('saveData', cartItems.filter(i => i !== productName).concat(addToCart).join(','))
     }else if(cartChange === 'delete'){
       setCartItems(cartItems.filter(i => i !== productName))
-    }    
+      setSaveData(localStorage.getItem('saveData') || cartItems.filter(i => i !== productName).join(','));
+      localStorage.setItem('saveData', cartItems.filter(i => i !== productName).join(','))
+    }
   }
-  
+  //console.log(saveData)
   return (
     <div className='page'>
       <BrowserRouter>
