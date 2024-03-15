@@ -16,7 +16,7 @@ function App() {
   const [hide, setHide] = useState('hide');
   const [hideBars, setHideBars] = useState('');
   const [cartItems, setCartItems] = useState([]);
-  const [saveData, setSaveData] = useState();
+  const [saveData, setSaveData] = useState('');
 
   const onStorageUpdate = (e) => {
     const { key, newValue } = e;
@@ -27,16 +27,13 @@ function App() {
 
   useEffect(() => {
     setSaveData(localStorage.getItem('saveData') || '');
-    //localStorage.setItem('saveData', '')
-    if(saveData !== ''){
-      console.log(0)
-    }
+    setCartItems(localStorage.getItem('saveData').split(',').filter(i => i !== ''))
+
     window.addEventListener('storage', onStorageUpdate);
     return () => {
       window.removeEventListener('storage', onStorageUpdate);
     };
   }, []);
-  //console.log(cartItems)
 
   const linkStyles = ({ isActive }) => ({
     color: '#173935',
