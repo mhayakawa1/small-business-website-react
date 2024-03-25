@@ -27,8 +27,9 @@ function App() {
 
   useEffect(() => {
     setSaveData(localStorage.getItem('saveData') || '');
-    setCartItems(localStorage.getItem('saveData').split(',').filter(i => i !== ''))
-
+    if(saveData !== ''){
+      setCartItems(localStorage.getItem('saveData').split(',').filter(i => i !== ''))
+    }
     window.addEventListener('storage', onStorageUpdate);
     return () => {
       window.removeEventListener('storage', onStorageUpdate);
