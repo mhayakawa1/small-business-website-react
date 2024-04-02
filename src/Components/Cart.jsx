@@ -60,7 +60,7 @@ function Cart(props){
                         <p className='cart-product-name'>{productsData[i].Name}</p>
                         <p className='cart-unit-price'>${productsData[i].Price}</p>
                         <p className='cart-quantity'>x{quantity}</p>
-                        <button className='cart-item-button' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
+                        <button className='delete-cart-item' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
                     </div>
                 )                
             }
@@ -82,34 +82,36 @@ function Cart(props){
     }
 
     return(
-        <div>
+        <div className='cart-page'>
             <div className='shop-header'>
-                <img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                {/*<img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>*/}
                 <div className='shop-header-container'>
                     <img className='logo shop-logo' src={logo}></img>
-                    <h1>Lorem Ipsum Dolor</h1>
+                    <h1>Green Oasis Florist</h1>
                     <h2>Your Cart</h2>
                 </div>
             </div>
-            <div className='cart-page'>            
-                <div className='cart-container'>
+            <div className='cart-container'>
+                <div className='cart-table'>
+                    <h3>Shopping Cart</h3>
                     <div className='items-in-cart'>
-                        <div className='cart-table-header'>
-                            <div className='column-names'>
-                                <p className='column-name column-name-product'>Product:</p>
-                                <p className='column-name'>Unit Price:</p>
-                                <p className='column-name'>Quantity:</p>
-                            </div>
-                        </div>
+                        {props.data.length > 0 ? 
+                            <ul className='cart-table-headers'>
+                                <li className='font-small column-name-product'>Product:</li>
+                                <li className='font-small'>Unit Price:</li>
+                                <li className='font-small'>Quantity:</li>
+                            </ul>
+                        : null
+                        }
                     {props.data.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
                 <div className='subtotal-checkout-container'>
-                    <h3><i className='fas fa-shopping-cart cart-shopping-cart'></i> 
-                        You have {props.data.length} {props.data.length === 1 ? 'item' : 'items'} in your cart.</h3>
-                    <h4 className='cart-subtotal'>Subtotal: ${subtotal}</h4>
-                    <p>Tax, shipping and discounts calculated at checkout</p>
+                    <h3>Order Summary</h3>
+                    <p className='font-small'>Items: {props.data.length}</p>
+                    <p className='font-small'>Subtotal: ${subtotal}</p>
+                    <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
                     <button className='checkout-button'>
                         <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
                             Checkout<i className='fas fa-arrow-right'></i>
