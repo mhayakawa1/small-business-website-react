@@ -1,11 +1,5 @@
 /*
-Color Schemes
-Vintage Garden https://www.schemecolor.com/vintage-garden.php
-Spring Garden https://www.schemecolor.com/spring-garden-color-palette.php
-Downtown Flowers https://www.schemecolor.com/downtown-flowers.php
-Red and Beige Tulip Flowers https://www.schemecolor.com/red-and-beige-tulip-flowers.php
-Soft Pink Flowers https://www.schemecolor.com/soft-pink-flowers.php
-Green to Pink https://www.schemecolor.com/green-to-pink.php
+Color Scheme
 Green and Pink https://www.schemecolor.com/green-and-pink-color-scheme.php
 
 font-family: 'Tajawal', sans-serif;
@@ -19,7 +13,6 @@ body{
     padding: 0;
     margin: 0;
     overflow: hidden !important;
-    /*background-color: gray;*/
 }
 
 html{
@@ -1078,24 +1071,43 @@ h2{
 }
 
 .shop-header{
+    /*background-image: url('https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    filter: sepia(15%) contrast(90%);
+    margin: 0rem 0 0 0;
+    background-position: 0% 80%;*/
     width: 100%;
     height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
+    margin: 4rem 0 0 0;
     overflow-x: none;
+}
+
+.shop-header::before {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+    height: 15rem;
+    margin: 4rem 0 0 0;
+    width: 100%;
+	box-sizing: border-box;
+	background-image: url('https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: 0% 80%;
+	filter: sepia(15%) contrast(90%);
+	z-index: -1;
 }
 
 .shop-header-background{
     width: 100%;
     height: 15rem;
     object-fit: cover;
-    margin: 4rem 0 0 0;
+    margin: 0rem 0 0 0;
     filter: sepia(15%) contrast(90%);
-    /*transform: scaleX(-1);*/
-    position: absolute;
-    z-index: -1;
     object-position: 0% 80%;
 }
 
@@ -1211,9 +1223,8 @@ h2{
 
 .shop-header-container{
     width: 100%;
-    height: auto;
     padding: 1rem 0 1rem 0;
-    margin: 8rem auto 0 auto;
+    margin: 0rem auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1788,26 +1799,38 @@ h2{
 }
 
 .cart-page{
-    min-height: 30rem;
-    padding: 10% 5% 8rem 5%;
-    display: flex;
-    justify-content: center;
     gap: 5%;
+    min-height: 45rem;
+}
+
+.cart-page h3{
+    color: #173935;
+    font-family: 'Gloock', serif;
+    font-size: 2rem;
+    border-bottom: 1px solid #173935;
+    margin: 0;
 }
 
 .cart-container{
-    width: 70%;
+    display: flex;
+}
+
+.cart-table{
+    width: 65%;
+    padding: 1.5rem;
 }
 
 .cart-shopping-cart{
     font-size: 1.25rem;
 }
 
-.cart-table-header{
+.cart-table-headers{
     font-family: 'Tajawal', 'sans serif';
-    background-color: #E9A8A5;
-    padding: .5rem .5rem .75rem 1rem;
+    padding: 1rem 0;
     margin: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
 }
 
 @media screen and (max-width: 768px){
@@ -1816,7 +1839,7 @@ h2{
         flex-direction: column-reverse;
     }
 
-    .cart-container{
+    .cart-table{
         width: 100%;
         margin: 5% 0 0 0;
     }
@@ -1841,32 +1864,12 @@ h2{
     }
 }
 
-.column-names{
-    display: flex;
-    height: 1rem;
-}
-
-.column-names p{
-    width: 25%;
-    color: #173935 !important;
-}
-
-.cart-container p{
-    font-family: 'Tajawal', 'sans serif';
-    color:white;
-    font-size: .8rem;
-}
-
-.column-name-product{
-    width: 50% !important;
-}
-
 @media screen and (min-width: 1921px){
     .column-names{
         height: 2rem;
     }
     
-    .cart-container p{
+    .cart-table p{
         font-size: 1.6rem;
     }
 }
@@ -1879,7 +1882,6 @@ h2{
     padding: 0 0 1rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
 .items-in-cart h4{
@@ -1921,16 +1923,14 @@ h2{
     height: 10rem;
     display: flex;
     justify-content: space-between;
-    margin: 0;
-    padding: 1rem;
-    border: 1px solid #3D6347;
+    margin: 0 0 1rem 0;
     transition: all.5s;
     background-color: white;
 }
 
 .cart-product-image{
     width: 25%;
-    height: 8rem;    
+    height: 100%;    
     object-fit: cover;
 }
 
@@ -1954,14 +1954,15 @@ h2{
     color: #173935 !important;
 }
 
-.cart-item-button{
+.delete-cart-item{
     height: 1rem;
-    width: 5%;
+    width: 1rem;
     border-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(0,0,0,0);
+    margin: 1rem;
 }
 
 @media screen and (min-width: 1921px){
@@ -1992,26 +1993,17 @@ h2{
 }
 
 .subtotal-checkout-container{
-    background-color: #E9A8A5;
-    width: 25%;
-    height: 25%;
-    padding: 1rem;
+    /*background-color: #E9A8A5;*/
+    background-color: rgb(233,168,165, 0.25);
+    min-width: 12rem;
+    width: 35%;
+    height: 20rem;
+    padding: 1.5rem;
 }
-
-.subtotal-checkout-container h3{
-    color: #173935;
-    font-family: 'Gloock', serif;
-    font-size: 2rem;
-}
-
-.cart-subtotal{
-    font-family: 'Tajawal', 'sans serif';
-    color: white;
-}
-
+    
 .subtotal-checkout-container p{
-    font-size: .8rem;
-    color: white;
+    font-family: 'Tajawal', 'sans serif';
+    color: #173935;
 }
 
 @media screen and (max-width: 768px){
@@ -2056,7 +2048,7 @@ h2{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: white;;
+    background-color: white;
     font-family: 'Tajawal', 'sans serif';
     font-size: 1rem;
 }
