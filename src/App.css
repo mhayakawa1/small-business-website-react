@@ -1071,11 +1071,6 @@ h2{
 }
 
 .shop-header{
-    /*background-image: url('https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-size: cover;
-    filter: sepia(15%) contrast(90%);
-    margin: 0rem 0 0 0;
-    background-position: 0% 80%;*/
     width: 100%;
     height: 15rem;
     display: flex;
@@ -1085,7 +1080,7 @@ h2{
     overflow-x: none;
 }
 
-.shop-header::before {
+.shop-header::before{
 	content: " ";
 	position: absolute;
 	left: 0;
@@ -1809,15 +1804,18 @@ h2{
     font-size: 2rem;
     border-bottom: 1px solid #173935;
     margin: 0;
+    white-space: nowrap;
 }
 
 .cart-container{
     display: flex;
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .cart-table{
-    width: 65%;
-    padding: 1.5rem;
+    width: 70%;
+    padding: 1.5rem 0 0 0;
 }
 
 .cart-shopping-cart{
@@ -1994,9 +1992,9 @@ h2{
 
 .subtotal-checkout-container{
     /*background-color: #E9A8A5;*/
-    background-color: rgb(233,168,165, 0.25);
+    background-color: rgb(233,168,165);
     min-width: 12rem;
-    width: 35%;
+    width: 30%;
     height: 20rem;
     padding: 1.5rem;
 }
@@ -2004,6 +2002,15 @@ h2{
 .subtotal-checkout-container p{
     font-family: 'Tajawal', 'sans serif';
     color: #173935;
+}
+
+.order-summary-container{
+    height: 85%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0 0 0;
 }
 
 @media screen and (max-width: 768px){
@@ -2039,7 +2046,6 @@ h2{
 }*/
 
 .checkout-button{
-    margin: 5rem 0 0 0;
     width: 8rem;
     height: 2.5rem;
     transition: all .5s;
@@ -2051,6 +2057,7 @@ h2{
     background-color: white;
     font-family: 'Tajawal', 'sans serif';
     font-size: 1rem;
+    justify-self: end;
 }
 
 .checkout-button:hover{
@@ -2059,6 +2066,11 @@ h2{
 
 .checkout-button .fa-arrow-right{
     margin: 0 0 0 1rem;
+}
+
+.btn-disabled{
+    opacity: 50%;
+    pointer-events: none;
 }
 
 @media screen and (min-width: 1921px){
