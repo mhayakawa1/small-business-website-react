@@ -62,7 +62,7 @@ function Cart(props){
                         <p className='cart-quantity'>x{quantity}</p>
                         <button className='delete-cart-item' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
                     </div>
-                )                
+                )
             }
         }
 
@@ -84,9 +84,8 @@ function Cart(props){
     return(
         <div className='cart-page'>
             <div className='shop-header'>
-                {/*<img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>*/}
-                <div className='shop-header-container'>
-                    <img className='logo shop-logo' src={logo}></img>
+                <div className='shop-header-container'>                    
+                    <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
                     <h1>Green Oasis Florist</h1>
                     <h2>Your Cart</h2>
                 </div>
@@ -103,20 +102,24 @@ function Cart(props){
                             </ul>
                         : null
                         }
-                    {props.data.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
+                    {props.data.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
                 <div className='subtotal-checkout-container'>
                     <h3>Order Summary</h3>
-                    <p className='font-small'>Items: {props.data.length}</p>
-                    <p className='font-small'>Subtotal: ${subtotal}</p>
-                    <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
-                    <button className='checkout-button'>
-                        <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
-                            Checkout<i className='fas fa-arrow-right'></i>
-                        </NavLink>
-                    </button>
+                    <div className='order-summary-container'>
+                        <div>
+                            <p className='font-small'>Items: {props.data.length}</p>
+                        <p className='font-small'>Subtotal: ${subtotal}</p>
+                        <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
+                        </div>                        
+                        <button className={`checkout-button ${props.data.length === 0 ? 'btn-disabled' : null}`}>
+                            <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
+                                Checkout<i className='fas fa-arrow-right'></i>
+                            </NavLink>
+                        </button>
+                    </div>                    
                 </div>
             </div>
         </div>
