@@ -38,7 +38,7 @@ function Home(){
       }, []);
 
     return(
-        <div>
+        <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
             <div className='hero-container'>
                 <div className='hero-headline'>
@@ -192,7 +192,7 @@ function Home(){
                     <img src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
                 </div>                
             </div>
-        </div>
+        </main>
     )
 }
 export default Home;
