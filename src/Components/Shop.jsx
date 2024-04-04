@@ -48,7 +48,6 @@ function Shop(props){
     const handleChange = (categ) => {
         setShowCateg(categ);
     };
-
     const renderProducts = () =>{
         const productsArr = []
             for(let i = 0; i < productsData.length; i++){
@@ -103,7 +102,7 @@ function Shop(props){
     }
 
     return(
-        <div className='shop-page'>
+        <main className='shop-page'>
             <div className='cart-counter-container'>
                 <div className='cart-counter'>
                     <p>{props.data.length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
@@ -112,7 +111,6 @@ function Shop(props){
             </div>
 
             <div className='shop-header'>
-                {/*<img className='shop-header-background' src='https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt=''></img>*/}
                 <div className='shop-header-container'>                    
                     <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
                     <h1>Green Oasis Florist</h1>
@@ -161,37 +159,39 @@ function Shop(props){
             
             {viewProduct === false ? null : 
                 <div className='view-product-container'>
-                    <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
-                        <i className='fa-solid fa-x'></i>
-                    </button>
                     <div className='view-product'>
                         <img src={productInfo.ImageSource}></img>
-                        <div className='view-product-info'>
-                            <p className='view-product-name'>{productInfo.Name}</p>
-                            <div className='view-product-reviews'>
-                                <div className='view-product-stars'>
-                                    <i className='fa fa-star'></i>
-                                    <i className='fa fa-star'></i>
-                                    <i className='fa fa-star'></i>
-                                    <i className='fa fa-star'></i>
-                                    <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
-                                </div>                                
-                                <a href='#'>({productInfo.Reviews} Reviews)</a>
-                            </div>
-                            <p className='view-product-price'>${productInfo.Price}</p>
-                            <div className='quantity-cart-container' >
-                                <div className='quantity-container'>
-                                    <button onClick={() => setQuantity('add')}>+</button>
-                                    <p>{productQty}</p>
-                                    <button onClick={() => setQuantity('sub')}>-</button>
+                        <div className='right-panel'>
+                            <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
+                                <i className='fa-solid fa-x'></i>
+                            </button>
+                            <div className='view-product-info'>
+                                <p className='view-product-name'>{productInfo.Name}</p>
+                                <div className='view-product-reviews'>
+                                    <div className='view-product-stars'>
+                                        <i className='fa fa-star'></i>
+                                        <i className='fa fa-star'></i>
+                                        <i className='fa fa-star'></i>
+                                        <i className='fa fa-star'></i>
+                                        <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
+                                    </div>                                
+                                    <a href='#'>({productInfo.Ratings} Ratings)</a>
                                 </div>
-                                <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
-                            </div> 
-                        </div>                                               
+                                <p className='view-product-price'>${productInfo.Price}</p>
+                                <div className='quantity-cart-container' >
+                                    <div className='quantity-container'>
+                                        <button onClick={() => setQuantity('sub')}>-</button>
+                                        <p>{productQty}</p>
+                                        <button onClick={() => setQuantity('add')}>+</button>
+                                    </div>
+                                    <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
+                                </div> 
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
-        </div>
+        </main>
     )
 }
 export default Shop;
