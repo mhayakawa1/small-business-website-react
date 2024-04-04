@@ -1701,8 +1701,7 @@ h2{
     height: auto;
     background-color: white;
     margin: auto;
-    display: flex;
-    
+    display: flex;    
 }
 
 .view-product img{
@@ -1713,7 +1712,7 @@ h2{
 }
 
 .right-panel{
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     padding: .5rem;
