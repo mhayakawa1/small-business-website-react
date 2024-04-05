@@ -45,17 +45,11 @@ function Home(){
                     <img className='logo' src={logo}></img>
                     <h1>Green<br/>Oasis Florist</h1>
                     <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
-                    <ul className='social-media-hero'>
-                        <li>
-                            <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
-                        </li>
-                        <li>
-                            <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
-                        </li>
-                        <li>
-                            <a><i className='fa-brands fa-tiktok' title='TikTok' alt='Tiktok link'></i></a>
-                        </li>
-                    </ul>
+                    <div className='social-media-hero'>
+                        <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
+                        <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
+                        <a><i className='fa-brands fa-tiktok' title='TikTok' alt='Tiktok link'></i></a>                   
+                    </div>
                 </div>
                     
                 {/*Automatically fade to different image every 4 seconds*/}
