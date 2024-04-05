@@ -393,13 +393,7 @@ h2{
     gap: 5%;
 }
 
-.social-media-hero li{
-    text-align: left;
-    list-style-type: none;
-    text-decoration: none;
-}
-
-.social-media-hero li a i{
+.social-media-hero a i{
     color: white;
 }
 
@@ -1745,12 +1739,22 @@ h2{
     gap: .5rem;
 }
 
+.view-product-stars{
+    padding: 0;
+    display: flex;
+}
+
 .view-product-stars i{
-    font-size: .9rem;
+    font-size: .8rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .view-product-reviews a{
     color: #173935;
+    font-size: .8rem;
 }
 
 .view-product-price{
@@ -1775,7 +1779,7 @@ h2{
     justify-content: space-between;
     align-items: center;
     border: 1px solid #173935;
-    width: 8rem;
+    width: 9rem;
     height: 2rem;
     padding: 0;
 }
@@ -1798,6 +1802,30 @@ h2{
     display: block;
     opacity: 1;
     color: black;
+}
+
+.share-container{
+    border-top: 1px solid #173935;
+    margin: auto .5rem .5rem .5rem;
+    padding: .5rem 0 0 0;
+    height: auto;
+}
+
+.share-container p{
+    margin: 0;
+}
+
+.share-social-media{
+    display: flex;
+    gap: .5rem;
+}
+
+.share-social-media i{
+    color:  #173935;
+}
+
+.share-social-media i:hover{
+    color: #3D6347;
 }
 
 /**********SHOP PAGE ENDS HERE**********/
