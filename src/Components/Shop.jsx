@@ -187,6 +187,14 @@ function Shop(props){
                                     <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
                                 </div> 
                             </div>
+                            <div className='share-container'>
+                                <p className='font-extra-small'>Share:</p>
+                                <div className='share-social-media'>                                    
+                                    <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
+                                    <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
+                                    <a><i className='fab fa-pinterest' title='Pinterest' alt='Pinterest link'></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
