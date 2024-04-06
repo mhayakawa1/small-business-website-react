@@ -76,7 +76,7 @@ function App() {
       localStorage.setItem('saveData', cartItems.filter(i => i !== productName).join(','))
     }
   }
-console.log(cartItems)
+
   return (
     <div className='page'>
       <BrowserRouter>
