@@ -76,7 +76,7 @@ function App() {
       localStorage.setItem('saveData', cartItems.filter(i => i !== productName).join(','))
     }
   }
-
+console.log(cartItems)
   return (
     <div className='page'>
       <BrowserRouter>
@@ -95,7 +95,11 @@ function App() {
                     style={linkStyles}>Shop</NavLink>
                 <NavLink to='/cart' className='hamburger-link cart-nav-button' onClick={toggleMenu}
                     style={linkStyles}>
-                    <i className='fas fa-cart-shopping navbar-icon'></i>Cart</NavLink>
+                    <div className='cart-counter-container'>
+                      <i className='fas fa-cart-shopping'></i>
+                      <span className='cart-counter'>{cartItems.length}</span>
+                    </div>
+                    Cart</NavLink>
               </div>
             </div>
           </div>
