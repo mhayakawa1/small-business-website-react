@@ -103,13 +103,6 @@ function Shop(props){
 
     return(
         <main className='shop-page'>
-            <div className='cart-counter-container'>
-                <div className='cart-counter'>
-                    <p>{props.data.length}<i className='fas fa-shopping-cart shop-shopping-cart'></i></p> 
-                    <button className='clear-cart-button' onClick={() => reset()}>Clear Cart</button>
-                </div>
-            </div>
-
             <div className='shop-header'>
                 <div className='shop-header-container'>                    
                     <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
