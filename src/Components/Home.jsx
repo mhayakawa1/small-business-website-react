@@ -52,7 +52,6 @@ function Home(){
                     </div>
                 </div>
                     
-                {/*Automatically fade to different image every 4 seconds*/}
                 {getHeroImage()}
             </div>
 
