@@ -81,7 +81,7 @@ function App() {
     <div className='page'>
       <BrowserRouter>
         <div>
-          <NavbarMenu />
+          <NavbarMenu data={cartItems} />
           <div className='hamburger-menu'>
             <div className='show-hamburger-menu-container'>
               <button className={`hamburger-button show-hamburger-menu ${showMenu === true ? {hideBars} : null}`} onClick={toggleMenu}><i className='fas fa-bars menu-icon'></i></button>
