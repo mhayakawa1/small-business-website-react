@@ -91,14 +91,30 @@ p{
 .cart-nav-button{
     word-spacing: 10px;
     white-space: nowrap;
+    width: 5rem;
 }
 
 .cart-counter-container{
-    border: 1px solid red;
+    width: 1.75rem;
+    display: flex;
 }
 
 .fa-cart-shopping{
-    margin: 0 4px 0 -2px;
+    font-size: 1.25rem;
+    margin: 0 0 0 0;
+}
+
+.cart-counter{
+    height: .75rem;
+    width: .75rem;
+    font-size: .5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: white;
+    display: block;
+    line-height: .7rem;
+    padding: .03rem 0 0 0;
+    margin: -.3rem 0 0 -.5rem;
 }
 
 @media screen and (min-width: 429px){
@@ -1173,7 +1189,7 @@ h2{
 
 .clear-cart-button:hover{    
     background-color: rgb(255,255,255, .4);
-}*/
+}
 
 @media screen and (max-width: 428px){
     .cart-counter-container{
@@ -1213,7 +1229,7 @@ h2{
         font-size: 1.6rem;
         border-radius: 2rem;
     }
-}
+}*/
 
 .shop-header-container{
     width: 100%;
