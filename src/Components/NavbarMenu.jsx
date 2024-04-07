@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 {/*      
 */}          
           
-function NavbarMenu(){
+function NavbarMenu(props){
     const linkStyles = ({ isActive }) => ({
       color: '#173935',
       background: isActive ? '#E8908F' : '#E9A8A5',
@@ -20,11 +20,12 @@ function NavbarMenu(){
           style={linkStyles}>Shop</NavLink>
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
           style={linkStyles}>
-          <i className='fas fa-cart-shopping navbar-icon' alt=''></i>
+          <div className='cart-counter-container'>
+            <i className='fas fa-cart-shopping navbar-icon' alt=''></i>
+            <span className='cart-counter'>{props.data.length}</span>
+          </div>          
           Cart
         </NavLink>
-        {/*<NavLink to='/checkout' className='col-md-1 navbar-link cart-nav-button'
-          style={linkStyles}>Checkout</NavLink>*/}
       </div>
     )
 }
