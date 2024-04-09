@@ -56,7 +56,7 @@ function Home(){
             </div>
 
             <div className='our-bestsellers'>                
-                <div className='bestseller-cards'>
+                {/*<div className='bestseller-cards'>
                     <div className='bestseller-card bestseller-1'>
                         <img className='bestseller-card-image' src={Sympathy10}></img>
                         <div className='bestseller-card-info b-c-info-1'>
@@ -83,6 +83,36 @@ function Home(){
                         <div className='bestseller-card-info'>
                             <p>Sollicitudin Nibh</p>
                             <p>$23.00</p>
+                        </div>
+                    </div>
+                </div>*/}
+                <div className='bestseller-cards'>
+                    <div className='bestseller-card horizontal'>
+                        <img className='card-image' src={Sympathy10}></img>
+                        <div className='card-info'>
+                            <p className='font-extra-small'>Lobortis Scelerisque</p>
+                            <p className='font-extra-small'>$45.00</p>
+                        </div>
+                    </div>
+                    <div className='bestseller-card vertical'>
+                        <img className='card-image' src={Birthday7}></img>
+                        <div className='card-info'>
+                            <p className='font-extra-small'>Dignissim Cras</p>
+                            <p className='font-extra-small'>$32.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card vertical'>
+                        <img className='card-image' src={GetWell2}></img>
+                        <div className='card-info'>
+                            <p className='font-extra-small'>Euismod Quis</p>
+                            <p className='font-extra-small'>$17.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card horizontal'>
+                        <img className='card-image' src={LoveRom4}></img>
+                        <div className='card-info'>
+                            <p className='font-extra-small'>Sollicitudin Nibh</p>
+                            <p className='font-extra-small'>$23.00</p>
                         </div>
                     </div>
                 </div>
