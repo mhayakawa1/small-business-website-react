@@ -55,37 +55,7 @@ function Home(){
                 {getHeroImage()}
             </div>
 
-            <div className='our-bestsellers'>                
-                {/*<div className='bestseller-cards'>
-                    <div className='bestseller-card bestseller-1'>
-                        <img className='bestseller-card-image' src={Sympathy10}></img>
-                        <div className='bestseller-card-info b-c-info-1'>
-                            <p>Lobortis Scelerisque</p>
-                            <p>$45.00</p>
-                        </div>
-                    </div>
-                    <div className='bestseller-card bestseller-2'>
-                        <img className='bestseller-card-image' src={Birthday7}></img>
-                        <div className='bestseller-card-info bestseller-card-info-2'>
-                            <p>Dignissim Cras</p>
-                            <p>$32.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card bestseller-3'>
-                        <img className='bestseller-card-image' src={GetWell2}></img>
-                        <div className='bestseller-card-info bestseller-card-info-2'>
-                            <p>Euismod Quis</p>
-                            <p>$17.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card bestseller-4'>
-                        <img className='bestseller-card-image' src={LoveRom4}></img>
-                        <div className='bestseller-card-info'>
-                            <p>Sollicitudin Nibh</p>
-                            <p>$23.00</p>
-                        </div>
-                    </div>
-                </div>*/}
+            <div className='our-bestsellers'>
                 <div className='bestseller-cards'>
                     <div className='bestseller-card horizontal'>
                         <img className='card-image' src={Sympathy10}></img>
