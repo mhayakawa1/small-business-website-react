@@ -177,7 +177,7 @@ p{
 }
 
 .menu-icon{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -680,10 +680,6 @@ h2{
     white-space: nowrap;
 }
 
-@media screen and (max-width: 428px){
-    .bestseller-cards{
-    }
-}
 
 @media screen and (max-width: 768px){
     .bestseller-cards{
@@ -707,6 +703,26 @@ h2{
 
     .card-info{
         padding: 0 .5rem;
+    }
+}
+
+@media screen and (max-width: 428px){
+    .card-image{
+        height: 10rem;
+    }
+
+    .card-info{
+        margin: -2.5rem 0 0 0;
+        height: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding: .2rem .5rem 0 .5rem !important;
+    }
+
+    .card-info p{
+        height: 1rem;
+        margin: 0;
     }
 }
 
@@ -859,7 +875,7 @@ h2{
 .review-card{
     width: 100%;
     height: 30rem;
-    padding: 0;
+    padding: 0 0 1rem 0;
     background-color: #E9A8A5;
     display: flex;
     flex-direction: column;
@@ -876,29 +892,34 @@ h2{
 .review-content{
     height: 80%;
     width: 100%;
-    padding: 1rem 0.5 1rem 0.5;
+    padding: 1% 8% 1% 8%;
     display: flex;
     flex-direction: column;
 }
 
 .review-stars{
     color: white;
-    margin: 1rem 2rem 0 2rem;
+    margin: 1rem 0 0 0;
+    height: 1rem;
+    display: flex;
+}
+
+.fa-star{
+    font-size: .8rem;
 }
 
 .review-text{
     color: white;
-    margin: .5rem 2rem 0 2rem;
+    margin: .5rem 0 auto 0;
 }
 
 .review-attribution{
-    margin: 0 2rem 0 2rem;
+    margin: 0;
     height: 3rem;
-
 }
 
 .review-name{
-    margin: .5rem 0 0 0;
+    margin: 0 0 0 0;
 }
 
 @media screen and (max-width: 376px){
@@ -2066,7 +2087,7 @@ h2{
 .subtotal-checkout-container{
     /*background-color: #E9A8A5;*/
     background-color: rgb(233,168,165);
-    min-width: 12rem;
+    min-width: 20rem;
     width: 30%;
     height: 20rem;
     padding: 1.5rem;
