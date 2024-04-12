@@ -12,6 +12,9 @@ import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 
 function Home(){
+    const navButtonStyles = () => ({
+        width: '8rem'
+    })
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
@@ -91,11 +94,11 @@ function Home(){
                     <p className='bestsellers-text font-extra-small'>Explore our bestselling items and make moments more memorable
                      with the gift of flowers. Whether it's a birthday, anniversary, or any other milestone, our bouquets add a 
                      touch of elegance and celebration to your gatherings.</p>
-                    <NavLink to='/shop' className='nav-link-button'>
                     <button className='col-xs-1'>
-                        See More<i className='fas fa-arrow-right'></i>
+                        <NavLink to='/shop' className='nav-link-button' style={{navButtonStyles}}>
+                            See More<i className='fas fa-arrow-right'></i>
+                        </NavLink>
                     </button>
-                    </NavLink>
                 </div>
             </div>
 
