@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function Cart(props){
     let subtotal = 0
-    const navButtonStyles = ({ isActive }) => ({
+    const navButtonStyles = () => ({
         width: '8rem'
     })
 
@@ -96,9 +96,9 @@ function Cart(props){
                     <div className='items-in-cart'>
                         {props.data.length > 0 ? 
                             <ul className='cart-table-headers'>
-                                <li className='font-small column-name-product'>Product:</li>
-                                <li className='font-small'>Unit Price:</li>
-                                <li className='font-small'>Quantity:</li>
+                                <li className='column-name-product'>Product:</li>
+                                <li className=''>Unit Price:</li>
+                                <li className=''>Quantity:</li>
                             </ul>
                         : null
                         }
