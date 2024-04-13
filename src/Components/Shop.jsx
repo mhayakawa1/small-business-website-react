@@ -114,7 +114,7 @@ function Shop(props){
             <div className='shop-menu'>
                 <div className='dropdown'>
                     <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'>
-                        View Categories
+                        Categories
                         <div className='angle-down-div'>
                             <i className='fas fa-angle-down'></i>
                         </div>
