@@ -19,9 +19,9 @@ function NavbarMenu(props){
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
           style={linkStyles}>
           <div className='cart-counter-container'>
-            <i className='fas fa-cart-shopping navbar-icon' alt=''></i>
+            <i className='fas fa-cart-shopping navbar-icon' alt='Shopping cart'></i>
             <span className='cart-counter'>{props.data.length}</span>
-          </div>          
+          </div>
           Cart
         </NavLink>
       </div>
