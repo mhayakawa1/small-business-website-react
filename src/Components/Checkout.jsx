@@ -70,46 +70,6 @@ function Checkout(props){
         }
     };
 
-    function deleteItem(productItem){        
-        setInCart(inCart.replaceAll(productItem, '').replaceAll(',,', ','))
-        localStorage.setItem('inCart', inCart.replaceAll(productItem, '').replaceAll(',,', ','))
-    }
-    
-    const getItemsInCart = () =>{
-        const itemsArr = [];
-
-        for(let i = 0; i < productsData.length; i++){
-            if(props.data.includes(productsData[i].Name)){
-                const quantity = props.data.filter(element => element === productsData[i].Name).length;
-                //subtotal = subtotal+productsData[i].Price*quantity;
-                //localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
-                itemsArr.push(
-                    <div key={i} className='cart-product'>
-                        <img src={productsData[i].ImageSource} className='cart-product-image'></img>
-                        <p className='cart-product-name'>{productsData[i].Name}</p>
-                        <p className='cart-unit-price'>${productsData[i].Price}</p>
-                        <p className='cart-quantity'>x{quantity}</p>
-                        <button className='cart-item-button' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
-                    </div>
-                )                
-            }
-        }
-{/*
-        subtotal.toString()
-        if(/\./.test(subtotal) === false){
-            subtotal = subtotal + '.00';
-            localStorage.setItem('subtotal', subtotal)
-        }
-        if(subtotal[subtotal.length - 2] === '.'){
-            subtotal = subtotal + '0'
-            localStorage.setItem('subtotal',  subtotal)
-        }*/}
-
-        return (
-            itemsArr
-        )
-    }
-
     const handleChange = (e) => {
         if(codeValid !== true){
             setInputCode(e)
@@ -141,6 +101,32 @@ function Checkout(props){
           window.removeEventListener('storage', onStorageUpdate);
         };
     }, []);
+
+    function deleteItem(productQty, productName){
+        props.clickHandler(productQty, productName, 'delete');
+    }
+    
+    const getItemsInCart = () =>{
+        const itemsArr = [];
+
+        for(let i = 0; i < productsData.length; i++){
+            if(props.data.includes(productsData[i].Name)){
+                const quantity = props.data.filter(element => element === productsData[i].Name).length;
+                itemsArr.push(
+                    <div key={i} className='cart-product'>
+                        <img src={productsData[i].ImageSource} className='cart-product-image'></img>
+                        <p className='cart-product-name'>{productsData[i].Name}</p>
+                        <p className='cart-unit-price'>${productsData[i].Price}</p>
+                        <p className='cart-quantity'>x{quantity}</p>
+                        <button className='delete-cart-item' onClick={() => deleteItem(quantity, productsData[i].Name)}><i className='fas fa-x'></i></button>
+                    </div>
+                )                
+            }
+        }
+        return (
+            itemsArr
+        )
+    }
     
     const submitForm = (e) =>{
         e.preventDefault()
