@@ -107,7 +107,7 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
-            <Route path='/checkout' element={<Checkout data={cartItems} />}/>
+            <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
