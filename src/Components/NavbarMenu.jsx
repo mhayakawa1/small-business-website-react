@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../logo.svg';
 import { NavLink } from 'react-router-dom';     
           
 function NavbarMenu(props){
@@ -12,8 +13,13 @@ function NavbarMenu(props){
     
     return(
       <div className='navbar-menu'>
-        <NavLink to='/' className='col-md-1 navbar-link'
-          style={linkStyles}>Home</NavLink>
+        <span className='navbar-filler'></span>
+        <div className='site-name-logo'>
+          <img className='logo' src={logo}></img>
+          <a href='/'>Green Oasis Florist</a>
+        </div>
+      
+        
         <NavLink to='/shop' className='col-md-1 navbar-link'
           style={linkStyles}>Shop</NavLink>
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
