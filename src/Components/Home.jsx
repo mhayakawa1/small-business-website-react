@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../logo.svg';
 import heroImage1 from '../ProductImages/hero1.jpeg';
 import heroImage2 from '../ProductImages/hero2.jpeg';
 import heroImage3 from '../ProductImages/hero3.jpg';
@@ -45,9 +44,8 @@ function Home(){
             <img className='home-background' src={HomeBackground} alt=''></img>
             <div className='hero-container'>
                 <div className='hero-headline'>
-                    <img className='logo' src={logo}></img>
-                    <h1>Green<br/>Oasis Florist</h1>
-                    <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
+                    <h1>Explore arrangements for any occasion</h1>
+                    <h2 className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</h2>
                     <div className='social-media-hero'>
                         <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
                         <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
@@ -91,7 +89,7 @@ function Home(){
                 </div>
                 <div className='bestsellers-header'>
                     <h3>Our Bestsellers</h3>
-                    <p className='bestsellers-text font-extra-small'>Explore our bestselling items and make moments more memorable
+                    <p className='bestsellers-text font-extra-small'>Check out our bestselling items and make moments more memorable
                      with the gift of flowers. Whether it's a birthday, anniversary, or any other milestone, our bouquets add a 
                      touch of elegance and celebration to your gatherings.</p>
                     <button className='col-xs-1'>
