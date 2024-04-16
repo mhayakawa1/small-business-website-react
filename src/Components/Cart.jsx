@@ -84,10 +84,8 @@ function Cart(props){
     return(
         <div className='cart-page'>
             <div className='shop-header'>
-                <div className='shop-header-container'>                    
-                    <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
-                    <h1>Green Oasis Florist</h1>
-                    <h2>Your Cart</h2>
+                <div className='shop-header-container'>
+                    <h1>Your Cart</h1>
                 </div>
             </div>
             <div className='cart-container'>
