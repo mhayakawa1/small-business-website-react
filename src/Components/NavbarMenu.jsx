@@ -15,10 +15,9 @@ function NavbarMenu(props){
       <div className='navbar-menu'>
         <span className='navbar-filler'></span>
         <div className='site-name-logo'>
-          <img className='logo' src={logo}></img>
+          <img className='logo' src={logo} alt='Green Oasis Florist Logo'></img>
           <a href='/'>Green Oasis Florist</a>
         </div>
-      
         
         <NavLink to='/shop' className='col-md-1 navbar-link'
           style={linkStyles}>Shop</NavLink>
