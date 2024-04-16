@@ -3,8 +3,6 @@ import logo from '../logo.svg';
 import axios from 'axios';
 
 function Shop(props){
-    const [inCart, setInCart] = useState('');
-
     const [showCateg, setShowCateg] = useState('Bestsellers');
     const [gridNum, setGridNum] = useState(3);
 
@@ -96,18 +94,12 @@ function Shop(props){
             value: i
         })
     }
-
-    function reset(){
-        props.clickHandler('clear', 'clear')
-    }
-
+console.log()
     return(
         <main className='shop-page'>
             <div className='shop-header'>
-                <div className='shop-header-container'>                    
-                    <img className='logo shop-logo' src={logo} alt='Green Oasis Florist company logo'></img>
-                    <h1>Green Oasis Florist</h1>
-                    <h2>{showCateg}</h2>
+                <div className='shop-header-container'>
+                    <h1>{showCateg}</h1>
                 </div>
             </div>
 
@@ -120,11 +112,26 @@ function Shop(props){
                         </div>
                     </button>
                     <ul className='dropdown-menu dropdown-menu-right'>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Bestsellers')}>Bestsellers</a></li>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Sympathy')}>Sympathy</a></li>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Love & Romance')}>Love & Romance</a></li>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Get Well')}>Get Well</a></li>
-                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Birthday')}>Birthday</a></li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Bestsellers')}>
+                            Bestsellers {`(${productsData.filter(i => i.Bestseller === 'true').length})`}
+                            </a>
+                        </li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Sympathy')}>
+                            Sympathy {`(${productsData.filter(i => i.Category === 'Sympathy').length})`}
+                            </a>
+                        </li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Love & Romance')}>
+                            Love & Romance {`(${productsData.filter(i => i.Category === 'Love & Romance').length})`}
+                            </a>
+                        </li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Get Well')}>
+                            Get Well {`(${productsData.filter(i => i.Category === 'Get Well').length})`}
+                            </a>
+                        </li>
+                        <li><a className='dropdown-item' href='#' onClick={() => handleChange('Birthday')}>
+                            Birthday {`(${productsData.filter(i => i.Category === 'Birthday').length})`}
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div className='shop-menu-buttons'>
