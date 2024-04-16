@@ -23,7 +23,11 @@ function Home(){
         return (
             <div key={'key'} className='hero-image-container'>
               <img key={image2} src={image2} className={`hero-image`} />
-              <img key={image1} src={image1} className={`${fadeIn} hero-image`} />
+              <img key={image1} src={image1} className={`${fadeIn} hero-image`} 
+                alt={image1 === heroImage1 ? 'Person holding bouquet of pink, yellow, and green flowers by a table of flower arranging supplies' 
+                    : image1 === heroImage2 ? 'Close up of a vase of white and pink flowers'
+                    : 'Close up of person handling a bouquet of red and orange flowers'}
+              />
             </div>
         );
     }
@@ -45,7 +49,7 @@ function Home(){
             <div className='hero-container'>
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
-                    <h2 className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</h2>
+                    <h2 className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</h2>
                     <div className='social-media-hero'>
                         <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
                         <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
