@@ -42,6 +42,12 @@ html{
     font-size: 1rem;
 }
 
+h2{
+    color: white;
+    font-size: 2rem;
+    font-family: 'Gloock', 'serif';
+}
+
 p{
     font-family: 'Tajawal', sans-serif;
     color: #234843;
@@ -72,7 +78,8 @@ p{
     height: 4rem;
     background-color: #E9A8A5;
     position: fixed;
-    display: none;
+    /*display: none;*/
+    display: flex;
     justify-content: flex-end;
 }
 
@@ -157,11 +164,15 @@ p{
     .cart-counter-container{
         display: none;
     }
+
+    .navbar-filler, .navbar-link{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 429px){
     .navbar-menu{
-        display: flex;
+        
     }
 }
 
@@ -388,26 +399,29 @@ h1{
     font-family: 'Gloock', 'serif';
 }
 
-h2{
+.hero-headline p{
     font-size: 1rem;
     font-family: 'Tajawal', sans-serif;
     color: #234843;
+}
+
+@media screen and (max-width: 428px){
+    h1{
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 376px){
     .logo{
         margin: 0 0 0 1rem;
     }
-    h1{
-        font-size: 2.75rem;
-    }
 }
 
 @media screen and (max-width: 768px){
     .hero-container{
         margin: 4rem auto 0 auto;
-        min-height: 60rem;
-        height: 100vh;
+        min-height: 45rem;
+        height: 75vh;
         flex-direction: column;
     }   
 
@@ -580,7 +594,7 @@ h2{
 }
 
 .bestsellers-header h3{
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Gloock', serif;
     color: white;
 }
@@ -859,19 +873,16 @@ h2{
     filter: drop-shadow(2px 2px 8px rgb(0,0,0,.4));
 }
 
-.customer-reviews h3{
-    font-size: 2rem;
+.customer-reviews h2{
     text-align: center;
     margin: 0 0 0 0;
-    font-family: 'Gloock', serif;
-    color: #E9A8A5;
 }
 
 .review-p{
     text-align: center;
     margin: 2rem auto 0 auto;
     width: 75%;
-    color: #E9A8A5;
+    color: white;
 }
 
 @media screen and (max-width: 768px){
@@ -1112,11 +1123,12 @@ h2{
 
 @media screen and (max-width: 768px){
     .about-image{
-        height: 40rem;
+        height: 25rem;
     }
 
     .about-image img{
-        height: 40rem;
+        height: 25rem;
+        object-position: 100% 25%;
     }
 }
 
