@@ -49,7 +49,7 @@ function Home(){
             <div className='hero-container'>
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
-                    <h2 className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</h2>
+                    <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <div className='social-media-hero'>
                         <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
                         <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
@@ -92,7 +92,7 @@ function Home(){
                     </div>
                 </div>
                 <div className='bestsellers-header'>
-                    <h3>Our Bestsellers</h3>
+                    <h2>Our Bestsellers</h2>
                     <p className='bestsellers-text font-extra-small'>Check out our bestselling items and make moments more memorable
                      with the gift of flowers. Whether it's a birthday, anniversary, or any other milestone, our bouquets add a 
                      touch of elegance and celebration to your gatherings.</p>
@@ -105,8 +105,8 @@ function Home(){
             </div>
 
             <div className='customer-reviews'>
-                <h3>Customer Reviews</h3>
-                <p className='review-p'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
+                <h2>Customer Reviews</h2>
+                <p className='review-p font-extra-small'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
                 make their moments truly special. Your feedback inspires us to continue crafting unforgettable floral 
                 arrangements and providing exceptional service.</p>
                 <div className='reviews-container'>
@@ -178,7 +178,7 @@ function Home(){
 
             <div className='about'>
                 <div className='about-text'>
-                    <h3>About</h3>
+                    <h2>About</h2>
                     <p className='font-extra-small'>
                     In our early days, Green Oasis operated out of a modest greenhouse, where we handpicked each bloom and crafted 
                     unique arrangements for local customers.<br/><br/>As our business grew, we expanded our offerings to include floral 
