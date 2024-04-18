@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
 import { NavLink } from 'react-router-dom';     
+import HamburgerMenu from './HamburgerMenu';
           
 function NavbarMenu(props){
     const linkStyles = ({ isActive }) => ({
@@ -29,6 +30,7 @@ function NavbarMenu(props){
           </div>
           Cart
         </NavLink>
+        <HamburgerMenu />
       </div>
     )
 }
