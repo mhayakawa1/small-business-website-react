@@ -78,7 +78,6 @@ p{
     height: 4rem;
     background-color: #E9A8A5;
     position: fixed;
-    /*display: none;*/
     display: flex;
     justify-content: flex-end;
 }
@@ -198,7 +197,6 @@ p{
 /*HAMBURGER MENU STARTS HERE*/
 .hamburger-menu{
     z-index: 4;
-    margin: 0 0 -4rem 0;
 }
 
 .show-hamburger-menu-container{
@@ -221,12 +219,12 @@ p{
 
 .hamburger-button{
     width: auto;
-    height: auto;
+    height: 4rem;
     border: none;
     align-self: flex-end;
     background-color: rgb(0,0,0,0);
     color: white;
-    padding: 2.5% 2.5% 0 0;
+    padding: 0 4%;
 }
 
 .menu-icon{
