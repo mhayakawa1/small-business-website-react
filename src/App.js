@@ -7,6 +7,7 @@ import Home from './Components/Home';
 import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
+import HamburgerMenu from './Components/HamburgerMenu';
 
 import NavbarMenu from './Components/NavbarMenu';
 import Error from './Components/Error';
@@ -82,27 +83,7 @@ function App() {
       <BrowserRouter>
         <div>
           <NavbarMenu data={cartItems} />
-          <div className='hamburger-menu'>
-            <div className='show-hamburger-menu-container'>
-              <button className={`hamburger-button show-hamburger-menu ${showMenu === true ? {hideBars} : null}`} onClick={toggleMenu}><i className='fas fa-bars menu-icon'></i></button>
-            </div>
-            <div className={`hamburger-menu-container ${hide} ${showMenu === false ? 'menu-fade-out' : 'menu-fade-in'}`}>
-              <button className='hamburger-button' onClick={toggleMenu}><i className='fas fa-x menu-icon'></i></button>
-              <div className='hamburger-menu-items'>
-                <NavLink to='/' className='hamburger-link' onClick={toggleMenu}
-                    style={linkStyles}>Home</NavLink>
-                <NavLink to='/shop' className='hamburger-link' onClick={toggleMenu}
-                    style={linkStyles}>Shop</NavLink>
-                <NavLink to='/cart' className='hamburger-link cart-nav-button' onClick={toggleMenu}
-                    style={linkStyles}>
-                    <div className='cart-counter-container'>
-                      <i className='fas fa-cart-shopping'></i>
-                      <span className='cart-counter'>{cartItems.length}</span>
-                    </div>
-                    Cart</NavLink>
-              </div>
-            </div>
-          </div>
+          <HamburgerMenu />
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
