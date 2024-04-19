@@ -169,12 +169,6 @@ p{
     }
 }
 
-@media screen and (min-width: 429px){
-    .navbar-menu{
-        
-    }
-}
-
 @media screen and (min-width: 1921px){
     .navbar-menu{
         height: 8rem;
@@ -1185,6 +1179,16 @@ h1{
     margin: 0 0 0 0;
     filter: sepia(15%) contrast(90%);
     object-position: 0% 80%;
+}
+
+@media screen and (max-width: 428px){    
+    .shop-header{
+        height: 8rem;
+    }
+
+    .shop-header::before{
+        height: 8rem;
+    }
 }
 
 /*@media screen and (max-width: 768px){    
