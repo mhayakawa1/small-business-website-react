@@ -29,7 +29,9 @@ function HamburgerMenu(){
     return(
         <div className='hamburger-menu'>
             <div className='show-hamburger-menu-container'>
-              <button className={`hamburger-button show-hamburger-menu ${showMenu === true ? {hideBars} : null}`} onClick={toggleMenu}><i className='fas fa-bars menu-icon'></i></button>
+                <button className={`hamburger-button show-hamburger-menu ${showMenu === true ? {hideBars} : null}`} onClick={toggleMenu}>
+                    <i className='fas fa-bars menu-icon'></i>
+                </button>
             </div>
             <div className={`hamburger-menu-container ${hide} ${showMenu === false ? 'menu-fade-out' : 'menu-fade-in'}`}>
               <button className='hamburger-button' onClick={toggleMenu}><i className='fas fa-x menu-icon'></i></button>
