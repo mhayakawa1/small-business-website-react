@@ -7,15 +7,11 @@ import Home from './Components/Home';
 import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
-import HamburgerMenu from './Components/HamburgerMenu';
 
 import NavbarMenu from './Components/NavbarMenu';
 import Error from './Components/Error';
 
 function App() {
-  const [showMenu, setShowMenu] = useState(false);
-  const [hide, setHide] = useState('hide');
-  const [hideBars, setHideBars] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [saveData, setSaveData] = useState('');
 
@@ -36,27 +32,6 @@ function App() {
       window.removeEventListener('storage', onStorageUpdate);
     };
   }, []);
-
-  const linkStyles = ({ isActive }) => ({
-    color: '#173935',
-    background: isActive ? '#E8908F' : '#E9A8A5',
-    textDecoration: 'none',
-    textAlign: 'center',
-    fontFamily: 'Tajawal, sans-serif'
-  })
-
-  const toggleMenu = () => {
-    setShowMenu(showMenu => !showMenu)
-    setTimeout(() => {
-      if(showMenu === true){
-        setHide('hide')
-        setHideBars('')
-      }else{
-        setHide('')
-        setHideBars('hide')
-      }
-    }, 250);
-  }
 
   const handleClick = (productQty, productName, cartChange) => {
       let addToCart = []
@@ -83,7 +58,6 @@ function App() {
       <BrowserRouter>
         <div>
           <NavbarMenu data={cartItems} />
-          <HamburgerMenu />
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
