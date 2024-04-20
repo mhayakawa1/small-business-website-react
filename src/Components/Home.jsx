@@ -111,7 +111,9 @@ function Home(){
                 arrangements and providing exceptional service.</p>
                 <div className='reviews-container'>
                     <div className='review-card'>
-                        <img className='review-card-image' src='https://images.pexels.com/photos/5706258/pexels-photo-5706258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='review-card-image' 
+                            alt='Bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder'
+                            src='https://images.pexels.com/photos/5706258/pexels-photo-5706258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
                                 <i className='fas fa-star'></i>
@@ -132,7 +134,9 @@ function Home(){
                         </div>
                     </div>
                     <div className='review-card'>
-                        <img className='review-card-image' src='https://images.pexels.com/photos/15765427/pexels-photo-15765427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='review-card-image' 
+                            alt='Person with a white sleeve touching a bouqet of white tulips'
+                            src='https://images.pexels.com/photos/15765427/pexels-photo-15765427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
                                 <i className='fas fa-star'></i>
@@ -153,7 +157,9 @@ function Home(){
                         </div>    
                     </div>
                     <div className='review-card'>
-                        <img className='review-card-image' src='https://images.pexels.com/photos/8605039/pexels-photo-8605039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
+                        <img className='review-card-image' 
+                            alt='Bouquet of pale pink peonies on a white sheet with an open book and cup of coffee'
+                            src='https://images.pexels.com/photos/8605039/pexels-photo-8605039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
                                 <i className='fas fa-star'></i>
