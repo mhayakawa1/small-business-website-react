@@ -27,7 +27,7 @@ function Shop(props){
         return data;
     }
 
-    const fetchProductsData = () => {
+    const getProductsData = () => {
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
         axios.get(url)
         .then((response) => {
@@ -35,12 +35,12 @@ function Shop(props){
             setProductsData(parsedData);
         })
         .catch((error) => {
-            console.error('Error fetching CSV data:', error);
+            console.error('Error', error);
         })
     }
     
     useEffect(() => {
-        fetchProductsData()
+        getProductsData()
     }, []);
 
     const handleChange = (categ) => {
