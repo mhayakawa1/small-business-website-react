@@ -7,7 +7,8 @@ import Home from './Components/Home';
 import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
-
+import About from './Components/About';
+import HamburgerMenu from './Components/HamburgerMenu';
 import NavbarMenu from './Components/NavbarMenu';
 import Error from './Components/Error';
 
@@ -58,11 +59,13 @@ function App() {
       <BrowserRouter>
         <div>
           <NavbarMenu data={cartItems} />
+          <HamburgerMenu />
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
+            <Route path='/about' element={<About />}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
@@ -98,8 +101,8 @@ function App() {
         <div className='footer-col footer-3'>
           <ul className='footer-list other-information font-extra-small'>
             <li><a className='footer-link'>FAQs</a></li>
-            <li><a className='footer-link'>Return Policy</a></li>
-            <li><a className='footer-link'>Customer Service</a></li>
+            <li><a className='footer-link'>Shipping & Returns</a></li>
+            <li><a className='footer-link'>Privacy Policy</a></li>
           </ul>
         </div>
         <p className='copyright-statement'>© 2023 Green Oasis Florist. All rights reserved.</p>
