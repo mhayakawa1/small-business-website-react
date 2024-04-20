@@ -186,9 +186,7 @@ function Home(){
                     of flowers to the desert, brightening the lives of those who call Phoenix home and those who visit the city.
                     </p>
                 </div>
-                <div className='about-image'>
-                    <img src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
-                </div>                
+                    <img className='about-image' src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
             </div>
         </main>
     )
