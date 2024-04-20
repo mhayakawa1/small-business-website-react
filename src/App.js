@@ -7,7 +7,6 @@ import Home from './Components/Home';
 import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
-import About from './Components/About';
 import HamburgerMenu from './Components/HamburgerMenu';
 import NavbarMenu from './Components/NavbarMenu';
 import Error from './Components/Error';
@@ -65,7 +64,6 @@ function App() {
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
-            <Route path='/about' element={<About />}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
