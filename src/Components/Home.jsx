@@ -112,7 +112,7 @@ function Home(){
                 <div className='reviews-container'>
                     <div className='review-card'>
                         <img className='review-card-image' 
-                            alt='Bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder.'
+                            alt='Customer&quot;s bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder.'
                             src='https://images.pexels.com/photos/5706258/pexels-photo-5706258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
@@ -135,7 +135,7 @@ function Home(){
                     </div>
                     <div className='review-card'>
                         <img className='review-card-image' 
-                            alt='Person with a white sleeve touching a bouqet of white tulips'
+                            alt='Customer in a white sweater touching a bouqet of white tulips'
                             src='https://images.pexels.com/photos/15765427/pexels-photo-15765427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
@@ -158,7 +158,7 @@ function Home(){
                     </div>
                     <div className='review-card'>
                         <img className='review-card-image' 
-                            alt='Bouquet of peonies on a white sheet with an open book and cup of coffee.'
+                            alt='Customer&quot;s bouquet of peonies on a white sheet with an open book and cup of coffee.'
                             src='https://images.pexels.com/photos/8605039/pexels-photo-8605039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
