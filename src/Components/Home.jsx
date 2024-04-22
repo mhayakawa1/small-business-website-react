@@ -112,7 +112,7 @@ function Home(){
                 <div className='reviews-container'>
                     <div className='review-card'>
                         <img className='review-card-image' 
-                            alt='Bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder'
+                            alt='Bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder.'
                             src='https://images.pexels.com/photos/5706258/pexels-photo-5706258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
@@ -158,7 +158,7 @@ function Home(){
                     </div>
                     <div className='review-card'>
                         <img className='review-card-image' 
-                            alt='Bouquet of pale pink peonies on a white sheet with an open book and cup of coffee'
+                            alt='Bouquet of peonies on a white sheet with an open book and cup of coffee.'
                             src='https://images.pexels.com/photos/8605039/pexels-photo-8605039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
                         <div className='review-content'>
                             <p className='review-stars'>
@@ -192,7 +192,7 @@ function Home(){
                     of flowers to the desert, brightening the lives of those who call Phoenix home and those who visit the city.
                     </p>
                 </div>
-                    <img className='about-image' src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
+                    <img className='about-image' src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations.'></img>
             </div>
         </main>
     )
