@@ -1051,13 +1051,14 @@ h1{
     filter: drop-shadow(2px 2px 8px rgb(0,0,0,.4));
 }
   
-.about-text{
+.about .about-text{
     grid-column: 1/2;
     grid-row: 1;
     margin: 20% 15% 0 10%;
+    color: white;
 }
 
-.about-text p{    
+.about .about-text p{
     color: white;
 }
 
@@ -1144,20 +1145,36 @@ h1{
 /**********ABOUT PAGE STARTS HERE**********/
 .about-page{
     min-height: 60rem;
+    width: 80%;
     padding: 0 0 5rem 0;
     overflow-x: none;
-    margin: 0;
+    margin: auto;
 }
 
-.story-container{
+.about-page h2{
+    color: #234843;
+}
+
+.about-container{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 2rem 0;
 }
 
-.story-container img{
-    width: 25rem;
-    height: 25rem;
+.about-text{
+    width: 50%;
+    height: auto;
+    color: #234843;
+    align-self: center;
+}
+
+.about-img{
+    width: 40%;
+    height: 20rem;
     object-fit: cover;
 }
+
 /**********ABOUT PAGE ENDS HERE**********/
 
 /**********SHOP PAGE STARTS HERE**********/
