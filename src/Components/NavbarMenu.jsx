@@ -20,6 +20,8 @@ function NavbarMenu(props){
           <a href='/'>Green Oasis Florist</a>
         </div>
         
+        <NavLink to='/about' className='col-md-1 navbar-link'
+          style={linkStyles}>About</NavLink>
         <NavLink to='/shop' className='col-md-1 navbar-link'
           style={linkStyles}>Shop</NavLink>
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
