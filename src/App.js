@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 import Home from './Components/Home';
+import About from './Components/About';
 import Shop from './Components/Shop';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
@@ -61,6 +62,7 @@ function App() {
           <HamburgerMenu />
           <Routes>
             <Route path='/' element={<Home />}/>
+            <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
