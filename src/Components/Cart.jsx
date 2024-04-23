@@ -82,7 +82,7 @@ function Cart(props){
     }
 
     return(
-        <div className='cart-page'>
+        <main className='cart-page'>
             <div className='shop-header'>
                 <div className='shop-header-container'>
                     <h1>Your Cart</h1>
@@ -120,7 +120,7 @@ function Cart(props){
                     </div>                    
                 </div>
             </div>
-        </div>
+        </main>
     )
 }
 export default Cart;
