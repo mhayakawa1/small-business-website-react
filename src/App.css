@@ -189,14 +189,6 @@ p{
 }
 /*NAVBAR ENDS HERE*/
 
-.container{
-    width: 100%;
-    min-height: 100rem;
-    height: auto;
-    padding: 5rem 0 0 0;
-    margin: 0 0 0 0;
-}
-
 /*HAMBURGER MENU STARTS HERE*/
 .hamburger-menu{
     z-index: 4;
@@ -1145,25 +1137,64 @@ h1{
 /**********ABOUT PAGE STARTS HERE**********/
 .about-page{
     min-height: 60rem;
-    width: 80%;
-    padding: 0 0 5rem 0;
+    width: 100%;
     overflow-x: none;
-    margin: auto;
+}
+
+.about-page header{
+    margin: 4rem 0 0 0;
+    width: 10%;
+    height: 20rem;
+}
+
+.about-page header img{
+    width: 100vw;
+    height: 20rem;
+    object-fit: cover;
+    object-position: 0% 15%;
+    filter: sepia(15%) contrast(90%) brightness(.5);
+}
+
+.about-header-container{
+    position: absolute;
+    z-index: 2;
+    top: 4rem;
+    width: 100vw;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+.about-header-container h1{
+    color: white;
+}
+
+.about-header-container p{
+    color: white;
 }
 
 .about-page h2{
     color: #234843;
 }
 
-.about-container{
-    width: 100%;
+.about-page .container{
+    min-width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0 2rem 0;
+    padding: 2rem 0;
+    margin: 0;
+}
+
+.our-mission{
+    background-color: #E9EDEC;
 }
 
 .about-text{
     width: 50%;
+    margin: auto;
     height: auto;
     color: #234843;
     align-self: center;
