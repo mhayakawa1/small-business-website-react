@@ -97,11 +97,11 @@ function Shop(props){
 console.log()
     return(
         <main className='shop-page'>
-            <div className='shop-header'>
+            <section className='shop-header'>
                 <div className='shop-header-container'>
                     <h1>{showCateg}</h1>
                 </div>
-            </div>
+            </section>
 
             <div className='shop-menu'>
                 <div className='dropdown'>
@@ -153,9 +153,9 @@ console.log()
                 </div>
             </div>            
             
-            <div className='products-container'>
+            <section className='products-container'>
                 {renderProducts()}
-            </div>
+            </section>
             
             {viewProduct === false ? null : 
                 <div className='view-product-container'>
