@@ -14,6 +14,18 @@ function About(){
                     <p>Supplying quality flowers to the local community since 1990.</p>
                 </div>
             </header>
+            <section className='container our-mission'>
+                <img className='about-img mission-img' src={MissionImage}></img>
+                <div className='about-text'>
+                    <h2>Our Mission</h2>
+                    <p className='font-extra-small'>
+                        At Green Oasis, our mission is to spread joy while being kind to the planet. We are committed to providing our 
+                        community with beautiful flowers sourced from sustainable greenhouses. From locally grown blooms to 
+                        eco-friendly biodegradable packaging, we strive to minimize our environmental impact every step of the way. With every purchase, 
+                        you're not just buying flowers, you're contributing to a greener, more sustainable future.
+                    </p>
+                </div>
+            </section>
             <section className='container our-story'>
                 <div className='about-text'>
                     <h2>Our Story</h2>
@@ -26,18 +38,6 @@ function About(){
                 </div>
                 <img className='about-img' src={OwnersImage} alt='Green Oasis owner smiling and holding a vase of carnations'></img>
             </section> 
-            <section className='container our-mission'>
-                <img className='about-img' src={MissionImage}></img>
-                <div className='about-text'>
-                    <h2>Our Mission</h2>
-                    <p className='font-extra-small'>
-                        At Green Oasis, our mission is to spread joy while being kind to the planet. We are committed to providing our 
-                        community with beautiful flowers sourced from sustainable greenhouses. From locally grown blooms to 
-                        eco-friendly biodegradable packaging, we strive to minimize our environmental impact every step of the way. With every purchase, 
-                        you're not just buying flowers, you're contributing to a greener, more sustainable future.
-                    </p>
-                </div>
-            </section>
         </main>
     )
 }
