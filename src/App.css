@@ -369,33 +369,35 @@ p{
 /*HERO SECTION STARTS HERE*/
 .hero-container{
     width: 100%;
-    height: 30rem;
+    height: auto;
     display: flex;
-    margin: 4rem auto 0 auto;
+    margin: 4rem 0 0 0;
     filter: drop-shadow(2px 2px 8px rgb(0,0,0,.4));
 }
 
 .hero-headline{
-    width: 50%;
+    width: 60%;
     height: 100%;
-    background-color: #E9A8A5;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 8%;
+    position: absolute;
+    z-index: 1;
+    top: 4rem;
 }
 
 h1{
     text-align: left;
     font-size: 3rem;
-    color: #234843;
+    color: white;
     font-family: 'Gloock', 'serif';
 }
 
 .hero-headline p{
     font-size: 1rem;
     font-family: 'Tajawal', sans-serif;
-    color: #234843;
+    color: white;
 }
 
 @media screen and (max-width: 428px){
@@ -459,21 +461,24 @@ h1{
 
 .social-media-hero a i:hover{
     text-decoration: none;
-    color: #234843;
+    color: #E9A8A5;
 }
 
 .hero-image-container{
-    width: 50%;
-    height: 30rem;
+    width: 100%;
+    min-height: 30rem;
+    height: 100vh;
     object-fit: cover;
+    margin: 4rem 0 0 0;
 }
 
 .hero-image{
     position: absolute;
-    width: 50%;
-    height: 30rem;
+    width: 100vw;
+    min-height: 30rem;
+    height: 100vh;
     object-fit: cover;
-    filter: sepia(15%) contrast(90%);
+    filter: sepia(15%) contrast(90%) brightness(.5);
 }
 
 @media screen and (max-width: 376px){
@@ -1184,17 +1189,16 @@ h1{
     min-width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 2rem 10%;
     margin: 0;
 }
 
-.our-mission{
+.our-story{
     background-color: #E9EDEC;
 }
 
 .about-text{
     width: 50%;
-    margin: auto;
     height: auto;
     color: #234843;
     align-self: center;
@@ -1204,6 +1208,10 @@ h1{
     width: 40%;
     height: 20rem;
     object-fit: cover;
+}
+
+.mission-img{
+    object-position: 0% 80%;
 }
 
 /**********ABOUT PAGE ENDS HERE**********/
