@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import heroImage1 from '../ProductImages/hero1.jpeg';
-import heroImage2 from '../ProductImages/hero2.jpeg';
-import heroImage3 from '../ProductImages/hero3.jpg';
+import heroImage1 from '../OtherImages/hero1.jpg';
+import heroImage2 from '../OtherImages/hero2.jpeg';
+import heroImage3 from '../OtherImages/hero3.jpg';
 import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
 import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
 import Birthday7 from '../ProductImages/dignissim cras.jpeg';
@@ -46,7 +46,7 @@ function Home(){
     return(
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
-            <section className='hero-container'>
+            {/*<section className='hero-container'>
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
@@ -58,9 +58,21 @@ function Home(){
                 </div>
                     
                 {getHeroImage()}
+            </section>*/}
+            <section className='hero'>
+                {getHeroImage()}
+                <div className='hero-headline'>
+                    <h1>Explore arrangements for any occasion</h1>
+                    <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
+                    <div className='social-media-hero'>
+                            <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
+                            <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
+                            <a><i className='fa-brands fa-tiktok' title='TikTok' alt='Tiktok link'></i></a>                   
+                    </div>    
+                </div>
             </section>
 
-            <section className='our-bestsellers'>
+            {/**/}<section className='our-bestsellers'>
                 <div className='bestseller-cards'>
                     <div className='bestseller-card horizontal'>
                         <img className='card-image' src={Sympathy10}></img>
@@ -104,7 +116,7 @@ function Home(){
                 </div>
             </section>
 
-            <section className='customer-reviews'>
+            {/**/}<section className='customer-reviews'>
                 <h2>Customer Reviews</h2>
                 <p className='review-p font-extra-small'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
                 make their moments truly special. Your feedback inspires us to continue crafting unforgettable floral 
@@ -182,7 +194,7 @@ function Home(){
                 </div>
             </section>
 
-            <section className='about'>
+            {/**/}<section className='about'>
                 <div className='about-text'>
                     <h2>About</h2>
                     <p className='font-extra-small'>
