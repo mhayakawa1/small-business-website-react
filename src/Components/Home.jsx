@@ -46,19 +46,6 @@ function Home(){
     return(
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
-            {/*<section className='hero-container'>
-                <div className='hero-headline'>
-                    <h1>Explore arrangements for any occasion</h1>
-                    <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
-                    <div className='social-media-hero'>
-                        <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
-                        <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
-                        <a><i className='fa-brands fa-tiktok' title='TikTok' alt='Tiktok link'></i></a>                   
-                    </div>
-                </div>
-                    
-                {getHeroImage()}
-            </section>*/}
             <section className='hero'>
                 {getHeroImage()}
                 <div className='hero-headline'>
@@ -72,7 +59,7 @@ function Home(){
                 </div>
             </section>
 
-            {/**/}<section className='our-bestsellers'>
+            {/*<section className='our-bestsellers'>
                 <div className='bestseller-cards'>
                     <div className='bestseller-card horizontal'>
                         <img className='card-image' src={Sympathy10}></img>
@@ -114,8 +101,42 @@ function Home(){
                         </NavLink>
                     </button>
                 </div>
+            </section>*/}
+            <section className='bestsellers'>
+                <div className='section-header'>
+                    <h2>Bestsellers</h2>
+                </div>
+                <div className='bestseller-cards'>
+                    <div className='bestseller-card'>
+                        <img src={Sympathy10}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Lobortis Scelerisque</p>
+                            <p className='font-small'>$45.00</p>
+                        </div>
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={Birthday7}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Dignissim Cras</p>
+                            <p className='font-small'>$32.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={GetWell2}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Euismod Quis</p>
+                            <p className='font-small'>$17.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={LoveRom4}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Sollicitudin Nibh</p>
+                            <p className='font-small'>$23.00</p>
+                        </div>
+                    </div>
+                </div>
             </section>
-
             {/**/}<section className='customer-reviews'>
                 <h2>Customer Reviews</h2>
                 <p className='review-p font-extra-small'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
