@@ -566,7 +566,11 @@ h1{
 }
 
 .bestsellers .section-header{
-    margin: 5% 10% 2.5% 10%;
+    width: 80%;
+    margin: 5% auto 2.5% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .bestsellers .section-header h2{
@@ -575,36 +579,53 @@ h1{
     color: #234843;
 }
 
+.bestsellers a{
+    font-family: 'Gloock', serif;
+    color: #234843;
+    text-decoration: underline;    
+}
+
+.bestsellers a:hover{
+    color: #3D6347;
+}
+
 .bestsellers-text{
     color: white;
 }
 
-.bestsellers-header button{
+.bestsellers .nav-link-button{
     width: 8rem;
-    transition: all .5s;
     height: 2.5rem;
-    border-style: none;
+    transition: all .5s;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: rgb(0,0,0,0);
+}
+
+.bestsellers .nav-link-button:hover{
+    width: 10rem;
+}
+
+.see-more{
+    width: 8rem;
+    height: 2.5rem;
+    transition: all .5s;
+    padding: 0 .75rem;
+    text-decoration: none;
     color: white;
+    background-color:#E8908F;
+    font-family: 'Gloock', serif;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color:#E8908F;
-    font-family: 'Gloock', serif;
-    filter: drop-shadow(2px 2px 8px rgb(0,0,0,.4));
 }
 
-.bestsellers-header button:hover{
-    width: 11rem;
-    background-color:#E9A8A5;
-}
-
-.nav-link-button{
-    text-decoration: none;
+.see-more:hover{
     color: white;
-}
-
-.nav-link-button:hover{
-    color: white;
+    width: 10rem;
 }
 
 .nav-link-button .fa-arrow-right{
@@ -670,29 +691,33 @@ h1{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 1rem;
     row-gap: 2rem;
-    border: 1px solid red;
     margin: 0 10%;
+    border: 1px solid red;
 }
 
 .bestseller-card{
-    width: 12rem;
+    width: 22%;
+    height: auto;
     font-family: 'Gloock', serif;
+    border: 1px solid red;
 }
 
 .bestseller-card img{
-    width: 12rem;
-    height: 12rem;
+    width: 100%;
+    height: 50%;
     object-fit: cover;
     font-family: 'Gloock', serif;
     filter: sepia(15%) contrast(90%);
 }
 
 .card-info{
-    height: 2.5rem;
-    width: 12rem;
+    width: 10rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .5rem 0;
 }
 
 .card-info p{
@@ -704,9 +729,6 @@ h1{
 
 @media screen and (max-width: 768px){
     .bestseller-cards{
-        width: 100%;
-        margin: 0;
-        justify-content: space-evenly;
     }
     
 }
