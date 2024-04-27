@@ -11,9 +11,6 @@ import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 
 function Home(){
-    const navButtonStyles = () => ({
-        width: '8rem'
-    })
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
@@ -105,6 +102,7 @@ function Home(){
             <section className='bestsellers'>
                 <div className='section-header'>
                     <h2>Bestsellers</h2>
+                    <a href='/shop'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
                     <div className='bestseller-card'>
