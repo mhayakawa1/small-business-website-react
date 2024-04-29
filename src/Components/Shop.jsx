@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import logo from '../logo.svg';
 import axios from 'axios';
 
 function Shop(props){
@@ -40,7 +39,7 @@ function Shop(props){
     }
     
     useEffect(() => {
-        getProductsData()
+        getProductsData();
     }, []);
 
     const handleChange = (categ) => {
@@ -94,7 +93,7 @@ function Shop(props){
             value: i
         })
     }
-console.log()
+
     return(
         <main className='shop-page'>
             <section className='shop-header'>
