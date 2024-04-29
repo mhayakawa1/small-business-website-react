@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 import heroImage1 from '../OtherImages/hero1.jpg';
 import heroImage2 from '../OtherImages/hero2.jpeg';
 import heroImage3 from '../OtherImages/hero3.jpg';
@@ -10,12 +11,13 @@ import GetWell2 from '../ProductImages/euismod quis.jpeg';
 import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 
-function Home(){
+function Home(props){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
-
+    //const [bestseller, setBestseller] = useState('');
+    
     function getHeroImage(){
         return (
             <div key={'key'} className='hero-image-container'>
@@ -38,7 +40,12 @@ function Home(){
             getHeroImage();
         }, 8000);
         return () => clearInterval(interval);
-      }, []);
+    }, []);
+
+    const setViewBestseller = (item) => {
+        //props.clickHandler(undefined, undefined, undefined, item)
+        //console.log(item)
+    }
 
     return(
         <main>
@@ -55,50 +62,6 @@ function Home(){
                     </div>    
                 </div>
             </section>
-
-            {/*<section className='our-bestsellers'>
-                <div className='bestseller-cards'>
-                    <div className='bestseller-card horizontal'>
-                        <img className='card-image' src={Sympathy10}></img>
-                        <div className='card-info'>
-                            <p className='font-extra-small'>Lobortis Scelerisque</p>
-                            <p className='font-extra-small'>$45.00</p>
-                        </div>
-                    </div>
-                    <div className='bestseller-card vertical'>
-                        <img className='card-image' src={Birthday7}></img>
-                        <div className='card-info'>
-                            <p className='font-extra-small'>Dignissim Cras</p>
-                            <p className='font-extra-small'>$32.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card vertical'>
-                        <img className='card-image' src={GetWell2}></img>
-                        <div className='card-info'>
-                            <p className='font-extra-small'>Euismod Quis</p>
-                            <p className='font-extra-small'>$17.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card horizontal'>
-                        <img className='card-image' src={LoveRom4}></img>
-                        <div className='card-info'>
-                            <p className='font-extra-small'>Sollicitudin Nibh</p>
-                            <p className='font-extra-small'>$23.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div className='bestsellers-header'>
-                    <h2>Our Bestsellers</h2>
-                    <p className='bestsellers-text font-extra-small'>Check out our bestselling items and make moments more memorable
-                     with the gift of flowers. Whether it's a birthday, anniversary, or any other milestone, our bouquets add a 
-                     touch of elegance and celebration to your gatherings.</p>
-                    <button className='col-xs-1'>
-                        <NavLink to='/shop' className='nav-link-button' style={{navButtonStyles}}>
-                            See More<i className='fas fa-arrow-right'></i>
-                        </NavLink>
-                    </button>
-                </div>
-            </section>*/}
             <section className='bestsellers'>
                 <div className='section-header'>
                     <h2>Bestsellers</h2>
@@ -106,7 +69,7 @@ function Home(){
                 </div>
                 <div className='bestseller-cards'>
                     <div className='bestseller-card'>
-                        <img src={Sympathy10}></img>
+                        <img src={Sympathy10}></img>                       
                         <div className='card-info'>
                             <p className='font-small'>Lobortis Scelerisque</p>
                             <p className='font-small'>$45.00</p>
@@ -134,6 +97,17 @@ function Home(){
                         </div>
                     </div>
                 </div>
+            </section>
+            <section className='features'>
+                 <div className='feature'>
+                    <p>Quick Delivery</p>
+                 </div>
+                 <div className='feature'>
+                    <p>Eco-Friendly</p>
+                 </div>
+                 <div className='feature'>
+                    <p>Family Owned</p>
+                 </div>
             </section>
             {/**/}<section className='customer-reviews'>
                 <h2>Customer Reviews</h2>
