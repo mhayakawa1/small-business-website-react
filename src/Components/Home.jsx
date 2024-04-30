@@ -11,6 +11,8 @@ import GetWell2 from '../ProductImages/euismod quis.jpeg';
 import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 
+
+
 function Home(props){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
@@ -100,12 +102,15 @@ function Home(props){
             </section>
             <section className='features'>
                  <div className='feature'>
+                    <i className='fa fa-truck'></i>
                     <p>Quick Delivery</p>
                  </div>
                  <div className='feature'>
+                 <i className='fa fa-leaf'></i>
                     <p>Eco-Friendly</p>
                  </div>
                  <div className='feature'>
+                 <i className='fa fa-hands-helping'></i>
                     <p>Family Owned</p>
                  </div>
             </section>
