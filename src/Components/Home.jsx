@@ -10,8 +10,9 @@ import Birthday7 from '../ProductImages/dignissim cras.jpeg';
 import GetWell2 from '../ProductImages/euismod quis.jpeg';
 import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
-
-
+import Delivery from '../OtherImages/delivery.png';
+import EcoFriendly from '../OtherImages/ecofriendly.png';
+import FamilyOwned from '../OtherImages/familyowned.png';
 
 function Home(props){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
@@ -102,19 +103,19 @@ function Home(props){
             </section>
             <section className='features'>
                  <div className='feature'>
-                    <i className='fa fa-truck'></i>
+                    <img src={Delivery}></img>
                     <p>Quick Delivery</p>
                  </div>
                  <div className='feature'>
-                 <i className='fa fa-leaf'></i>
+                    <img src={EcoFriendly}></img>
                     <p>Eco-Friendly</p>
                  </div>
                  <div className='feature'>
-                 <i className='fa fa-hands-helping'></i>
+                    <img src={FamilyOwned}></img>
                     <p>Family Owned</p>
                  </div>
             </section>
-            {/**/}<section className='customer-reviews'>
+            {/*<section className='customer-reviews'>
                 <h2>Customer Reviews</h2>
                 <p className='review-p font-extra-small'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
                 make their moments truly special. Your feedback inspires us to continue crafting unforgettable floral 
@@ -187,6 +188,65 @@ function Home(props){
                                 <p className='review-name'>- Michelle Scott</p>
                                 <p className='review-source'><i className='fab fa-facebook review-source'></i> Facebook</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>*/}
+            <section className='reviews'>
+                <h2>Customer Reviews</h2>
+                <div className='review-cards'>
+                    <div className='review-card'>
+                        <p className='review-stars'>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                        </p>
+                        <p className='review-text font-small'>
+                        "I received a surprise delivery from Green Oasis today, and I couldn't be happier. 
+                        The bouquet is a masterpiece of colors and fragrances. It brightened my entire day, and 
+                        I feel so appreciated."
+                        </p>
+                        <div className='attribution'>
+                            <p className='name'>- Daniel White</p>
+                            <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
+                        </div>
+                    </div>
+                    <div className='review-card'>
+                        <p className='review-stars'>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                        </p>
+                        <p className='review-text font-small'>
+                        "I ordered a sympathy bouquet from Green Oasis during a difficult time, and I was deeply 
+                            touched by the beauty and thoughtfulness of the arrangement. It brought comfort and solace 
+                            to our family during a challenging period."
+                        </p>
+                        <div className='attribution'>
+                            <p className='name'>- Jessica Garcia</p>
+                            <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
+                        </div>
+                    </div>
+                    <div className='review-card'>
+                        <p className='review-stars'>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                            <i className='fas fa-star'></i>
+                        </p>
+                        <p className='review-text font-small'>
+                        "I'm a regular customer at Green Oasis, and I can say that they never disappoint.
+                             The staff is incredibly friendly and knowledgeable, always helping me find the perfect 
+                             arrangement for any occasion."
+                        </p>
+                        <div className='attribution'>
+                            <p className='name'>- Michelle Scott</p>
+                            <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
                         </div>
                     </div>
                 </div>
