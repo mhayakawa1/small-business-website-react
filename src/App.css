@@ -1050,14 +1050,21 @@ h1{
     margin: 0 0 2rem 0;
 }
 
+@media screen and (min-width: 769px){
+    .review-cards button{
+        display: none;
+    }
+}
+
+
 .review-cards{
     display: flex;
     justify-content: space-around;
 }
 
 .review-card{
-    width: 15rem;
-    height: 22rem;
+    width: 14rem;
+    height: 24rem;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -1065,6 +1072,12 @@ h1{
     justify-content: start;
     gap: 0;
     padding: 1.5rem;
+}
+
+@media screen and (max-width: 768px){
+    .review-card{
+        display: none;
+    }
 }
 
 .review-stars{
