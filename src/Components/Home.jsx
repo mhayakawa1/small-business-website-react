@@ -19,6 +19,8 @@ function Home(props){
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
+    const [reviewClasses, setReviewClasses] = useState(1);
+    
     //const [bestseller, setBestseller] = useState('');
     
     function getHeroImage(){
@@ -36,7 +38,7 @@ function Home(props){
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setImagesArr(imagesArr.unshift(imagesArr.pop()));
+            //setImagesArr(imagesArr.unshift(imagesArr.pop()));
             setImage2(imagesArr[1]);
             setImage1(imagesArr[0]);
             setFadeIn('fade-in');
@@ -45,9 +47,16 @@ function Home(props){
         return () => clearInterval(interval);
     }, []);
 
-    const setViewBestseller = (item) => {
-        //props.clickHandler(undefined, undefined, undefined, item)
-        //console.log(item)
+    const reviewCarousel = (direction) => {
+        if(direction === 'right' && reviewClasses < 3){
+            setReviewClasses(reviewClasses+1)
+        }else if(direction === 'right' && reviewClasses === 3){
+            setReviewClasses(1)
+        }else if(direction === 'left' && reviewClasses > 1){
+            setReviewClasses(reviewClasses-1)
+        }else if(direction === 'left' && reviewClasses === 1){
+            setReviewClasses(3)
+        }
     }
 
     return(
@@ -195,7 +204,8 @@ function Home(props){
             <section className='reviews'>
                 <h2>Customer Reviews</h2>
                 <div className='review-cards'>
-                    <div className='review-card'>
+                    <button onClick={() => reviewCarousel('left')}><i className='fa fa-chevron-left'></i></button>
+                    <div className={`review-card ${reviewClasses === 1 ? 'show-review' : ''}`}>
                         <p className='review-stars'>
                             <i className='fas fa-star'></i>
                             <i className='fas fa-star'></i>
@@ -213,7 +223,7 @@ function Home(props){
                             <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
                         </div>
                     </div>
-                    <div className='review-card'>
+                    <div className={`review-card ${reviewClasses === 2 ? 'show-review' : ''}`}>
                         <p className='review-stars'>
                             <i className='fas fa-star'></i>
                             <i className='fas fa-star'></i>
@@ -230,8 +240,8 @@ function Home(props){
                             <p className='name'>- Jessica Garcia</p>
                             <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
                         </div>
-                    </div>
-                    <div className='review-card'>
+                    </div> 
+                    <div className={`review-card ${reviewClasses === 3 ? 'show-review' : ''}`}>
                         <p className='review-stars'>
                             <i className='fas fa-star'></i>
                             <i className='fas fa-star'></i>
@@ -249,6 +259,7 @@ function Home(props){
                             <p className='source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
                         </div>
                     </div>
+                    <button onClick={() => reviewCarousel('right')}><i className='fa fa-chevron-right'></i></button>
                 </div>
             </section>
 
