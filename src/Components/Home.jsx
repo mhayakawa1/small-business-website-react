@@ -124,83 +124,6 @@ function Home(props){
                     <p>Family Owned</p>
                  </div>
             </section>
-            {/*<section className='customer-reviews'>
-                <h2>Customer Reviews</h2>
-                <p className='review-p font-extra-small'>From weddings and birthdays to everyday surprises, our customers have trusted us to 
-                make their moments truly special. Your feedback inspires us to continue crafting unforgettable floral 
-                arrangements and providing exceptional service.</p>
-                <div className='reviews-container'>
-                    <div className='review-card'>
-                        <img className='review-card-image' 
-                            alt='Customer&quot;s bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder.'
-                            src='https://images.pexels.com/photos/5706258/pexels-photo-5706258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                        <div className='review-content'>
-                            <p className='review-stars'>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                            </p>
-                            <p className='review-text font-extra-small'>
-                            "I received a surprise delivery from Green Oasis today, and I couldn't be happier. 
-                            The bouquet is a masterpiece of colors and fragrances. It brightened my entire day, and 
-                            I feel so appreciated."
-                            </p>
-                            <div className='review-attribution'>
-                                <p className='review-name'>- Daniel White</p>
-                                <p className='review-source'><i className='fab fa-yelp review-source-icon'></i> Yelp</p>
-                            </div> 
-                        </div>
-                    </div>
-                    <div className='review-card'>
-                        <img className='review-card-image' 
-                            alt='Customer in a white sweater touching a bouqet of white tulips'
-                            src='https://images.pexels.com/photos/15765427/pexels-photo-15765427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                        <div className='review-content'>
-                            <p className='review-stars'>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                            </p>
-                            <p className='review-text font-extra-small'>
-                            "I ordered a sympathy bouquet from Green Oasis during a difficult time, and I was deeply 
-                            touched by the beauty and thoughtfulness of the arrangement. It brought comfort and solace 
-                            to our family during a challenging period."
-                            </p>
-                            <div className='review-attribution'>
-                                <p className='review-name'>- Jessica Garcia</p>
-                                <p className='review-source'><i className='fab fa-yelp review-source'></i> Yelp</p>
-                            </div>
-                        </div>    
-                    </div>
-                    <div className='review-card'>
-                        <img className='review-card-image' 
-                            alt='Customer&quot;s bouquet of peonies on a white sheet with an open book and cup of coffee.'
-                            src='https://images.pexels.com/photos/8605039/pexels-photo-8605039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'></img>
-                        <div className='review-content'>
-                            <p className='review-stars'>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                                <i className='fas fa-star'></i>
-                            </p>
-                            <p className='review-text font-extra-small'>
-                            "I'm a regular customer at Green Oasis, and I can say that they never disappoint.
-                             The staff is incredibly friendly and knowledgeable, always helping me find the perfect 
-                             arrangement for any occasion."
-                            </p>
-                            <div className='review-attribution'>
-                                <p className='review-name'>- Michelle Scott</p>
-                                <p className='review-source'><i className='fab fa-facebook review-source'></i> Facebook</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>*/}
             <section className='reviews'>
                 <h2>Customer Reviews</h2>
                 <div className='review-cards'>
@@ -261,6 +184,14 @@ function Home(props){
                     </div>
                     <button onClick={() => reviewCarousel('right')}><i className='fa fa-chevron-right'></i></button>
                 </div>
+            </section>
+            <section className='instagram'>
+                <div>
+                    <h2>@GreenOasisFlorist</h2>
+                    <button>Follow Us</button>
+                </div>
+                
+                <div className='ig-posts'></div>
             </section>
 
             {/**/}<section className='about'>
