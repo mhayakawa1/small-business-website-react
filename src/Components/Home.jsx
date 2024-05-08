@@ -18,15 +18,13 @@ import IG2 from '../OtherImages/IG2.jpg';
 import IG3 from '../OtherImages/IG3.jpeg';
 import IG4 from '../OtherImages/IG4.jpg'
 
-function Home(props){
+function Home(){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewClasses, setReviewClasses] = useState(1);
-    
-    //const [bestseller, setBestseller] = useState('');
-    
+
     function getHeroImage(){
         return (
             <div key={'key'} className='hero-image-container'>
@@ -42,12 +40,12 @@ function Home(props){
 
     useEffect(() => {
         const interval = setInterval(() => {
-            //setImagesArr(imagesArr.unshift(imagesArr.pop()));
+            setImagesArr(imagesArr.unshift(imagesArr.pop()));
             setImage2(imagesArr[1]);
             setImage1(imagesArr[0]);
             setFadeIn('fade-in');
             getHeroImage();
-        }, 8000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
