@@ -13,6 +13,10 @@ import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 import Delivery from '../OtherImages/delivery.png';
 import EcoFriendly from '../OtherImages/ecofriendly.png';
 import FamilyOwned from '../OtherImages/familyowned.png';
+import IG1 from '../OtherImages/IG1.jpeg';
+import IG2 from '../OtherImages/IG2.jpg';
+import IG3 from '../OtherImages/IG3.jpeg';
+import IG4 from '../OtherImages/IG4.jpg'
 
 function Home(props){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
@@ -186,25 +190,37 @@ function Home(props){
                 </div>
             </section>
             <section className='instagram'>
-                <div>
+                <div className='ig-header'>
                     <h2>@GreenOasisFlorist</h2>
                     <button>Follow Us</button>
                 </div>
-                
-                <div className='ig-posts'></div>
-            </section>
-
-            {/**/}<section className='about'>
-                <div className='about-text'>
-                    <h2>About</h2>
-                    <p className='font-extra-small'>
-                    In our early days, Green Oasis operated out of a modest greenhouse, where we handpicked each bloom and crafted 
-                    unique arrangements for local customers.<br/><br/>As our business grew, we expanded our offerings to include floral 
-                    design services for weddings, events, and other occasions. Our mission remains unwavering: to bring the magic 
-                    of flowers to the desert, brightening the lives of those who call Phoenix home and those who visit the city.
-                    </p>
+                <div className='ig-posts'>
+                    <a>
+                        <img src={IG1} alt='Bouquet of pink and magenta carnations with foliage on a stand with a notebook and pen cup holder.'></img>
+                        <span><i className='fab fa-instagram'></i></span>
+                    </a>
+                    <a>
+                        <img src={IG2} alt='Person in a white sweater touching a bouqet of white tulips'></img>
+                        <span><i className='fab fa-instagram'></i></span>
+                    </a>
+                    <a>
+                        <img src={IG3} alt='Customer&quot;s bouquet of peonies on a white sheet with an open book and cup of coffee.'></img>
+                        <span><i className='fab fa-instagram'></i></span>
+                    </a>
+                    <a>
+                        <img src={IG4} alt='Person arranging a basket of carnations and baby&quot;s breath'></img>
+                        <span><i className='fab fa-instagram'></i></span>
+                    </a>                    
                 </div>
-                    <img className='about-image' src={AboutImage} alt='Green Oasis owner smiling and holding a vase of carnations.'></img>
+            </section>
+            <section className='newsletter'>
+                <h2>Sign up for our newsletter</h2>
+                <p>Stay informed about store updates and receive discount codes.</p>
+                <div className='submit-email'>
+                    <input placeholder='Email'></input>
+                    <button>Subscribe</button>
+                </div>
+                
             </section>
         </main>
     )
