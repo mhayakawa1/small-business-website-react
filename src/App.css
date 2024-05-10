@@ -995,9 +995,10 @@ h1{
 /*NEWSLETTER STARTS HERE*/
 .newsletter{
     width: 80%;
+    height: auto;
     margin: 0 auto;
     text-align: center;
-    padding: 6rem;
+    padding: 8rem 6rem;
 }
 
 .newsletter p{
