@@ -187,6 +187,42 @@ p{
         font-size: 2rem;
     }
 }
+
+.shop-dropdown{
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    z-index: 1;    
+    width: 15rem;
+    height: auto;
+    margin: 4rem 0 0 0;
+    top: 0;
+    right: 0;
+    transition: all 1s;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+.shop-link:hover .shop-dropdown{
+    opacity: 1;
+}
+
+.shop-dropdown a{
+    color: #234843;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+    height: 2.5rem;
+    padding: 0 0 0 2rem;
+}
+
+.shop-dropdown a:hover{
+    background-color: #E9EDEC;
+}
 /*NAVBAR ENDS HERE*/
 
 /*HAMBURGER MENU STARTS HERE*/
