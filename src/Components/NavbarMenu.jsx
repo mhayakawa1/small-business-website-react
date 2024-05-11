@@ -22,8 +22,16 @@ function NavbarMenu(props){
         
         <NavLink to='/about' className='col-md-1 navbar-link'
           style={linkStyles}>About</NavLink>
-        <NavLink to='/shop' className='col-md-1 navbar-link'
-          style={linkStyles}>Shop</NavLink>
+        <NavLink to='/shop' className='col-md-1 navbar-link shop-link'
+          style={linkStyles}>Shop
+          <div class='shop-dropdown'>
+            <a href='#'>Bestsellers</a>
+            <a href='#'>Sympathy</a>
+            <a href='#'>Love & Romance</a>
+            <a href='#'>Get Well</a>
+            <a href='#'>Birthday</a>
+          </div>
+        </NavLink>
         <NavLink to='/cart' className='col-md-1 navbar-link cart-nav-button'
           style={linkStyles}>
           <div className='cart-counter-container'>
