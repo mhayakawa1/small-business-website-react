@@ -26,29 +26,28 @@ function NavbarMenu(props){
             <img className='logo' src={logo} alt='Green Oasis Florist Logo'></img>
             <a href='/'>Green Oasis Florist</a>
           </div>
-          <NavLink to='/cart' className='col-md-1 navbar-item cart-nav-button'
+          <NavLink to='/cart' className='col-md-1 navbar-item cart-link'
             style={cartStyles}>
             <div className='cart-counter-container'>
               <i className='fas fa-cart-shopping navbar-icon' alt='Shopping cart'></i>
               <span className='cart-counter'>{props.data.length}</span>
             </div>
           </NavLink>
-        <nav>
-          <NavLink to='/about' className='col-md-1 navbar-item'
-            style={linkStyles}>About</NavLink>
-          {/*<NavLink to='/shop' className='col-md-1 navbar-link shop-link'
-            style={linkStyles}>Shop
-          </NavLink>*/}
-            <button onClick={() => setDropdownVisible(!dropdownVisible)} className='navbar-item dropdown-btn'>
+        <div className='navbar'>
+          <NavLink to='/about' className='col-md-1 navbar-item about-link'
+            style={linkStyles}>About</NavLink>          
+          <div>
+            <button onClick={() => setDropdownVisible(!dropdownVisible)} className={`navbar-item dropdown-btn ${dropdownVisible ? 'dropdown-active' : ''}`}>
               Shop <i className='fa fa-chevron-down'></i>
             </button>
             <div className={`shop-dropdown ${dropdownVisible ? 'show-dropdown' : ''}`}>
-              <a href='#'>Bestsellers</a>
+              <NavLink to='/bestsellers'>Bestsellers</NavLink>
               <a href='#'>Sympathy</a>
               <a href='#'>Get Well</a>
               <a href='#'>Birthday</a>
             </div>
-        </nav>
+          </div>            
+        </div>
         <HamburgerMenu />
       </header>
     )
