@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import Home from './Components/Home';
 import About from './Components/About';
 import Shop from './Components/Shop';
+import Bestsellers from './Components/Categories/Bestsellers';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import HamburgerMenu from './Components/HamburgerMenu';
@@ -64,6 +65,7 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
+              <Route path='/bestsellers' element={<Bestsellers clickHandler={handleClick} data={cartItems} />} />
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
