@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import Home from './Components/Home';
 import About from './Components/About';
 import Shop from './Components/Shop';
-import Bestsellers from './Components/Categories/Bestsellers';
+import Category from './Components/Category';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import HamburgerMenu from './Components/HamburgerMenu';
@@ -16,6 +16,7 @@ import Error from './Components/Error';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [saveData, setSaveData] = useState('');
+  const [category, setCategory] = useState('');
 
   const onStorageUpdate = (e) => {
     const { key, newValue } = e;
@@ -55,6 +56,10 @@ function App() {
     }
   }
 
+  const showCategory = (string) => {
+    console.log(string)
+  }
+
   return (
     <div className='page'>
       <BrowserRouter>
@@ -65,7 +70,11 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
-              <Route path='/bestsellers' element={<Bestsellers clickHandler={handleClick} data={cartItems} />} />
+              <Route path='/shop/bestsellers' element={<Category clickHandler={handleClick} data={cartItems} category={'Bestsellers'} />}/>
+              <Route path='/shop/sympathy' element={<Category clickHandler={handleClick} data={cartItems} category={'Sympathy'} />}/>
+              <Route path='/shop/love&romance' element={<Category clickHandler={handleClick} data={cartItems} category={'Love & Romance'} />}/>
+              <Route path='/shop/getwell' element={<Category clickHandler={handleClick} data={cartItems} category={'Get Well'} />}/>
+              <Route path='/shop/birthday' element={<Category clickHandler={handleClick} data={cartItems} category={'Birthday'} />}/>
             <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
