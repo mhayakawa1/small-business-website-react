@@ -41,10 +41,11 @@ function NavbarMenu(props){
               Shop <i className='fa fa-chevron-down'></i>
             </button>
             <div className={`shop-dropdown ${dropdownVisible ? 'show-dropdown' : ''}`}>
-              <NavLink to='/bestsellers'>Bestsellers</NavLink>
-              <a href='#'>Sympathy</a>
-              <a href='#'>Get Well</a>
-              <a href='#'>Birthday</a>
+              <NavLink to='/shop/bestsellers'>Bestsellers</NavLink>
+              <NavLink to='/shop/sympathy'>Sympathy</NavLink>
+              <NavLink to='/shop/love&romance'>Love & Romance</NavLink>
+              <NavLink to='/shop/getwell'>Get Well</NavLink>
+              <NavLink to='/shop/birthday'>Birthday</NavLink>
             </div>
           </div>            
         </div>
