@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import heroImage1 from '../OtherImages/hero1.jpg';
 import heroImage2 from '../OtherImages/hero2.jpeg';
 import heroImage3 from '../OtherImages/hero3.jpg';
-
-import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
-import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
-import Birthday7 from '../ProductImages/dignissim cras.jpeg';
-import GetWell2 from '../ProductImages/euismod quis.jpeg';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 import Delivery from '../OtherImages/delivery.png';
 import EcoFriendly from '../OtherImages/ecofriendly.png';
@@ -16,12 +12,40 @@ import IG2 from '../OtherImages/IG2.jpg';
 import IG3 from '../OtherImages/IG3.jpeg';
 import IG4 from '../OtherImages/IG4.jpg'
 
-function Home(props){
+function Home(){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewClasses, setReviewClasses] = useState(1);
+    const [productsData, setProductsData] = useState([]);
+
+    function parseCSV(csvText) {
+        const rows = csvText.split(/\r?\n/);
+        const headers = rows[0].split(',');
+        const data = [];
+        for (let i = 1; i < rows.length; i++) {
+            const rowData = rows[i].split(',');
+            const rowObject = {};
+            for (let j = 0; j < headers.length; j++) {
+                rowObject[headers[j]] = rowData[j];
+            }
+            data.push(rowObject);
+        }
+        return data;
+    }
+
+    const getProductsData = () => {
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+        axios.get(url)
+        .then((response) => {
+            const parsedData = parseCSV(response.data);
+            setProductsData(parsedData);
+        })
+        .catch((error) => {
+            console.error('Error', error);
+        })
+    }
 
     function getHeroImage(){
         return (
@@ -36,7 +60,8 @@ function Home(props){
         );
     }
 
-    useEffect(() => {
+    useEffect(() => {        
+        getProductsData();
         const interval = setInterval(() => {
             setImagesArr(imagesArr.unshift(imagesArr.pop()));
             setImage2(imagesArr[1]);
@@ -60,18 +85,20 @@ function Home(props){
     }
 
     const renderBestsellers = () =>{
-        const filteredProducts = props.products.filter(i => i.Bestseller === 'true')
+        const filteredProducts = productsData.filter(i => i.Bestseller === 'true')
         const productsArr = []
         for(let i = 1; i < 5; i++){
-            productsArr.push(
-                <div className='bestseller-card' key={i}>
-                    <img src={filteredProducts[i].ImageSource}></img>
-                    <div className='card-info'>
-                        <p className='font-small'>{filteredProducts[i].Name}</p>
-                        <p className='font-small'>${filteredProducts[i].Price}</p>
+            if(filteredProducts.length > 0){
+                productsArr.push(
+                    <div className='bestseller-card' key={i}>
+                        <img src={filteredProducts[i].ImageSource}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>{filteredProducts[i].Name}</p>
+                            <p className='font-small'>${filteredProducts[i].Price}</p>
+                        </div>{/**/}
                     </div>
-                </div>
-            )
+                )
+            }
         }
         return(
             productsArr
