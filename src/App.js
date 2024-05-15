@@ -1,8 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-
+import axios from 'axios';
 import Home from './Components/Home';
 import About from './Components/About';
 import Shop from './Components/Shop';
@@ -16,8 +15,34 @@ import Error from './Components/Error';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [saveData, setSaveData] = useState('');
-  const [category, setCategory] = useState('');
+  const [productsData, setProductsData] = useState([]);
 
+  function parseCSV(csvText) {
+      const rows = csvText.split(/\r?\n/);
+      const headers = rows[0].split(',');
+      const data = [];
+      for (let i = 1; i < rows.length; i++) {
+          const rowData = rows[i].split(',');
+          const rowObject = {};
+          for (let j = 0; j < headers.length; j++) {
+              rowObject[headers[j]] = rowData[j];
+          }
+          data.push(rowObject);
+      }
+      return data;
+  }
+
+  const getProductsData = () => {
+      const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+      axios.get(url)
+      .then((response) => {
+          const parsedData = parseCSV(response.data);
+          setProductsData(parsedData);
+      })
+      .catch((error) => {
+          console.error('Error', error);
+      })
+  }
   const onStorageUpdate = (e) => {
     const { key, newValue } = e;
     if (key === 'saveData') {
@@ -26,6 +51,7 @@ function App() {
   };
 
   useEffect(() => {
+    getProductsData();
     setSaveData(localStorage.getItem('saveData') || '');
     if(saveData !== ''){
       setCartItems(localStorage.getItem('saveData').split(',').filter(i => i !== ''))
@@ -56,27 +82,23 @@ function App() {
     }
   }
 
-  const showCategory = (string) => {
-    console.log(string)
-  }
-
   return (
     <div className='page'>
       <BrowserRouter>
         <div>
-          <NavbarMenu data={cartItems} />
+          <NavbarMenu cart={cartItems} />
           <HamburgerMenu />
           <Routes>
-            <Route path='/' element={<Home />}/>
+            <Route path='/' element={<Home products={productsData} />}/>
             <Route path='/about' element={<About />} />
-            <Route path='/shop' element={<Shop clickHandler={handleClick} data={cartItems} />}/>
-              <Route path='/shop/bestsellers' element={<Category clickHandler={handleClick} data={cartItems} category={'Bestsellers'} />}/>
-              <Route path='/shop/sympathy' element={<Category clickHandler={handleClick} data={cartItems} category={'Sympathy'} />}/>
-              <Route path='/shop/love&romance' element={<Category clickHandler={handleClick} data={cartItems} category={'Love & Romance'} />}/>
-              <Route path='/shop/getwell' element={<Category clickHandler={handleClick} data={cartItems} category={'Get Well'} />}/>
-              <Route path='/shop/birthday' element={<Category clickHandler={handleClick} data={cartItems} category={'Birthday'} />}/>
-            <Route path='/cart' element={<Cart clickHandler={handleClick} data={cartItems} />}/>
-            <Route path='/checkout' element={<Checkout clickHandler={handleClick} data={cartItems} />}/>
+            <Route path='/shop' element={<Shop clickHandler={handleClick} cart={cartItems} />}/>
+              <Route path='/shop/bestsellers' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Bestsellers'} />}/>
+              <Route path='/shop/sympathy' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Sympathy'} />}/>
+              <Route path='/shop/love&romance' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Love & Romance'} />}/>
+              <Route path='/shop/getwell' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Get Well'} />}/>
+              <Route path='/shop/birthday' element={<Category clickHandlser={handleClick} cart={cartItems} products={productsData} category={'Birthday'} />}/>
+            <Route path='/cart' element={<Cart clickHandler={handleClick} cart={cartItems} />}/>
+            <Route path='/checkout' element={<Checkout clickHandler={handleClick} cart={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
           </Routes>
         </div>
