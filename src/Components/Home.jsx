@@ -3,6 +3,10 @@ import axios from 'axios';
 import heroImage1 from '../OtherImages/hero1.jpg';
 import heroImage2 from '../OtherImages/hero2.jpeg';
 import heroImage3 from '../OtherImages/hero3.jpg';
+import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
+import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
+import Birthday7 from '../ProductImages/dignissim cras.jpeg';
+import GetWell2 from '../ProductImages/euismod quis.jpeg';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 import Delivery from '../OtherImages/delivery.png';
 import EcoFriendly from '../OtherImages/ecofriendly.png';
@@ -84,7 +88,7 @@ function Home(){
         }
     }
 
-    const renderBestsellers = () =>{
+    {/*const renderBestsellers = () =>{
         const filteredProducts = productsData.filter(i => i.Bestseller === 'true')
         const productsArr = []
         for(let i = 1; i < 5; i++){
@@ -95,7 +99,7 @@ function Home(){
                         <div className='card-info'>
                             <p className='font-small'>{filteredProducts[i].Name}</p>
                             <p className='font-small'>${filteredProducts[i].Price}</p>
-                        </div>{/**/}
+                        </div>
                     </div>
                 )
             }
@@ -104,6 +108,7 @@ function Home(){
             productsArr
         )
     }
+*/}
 
     return(
         <main>
@@ -126,9 +131,37 @@ function Home(){
                     <a href='/shop/bestsellers'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
-                    {renderBestsellers()}
+                    <div className='bestseller-card'>
+                        <img src={Sympathy10}></img>                       
+                        <div className='card-info'>
+                            <p className='font-small'>Lobortis Scelerisque</p>
+                            <p className='font-small'>$45.00</p>
+                        </div>
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={Birthday7}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Dignissim Cras</p>
+                            <p className='font-small'>$32.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={GetWell2}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Euismod Quis</p>
+                            <p className='font-small'>$17.00</p>
+                        </div>                        
+                    </div>
+                    <div className='bestseller-card'>
+                        <img src={LoveRom4}></img>
+                        <div className='card-info'>
+                            <p className='font-small'>Sollicitudin Nibh</p>
+                            <p className='font-small'>$23.00</p>
+                        </div>
+                    </div>
                 </div>
             </section>
+
             <section className='features'>
                  <div className='feature'>
                     <img src={Delivery}></img>
