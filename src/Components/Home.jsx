@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 import heroImage1 from '../OtherImages/hero1.jpg';
 import heroImage2 from '../OtherImages/hero2.jpeg';
 import heroImage3 from '../OtherImages/hero3.jpg';
+
 import Sympathy10 from '../ProductImages/lobortis scelerisque.jpeg';
 import LoveRom4 from '../ProductImages/sollicitudin nibh.jpeg';
 import Birthday7 from '../ProductImages/dignissim cras.jpeg';
 import GetWell2 from '../ProductImages/euismod quis.jpeg';
-import AboutImage from '../OtherImages/About Image.png';
 import HomeBackground from '../OtherImages/Home Background Image.jpeg';
 import Delivery from '../OtherImages/delivery.png';
 import EcoFriendly from '../OtherImages/ecofriendly.png';
@@ -18,7 +16,7 @@ import IG2 from '../OtherImages/IG2.jpg';
 import IG3 from '../OtherImages/IG3.jpeg';
 import IG4 from '../OtherImages/IG4.jpg'
 
-function Home(){
+function Home(props){
     const [imagesArr, setImagesArr] = useState([heroImage1, heroImage2, heroImage3]);
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
@@ -61,6 +59,25 @@ function Home(){
         }
     }
 
+    const renderBestsellers = () =>{
+        const filteredProducts = props.products.filter(i => i.Bestseller === 'true')
+        const productsArr = []
+        for(let i = 1; i < 5; i++){
+            productsArr.push(
+                <div className='bestseller-card' key={i}>
+                    <img src={filteredProducts[i].ImageSource}></img>
+                    <div className='card-info'>
+                        <p className='font-small'>{filteredProducts[i].Name}</p>
+                        <p className='font-small'>${filteredProducts[i].Price}</p>
+                    </div>
+                </div>
+            )
+        }
+        return(
+            productsArr
+        )
+    }
+
     return(
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
@@ -79,37 +96,10 @@ function Home(){
             <section className='bestsellers'>
                 <div className='section-header'>
                     <h2>Bestsellers</h2>
-                    <a href='/shop'>Shop All</a>
+                    <a href='/shop/bestsellers'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
-                    <div className='bestseller-card'>
-                        <img src={Sympathy10}></img>                       
-                        <div className='card-info'>
-                            <p className='font-small'>Lobortis Scelerisque</p>
-                            <p className='font-small'>$45.00</p>
-                        </div>
-                    </div>
-                    <div className='bestseller-card'>
-                        <img src={Birthday7}></img>
-                        <div className='card-info'>
-                            <p className='font-small'>Dignissim Cras</p>
-                            <p className='font-small'>$32.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card'>
-                        <img src={GetWell2}></img>
-                        <div className='card-info'>
-                            <p className='font-small'>Euismod Quis</p>
-                            <p className='font-small'>$17.00</p>
-                        </div>                        
-                    </div>
-                    <div className='bestseller-card'>
-                        <img src={LoveRom4}></img>
-                        <div className='card-info'>
-                            <p className='font-small'>Sollicitudin Nibh</p>
-                            <p className='font-small'>$23.00</p>
-                        </div>
-                    </div>
+                    {renderBestsellers()}
                 </div>
             </section>
             <section className='features'>
