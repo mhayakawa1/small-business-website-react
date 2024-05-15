@@ -1,63 +1,28 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 
 function Category(props){
     const [gridNum, setGridNum] = useState(3);
-
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState({});
     const [productQty, setProductQty] = useState(0);
-
-    const [productsData, setProductsData] = useState([]);
-
-    function parseCSV(csvText) {
-        const rows = csvText.split(/\r?\n/);
-        const headers = rows[0].split(',');
-        const data = [];
-        for (let i = 1; i < rows.length; i++) {
-            const rowData = rows[i].split(',');
-            const rowObject = {};
-            for (let j = 0; j < headers.length; j++) {
-                rowObject[headers[j]] = rowData[j];
-            }
-            data.push(rowObject);
-        }
-        return data;
-    }
-
-    const getProductsData = () => {
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
-        axios.get(url)
-        .then((response) => {
-            const parsedData = parseCSV(response.data);
-            setProductsData(parsedData);
-        })
-        .catch((error) => {
-            console.error('Error', error);
-        })
-    }
-    
-    useEffect(() => {
-        getProductsData();
-    }, []);
-
+    const [productSorting, setProductSorting] = useState([]);
 
     const renderProducts = () =>{
         const productsArr = []
-            for(let i = 0; i < productsData.length; i++){
-                const productCard = <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}
-                onClick={() => toggleViewProduct(productsData[i], i)}>
-                    <div className='product-card'>
-                        <img src={productsData[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
-                        <div className='product-info'>
-                            <p className='product-name'>{productsData[i].Name}</p>
-                            <p className='product-price'>${productsData[i].Price}</p>
-                        </div>
+            for(let i = 0; i < props.products.length; i++){
+                const productCard = 
+                <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
+                    <button onClick={() => toggleViewProduct(props.products[i], i)}>
+                        <img src={props.products[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
+                    </button>                    
+                    <div className='product-info'>
+                        <p className='product-name'>{props.products[i].Name}</p>
+                        <p className='product-price'>${props.products[i].Price}</p>
                     </div>
                 </div>
-                if(props.category === 'Bestsellers' && (/true/).test(productsData[i].Bestseller) === true){
+                if(props.category === 'Bestsellers' && (/true/).test(props.products[i].Bestseller) === true){
                     productsArr.push(productCard)
-                }else if(props.category === productsData[i].Category){
+                }else if(props.category === props.products[i].Category){
                     productsArr.push(productCard)
                 }
             }
@@ -85,7 +50,7 @@ function Category(props){
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool);
         setProductInfo(product);
-        setProductQty(props.data.filter(i => i === product.Name).length)
+        setProductQty(props.cart.filter(i => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
@@ -100,6 +65,16 @@ function Category(props){
             </section>
 
             <div className='shop-menu'>
+                <div className='sorting-dropdown'>
+                    <label for='sorting-options'>Sort By: </label>
+                    <select name='sorting-options' className='sorting-options'>
+                        <option name='featured'>Featured</option>
+                        <option name='a-z'>A-Z</option>
+                        <option name='z-a'>Z-A</option>
+                        <option name='low-high'>Price (High to Low)</option>
+                        <option name='high-low'>Price (Low to High)</option>
+                    </select>
+                </div>                
                 <div className='shop-menu-buttons'>
                     <button className='grid-button-1' onClick={() => shopGridButton(3)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-square" viewBox="0 0 16 16">
