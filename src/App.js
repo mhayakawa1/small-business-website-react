@@ -89,7 +89,7 @@ function App() {
           <NavbarMenu cart={cartItems} />
           <HamburgerMenu />
           <Routes>
-            <Route path='/' element={<Home products={productsData} />}/>
+            <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} cart={cartItems} />}/>
               <Route path='/shop/bestsellers' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Bestsellers'} />}/>
