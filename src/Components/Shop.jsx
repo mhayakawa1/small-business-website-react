@@ -88,7 +88,7 @@ function Shop(props){
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool);
         setProductInfo(product);
-        setProductQty(props.data.filter(i => i === product.Name).length)
+        setProductQty(props.cart.filter(i => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
