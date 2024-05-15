@@ -160,10 +160,6 @@ p{
     height: 2.5rem;    
 }
 
-.about-link:hover{
-    color: red;
-}
-
 .cart-counter-container{
     width: 1.75rem;
     display: flex;
@@ -433,12 +429,10 @@ p{
 
 /**********HOME PAGE STARTS HERE**********/
 /*HERO SECTION STARTS HERE*/
-.hero-container{
+.hero{
     width: 100%;
     height: auto;
     display: flex;
-    margin: 4srem 0 0 0;
-    filter: drop-shadow(2px 2px 8px rgb(0,0,0,.4));
 }
 
 .hero-headline{
@@ -450,7 +444,7 @@ p{
     padding: 10%;
     position: absolute;
     z-index: 1;
-    top: 4rem;
+    top: 6rem;
 }
 
 h1{
@@ -1324,6 +1318,7 @@ h1{
     justify-content: space-between;
     align-items:center;
     width: 80%;
+    height: 2rem;
     margin: 3rem auto 0 auto;
     border: 1px solid #E9A8A5;
 }
@@ -1332,6 +1327,26 @@ h1{
     .shop-menu{
         width: 95%;
     }
+}
+
+.sorting-dropdown{
+    padding: 0 .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    height: 100%;
+    color: #234843;
+}
+
+.sorting-dropdown select{
+    height: 100%;
+    border: none;
+    color: #234843;
+}
+
+.sorting-dropdown select:focus{
+    outline: none;
 }
 
 .dropdown-toggle{
@@ -1477,10 +1492,11 @@ h1{
 .products-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 2rem;
     width: 80%;
     height: auto;
     margin: 1rem auto auto auto;
-    gap: 5%;
 }
 
 @media screen and (max-width: 428px){
@@ -1497,8 +1513,9 @@ h1{
 }
 
 .product-card-container{
-    height: 100%;
-    margin: 0 0 2rem 0;
+    aspect-ratio: 1 / 1.25;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card-container:hover{
@@ -1531,18 +1548,17 @@ h1{
     transition: all .5s;
 }
 
+.product-card-container button{
+    padding: 0;
+    border: none;
+}
+
 .product-image{
     width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     filter: sepia(15%) contrast(90%);
-}
-
-.grid-image-3{
-    height: 15rem;
-}
-
-.grid-image-2{
-    height: 25rem;
 }
 
 @media screen and (max-width: 428px){
@@ -1559,26 +1575,6 @@ h1{
 
     .grid-image-3{
         height: 20rem !important;
-    }
-}
-
-@media screen and (max-width: 768px){    
-    .grid-image-3{
-        height: 10rem;
-    }
-    
-    .grid-image-2{
-        height: 15rem;
-    }
-}
-
-@media screen and (min-width: 1921px){    
-    .grid-image-3{
-        height: 30rem;
-    }
-    
-    .grid-image-2{
-        height: 50rem;
     }
 }
 
@@ -1601,7 +1597,7 @@ h1{
 
 .product-info{
     width: 100%;
-    height: 25%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
