@@ -30,7 +30,7 @@ function NavbarMenu(props){
             style={cartStyles}>
             <div className='cart-counter-container'>
               <i className='fas fa-cart-shopping navbar-icon' alt='Shopping cart'></i>
-              <span className='cart-counter'>{props.data.length}</span>
+              <span className='cart-counter'>{props.cart.length}</span>
             </div>
           </NavLink>
         <div className='navbar'>
