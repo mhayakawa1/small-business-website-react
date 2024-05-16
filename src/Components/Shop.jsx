@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function Shop(props){
-    const [showCateg, setShowCateg] = useState('Bestsellers');
     const [gridNum, setGridNum] = useState(3);
 
     const [viewProduct, setViewProduct] = useState(false);
@@ -42,13 +41,10 @@ function Shop(props){
         getProductsData();
     }, []);
 
-    const handleChange = (categ) => {
-        setShowCateg(categ);
-    };
     const renderProducts = () =>{
         const productsArr = []
             for(let i = 0; i < productsData.length; i++){
-                const productCard = <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}
+                productsArr.push( <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}
                 onClick={() => toggleViewProduct(productsData[i], i)}>
                     <div className='product-card'>
                         <img src={productsData[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
@@ -58,11 +54,7 @@ function Shop(props){
                         </div>
                     </div>
                 </div>
-                if(showCateg === 'Bestsellers' && (/true/).test(productsData[i].Bestseller) === true){
-                    productsArr.push(productCard)
-                }else if(showCateg === productsData[i].Category){
-                    productsArr.push(productCard)
-                }
+                )
             }
         return(
             productsArr
@@ -98,13 +90,13 @@ function Shop(props){
         <main className='shop-page'>
             <section className='shop-header'>
                 <div className='shop-header-container'>
-                    <h1>{showCateg}</h1>
+                    <h1></h1>
                 </div>
             </section>
 
             <div className='shop-menu'>
                 <div className='dropdown'>
-                    <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'>
+                    {/*<button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown'>
                         Categories
                         <div className='angle-down-div'>
                             <i className='fas fa-angle-down'></i>
@@ -131,7 +123,7 @@ function Shop(props){
                             Birthday {`(${productsData.filter(i => i.Category === 'Birthday').length})`}
                             </a>
                         </li>
-                    </ul>
+                    </ul>*/}
                 </div>
                 <div className='shop-menu-buttons'>
                     <button className='grid-button-1' onClick={() => shopGridButton(3)}>
@@ -174,7 +166,7 @@ function Shop(props){
                                         <i className='fa fa-star'></i>
                                         <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
                                     </div>                                
-                                    <a href='#'>({productInfo.Ratings} Ratings)</a>
+                                    <a href=''>({productInfo.Ratings} Ratings)</a>
                                 </div>
                                 <p className='view-product-price'>${productInfo.Price}</p>
                                 <div className='quantity-cart-container' >
