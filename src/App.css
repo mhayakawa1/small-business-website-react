@@ -1313,14 +1313,13 @@ h1{
 }
 
 .shop-menu{
-    padding: auto 0 auto 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items:center;
     width: 80%;
     height: 2rem;
     margin: 3rem auto 0 auto;
-    border: 1px solid #E9A8A5;
 }
 
 @media screen and (max-width: 768px){
@@ -1330,7 +1329,6 @@ h1{
 }
 
 .sorting-dropdown{
-    padding: 0 .5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1470,7 +1468,7 @@ h1{
 .shop-grid-button{
     width: 1.5rem ;
     height: 1.5rem;
-    color: #E9A8A5;
+    color: #234843;
     transition: all .5s;
 }
 
@@ -1492,7 +1490,7 @@ h1{
 .products-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 5%;
     row-gap: 2rem;
     width: 80%;
     height: auto;
