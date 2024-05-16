@@ -1337,10 +1337,15 @@ h1{
     color: #234843;
 }
 
+.sorting-dropdown label{
+    font-family: 'Tajawal', sans-serif;
+}
+
 .sorting-dropdown select{
     height: 100%;
     border: none;
-    color: #234843;
+    color: #234843;    
+    font-family: 'Tajawal', sans-serif;
 }
 
 .sorting-dropdown select:focus{
@@ -1473,7 +1478,7 @@ h1{
 }
 
 .shop-grid-button:hover{
-    color: #E8908F;
+    color: #3D6347;
 }
 
 @media screen and (min-width: 1921px){    
