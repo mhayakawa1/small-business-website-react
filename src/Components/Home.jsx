@@ -22,34 +22,6 @@ function Home(){
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewClasses, setReviewClasses] = useState(1);
-    const [productsData, setProductsData] = useState([]);
-
-    function parseCSV(csvText) {
-        const rows = csvText.split(/\r?\n/);
-        const headers = rows[0].split(',');
-        const data = [];
-        for (let i = 1; i < rows.length; i++) {
-            const rowData = rows[i].split(',');
-            const rowObject = {};
-            for (let j = 0; j < headers.length; j++) {
-                rowObject[headers[j]] = rowData[j];
-            }
-            data.push(rowObject);
-        }
-        return data;
-    }
-
-    const getProductsData = () => {
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
-        axios.get(url)
-        .then((response) => {
-            const parsedData = parseCSV(response.data);
-            setProductsData(parsedData);
-        })
-        .catch((error) => {
-            console.error('Error', error);
-        })
-    }
 
     function getHeroImage(){
         return (
@@ -64,8 +36,7 @@ function Home(){
         );
     }
 
-    useEffect(() => {        
-        getProductsData();
+    useEffect(() => {
         const interval = setInterval(() => {
             setImagesArr(imagesArr.unshift(imagesArr.pop()));
             setImage2(imagesArr[1]);
@@ -87,28 +58,6 @@ function Home(){
             setReviewClasses(3)
         }
     }
-
-    {/*const renderBestsellers = () =>{
-        const filteredProducts = productsData.filter(i => i.Bestseller === 'true')
-        const productsArr = []
-        for(let i = 1; i < 5; i++){
-            if(filteredProducts.length > 0){
-                productsArr.push(
-                    <div className='bestseller-card' key={i}>
-                        <img src={filteredProducts[i].ImageSource}></img>
-                        <div className='card-info'>
-                            <p className='font-small'>{filteredProducts[i].Name}</p>
-                            <p className='font-small'>${filteredProducts[i].Price}</p>
-                        </div>
-                    </div>
-                )
-            }
-        }
-        return(
-            productsArr
-        )
-    }
-*/}
 
     return(
         <main>
