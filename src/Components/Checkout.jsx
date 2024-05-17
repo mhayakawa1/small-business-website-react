@@ -110,8 +110,8 @@ function Checkout(props){
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(props.data.includes(productsData[i].Name)){
-                const quantity = props.data.filter(element => element === productsData[i].Name).length;
+            if(props.cart.includes(productsData[i].Name)){
+                const quantity = props.cart.filter(element => element === productsData[i].Name).length;
                 itemsArr.push(
                     <div key={i} className='cart-product'>
                         <img src={productsData[i].ImageSource} className='cart-product-image'></img>
@@ -185,9 +185,9 @@ function Checkout(props){
                 </button>
             </NavLink>
             <h3>Checkout</h3>
-            <p>You have {props.data.length} {props.data.length === 1 ? 'item' : 'items'} in your cart.</p>
+            <p>You have {props.cart.length} {props.cart.length === 1 ? 'item' : 'items'} in your cart.</p>
             <div className='items-in-cart'>                
-                {props.data.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
+                {props.cart.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
             {calculateTotal()}
