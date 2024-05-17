@@ -50,8 +50,8 @@ function Cart(props){
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(props.data.includes(productsData[i].Name)){
-                const quantity = props.data.filter(element => element === productsData[i].Name).length;
+            if(props.cart.includes(productsData[i].Name)){
+                const quantity = props.cart.filter(element => element === productsData[i].Name).length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
@@ -80,7 +80,7 @@ function Cart(props){
             itemsArr
         )
     }
-
+console.log(props.cart)
     return(
         <main className='cart-page'>
             <div className='shop-header'>
@@ -92,7 +92,7 @@ function Cart(props){
                 <div className='cart-table'>
                     <h3>Shopping Cart</h3>
                     <div className='items-in-cart'>
-                        {props.data.length > 0 ? 
+                        {props.cart.length > 0 ? 
                             <ul className='cart-table-headers'>
                                 <li className='column-name-product'>Product:</li>
                                 <li className=''>Unit Price:</li>
@@ -100,7 +100,7 @@ function Cart(props){
                             </ul>
                         : null
                         }
-                    {props.data.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
+                    {props.cart.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
@@ -108,11 +108,11 @@ function Cart(props){
                     <h3>Order Summary</h3>
                     <div className='order-summary-container'>
                         <div>
-                            <p className='font-small'>Items: {props.data.length}</p>
+                            <p className='font-small'>Items: {props.cart.length}</p>
                         <p className='font-small'>Subtotal: ${subtotal}</p>
                         <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
                         </div>                        
-                        <button className={`checkout-button ${props.data.length === 0 ? 'btn-disabled' : null}`}>
+                        <button className={`checkout-button ${props.cart.length === 0 ? 'btn-disabled' : null}`}>
                             <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
                                 Checkout<i className='fas fa-arrow-right'></i>
                             </NavLink>
