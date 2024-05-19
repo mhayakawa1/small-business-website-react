@@ -1,11 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Category(props){
     const [gridNum, setGridNum] = useState(3);
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState({});
     const [productQty, setProductQty] = useState(0);
-    const [productSorting, setProductSorting] = useState([]);
+    const [sortBy, setSortBy] = useState(0);
+    const [productSorting, setProductSorting] = useState(props.products);
+
+    useEffect(() => {
+        let arr = []
+
+        for(let i = 0; i < props.products.length; i++){
+            arr.push(props.products[i].Name)
+        }
+        arr.sort()
+    })
 
     const renderProducts = () =>{
         const productsArr = []
