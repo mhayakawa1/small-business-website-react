@@ -5,17 +5,22 @@ function Category(props){
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState({});
     const [productQty, setProductQty] = useState(0);
-    const [sortBy, setSortBy] = useState(0);
+    const [sortBy, setSortBy] = useState('featured');
     const [productSorting, setProductSorting] = useState(props.products);
 
-    useEffect(() => {
+    {/*useEffect(() => {
         let arr = []
 
         for(let i = 0; i < props.products.length; i++){
             arr.push(props.products[i].Name)
         }
         arr.sort()
-    })
+    })*/}
+
+    const toggleSorting = (event) => {
+        setSortBy(event.target.value)
+        console.log(productSorting)
+    }
 
     const renderProducts = () =>{
         const productsArr = []
@@ -76,13 +81,13 @@ function Category(props){
 
             <div className='shop-menu'>
                 <div className='sorting-dropdown'>
-                    <label for='sorting-options'>Sort By: </label>
-                    <select name='sorting-options' className='sorting-options'>
-                        <option name='featured'>Featured</option>
-                        <option name='a-z'>A-Z</option>
-                        <option name='z-a'>Z-A</option>
-                        <option name='low-high'>Price (High to Low)</option>
-                        <option name='high-low'>Price (Low to High)</option>
+                    <label htmlFor='sorting-options'>Sort By: </label>
+                    <select onChange={toggleSorting} name='sorting-options' className='sorting-options'>
+                        <option name='featured' value='featured'>Featured</option>
+                        <option name='a-z' value='a-z'>A-Z</option>
+                        <option name='z-a' value='z-a'>Z-A</option>
+                        <option name='low-high' value='low-high'>Price (High to Low)</option>
+                        <option name='high-low' value='high-low'>Price (Low to High)</option>
                     </select>
                 </div>                
                 <div className='shop-menu-buttons'>
