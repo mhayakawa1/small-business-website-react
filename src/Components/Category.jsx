@@ -1,43 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Category(props){
     const [gridNum, setGridNum] = useState(3);
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState({});
-    const [productQty, setProductQty] = useState(0);
     const [sortBy, setSortBy] = useState('featured');
+    const [productQty, setProductQty] = useState(0);
     const [productSorting, setProductSorting] = useState(props.products);
-
-    {/*useEffect(() => {
-        let arr = []
-
-        for(let i = 0; i < props.products.length; i++){
-            arr.push(props.products[i].Name)
-        }
-        arr.sort()
-    })*/}
 
     const toggleSorting = (event) => {
         setSortBy(event.target.value)
-        console.log(productSorting)
+           
+        const productsData = props.products
+        let alphabetical = true
+        if(event.target.value.length === 3){
+            alphabetical = true
+        }else{
+            alphabetical = false
+        }
+
+        if(event.target.value === 'featured'){
+            setProductSorting(props.products)
+        }else{
+            productsData.sort(function (a, b) {
+                if(a[alphabetical ? 'Name' : 'Price'] < b[alphabetical ? 'Name' : 'Price']){
+                    return -1;
+                }
+                if(a[alphabetical ? 'Name' : 'Price'] > b[alphabetical ? 'Name' : 'Price']){
+                    return 1;
+                }
+                return 0;
+                }
+            )
+
+            if(event.target.value === 'high-low'|| event.target.value === 'z-a'){
+                productsData.reverse()
+            }
+            setProductSorting(productsData)
+        }
+        
     }
 
     const renderProducts = () =>{
         const productsArr = []
-            for(let i = 0; i < props.products.length; i++){
+            for(let i = 0; i < productSorting.length; i++){
                 const productCard = 
                 <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
-                    <button onClick={() => toggleViewProduct(props.products[i], i)}>
-                        <img src={props.products[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
+                    <button onClick={() => toggleViewProduct(productSorting[i], i)}>
+                        <img src={productSorting[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
                     </button>                    
                     <div className='product-info'>
-                        <p className='product-name'>{props.products[i].Name}</p>
-                        <p className='product-price'>${props.products[i].Price}</p>
+                        <p className='product-name'>{productSorting[i].Name}</p>
+                        <p className='product-price'>${productSorting[i].Price}</p>
                     </div>
                 </div>
-                if(props.category === 'Bestsellers' && (/true/).test(props.products[i].Bestseller) === true){
+                if(props.category === 'Bestsellers' && (/true/).test(productSorting[i].Bestseller) === true){
                     productsArr.push(productCard)
-                }else if(props.category === props.products[i].Category){
+                }else if(props.category === productSorting[i].Category){
                     productsArr.push(productCard)
                 }
             }
@@ -86,8 +105,8 @@ function Category(props){
                         <option name='featured' value='featured'>Featured</option>
                         <option name='a-z' value='a-z'>A-Z</option>
                         <option name='z-a' value='z-a'>Z-A</option>
-                        <option name='low-high' value='low-high'>Price (High to Low)</option>
-                        <option name='high-low' value='high-low'>Price (Low to High)</option>
+                        <option name='low-high' value='low-high'>Price (Low to High)</option>
+                        <option name='high-low' value='high-low'>Price (High to Low)</option>
                     </select>
                 </div>                
                 <div className='shop-menu-buttons'>
@@ -110,7 +129,7 @@ function Category(props){
             </div>            
             
             <section className='products-container'>
-                {renderProducts()}
+                {sortBy === '' ? renderProducts() : renderProducts()}
             </section>
             
             {viewProduct === false ? null : 
