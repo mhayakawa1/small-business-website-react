@@ -184,8 +184,21 @@ p{
 }
 
 @media screen and (max-width: 428px){
+    .nav-header{
+        grid-template-columns: 100%;
+    }
+    
     .cart-counter-container{
-        display: none;
+        position: absolute;
+        border: 1px solid red;
+        margin: 0 15% 0 0;
+        z-index: 4;
+        bottom: 15%;
+    }
+
+    .site-name-logo{
+        width: 1/2;
+        padding: 0;
     }
 
     .navbar-filler, .navbar-link{
