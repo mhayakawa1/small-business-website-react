@@ -26,7 +26,7 @@ function NavbarMenu(props){
             <img className='logo' src={logo} alt='Green Oasis Florist Logo'></img>
             <a href='/'>Green Oasis Florist</a>
           </div>
-          <NavLink to='/cart' className='col-md-1 navbar-item cart-link'
+          <NavLink to='/cart' className='navbar-item cart-link'
             style={cartStyles}>
             <div className='cart-counter-container'>
               <i className='fas fa-cart-shopping navbar-icon' alt='Shopping cart'></i>
