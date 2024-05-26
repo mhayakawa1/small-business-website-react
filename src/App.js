@@ -87,7 +87,6 @@ function App() {
       <BrowserRouter>
         <div>
           <NavbarMenu cart={cartItems} />
-          <HamburgerMenu />
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
