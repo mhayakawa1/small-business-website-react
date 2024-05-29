@@ -71,6 +71,10 @@ p{
         font-size: 2rem;
     }
 
+    h2{
+        font-size: 4rem;
+    }
+
     p{
         font-size: 2rem;
     }
@@ -182,6 +186,7 @@ p{
     
     .navbar-item{
         width: 12rem;
+        font-size: 2rem;
     }   
 }
 
@@ -193,9 +198,6 @@ p{
     width: 100%;
 }
 
-.about-link{
-    height: 2.5rem;    
-}
 
 .cart-counter-container{
     width: 1.75rem;
@@ -256,10 +258,6 @@ p{
         word-spacing: 20px;
     }
     
-    .about-link{
-        height: 5rem;    
-    }
-    
     .cart-counter-container{
         width: 3.5rem;
     }
@@ -276,6 +274,10 @@ p{
         padding: .06rem 0 0 0;
         margin: -.6rem 0 0 -1rem;
     }
+}
+
+.about-link{
+    height: 2.5rem;    
 }
 
 .dropdown-btn{
@@ -323,6 +325,34 @@ p{
 
 .shop-dropdown a:hover{
     background-color: #E9EDEC;
+}
+
+@media screen and (min-width: 1921px){
+    .about-link{
+        height: 5rem;    
+    }
+    
+    .dropdown-btn{
+        height: 5rem;
+    }
+
+    .dropdown-btn i{
+         font-size: 1rem;
+         margin: 0 0 0 2rem;
+    }
+    
+    .shop-dropdown{
+        width: 20rem;
+        padding: 2rem 0;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    
+    .shop-dropdown a{
+        font-size: 2rem;
+        height: 5rem;
+        padding: 0 0 0 4rem;
+        line-height: 5rem;
+    }
 }
 /*NAVBAR ENDS HERE*/
 
@@ -529,7 +559,7 @@ p{
     padding: 10%;
     position: absolute;
     z-index: 1;
-    top: 6rem;
+    top: 15%;
 }
 
 h1{
@@ -570,18 +600,6 @@ h1{
 }
 
 @media screen and (min-width: 1921px){
-    .hero-headline{
-        width: 60%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10%;
-        position: absolute;
-        z-index: 1;
-        top: 6rem;
-    } 
-
     .logo{
         width: 8rem;
         height: 6rem;
@@ -590,10 +608,6 @@ h1{
 
     h1{
         font-size: 6rem;
-    }
-
-    h2{
-        font-size: 3rem;
     }
 }
 
@@ -750,53 +764,6 @@ h1{
     color: #3D6347;
 }
 
-.bestsellers-text{
-    color: white;
-}
-
-.bestsellers .nav-link-button{
-    width: 8rem;
-    height: 2.5rem;
-    transition: all .5s;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 0;
-    border: none;
-    background-color: rgb(0,0,0,0);
-}
-
-.bestsellers .nav-link-button:hover{
-    width: 10rem;
-}
-
-.see-more{
-    width: 8rem;
-    height: 2.5rem;
-    transition: all .5s;
-    padding: 0 .75rem;
-    text-decoration: none;
-    color: white;
-    background-color:#E8908F;
-    font-family: 'Gloock', serif;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.see-more:hover{
-    color: white;
-    width: 10rem;
-}
-
-.nav-link-button .fa-arrow-right{
-    margin: 0 0 0 1rem;
-}
-
-.bestsellers-text{
-    max-width: 90%;
-}
-
 @media screen and (max-width: 768px){
     .our-bestsellers{
         width: 100%;
@@ -822,28 +789,18 @@ h1{
 }
 
 @media screen and (min-width: 1921px){
-    .our-bestsellers{
-        min-height: 80rem;
-        padding: 2rem 0 0 0;
+    .bestsellers{
+        min-height: 40rem;
+    }
+    
+    .bestsellers .section-header h2{
+        font-size: 4rem;
     }
 
-    .bestsellers-header{
-        padding: 3rem;
-    }
-
-    .bestsellers-header h3{
-        font-size: 6rem;
-    }
-
-    .bestsellers-header button{
-        width: 16rem;
-        height: 5rem;
+    .bestsellers a{
         font-size: 2rem;
     }
-
-    .bestsellers-header button:hover{
-        width: 22rem;
-    }
+    
 }
 
 .bestseller-cards{
@@ -915,6 +872,22 @@ h1{
     }
 }
 
+@media screen and (min-width: 1921px){    
+    .bestseller-cards{
+        gap: 2rem;
+        row-gap: 4rem;
+    }
+
+    .card-info{
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .card-info p{
+        height: 2.5rem;
+    }
+}
+
 /*BESTSELLERS ENDS HERE*/
 
 /*FEATURES STARTS HERE*/
@@ -942,6 +915,21 @@ h1{
     height: 5rem;
     width: 5rem;
     filter: invert(34%) sepia(34%) saturate(473%) hue-rotate(83deg) brightness(90%) contrast(87%);
+}
+
+@media screen and (min-width: 1921px){
+    .features{
+        height: 30rem;
+    }
+    
+    .feature{
+        gap: 2rem;
+    }
+    
+    .feature img{
+        height: 10rem;
+        width: 10rem;
+    }
 }
 /*FEATURES STARTS HERE*/
 
@@ -986,6 +974,22 @@ h1{
 @media screen and (min-width: 1024px){
     .review-cards{
         width: 80%;
+    }
+}
+
+@media screen and (min-width: 1921px){
+    .reviews{
+        padding: 8rem 0;
+    }
+    
+    .reviews h2{
+        margin: 0 0 4rem 0;
+    }
+
+    .review-cards button{
+        width: 3rem;
+        height: 3rem;
+        font-size: 3rem;
     }
 }
 
@@ -1053,6 +1057,18 @@ h1{
         -moz-animation: fadeIn 2s;
         -o-animation: fadeIn 2s;
         -ms-animation: fadeIn 2s;
+    }
+}
+
+@media screen and (min-width: 1921px){
+    .review-card{
+        max-width: 28rem;
+        height: 48rem;
+        padding: 3rem;
+    }
+
+    .review-text{
+        margin: 1rem 0;
     }
 }
 
