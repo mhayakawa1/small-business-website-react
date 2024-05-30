@@ -609,6 +609,10 @@ h1{
     h1{
         font-size: 6rem;
     }
+        
+    .hero-headline p{
+        font-size: 2rem;
+    }
 }
 
 
@@ -1159,6 +1163,25 @@ h1{
     opacity: 1;
 }
 
+@media screen and (min-width: 1921px){
+    .instagram{
+        padding: 8rem 0;
+        gap: 2rem;
+    }
+    
+    .ig-header button{
+        font-size: 2rem;
+        width: 16rem;
+        height: 5rem;
+    }
+
+    .ig-posts .fa-instagram{
+        font-size: 3rem;
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
 /*INSTAGRAM ENDS HERE*/
 
 /*NEWSLETTER STARTS HERE*/
@@ -1202,6 +1225,27 @@ h1{
 
 .submit-email button:hover{
     background-color: #E9A8A5;
+}
+
+@media screen and (min-width: 1921px){
+    .newsletter{
+        padding: 16rem 12rem;
+    }
+    
+    .submit-email{
+        gap: 2rem;
+    }
+    
+    .submit-email input{
+        padding: 0 0 0 2rem;
+        font-size: 2rem;
+    }
+    
+    .submit-email button{
+        width: 16rem;
+        height: 5rem;
+        font-size: 2rem;
+    }
 }
 
 /*NEWSLETTER ENDS HERE*/
@@ -2570,7 +2614,6 @@ input::-webkit-inner-spin-button {
 
 .footer-col{
     margin: 4rem 0 0 0;
-    
 }
 
 .footer-list li{
@@ -2585,7 +2628,7 @@ input::-webkit-inner-spin-button {
 }
 
 .contact-information{
-    padding: 0 0 0 40%;
+    padding: 0 0 0 30%;
 }
 
 .social-media-footer{
@@ -2593,7 +2636,6 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     padding: 0;
-    font-size: 1.5rem;
 }
 
 .footer-2{
@@ -2614,6 +2656,10 @@ input::-webkit-inner-spin-button {
     color: #E9A8A5;
 }
 
+.footer-link i{
+    font-size: 1rem;
+}
+
 .other-information{
     line-height: 2rem;
 }
@@ -2623,7 +2669,6 @@ input::-webkit-inner-spin-button {
     text-align: center;
     color: #E8908F;
     padding: 0;
-    font-size: .75rem;
     font-family: 'Tajawal', sans-serif;
 }
 
@@ -2693,19 +2738,23 @@ input::-webkit-inner-spin-button {
     .footer-col{
         margin: 8rem 0 0 0;        
     }
+
+    .footer-list li{
+        font-size: 2rem;
+    }
     
     .social-media-footer{
         min-width: 16rem;
         max-width: 20rem;
         font-size: 3rem;
     }
+
+    .footer-link i{
+        font-size: 2rem;
+    }
     
     .other-information{
         line-height: 4rem;
-    }
-    
-    .copyright-statement{
-        font-size: 1.5rem;
     }
 }
 
