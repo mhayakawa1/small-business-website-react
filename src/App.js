@@ -108,7 +108,7 @@ function App() {
           <ul className='footer-list contact-information font-extra-small'>
             <li><i className='fas fa-phone'></i> (012)345-6789</li>
             <br/>
-            <li>greenoasisflorist@email.com<br/>Business inquiries only</li>
+            <li>greenoasis@email.com<br/>Business inquiries only</li>
             <br/>
             <li>4335 Lorem Ipsum Dolor<br/>
               582 Sonsectetur St.<br/>
@@ -128,7 +128,7 @@ function App() {
               <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
             </li>
           </ul>
-          <p className='font-extra-small shop-hours'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
+          <p className='font-small shop-hours'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
         </div>
         <div className='footer-col footer-3'>
           <ul className='footer-list other-information font-extra-small'>
@@ -137,7 +137,7 @@ function App() {
             <li><a className='footer-link'>Privacy Policy</a></li>
           </ul>
         </div>
-        <p className='copyright-statement'>© 2023 Green Oasis Florist. All rights reserved.</p>
+        <p className='copyright-statement font-extra-small'>© 2023 Green Oasis Florist. All rights reserved.</p>
       </div>
     </div>
   );
