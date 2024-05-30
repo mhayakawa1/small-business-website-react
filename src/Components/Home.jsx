@@ -66,7 +66,7 @@ function Home(){
                 {getHeroImage()}
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
-                    <p className='font-extra-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
+                    <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <div className='social-media-hero'>
                             <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
                             <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
