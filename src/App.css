@@ -131,7 +131,7 @@ p{
     .site-name-logo{
         height: 10rem;
         gap: .3rem;
-        padding: 0;
+        padding: 0 0 0 10rem;
     }
     
     .site-name-logo .logo{
@@ -559,7 +559,7 @@ p{
     padding: 10%;
     position: absolute;
     z-index: 1;
-    top: 15%;
+    top: 6rem;
 }
 
 h1{
@@ -608,6 +608,10 @@ h1{
 
     h1{
         font-size: 6rem;
+    }
+
+    .hero-headline{        
+        top: 12rem;
     }
         
     .hero-headline p{
@@ -1325,6 +1329,33 @@ h1{
 
 .mission-img{
     object-position: 0% 80%;
+}
+
+@media screen and (min-width: 1921px){
+    .about-page{
+        min-height: 120rem;
+    }
+    
+    .about-page header{
+        height: 40rem;
+    }
+    
+    .about-page header img{
+        height: 40rem;
+    }
+    
+    .about-header-container{
+        top: 15rem;
+        height: 40rem;
+    }
+    
+    .about-page .container{
+        padding: 4rem 10%;
+    }
+    
+    .about-img{
+        height: 40rem;
+    }
 }
 
 /**********ABOUT PAGE ENDS HERE**********/
@@ -2739,10 +2770,6 @@ input::-webkit-inner-spin-button {
         margin: 8rem 0 0 0;        
     }
 
-    .footer-list li{
-        font-size: 2rem;
-    }
-    
     .social-media-footer{
         min-width: 16rem;
         max-width: 20rem;
