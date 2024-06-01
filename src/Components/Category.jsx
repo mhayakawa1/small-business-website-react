@@ -50,8 +50,8 @@ function Category(props){
                         <img src={productSorting[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
                     </button>                    
                     <div className='product-info'>
-                        <p className='product-name'>{productSorting[i].Name}</p>
-                        <p className='product-price'>${productSorting[i].Price}</p>
+                        <p className='product-name font-small'>{productSorting[i].Name}</p>
+                        <p className='product-price font-small'>${productSorting[i].Price}</p>
                     </div>
                 </div>
                 if(props.category === 'Bestsellers' && (/true/).test(productSorting[i].Bestseller) === true){
@@ -100,15 +100,15 @@ function Category(props){
 
             <div className='shop-menu'>
                 <div className='sorting-dropdown'>
-                    <label htmlFor='sorting-options'>Sort By: </label>
-                    <select onChange={toggleSorting} name='sorting-options' className='sorting-options'>
-                        <option name='featured' value='featured'>Featured</option>
-                        <option name='a-z' value='a-z'>A-Z</option>
-                        <option name='z-a' value='z-a'>Z-A</option>
-                        <option name='low-high' value='low-high'>Price (Low to High)</option>
-                        <option name='high-low' value='high-low'>Price (High to Low)</option>
+                    <label htmlFor='sorting-options' className='font-small'>Sort By: </label>
+                    <select onChange={toggleSorting} name='sorting-options' className='sorting-options font-small'>
+                        <option name='featured' value='featured' className='font-small'>Featured</option>
+                        <option name='a-z' value='a-z' className='font-small'>A-Z</option>
+                        <option name='z-a' value='z-a' className='font-small'>Z-A</option>
+                        <option name='low-high' value='low-high' className='font-small'>Price (Low to High)</option>
+                        <option name='high-low' value='high-low' className='font-small'>Price (High to Low)</option>
                     </select>
-                </div>                
+                </div>
                 <div className='shop-menu-buttons'>
                     <button className='grid-button-1' onClick={() => shopGridButton(3)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-square" viewBox="0 0 16 16">
@@ -144,13 +144,13 @@ function Category(props){
                                 <p className='view-product-name'>{productInfo.Name}</p>
                                 <div className='view-product-reviews'>
                                     <div className='view-product-stars'>
-                                        <i className='fa fa-star'></i>
-                                        <i className='fa fa-star'></i>
-                                        <i className='fa fa-star'></i>
-                                        <i className='fa fa-star'></i>
-                                        <i className='fa fa-star-half-stroke' aria-hidden='true'></i>
-                                    </div>                                
-                                    <a href='#'>({productInfo.Ratings} Ratings)</a>
+                                        <i className='fa fa-star font-extra-small'></i>
+                                        <i className='fa fa-star font-extra-small'></i>
+                                        <i className='fa fa-star font-extra-small'></i>
+                                        <i className='fa fa-star font-extra-small'></i>
+                                        <i className='fa fa-star-half-stroke font-extra-small' aria-hidden='true'></i>
+                                    </div>              
+                                    <a href='#' className='font-extra-small'>({productInfo.Ratings} Ratings)</a>
                                 </div>
                                 <p className='view-product-price'>${productInfo.Price}</p>
                                 <div className='quantity-cart-container' >
@@ -159,15 +159,15 @@ function Category(props){
                                         <p>{productQty}</p>
                                         <button onClick={() => setQuantity('add')}>+</button>
                                     </div>
-                                    <button className='add-to-cart' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
+                                    <button className='add-to-cart font-small' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
                                 </div> 
                             </div>
                             <div className='share-container'>
                                 <p className='font-extra-small'>Share:</p>
                                 <div className='share-social-media'>                                    
-                                    <a><i className='fab fa-instagram' title='Instagram' alt='Instagram link'></i></a>
-                                    <a><i className='fab fa-facebook' title='Facebook' alt='Facebook link'></i></a>
-                                    <a><i className='fab fa-pinterest' title='Pinterest' alt='Pinterest link'></i></a>
+                                    <a><i className='fab fa-instagram font-extra-small' title='Instagram' alt='Instagram link'></i></a>
+                                    <a><i className='fab fa-facebook font-extra-small' title='Facebook' alt='Facebook link'></i></a>
+                                    <a><i className='fab fa-pinterest font-extra-small' title='Pinterest' alt='Pinterest link'></i></a>
                                 </div>
                             </div>
                         </div>
