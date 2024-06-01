@@ -128,7 +128,7 @@ function App() {
               <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
             </li>
           </ul>
-          <p className='font-small shop-hours'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
+          <p className='font-extra-small shop-hours'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
         </div>
         <div className='footer-col footer-3'>
           <ul className='footer-list other-information font-extra-small'>
