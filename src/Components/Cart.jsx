@@ -94,9 +94,9 @@ console.log(props.cart)
                     <div className='items-in-cart'>
                         {props.cart.length > 0 ? 
                             <ul className='cart-table-headers'>
-                                <li className='column-name-product'>Product:</li>
-                                <li className=''>Unit Price:</li>
-                                <li className=''>Quantity:</li>
+                                <li className='font-small'>Product:</li>
+                                <li className='font-small'>Unit Price:</li>
+                                <li className='font-small'>Quantity:</li>
                             </ul>
                         : null
                         }
@@ -109,8 +109,8 @@ console.log(props.cart)
                     <div className='order-summary-container'>
                         <div>
                             <p className='font-small'>Items: {props.cart.length}</p>
-                        <p className='font-small'>Subtotal: ${subtotal}</p>
-                        <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
+                            <p className='font-small'>Subtotal: ${subtotal}</p>
+                            <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
                         </div>                        
                         <button className={`checkout-button ${props.cart.length === 0 ? 'btn-disabled' : null}`}>
                             <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
