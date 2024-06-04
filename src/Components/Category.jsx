@@ -160,11 +160,11 @@ function Category(props){
                                         <button onClick={() => setQuantity('add')}>+</button>
                                     </div>
                                     <button className='add-to-cart font-small' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
-                                </div> 
+                                </div>
                             </div>
                             <div className='share-container'>
                                 <p className='font-extra-small'>Share:</p>
-                                <div className='share-social-media'>                                    
+                                <div className='share-social-media'>
                                     <a><i className='fab fa-instagram font-extra-small' title='Instagram' alt='Instagram link'></i></a>
                                     <a><i className='fab fa-facebook font-extra-small' title='Facebook' alt='Facebook link'></i></a>
                                     <a><i className='fab fa-pinterest font-extra-small' title='Pinterest' alt='Pinterest link'></i></a>
