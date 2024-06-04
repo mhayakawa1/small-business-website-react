@@ -62,6 +62,25 @@ p{
     color: #234843;
 }
 
+
+@media screen and (min-width: 1441px){
+    .font-extra-small{
+        font-size: 1.2rem;
+    }
+
+    .font-small{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        font-size: 3rem;
+    }
+
+    p{
+        font-size: 1.5rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .font-extra-small{
         font-size: 1.6rem;
@@ -103,6 +122,7 @@ p{
     align-items: center;
     gap: .15rem;
     background-color: #E9A8A5;
+    padding: 0 0 0 5rem;
 }
 
 .site-name-logo .logo{
@@ -122,6 +142,31 @@ p{
     white-space: nowrap;
 }
 
+@media screen and (min-width: 1441px){
+    .nav-header{
+        grid-template-columns: auto 7.5rem;
+    }
+    
+    .site-name-logo{
+        height: 7.5rem;
+        gap: .225rem;
+        padding: 0 0 0 7.5rem;
+    }
+    
+    .site-name-logo .logo{
+        width: 2.7rem;
+        height: 1.2rem;
+    }
+    
+    .site-name-logo a{
+        font-size: 1.875rem;
+        line-height: 1.875rem;
+    }
+
+    .navbar-link{
+        font-size: 3rem;
+    }
+}
 
 @media screen and (min-width: 1921px){
     .nav-header{
@@ -172,11 +217,23 @@ p{
     text-align: 'center';
     font-family: 'Tajawal', 'sans-serif';
     width: 6rem;
+    height: 100%;
     background-color: white;
 }
 
 .site-name-logo .navbar-item{
     background-color: #E8908F;
+}
+
+@media screen and (min-width: 1441px){
+    .navbar{
+        height: 3.75rem;
+    }
+    
+    .navbar-item{
+        width: 9rem;
+        font-size: 1.5rem;
+    }   
 }
 
 @media screen and (min-width: 1921px){
@@ -252,6 +309,28 @@ p{
     }
 }
 
+@media screen and (min-width: 1441px){
+    .cart-link{
+        word-spacing: 15px;
+    }
+    
+    .cart-counter-container{
+        width: 2.625rem;
+    }
+    
+    .fa-cart-shopping{
+        font-size: 1.875rem;
+    }
+    
+    .cart-counter{
+        height: 1.25rem;
+        width: 1.25rem;
+        font-size: .75rem;
+        line-height: 1.05rem;
+        margin: -.45rem 0 0 -.75rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .cart-link{
         word-spacing: 20px;
@@ -270,13 +349,8 @@ p{
         width: 1.5rem;
         font-size: 1rem;
         line-height: 1.4rem;
-        padding: .06rem 0 0 0;
         margin: -.6rem 0 0 -1rem;
     }
-}
-
-.about-link{
-    height: 2.5rem;    
 }
 
 .dropdown-btn{
@@ -324,6 +398,33 @@ p{
 
 .shop-dropdown a:hover{
     background-color: #E9EDEC;
+}
+
+@media screen and (min-width: 1441px){
+    .about-link{
+        height: 3.75rem;    
+    }
+    
+    .dropdown-btn{
+        height: 3.75rem;
+    }
+
+    .dropdown-btn i{
+         font-size: .75rem;
+         margin: 0 0 0 1.5rem;
+    }
+    
+    .shop-dropdown{
+        width: 15rem;
+        padding: 1.5rem 0;
+    }
+    
+    .shop-dropdown a{
+        font-size: 1.5rem;
+        height: 3.75rem;
+        padding: 0 0 0 3rem;
+        line-height: 3.75rem;
+    }
 }
 
 @media screen and (min-width: 1921px){
@@ -598,6 +699,26 @@ h1{
     }
 }
 
+@media screen and (min-width: 1441px){
+    .logo{
+        width: 6rem;
+        height: 4.5rem;
+        margin: 0 0 0 3.75rem;
+    }
+
+    h1{
+        font-size: 4.5rem;
+    }
+
+    .hero-headline{ 
+        top: 9rem;
+    }
+        
+    .hero-headline p{
+        font-size: 1.5rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .logo{
         width: 8rem;
@@ -609,7 +730,7 @@ h1{
         font-size: 6rem;
     }
 
-    .hero-headline{        
+    .hero-headline{ 
         top: 12rem;
     }
         
@@ -617,7 +738,6 @@ h1{
         font-size: 2rem;
     }
 }
-
 
 .social-media-hero{
     display: flex;
@@ -655,6 +775,20 @@ h1{
 @media screen and (max-width: 768px){
     .hero-image{
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 1441px){
+    .hero-image-container{
+        height: 45rem;
+    }
+
+    .hero-image{
+        height: 45rem;
+    }
+
+    .social-media-hero a i{
+        font-size: 1.5rem;
     }
 }
 
@@ -795,6 +929,20 @@ h1{
     }
 }
 
+@media screen and (min-width: 1441px){
+    .bestsellers{
+        min-height: 30rem;
+    }
+    
+    .bestsellers .section-header h2{
+        font-size: 3rem;
+    }
+
+    .bestsellers a{
+        font-size: 1.5rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .bestsellers{
         min-height: 40rem;
@@ -806,8 +954,7 @@ h1{
 
     .bestsellers a{
         font-size: 2rem;
-    }
-    
+    }    
 }
 
 .bestseller-cards{
@@ -854,7 +1001,6 @@ h1{
     white-space: nowrap;
 }
 
-
 @media screen and (max-width: 768px){
     .bestseller-cards{
         gap: auto;
@@ -873,9 +1019,19 @@ h1{
     }
 }
 
-@media screen and (min-width: 1024px){
-    .card-image{
-        height: 15rem;
+@media screen and (min-width: 1441px){
+    .bestseller-cards{
+        gap: 1.5rem;
+        row-gap: 3rem;
+    }
+
+    .card-info{
+        gap: .75rem;
+        padding: .75rem 0;
+    }
+
+    .card-info p{
+        height: 1.875rem;
     }
 }
 
@@ -2831,7 +2987,7 @@ input::-webkit-inner-spin-button {
 
 /**********ERROR PAGE STARTS HERE**********/
 .error-page{
-    height: 40rem;
+    height: 30rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -2839,16 +2995,18 @@ input::-webkit-inner-spin-button {
 
 .error-background{
     width: 100%;
+    height: 100vh;
+    object-fit: cover;
     position: absolute;
     z-index: -1;
-    filter: sepia(15%) contrast(90%) opacity(50%);
+    filter: sepia(15%) contrast(90%) brightness(.5);
 }
 
 .error-page h3{
     text-align: center;
     margin: auto;
     font-family: 'Tajawal', 'sans serif';
-    color: #234843;
+    color: white;
 }
 
 @media screen and (min-width: 1921px){
