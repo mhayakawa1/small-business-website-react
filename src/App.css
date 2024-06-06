@@ -2522,6 +2522,17 @@ h1{
     color: #3D6347;
 }
 
+@media screen and (min-width: 1441px){
+    .share-container{
+        margin: auto .75rem .75rem .75rem;
+        padding: .75rem 0 0 0;
+    }
+    
+    .share-social-media{
+        gap: .75rem;
+    }
+}
+
 @media screen and (min-width: 1921px){
     .share-container{
         margin: auto 1rem 1rem 1rem;
