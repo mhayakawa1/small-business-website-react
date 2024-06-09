@@ -1019,7 +1019,6 @@ h1{
 
 @media screen and (max-width: 428px){
     .card-info p{
-        height: 1rem;
         margin: 0;
     }
 }
@@ -1071,6 +1070,7 @@ h1{
 }
 
 .feature{
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1083,6 +1083,15 @@ h1{
     height: 5rem;
     width: 5rem;
     filter: invert(34%) sepia(34%) saturate(473%) hue-rotate(83deg) brightness(90%) contrast(87%);
+}
+
+@media screen and (max-width: 428px){
+    .features{
+        height: auto;
+        gap: 20%;
+        flex-wrap: wrap;
+        padding: 10% 10% 5% 10%;
+    }
 }
 
 @media screen and (min-width: 1441px){
@@ -1328,6 +1337,9 @@ h1{
 
 .instagram h2{
     color: #234843;
+    font-size: 1.5rem;
+    font-family: 'Tajawal', sans-serif;
+    line-height: 2.5rem;
 }
 
 .ig-posts{
@@ -1376,6 +1388,17 @@ h1{
     opacity: 1;
 }
 
+@media screen and (max-width: 428px){
+    .ig-posts{
+        flex-wrap: wrap;
+        row-gap: 9.5vw;
+    }
+
+    .ig-posts a{
+        width: 44%;
+    }
+}
+
 @media screen and (min-width: 1441px){
     .instagram{
         padding: 6rem 0;
@@ -1422,7 +1445,7 @@ h1{
     height: auto;
     margin: 0 auto;
     text-align: center;
-    padding: 8rem 6rem;
+    padding: 15% 5%;
 }
 
 .newsletter p{
@@ -1432,10 +1455,10 @@ h1{
 .submit-email{
     display: flex;
     gap: 1rem;
-
 }
 
 .submit-email input{
+    height: 2.5rem;
     flex-grow: 1;
     border-radius: 0;
     border: none;
@@ -1457,6 +1480,18 @@ h1{
 
 .submit-email button:hover{
     background-color: #E9A8A5;
+}
+
+@media screen and (max-width: 428px){
+    .submit-email{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .submit-email input{
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1441px){
