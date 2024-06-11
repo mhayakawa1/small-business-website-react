@@ -1644,6 +1644,15 @@ h1{
     }
 }
 
+@media screen and (max-width: 428px){
+    .about-header-container{
+        padding: 5% 10%;
+    }
+    .about-header-container p{
+        text-align: center;
+    }
+}
+
 @media screen and (min-width: 1441px){
     .about-page{
         min-height: 90rem;
@@ -1955,12 +1964,6 @@ h1{
     font-size: .8rem;
 }
 
-@media screen and (max-width: 768px){
-    .shop-menu{
-        width: 95%;
-    }
-}
-
 @media screen and (min-width: 1441px){    
     .shop-menu{
         height: 3rem;
@@ -2117,18 +2120,6 @@ h1{
     margin: 1rem auto auto auto;
 }
 
-@media screen and (max-width: 428px){
-    .products-container{
-        padding: 5%;
-        gap: 5%;
-    }
-}
-
-@media screen and (max-width: 768px){
-    .products-container{
-        width: 95%;
-    }
-}
 
 .product-card-container{
     aspect-ratio: 1 / 1.25;
@@ -2262,10 +2253,14 @@ h1{
 }
 
 .exit-view i{
-    width: 100%;
-    height: 100%;
-    font-size: 1.5rem;
     padding: 0;
+    font-size: 1.6rem;
+    justify-self: end;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .view-product{
@@ -2288,16 +2283,6 @@ h1{
     display: flex;
     flex-direction: column;
     padding: .5rem;
-}
-
-.right-panel .fa-x{
-    font-size: 1.6rem;
-    justify-self: end;
-    height: 1rem;
-    width: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .view-product-info{
@@ -2336,6 +2321,11 @@ h1{
 .view-product-price{
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+    .view-product{
+    }
 }
 
 @media screen and (min-width: 1441px){
