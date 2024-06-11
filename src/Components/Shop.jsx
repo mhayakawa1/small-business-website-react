@@ -151,11 +151,11 @@ function Shop(props){
             {viewProduct === false ? null : 
                 <div className='view-product-container'>
                     <div className='view-product'>
+                        <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
+                            <i className='fa-solid fa-x'></i>
+                        </button>
                         <img src={productInfo.ImageSource}></img>
                         <div className='right-panel'>
-                            <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
-                                <i className='fa-solid fa-x'></i>
-                            </button>
                             <div className='view-product-info'>
                                 <p className='view-product-name'>{productInfo.Name}</p>
                                 <div className='view-product-reviews'>
