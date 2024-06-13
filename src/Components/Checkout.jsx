@@ -179,7 +179,7 @@ function Checkout(props){
     
     return(
         <div className='checkout-page'>
-            <NavLink to='/cart' className='cart-link nav-link-button'>
+            <NavLink to='/cart'>
                 <button className='back-to-cart'>
                     <i className='fas fa-arrow-left'></i> Back to cart
                 </button>
