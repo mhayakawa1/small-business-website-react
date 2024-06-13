@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Category(props){
     const [gridNum, setGridNum] = useState(3);
@@ -8,20 +8,25 @@ function Category(props){
     const [productQty, setProductQty] = useState(0);
     const [productSorting, setProductSorting] = useState(props.products);
 
+    useEffect(() => {
+        if(productSorting.length === 0){
+            setProductSorting(props.products)
+        }
+    })
+
     const toggleSorting = (event) => {
         setSortBy(event.target.value)
-           
-        const productsData = props.products
-        let alphabetical = true
-        if(event.target.value.length === 3){
-            alphabetical = true
-        }else{
-            alphabetical = false
-        }
 
         if(event.target.value === 'featured'){
             setProductSorting(props.products)
         }else{
+            const productsData = [...props.products]
+            let alphabetical = true
+            if(event.target.value.length === 3){
+                alphabetical = true
+            }else{
+                alphabetical = false
+            }
             productsData.sort(function (a, b) {
                 if(a[alphabetical ? 'Name' : 'Price'] < b[alphabetical ? 'Name' : 'Price']){
                     return -1;
@@ -37,8 +42,7 @@ function Category(props){
                 productsData.reverse()
             }
             setProductSorting(productsData)
-        }
-        
+        }        
     }
 
     const renderProducts = () =>{
@@ -100,8 +104,8 @@ function Category(props){
 
             <div className='shop-menu'>
                 <div className='sorting-dropdown'>
-                    <label htmlFor='sorting-options' className='font-small'>Sort By: </label>
-                    <select onChange={toggleSorting} name='sorting-options' className='sorting-options font-small'>
+                    <label htmlFor='sorting-options-select' className='font-small'>Sort By: </label>
+                    <select onChange={toggleSorting} id='sorting-options-select' className='sorting-options font-small'>
                         <option name='featured' value='featured' className='font-small'>Featured</option>
                         <option name='a-z' value='a-z' className='font-small'>A-Z</option>
                         <option name='z-a' value='z-a' className='font-small'>Z-A</option>
@@ -134,12 +138,12 @@ function Category(props){
             
             {viewProduct === false ? null : 
                 <div className='view-product-container'>
+                    <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
+                        <i className='fa-solid fa-x'></i>
+                    </button>
                     <div className='view-product'>
                         <img src={productInfo.ImageSource}></img>
-                        <div className='right-panel'>
-                            <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
-                                <i className='fa-solid fa-x'></i>
-                            </button>
+                        <div className='details-panel'>
                             <div className='view-product-info'>
                                 <p className='view-product-name'>{productInfo.Name}</p>
                                 <div className='view-product-reviews'>
