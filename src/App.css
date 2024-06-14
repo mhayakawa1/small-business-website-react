@@ -2187,7 +2187,7 @@ h1{
 .product-image{
     width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1/1;
     object-fit: cover;
     filter: sepia(15%) contrast(90%);
 }
@@ -2201,10 +2201,6 @@ h1{
     .grid2{
         width: 47.5%;
         margin: 0 0 2rem 0;
-    }
-
-    .grid-image-3{
-        height: 20rem !important;
     }
 }
 
