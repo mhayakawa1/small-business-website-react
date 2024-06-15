@@ -58,6 +58,7 @@ h2{
 }
 
 p{
+    font-size: 1rem;
     font-family: 'Tajawal', sans-serif;
     color: #234843;
 }
@@ -734,22 +735,6 @@ h1{
     }
 }
 
-.social-media-hero{
-    display: flex;
-    justify-content: flex-start;
-    padding: 0;
-    gap: 5%;
-}
-
-.social-media-hero a i{
-    color: white;
-}
-
-.social-media-hero a i:hover{
-    text-decoration: none;
-    color: #E9A8A5;
-}
-
 .hero-image-container{
     width: 100%;
     min-height: 30rem;
@@ -765,6 +750,22 @@ h1{
     height: 100vh;
     object-fit: cover;
     filter: sepia(15%) contrast(90%) brightness(.5);
+}
+
+.social-media-hero{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 5%;
+}
+
+.social-media-hero a i{
+    color: white;
+}
+
+.social-media-hero a i:hover{
+    text-decoration: none;
+    color: #E9A8A5;
 }
 
 @media screen and (max-width: 428px){
@@ -801,10 +802,6 @@ h1{
 
     .hero-image{
         min-height: 60rem;
-    }
-
-    .social-media-hero{
-        gap: 10%;
     }
     
     .social-media-hero a i{
@@ -1501,6 +1498,7 @@ h1{
     }
     
     .submit-email input{
+        height: 3.75rem;
         padding: 0 0 0 1.5rem;
         font-size: 1.5rem;
     }
@@ -1522,6 +1520,7 @@ h1{
     }
     
     .submit-email input{
+        height: 5rem;
         padding: 0 0 0 2rem;
         font-size: 2rem;
     }
@@ -3287,7 +3286,6 @@ input::-webkit-inner-spin-button {
     font-family: 'Tajawal', sans-serif;
 }
 
-
 @media screen and (max-width: 428px){
     .footer{
         height: 30rem !important;
@@ -3343,6 +3341,28 @@ input::-webkit-inner-spin-button {
     .contact-information{
         padding: 0 0 0 20%;
     }  
+}
+
+@media screen and (min-width: 1441px){
+    .footer{
+        height: 33rem;
+    }
+    
+    .footer-col{
+        margin: 6rem 0 0 0;
+    }
+    
+    .social-media-footer{
+        min-width: 12rem;
+    }
+    
+    .footer-link i{
+        font-size: 1.5rem;
+    }
+    
+    .other-information{
+        line-height: 3rem;
+    }
 }
 
 @media screen and (min-width: 1921px){
