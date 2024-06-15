@@ -168,10 +168,6 @@ p{
         font-size: 1.875rem;
         line-height: 1.875rem;
     }
-
-    .navbar-link{
-        font-size: 3rem;
-    }
 }
 
 @media screen and (min-width: 1921px){
@@ -658,7 +654,7 @@ p{
 }
 
 .hero-headline{
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -709,22 +705,12 @@ h1{
 }
 
 @media screen and (min-width: 1441px){
-    .logo{
-        width: 6rem;
-        height: 4.5rem;
-        margin: 0 0 0 3.75rem;
-    }
-
-    h1{
-        font-size: 4.5rem;
-    }
-
-    .hero-headline{ 
+    .hero-headline{
         top: 9rem;
     }
-        
-    .hero-headline p{
-        font-size: 1.5rem;
+    
+    h1{
+        font-size: 4.5rem;
     }
 }
 
@@ -796,11 +782,11 @@ h1{
 
 @media screen and (min-width: 1441px){
     .hero-image-container{
-        height: 45rem;
+        min-height: 45rem;
     }
 
     .hero-image{
-        height: 45rem;
+        min-height: 45rem;
     }
 
     .social-media-hero a i{
@@ -810,11 +796,11 @@ h1{
 
 @media screen and (min-width: 1921px){
     .hero-image-container{
-        height: 60rem;
+        min-height: 60rem;
     }
 
     .hero-image{
-        height: 60rem;
+        min-height: 60rem;
     }
 
     .social-media-hero{
