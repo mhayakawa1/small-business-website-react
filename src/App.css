@@ -1078,7 +1078,10 @@ h1{
 
 /*REVIEWS STARTS HERE*/
 .reviews{
-    padding: 10vh 0;
+    padding: 10vh 0 10vh 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .reviews h2{
@@ -1088,10 +1091,12 @@ h1{
 
 .review-cards{
     width: 90%;
+    height: auto;
+    padding: 0;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: stretch;
 }
 
 .review-cards button{
@@ -1110,6 +1115,7 @@ h1{
 @media screen and (max-width: 768px){
     .review-cards{
         justify-content: space-around;
+        align-items: center;
     }
 }
 
@@ -1139,7 +1145,7 @@ h1{
 }
 
 .review-card{
-    width: 25vw;
+    width: 27.5vw;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -1147,6 +1153,7 @@ h1{
     justify-content: start;
     gap: 0;
     padding: 5vh 5vw;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px){
@@ -1165,6 +1172,7 @@ h1{
 }
 
 .review-text{
+    flex-grow: 1;
     margin: .5rem 0;
     text-align: center;
 }
@@ -1226,12 +1234,12 @@ h1{
 /*INSTAGRAM STARTS HERE*/
 .instagram{
     background-color: white;
-    padding: 4rem 0;
+    padding: 10vh 0;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1vh;
 }
 
 .ig-header{
@@ -1320,7 +1328,6 @@ h1{
 
 @media screen and (min-width: 1441px){
     .instagram{
-        padding: 6rem 0;
         gap: 1.5rem;
     }
     
@@ -1339,7 +1346,6 @@ h1{
 
 @media screen and (min-width: 1921px){
     .instagram{
-        padding: 8rem 0;
         gap: 2rem;
     }
     
@@ -1364,7 +1370,7 @@ h1{
     height: auto;
     margin: 0 auto;
     text-align: center;
-    padding: 15% 5%;
+    padding: 25vh 5vw;
 }
 
 .newsletter p{
@@ -1373,7 +1379,7 @@ h1{
 
 .submit-email{
     display: flex;
-    gap: 1rem;
+    gap: 1vh;
 }
 
 .submit-email input{
@@ -1413,11 +1419,7 @@ h1{
     }
 }
 
-@media screen and (min-width: 1441px){
-    .newsletter{
-        padding: 12rem 9rem;
-    }
-    
+@media screen and (min-width: 1441px){    
     .submit-email{
         gap: 1.5rem;
     }
@@ -1435,11 +1437,7 @@ h1{
     }
 }
 
-@media screen and (min-width: 1921px){
-    .newsletter{
-        padding: 16rem 12rem;
-    }
-    
+@media screen and (min-width: 1921px){   
     .submit-email{
         gap: 2rem;
     }
@@ -1463,20 +1461,19 @@ h1{
 
 /**********ABOUT PAGE STARTS HERE**********/
 .about-page{
-    min-height: 60rem;
     width: 100%;
     overflow-x: none;
 }
 
 .about-page header{
-    margin: 0 0 0 0;
+    margin: 0;
     width: 10%;
-    height: 20rem;
+    height: 50vh;
 }
 
 .about-page header img{
     width: 100vw;
-    height: 20rem;
+    height: 50vh;
     object-fit: cover;
     object-position: 0% 15%;
     filter: sepia(15%) contrast(90%) brightness(.5);
@@ -1487,12 +1484,13 @@ h1{
     z-index: 2;
     top: 7.5rem;
     width: 100vw;
-    height: 20rem;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 5%;
+    box-sizing: border-box;
 }
 
 .about-header-container h1{
@@ -1512,7 +1510,7 @@ h1{
     display: flex;
     justify-content: center;
     gap: 5%;
-    padding: 2rem 10%;
+    padding: 10vh 10vw;
     margin: 0;
 }
 
@@ -1528,7 +1526,7 @@ h1{
 }
 
 .about-img{
-    height: 20rem;
+    height: 70vh;
     object-fit: cover;
     aspect-ratio: 1/1;
     margin: auto;
@@ -1578,56 +1576,14 @@ h1{
 }
 
 @media screen and (min-width: 1441px){
-    .about-page{
-        min-height: 90rem;
-    }
-    
-    .about-page header{
-        height: 30rem;
-    }
-    
-    .about-page header img{
-        height: 30rem;
-    }
-    
     .about-header-container{
         top: 11.25rem;
-        height: 30rem;
-    }
-    
-    .about-page .container{
-        padding: 3rem 10%;
-    }
-    
-    .about-img{
-        height: 30rem;
     }
 }
 
 @media screen and (min-width: 1921px){
-    .about-page{
-        min-height: 120rem;
-    }
-    
-    .about-page header{
-        height: 40rem;
-    }
-    
-    .about-page header img{
-        height: 40rem;
-    }
-    
     .about-header-container{
         top: 15rem;
-        height: 40rem;
-    }
-    
-    .about-page .container{
-        padding: 4rem 10%;
-    }
-    
-    .about-img{
-        height: 40rem;
     }
 }
 
