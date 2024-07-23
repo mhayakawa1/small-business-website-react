@@ -83,7 +83,7 @@ function App() {
   }
 
   return (
-    <div className='page'>
+    <div>
       <BrowserRouter>
         <div>
           <NavbarMenu cart={cartItems} />
