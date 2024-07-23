@@ -7,7 +7,7 @@ import AboutHeaderImage from '../OtherImages/About Header Image.jpg'
 function About(){
     return(
         <main className='about-page'>
-            <header className=''>
+            <header>
                 <img src={AboutHeaderImage}></img>
                 <div className='about-header-container'>
                     <h1>About Us</h1>
