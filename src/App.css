@@ -219,6 +219,10 @@ p{
     background-color: white;
 }
 
+.navbar-item:active{
+    cursor: pointer;
+}
+
 .site-name-logo .navbar-item{
     background-color: #E8908F;
 }
@@ -397,6 +401,7 @@ p{
 
 .shop-dropdown a:hover{
     background-color: #E9EDEC;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1441px){
@@ -1605,37 +1610,25 @@ h1{
 
 /**********SHOP PAGE STARTS HERE**********/
 .shop-page{
-    min-height: 60rem;
-    padding: 0 0 5rem 0;
+    padding: 0 0 10vh 0;
     overflow-x: none;
     margin: 0;
 }
 
 .shop-header{
     width: 100%;
-    height: 12rem;
+    padding: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 0 0 0;
-    overflow-x: none;
-}
-
-.shop-header::before{
-	content: " ";
-	position: absolute;
-	left: 0;
-	top: 0;
-    height: 12rem;
-    margin: 7.5rem 0 0 0;
-    width: 100%;
+    margin: 0;
 	box-sizing: border-box;
+    overflow-x: none;
 	background-image: url('https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
 	background-size: cover;
 	background-repeat: no-repeat;
     background-position: 0% 80%;
 	filter: sepia(15%) contrast(90%);
-	z-index: -1;
 }
 
 .shop-header-background{
@@ -2160,16 +2153,19 @@ h1{
 }
 
 .view-product{
-    width: 40rem;
+    width: 70vw;
     height: auto;
     background-color: white;
     margin: auto;
     display: flex;
+    aspect-ratio: 4 / 2;
+    position: relative;
 }
 
 .view-product img{
     width: 50%;
-    height: 24rem; 
+    height: auto; 
+    aspect-ratio: 1 /1 ;
     object-fit: cover;
     filter: sepia(15%) contrast(90%);
 }
@@ -2353,6 +2349,16 @@ h1{
     height: 100%;
     border: none;
     padding: 0 0 .25rem 0;
+    background-color: #E9EDEC;
+}
+
+.quantity-container button:hover{
+    background-color: #D3DAD9;
+}
+
+.quantity-container button:active{
+    background-color: #173935;
+    color: white;
 }
 
 .quantity-container p{
