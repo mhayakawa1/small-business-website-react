@@ -103,42 +103,44 @@ function App() {
         </div>
       </BrowserRouter>
 
-      <div className='footer'>
-        <div className='footer-col footer-1'>
-          <ul className='footer-list contact-information font-extra-small'>
-            <li><i className='fas fa-phone'></i> (012)345-6789</li>
-            <br/>
-            <li>greenoasis@email.com<br/>Business inquiries only</li>
-            <br/>
-            <li>4335 Lorem Ipsum Dolor<br/>
-              582 Sonsectetur St.<br/>
-              Phoenix, AZ 85001
-            </li>
-          </ul>
-        </div>
-        <div className='footer-col footer-2'>
-          <ul className='footer-list social-media-footer'>
-            <li>
-              <a className='footer-link'><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
-            </li>
-            <li>
-              <a className='footer-link'><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
-            </li>
-            <li>
-              <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
-            </li>
-          </ul>
-          <p className='font-extra-small shop-hours'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
-        </div>
-        <div className='footer-col footer-3'>
-          <ul className='footer-list other-information font-extra-small'>
-            <li><a className='footer-link'>FAQs</a></li>
-            <li><a className='footer-link'>Shipping & Returns</a></li>
-            <li><a className='footer-link'>Privacy Policy</a></li>
-          </ul>
+      <footer>
+        <div className='footer-columns'>
+          <div className='footer-column'>
+            <ul className='footer-list contact-information font-extra-small'>
+              <li><i className='fas fa-phone'></i> (012)345-6789</li>
+              <br/>
+              <li>greenoasis@email.com<br/>Business inquiries only</li>
+              <br/>
+              <li>4335 Lorem Ipsum Dolor<br/>
+                582 Sonsectetur St.<br/>
+                Phoenix, AZ 85001
+              </li>
+            </ul>
+          </div>
+          <div className='footer-column footer-2'>
+            <ul className='footer-list social-media-footer'>
+              <li>
+                <a className='footer-link'><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
+              </li>
+              <li>
+                <a className='footer-link'><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
+              </li>
+              <li>
+                <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
+              </li>
+            </ul>
+            <p className='font-extra-small'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
+          </div>
+          <div className='footer-column'>
+            <ul className='footer-list other-information font-extra-small'>
+              <li><a className='footer-link'>FAQs</a></li>
+              <li><a className='footer-link'>Shipping & Returns</a></li>
+              <li><a className='footer-link'>Privacy Policy</a></li>
+            </ul>
+          </div>
         </div>
         <p className='copyright-statement font-extra-small'>© 2023 Green Oasis Florist. All rights reserved.</p>
-      </div>
+      </footer>
     </div>
   );
 }
