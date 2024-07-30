@@ -759,6 +759,7 @@ h1{
 
 .social-media-hero a i{
     color: white;
+    cursor: pointer;
 }
 
 .social-media-hero a i:hover{
@@ -2500,6 +2501,7 @@ h1{
 
 .share-social-media i{
     color:  #173935;
+    cursor: pointer;
 }
 
 .share-social-media i:hover{
@@ -2538,7 +2540,6 @@ h1{
 
 .cart-page{
     gap: 5%;
-    min-height: 45rem;
 }
 
 .cart-page h3{
@@ -2818,6 +2819,10 @@ h1{
     .order-summary-container{
         padding: 2rem 0 0 0;
     }
+}
+
+.pickup-delivery-input input{
+    cursor: pointer;
 }
 
 .checkout-button{
@@ -3148,6 +3153,10 @@ footer{
     justify-content: space-between;
     padding: 0;
     margin: 0 auto;
+}
+
+.social-media-footer i{
+    cursor: pointer;
 }
 
 .footer-2{
