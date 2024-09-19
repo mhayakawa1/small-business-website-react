@@ -19,6 +19,19 @@ function NavbarMenu(props){
       textAlign: 'center',
       fontFamily: 'Tajawal, sans-serif'
     })
+
+    const getNavLinks = () => {
+      const navLinksNames = ['Bestsellers', 'Sympathy', 'Love & Romance', 'Get Well', 'Birthday'];
+      let navLinks = [];
+      for(let i = 0; i < navLinksNames.length; i++){
+        navLinks.push(
+          <NavLink key={i} to={`/shop/${navLinksNames[i].replace(/ /g, '')}`}>{navLinksNames[i]}</NavLink>
+        )
+      }
+      return(
+        navLinks
+      )
+    }
     
     return(
       <header className='nav-header'>
@@ -41,11 +54,7 @@ function NavbarMenu(props){
               Shop <i className='fa fa-chevron-down'></i>
             </button>
             <div className={`shop-dropdown ${dropdownVisible ? 'show-dropdown' : ''}`}>
-              <NavLink to='/shop/bestsellers'>Bestsellers</NavLink>
-              <NavLink to='/shop/sympathy'>Sympathy</NavLink>
-              <NavLink to='/shop/love&romance'>Love & Romance</NavLink>
-              <NavLink to='/shop/getwell'>Get Well</NavLink>
-              <NavLink to='/shop/birthday'>Birthday</NavLink>
+              {getNavLinks()}
             </div>
           </div>            
         </div>
