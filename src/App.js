@@ -8,7 +8,6 @@ import Shop from './Components/Shop';
 import Category from './Components/Category';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
-import HamburgerMenu from './Components/HamburgerMenu';
 import NavbarMenu from './Components/NavbarMenu';
 import Error from './Components/Error';
 
@@ -82,6 +81,49 @@ function App() {
     }
   }
 
+  const getShopRoutes = () =>{
+    const categories = ['Bestsellers', 'Sympathy', 'Love & Romance', 'Ge Well', 'Birthday'];
+    let shopRoutes = [];
+    for(let i = 0; i < categories.length; i++){
+      shopRoutes.push(
+        <Route key={i} path={`/shop/${categories[i].replace(/ /g, '').toLowerCase()}`} element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={categories[i]}/>}/>
+      )
+    }
+    return (
+      shopRoutes
+    )
+  }
+
+  const getFooterIcons = () =>{
+    const platforms = ['Instagram', 'Facebook', 'TikTok'];
+    let footerIcons = [];
+    for(let i = 0; i < platforms.length; i++){
+      footerIcons.push(
+        <li key={i}>
+          <a className='footer-link'>
+            <i className={`fab fa-${platforms[i].toLowerCase()}`} title={platforms[i]} alt={`${platforms[i]} logo`}></i>
+          </a>
+        </li>
+      )
+    }
+    return (
+      footerIcons
+    )
+  }
+
+  const getFooterLinks = () => {
+    const linkNames = ['FAQs', 'Shipping & Returns', 'Privacy Policy'];
+    let footerLinks = [];
+    for(let i = 0; i < linkNames.length; i++){
+      footerLinks.push(
+        <li key={i}><a className='footer-link'>{linkNames[i]}</a></li>
+      )
+    }
+    return(
+      footerLinks
+    )
+  }
+
   return (
     <div>
       <BrowserRouter>
@@ -91,11 +133,7 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} cart={cartItems} />}/>
-              <Route path='/shop/bestsellers' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Bestsellers'} />}/>
-              <Route path='/shop/sympathy' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Sympathy'} />}/>
-              <Route path='/shop/love&romance' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Love & Romance'} />}/>
-              <Route path='/shop/getwell' element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={'Get Well'} />}/>
-              <Route path='/shop/birthday' element={<Category clickHandlser={handleClick} cart={cartItems} products={productsData} category={'Birthday'} />}/>
+              {getShopRoutes()}
             <Route path='/cart' element={<Cart clickHandler={handleClick} cart={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} cart={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
@@ -119,23 +157,13 @@ function App() {
           </div>
           <div className='footer-column footer-2'>
             <ul className='footer-list social-media-footer'>
-              <li>
-                <a className='footer-link'><i className='fab fa-instagram' title='Instagram' alt='instagram logo'></i></a>
-              </li>
-              <li>
-                <a className='footer-link'><i className='fab fa-facebook' title='Facebook' alt='facebook logo'></i></a>
-              </li>
-              <li>
-                <a className='footer-link'><i className='fab fa-tiktok' title='TikTok' alt='tiktok logo'></i></a>
-              </li>
+              {getFooterIcons()}
             </ul>
             <p className='font-extra-small'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
           </div>
           <div className='footer-column'>
             <ul className='footer-list other-information font-extra-small'>
-              <li><a className='footer-link'>FAQs</a></li>
-              <li><a className='footer-link'>Shipping & Returns</a></li>
-              <li><a className='footer-link'>Privacy Policy</a></li>
+              {getFooterLinks()}
             </ul>
           </div>
         </div>
