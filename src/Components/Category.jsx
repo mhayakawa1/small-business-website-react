@@ -94,6 +94,12 @@ function Category(props){
         })
     }
 
+    const getDropdownOptions = () =>{
+        const optionNames = ['Featured', 'A-Z', 'Z-A', 'Low to High', 'High to Low'];
+        let options = [];
+        console.log(optionNames[3])
+    }
+
     return(
         <main className='shop-page'>
             <section className='shop-header'>
@@ -106,11 +112,13 @@ function Category(props){
                 <div className='sorting-dropdown'>
                     <label htmlFor='sorting-options-select' className='font-small'>Sort By: </label>
                     <select onChange={toggleSorting} id='sorting-options-select' className='sorting-options font-small'>
+                        
                         <option name='featured' value='featured' className='font-small'>Featured</option>
                         <option name='a-z' value='a-z' className='font-small'>A-Z</option>
                         <option name='z-a' value='z-a' className='font-small'>Z-A</option>
                         <option name='low-high' value='low-high' className='font-small'>Price (Low to High)</option>
                         <option name='high-low' value='high-low' className='font-small'>Price (High to Low)</option>
+                        {/**/}
                     </select>
                 </div>
                 <div className='shop-menu-buttons'>
