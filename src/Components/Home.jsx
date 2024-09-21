@@ -20,7 +20,7 @@ function Home() {
     const [fadeIn, setFadeIn] = useState('');
     const [image1, setImage1] = useState(imagesArr[0]);
     const [image2, setImage2] = useState(imagesArr[1]);
-    const [reviewClasses, setReviewClasses] = useState(1);
+    const [reviewNumber, setReviewNumber] = useState(0);
 
     function renderHeroImage() {
         return (
@@ -47,18 +47,18 @@ function Home() {
     }, []);
 
     const reviewCarousel = (direction) => {
-        if (direction === 'right' && reviewClasses < 3) {
-            setReviewClasses(reviewClasses + 1)
-        } else if (direction === 'right' && reviewClasses === 3) {
-            setReviewClasses(1)
-        } else if (direction === 'left' && reviewClasses > 1) {
-            setReviewClasses(reviewClasses - 1)
-        } else if (direction === 'left' && reviewClasses === 1) {
-            setReviewClasses(3)
+        if (direction === 'right' && reviewNumber < 2) {
+            setReviewNumber(reviewNumber + 1)
+        } else if (direction === 'right' && reviewNumber === 2) {
+            setReviewNumber(0)
+        } else if (direction === 'left' && reviewNumber > 0) {
+            setReviewNumber(reviewNumber - 1)
+        } else if (direction === 'left' && reviewNumber === 0) {
+            setReviewNumber(2)
         }
     }
 
-    const getSocialMediaIcons = () => {
+    const renderIcons = () => {
         const platforms = ['Instagram', 'Facebook', 'TikTok'];
         let icons = [];
         for (let i = 0; i < platforms.length; i++) {
@@ -73,7 +73,7 @@ function Home() {
         )
     }
 
-    const getBestsellerCards = () => {
+    const renderBestsellerCards = () => {
         const cardInfo = [
             {
                 src: Sympathy10,
@@ -113,7 +113,7 @@ function Home() {
         )
     }
 
-    const getFeatures = () => {
+    const renderFeatures = () => {
         const featuresInfo = [
             {
                 src: QuickDelivery,
@@ -168,9 +168,8 @@ function Home() {
                     <i key={j} className='fas fa-star'></i>
                 )
             }
-            //console.log(reviewClasses)
             reviews.push(
-                <div key={i} className={`review-card ${reviewClasses === i+1 ? 'show-review' : ''}`}>
+                <div key={i} className={`review-card ${reviewNumber === i ? 'show-review' : ''}`}>
                     <p className='review-stars'>
                         {stars}
                     </p>
@@ -229,7 +228,7 @@ function Home() {
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <div className='social-media-hero'>
-                        {getSocialMediaIcons()}
+                        {renderIcons()}
                     </div>
                 </div>
             </section>
@@ -239,12 +238,12 @@ function Home() {
                     <a href='/shop/bestsellers'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
-                    {getBestsellerCards()}
+                    {renderBestsellerCards()}
                 </div>
             </section>
 
             <section className='features'>
-                {getFeatures()}
+                {renderFeatures()}
             </section>
             <section className='reviews'>
                 <h2>Customer Reviews</h2>
