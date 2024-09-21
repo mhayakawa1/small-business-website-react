@@ -42,6 +42,7 @@ function App() {
           console.error('Error', error);
       })
   }
+
   const onStorageUpdate = (e) => {
     const { key, newValue } = e;
     if (key === 'saveData') {
@@ -81,7 +82,7 @@ function App() {
     }
   }
 
-  const getShopRoutes = () =>{
+  const renderShopRoutes = () =>{
     const categories = ['Bestsellers', 'Sympathy', 'Love & Romance', 'Ge Well', 'Birthday'];
     let shopRoutes = [];
     for(let i = 0; i < categories.length; i++){
@@ -94,7 +95,7 @@ function App() {
     )
   }
 
-  const getFooterIcons = () =>{
+  const renderFooterIcons = () =>{
     const platforms = ['Instagram', 'Facebook', 'TikTok'];
     let footerIcons = [];
     for(let i = 0; i < platforms.length; i++){
@@ -111,7 +112,7 @@ function App() {
     )
   }
 
-  const getFooterLinks = () => {
+  const renderFooterLinks = () => {
     const linkNames = ['FAQs', 'Shipping & Returns', 'Privacy Policy'];
     let footerLinks = [];
     for(let i = 0; i < linkNames.length; i++){
@@ -133,7 +134,7 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop clickHandler={handleClick} cart={cartItems} />}/>
-              {getShopRoutes()}
+              {renderShopRoutes()}
             <Route path='/cart' element={<Cart clickHandler={handleClick} cart={cartItems} />}/>
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} cart={cartItems} />}/>
             <Route path='*' element={<Error/>}/>
@@ -157,13 +158,13 @@ function App() {
           </div>
           <div className='footer-column footer-2'>
             <ul className='footer-list social-media-footer'>
-              {getFooterIcons()}
+              {renderFooterIcons()}
             </ul>
             <p className='font-extra-small'>Hours: 9:30am-7:00pm<br/>Monday-Saturday</p>
           </div>
           <div className='footer-column'>
             <ul className='footer-list other-information font-extra-small'>
-              {getFooterLinks()}
+              {renderFooterLinks()}
             </ul>
           </div>
         </div>
