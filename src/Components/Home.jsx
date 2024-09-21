@@ -22,7 +22,7 @@ function Home() {
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewClasses, setReviewClasses] = useState(1);
 
-    function getHeroImage() {
+    function renderHeroImage() {
         return (
             <div key={'key'} className='hero-image-container'>
                 <img key={image2} src={image2} className={`hero-image`} />
@@ -41,7 +41,7 @@ function Home() {
             setImage2(imagesArr[1]);
             setImage1(imagesArr[0]);
             setFadeIn('fade-in');
-            getHeroImage();
+            renderHeroImage();
         }, 10000);
         return () => clearInterval(interval);
     }, []);
@@ -142,7 +142,7 @@ function Home() {
         )
     }
 
-    const getReviews = () => {
+    const renderReviews = () => {
         const reviewsInfo = [
             {
                 review: 'I received a surprise delivery from Green Oasis today, and I couldn\'t be happier. The bouquet is a masterpiece of colors and fragrances. It brightened my entire day, and I feel so appreciated.',
@@ -168,6 +168,7 @@ function Home() {
                     <i key={j} className='fas fa-star'></i>
                 )
             }
+            //console.log(reviewClasses)
             reviews.push(
                 <div key={i} className={`review-card ${reviewClasses === i+1 ? 'show-review' : ''}`}>
                     <p className='review-stars'>
@@ -186,7 +187,7 @@ function Home() {
         )
     }
 
-    const getIGPosts = () => {
+    const renderIGPosts = () => {
         const igPostInfo = [
             {
                 src: IG1,
@@ -223,7 +224,7 @@ function Home() {
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
             <section className='hero'>
-                {getHeroImage()}
+                {renderHeroImage()}
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
@@ -249,7 +250,7 @@ function Home() {
                 <h2>Customer Reviews</h2>
                 <div className='review-cards'>
                     <button onClick={() => reviewCarousel('left')}><i className='fa fa-chevron-left'></i></button>
-                    {getReviews()}
+                    {renderReviews()}
                     <button onClick={() => reviewCarousel('right')}><i className='fa fa-chevron-right'></i></button>
                 </div>
             </section>
@@ -259,7 +260,7 @@ function Home() {
                     <button>Follow Us</button>
                 </div>
                 <div className='ig-posts'>
-                    {getIGPosts()}
+                    {renderIGPosts()}
                 </div>
             </section>
             <section className='newsletter'>
