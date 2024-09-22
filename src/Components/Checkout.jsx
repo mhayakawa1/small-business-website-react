@@ -166,7 +166,7 @@ function Checkout(props){
         }
         
         tax = addDecimal(tax)
-        return(            
+        return(//shange to ul          
             <div className='price-info'>
                 <p className='font-extra-small'>Subtotal: ${subtotal}</p>
                 <p className='font-extra-small'>Discount: {codeValid === true ? `-$${discount} (${percentOff}%)` : '$0.00'}</p>
@@ -178,7 +178,7 @@ function Checkout(props){
     }
     
     return(
-        <div className='checkout-page'>
+        <main className='checkout-page'>
             <NavLink to='/cart'>
                 <button className='back-to-cart'>
                     <i className='fas fa-arrow-left'></i> Back to cart
@@ -313,7 +313,7 @@ function Checkout(props){
                 </div>    
             
             </form>
-        </div>
+        </main>
     )
 }
 export default Checkout;
