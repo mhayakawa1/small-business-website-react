@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import OwnersImage from '../OtherImages/Owners Image.jpg';
 import MissionImage from '../OtherImages/Mission Image.jpg';
 import AboutHeaderImage from '../OtherImages/About Header Image.jpg'
