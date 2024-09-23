@@ -46,7 +46,7 @@ function Cart(props){
         props.clickHandler(productQty, productName, 'delete')
     }
     
-    const getItemsInCart = () =>{//render a div for every product and calculate subtotal
+    const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
@@ -104,9 +104,9 @@ console.log(props.cart)
                         : getItemsInCart()}
                     </div>
                 </div>
-                <div className='subtotal-checkout-container'>
+                <div className='summary-container'>
                     <h3>Order Summary</h3>
-                    <div className='order-summary-container'>
+                    <div className='summary'>
                         <div>
                             <p className='font-small'>Items: {props.cart.length}</p>
                             <p className='font-small'>Subtotal: ${subtotal}</p>
