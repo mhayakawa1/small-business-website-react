@@ -15,14 +15,15 @@ function Category(props){
     })
 
     const toggleSorting = (event) => {
-        setSortBy(event.target.value)
+        const value = event.target.value;
+        setSortBy(value);
 
-        if(event.target.value === 'featured'){
+        if(value === 'featured'){
             setProductSorting(props.products)
         }else{
             const productsData = [...props.products]
             let alphabetical = true
-            if(event.target.value.length === 3){
+            if(value.length === 3){
                 alphabetical = true
             }else{
                 alphabetical = false
@@ -38,7 +39,7 @@ function Category(props){
                 }
             )
 
-            if(event.target.value === 'high-low'|| event.target.value === 'z-a'){
+            if(value === 'high-to-low'|| value === 'z-a'){
                 productsData.reverse()
             }
             setProductSorting(productsData)
@@ -94,10 +95,32 @@ function Category(props){
         })
     }
 
-    const getDropdownOptions = () =>{
+    const renderOptions = () =>{
         const optionNames = ['Featured', 'A-Z', 'Z-A', 'Low to High', 'High to Low'];
         let options = [];
-        console.log(optionNames[3])
+        for(let i = 0; i < optionNames.length; i++){
+            let attributeValue = optionNames[i].toLowerCase().replace(/\s+/g, '-');
+            options.push(
+                <option key={i} name={attributeValue} value={attributeValue} className='font-small'>
+                    {`${optionNames[i].length === 11 ? 'Price - ' : ''} ${optionNames[i]}`}
+                </option>
+            )
+        }
+        return(
+            options
+        )
+    }
+
+    const renderStars = () =>{
+        let stars = [];
+        for(let i = 0; i < 5; i++){
+            stars.push(
+            <i key={i} className={`fa fa-star${i === 4 ? '-half-stroke' : ''} font-extra-small`} aria-hidden='true'></i>
+            )
+        }
+        return(
+            stars
+        )
     }
 
     return(
@@ -112,13 +135,7 @@ function Category(props){
                 <div className='sorting-dropdown'>
                     <label htmlFor='sorting-options-select' className='font-small'>Sort By: </label>
                     <select onChange={toggleSorting} id='sorting-options-select' className='sorting-options font-small'>
-                        
-                        <option name='featured' value='featured' className='font-small'>Featured</option>
-                        <option name='a-z' value='a-z' className='font-small'>A-Z</option>
-                        <option name='z-a' value='z-a' className='font-small'>Z-A</option>
-                        <option name='low-high' value='low-high' className='font-small'>Price (Low to High)</option>
-                        <option name='high-low' value='high-low' className='font-small'>Price (High to Low)</option>
-                        {/**/}
+                        {renderOptions()}
                     </select>
                 </div>
                 <div className='shop-menu-buttons'>
@@ -141,7 +158,7 @@ function Category(props){
             </div>            
             
             <section className='products-container'>
-                {sortBy === '' ? renderProducts() : renderProducts()}
+                {renderProducts()}
             </section>
             
             {viewProduct === false ? null : 
@@ -156,11 +173,7 @@ function Category(props){
                                 <p className='view-product-name'>{productInfo.Name}</p>
                                 <div className='view-product-reviews'>
                                     <div className='view-product-stars'>
-                                        <i className='fa fa-star font-extra-small'></i>
-                                        <i className='fa fa-star font-extra-small'></i>
-                                        <i className='fa fa-star font-extra-small'></i>
-                                        <i className='fa fa-star font-extra-small'></i>
-                                        <i className='fa fa-star-half-stroke font-extra-small' aria-hidden='true'></i>
+                                    {renderStars()}
                                     </div>              
                                     <a href='#' className='font-extra-small'>({productInfo.Ratings} Ratings)</a>
                                 </div>
