@@ -5,30 +5,28 @@ Green and Pink https://www.schemecolor.com/green-and-pink-color-scheme.php
 font-family: 'Tajawal', sans-serif;
 font-family: 'Yeseva One', cursive;
 font-family: 'Abril Fatface', cursive;
-
-new header img? https://www.pexels.com/photo/closeup-of-chrysanthemum-and-carnation-bouquet-4466541/
 */
 
 body{
-    height: 100%;
+    overflow: hidden;
     width: 100%;
-    padding: 0;
+    height: 100%;
     margin: 0;
-    overflow: hidden !important;
+    padding: 0;
 }
 
 html{
-    overflow-x: hidden !important;
+    overflow-x: hidden;
 }
 
 .home-background{
-    width: auto;
-    height: 100vw;
-    object-fit: cover;
     position: fixed;
     z-index: -1;
     transform: rotate(90deg) translate(0%, 25%);
     filter: sepia(15%) contrast(90%) brightness(.5);
+    object-fit: cover;
+    width: auto;
+    height: 100vw;
 }
 
 @media screen and (max-width: 428px){
@@ -52,9 +50,9 @@ h2{
 }
 
 p{
+    color: #234843;
     font-size: 1rem;
     font-family: 'Tajawal', sans-serif;
-    color: #234843;
 }
 
 
@@ -101,9 +99,9 @@ p{
 /*NAVBAR STARTS HERE*/
 .nav-header{
     z-index: 4;
-    width: 100%;
     display: grid;
     grid-template-columns: auto 5rem;
+    width: 100%;
 }
 
 .site-name-logo{
