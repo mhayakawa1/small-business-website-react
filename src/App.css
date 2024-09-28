@@ -3258,7 +3258,7 @@ footer{
     filter: sepia(15%) contrast(90%) brightness(.5);
 }
 
-.error-page h3{
+.error-page h1{
     text-align: center;
     margin: auto;
     font-family: 'Tajawal', 'sans serif';
