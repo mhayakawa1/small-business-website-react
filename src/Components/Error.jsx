@@ -5,7 +5,7 @@ function Error(){
     return(
         <main className='error-page'>
             <img className='error-background' src={HomeBackground}></img>
-            <h3>This page does not exist.</h3>
+            <h1>This page does not exist.</h1>
         </main>
     )
 }   
