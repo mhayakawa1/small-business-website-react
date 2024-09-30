@@ -203,18 +203,18 @@ p{
 
 .navbar-item{
     align-self: start;
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 6rem;
+    height: 100%;
+    background-color: white;
     color: '#173935';
     text-decoration: 'none';
     text-align: 'center';
     font-family: 'Tajawal', 'sans-serif';
-    width: 6rem;
-    height: 100%;
-    background-color: white;
 }
 
 .navbar-item:active{
@@ -248,34 +248,34 @@ p{
 }
 
 .cart-link{
+    grid-column: 2/3;
+    width: 100%;
     height: 100%;
     word-spacing: 10px;
     white-space: nowrap;
-    grid-column: 2/3;
-    width: 100%;
 }
 
 
 .cart-counter-container{
-    width: 1.75rem;
     display: flex;
+    width: 1.75rem;
 }
 
 .fa-cart-shopping{
+    margin: 0;
     font-size: 1.25rem;
-    margin: 0 0 0 0;
 }
 
 .cart-counter{
-    height: .75rem;
-    width: .75rem;
-    font-size: .5rem;
-    font-weight: bold;
     border-radius: 50%;
-    background-color: white;
-    line-height: .7rem;
     margin: -.3rem 0 0 -.5rem;
     padding: 5% 0 0 2%;
+    width: .75rem;
+    height: .75rem;
+    background-color: white;
+    font-size: .5rem;
+    font-weight: bold;
+    line-height: .7rem;
 }
 
 @media screen and (max-width: 428px){
@@ -284,16 +284,16 @@ p{
     }
 
     .cart-link{
-        position: fixed;        
-        background-color: #E8908F;
+        position: fixed;
+        filter: drop-shadow(0px 0px 5px rgb(255,255,255,0.5)); 
         right: 0;
-        margin: 0 5% 0 0;
-        z-index: 4;
         bottom: 5%;
+        z-index: 4;
+        border-radius: 50%;
+        margin: 0 5% 0 0;
         width: 3rem;
         height: 3rem;
-        border-radius: 50%;
-        filter: drop-shadow(0px 0px 5px rgb(255,255,255,0.5));
+        background-color: #E8908F;
     }
     
     .cart-counter-container{
@@ -324,11 +324,11 @@ p{
     }
     
     .cart-counter{
+        margin: -.45rem 0 0 -.75rem;
         height: 1.25rem;
         width: 1.25rem;
         font-size: .75rem;
         line-height: 1.05rem;
-        margin: -.45rem 0 0 -.75rem;
     }
 }
 
@@ -346,19 +346,19 @@ p{
     }
     
     .cart-counter{
-        height: 1.5rem;
+        margin: -.6rem 0 0 -1rem;
         width: 1.5rem;
+        height: 1.5rem;
         font-size: 1rem;
         line-height: 1.4rem;
-        margin: -.6rem 0 0 -1rem;
     }
 }
 
 .dropdown-btn{
-    font-family: 'Tajawal', 'sans-serif';
-    color: #173935;
     height: 2.5rem;
     border: none;
+    font-family: 'Tajawal', 'sans-serif';
+    color: #173935;
 }
 
 .dropdown-active{
@@ -366,21 +366,21 @@ p{
 }
 
 .dropdown-btn i{
-     font-size: .5rem;
      margin: 0 0 0 1rem;
+     font-size: .5rem;
 }
 
 .shop-dropdown{
-    background-color: white;
-    width: 10rem;
     z-index: 2;    
-    transition: all 1s;
-    padding: 1rem 0;
     display: none;
     flex-direction: column;
     gap: 0;
+    transition: all 1s;
+    width: 10rem;
+    padding: 1rem 0;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     text-align: left;
+    background-color: white;
 }
 
 .show-dropdown{
@@ -388,13 +388,13 @@ p{
 }
 
 .shop-dropdown a{
+    height: 2.5rem;
+    padding: 0 0 0 2rem;
+    line-height: 2.5rem;
     font-family: 'Tajawal', 'sans-serif';
     color: #234843;
     font-size: 1rem;
     text-decoration: none;
-    height: 2.5rem;
-    padding: 0 0 0 2rem;
-    line-height: 2.5rem;
 }
 
 .shop-dropdown a:hover{
@@ -412,8 +412,8 @@ p{
     }
 
     .dropdown-btn i{
-         font-size: .75rem;
          margin: 0 0 0 1.5rem;
+         font-size: .75rem;
     }
     
     .shop-dropdown{
@@ -422,9 +422,9 @@ p{
     }
     
     .shop-dropdown a{
-        font-size: 1.5rem;
         height: 3.75rem;
         padding: 0 0 0 3rem;
+        font-size: 1.5rem;
         line-height: 3.75rem;
     }
 }
@@ -439,20 +439,20 @@ p{
     }
 
     .dropdown-btn i{
-         font-size: 1rem;
          margin: 0 0 0 2rem;
+         font-size: 1rem;
     }
     
     .shop-dropdown{
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         width: 20rem;
         padding: 2rem 0;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
     
     .shop-dropdown a{
-        font-size: 2rem;
         height: 5rem;
         padding: 0 0 0 4rem;
+        font-size: 2rem;
         line-height: 5rem;
     }
 }
@@ -463,64 +463,64 @@ p{
     position: fixed;
     z-index: 4;
     right: 0;
+    display: flex;
+    align-items: center;
     margin: 0% 5% 0 0;
     height: 5rem;
     padding: 0;
-    display: flex;
-    align-items: center;
 }
 
 .show-hamburger-menu-container{
     z-index: 4;
-    height: 2rem;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    height: 2rem;
 }
 
 .hamburger-menu-container{
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #E9A8A5;
-    display: flex;
-    flex-direction: column;
     z-index: 4;
     left: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #E9A8A5;
 }
 
 .hamburger-button{
+    align-self: flex-end;
     width: auto;
     height: 4rem;
     border: none;
-    align-self: flex-end;
-    background-color: rgb(0,0,0,0);
-    color: white;
     padding: 0 4%;
+    color: white;
+    background-color: rgb(0,0,0,0);
 }
 
 .menu-icon{
-    font-size: 1.5rem;
     margin: 0;
+    font-size: 1.5rem;
 }
 
 .hamburger-menu-items{
     align-self: center;
     justify-self: center;
-    margin: 20% 0 auto 0;
     display: flex;
     flex-direction: column;
+    margin: 20% 0 auto 0;
     width: 100%;
 }
 
 .hamburger-link{
-    width: 100%;
-    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 5rem;
     font-size: 1rem;
 }
 
