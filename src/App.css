@@ -647,20 +647,20 @@ p{
 /**********HOME PAGE STARTS HERE**********/
 /*HERO SECTION STARTS HERE*/
 .hero{
+    display: flex;
     width: 100%;
     height: auto;
-    display: flex;
 }
 
 .hero-headline{
-    width: 100%;
+    position: absolute;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     min-height: 75vh;
     padding: 20vh 10vw 10vh 10vw;
-    position: absolute;
-    z-index: 1;
     box-sizing: border-box;
 }
 
@@ -734,30 +734,30 @@ h1{
 }
 
 .hero-image-container{
+    object-fit: cover;
     width: 100%;
     min-height: 75vh;
-    object-fit: cover;
     margin: 0;
 }
 
 .hero-image{
     position: absolute;
-    width: 100vw;
-    height: 75vh;
     object-fit: cover;
     filter: sepia(15%) contrast(90%) brightness(.5);
+    width: 100vw;
+    height: 75vh;
 }
 
 .social-media-hero{
     display: flex;
     justify-content: flex-start;
-    padding: 0;
     gap: 5%;
+    padding: 0;
 }
 
 .social-media-hero a i{
-    color: white;
     cursor: pointer;
+    color: white;
 }
 
 .social-media-hero a i:hover{
@@ -779,8 +779,6 @@ h1{
 
 
 @media screen and (min-width: 1441px){
-
-
     .social-media-hero a i{
         font-size: 1.5rem;
     }
@@ -849,29 +847,29 @@ h1{
 
 /*BESTSELLERS STARTS HERE*/
 .bestsellers{
-    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    width: 100%;
     padding: 5vh 0 15vh 0;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .bestsellers .section-header{
-    width: 80%;
-    margin: 5% auto 2.5% auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 80%;
+    margin: 5% auto 2.5% auto;
 }
 
 .bestsellers .section-header h2{
     align-self: flex-end;
     height: 100%;
+    margin: auto 0 0 0;
     font-size: 2rem;
     font-family: 'Gloock', serif;
     color: #234843;
-    margin: auto 0 0 0;
 }
 
 .bestsellers a{
@@ -925,41 +923,41 @@ h1{
 }
 
 .bestseller-cards{
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
     row-gap: 2rem;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .bestseller-card{
-    width: 22%;
-    font-family: 'Gloock', serif;
-    aspect-ratio: 1 / 1.25;
     display: flex;
     flex-direction: column;
     gap: auto;
     justify-content: space-between;
+    aspect-ratio: 1 / 1.25;
+    width: 22%;
+    font-family: 'Gloock', serif;
 }
 
 .bestseller-card img{
+    object-fit: cover;
+    filter: sepia(15%) contrast(90%);
+    aspect-ratio: 1 / 1;
     width: 100%;
     height: 80%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
     font-family: 'Gloock', serif;
-    filter: sepia(15%) contrast(90%);
 }
 
 .card-info{
-    width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    width: 100%;
+    height: auto;
     padding: .5rem 0;
 }
 
@@ -1022,36 +1020,36 @@ h1{
 
 /*FEATURES STARTS HERE*/
 .features{
-    width: 100%;
-    background-color: #E9EDEC;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
     padding: 10vh 10vw;
+    background-color: #E9EDEC;
 }
 
 .feature{
-    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    color:  #234843;
+    width: 30%;
+    color: #234843;
 }
 
 .feature img{
+    filter: invert(34%) sepia(34%) saturate(473%) hue-rotate(83deg) brightness(90%) contrast(87%);
     height: 5rem;
     width: 5rem;
-    filter: invert(34%) sepia(34%) saturate(473%) hue-rotate(83deg) brightness(90%) contrast(87%);
 }
 
 @media screen and (max-width: 428px){
     .features{
-        height: auto;
-        gap: 20%;
         flex-wrap: wrap;
+        gap: 20%;
+        height: auto;
         padding: 10% 10% 5% 10%;
     }
 }
@@ -1082,10 +1080,10 @@ h1{
 
 /*REVIEWS STARTS HERE*/
 .reviews{
-    padding: 10vh 0 10vh 0;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 10vh 0 10vh 0;
+    height: 100%;
 }
 
 .reviews h2{
