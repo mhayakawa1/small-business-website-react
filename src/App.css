@@ -1495,23 +1495,23 @@ h1 {
 }
 
 .about-page header img {
-    width: 100vw;
-    height: 50vh;
     object-fit: cover;
     object-position: 0% 15%;
     filter: sepia(15%) contrast(90%) brightness(.5);
+    width: 100vw;
+    height: 50vh;
 }
 
 .about-header-container {
     position: absolute;
     z-index: 2;
     top: 7.5rem;
-    width: 100vw;
-    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 50vh;
     padding: 5%;
     box-sizing: border-box;
 }
@@ -1529,10 +1529,10 @@ h1 {
 }
 
 .about-page .container {
-    min-width: 100%;
     display: flex;
     justify-content: center;
     gap: 5%;
+    min-width: 100%;
     padding: 10vh 10vw;
     margin: 0;
 }
@@ -1542,16 +1542,16 @@ h1 {
 }
 
 .about-text {
+    align-self: center;
     width: 50%;
     height: auto;
     color: #234843;
-    align-self: center;
 }
 
 .about-img {
-    height: 70vh;
     object-fit: cover;
     aspect-ratio: 1/1;
+    height: 70vh;
     margin: auto;
 }
 
@@ -1629,34 +1629,34 @@ h1 {
 
 /**********SHOP PAGE STARTS HERE**********/
 .shop-page {
-    padding: 0 0 10vh 0;
     overflow-x: none;
     margin: 0;
+    padding: 0 0 10vh 0;
 }
 
 .shop-header {
-    width: 100%;
-    padding: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
-    box-sizing: border-box;
+    filter: sepia(15%) contrast(90%);
     overflow-x: none;
+    width: 100%;
+    margin: 0;
+    padding: 10vh;
+    box-sizing: border-box;
     background-image: url('https://images.pexels.com/photos/5980208/pexels-photo-5980208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% 80%;
-    filter: sepia(15%) contrast(90%);
 }
 
 .shop-header-background {
-    width: 100%;
-    height: 12rem;
     object-fit: cover;
-    margin: 0 0 0 0;
     filter: sepia(15%) contrast(90%);
     object-position: 0% 80%;
+    width: 100%;
+    height: 12rem;
+    margin: 0 0 0 0;
 }
 
 @media screen and (max-width: 428px) {
@@ -1714,28 +1714,28 @@ h1 {
 }
 
 .shop-header-container {
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .shop-header-container h1 {
+    margin: 0;
     text-align: center;
     font-family: 'Gloock', 'serif';
     font-size: 2.5rem;
-    margin: 0;
 }
 
 .shop-logo {
+    filter: invert(21%) sepia(41%) saturate(472%) hue-rotate(122deg) brightness(98%) contrast(91%);
     height: 2rem;
     width: 3rem;
     margin: 0 auto 0 auto;
-    filter: invert(21%) sepia(41%) saturate(472%) hue-rotate(122deg) brightness(98%) contrast(91%);
 }
 
 .shop-header-container h2 {
@@ -1775,7 +1775,6 @@ h1 {
 }
 
 @media screen and (min-width: 1921px) {
-
     .shop-header-container h1 {
         font-size: 5rem;
     }
@@ -1791,12 +1790,12 @@ h1 {
 }
 
 .shop-menu {
-    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
     height: 2rem;
+    padding: 0;
     margin: 3rem auto 0 auto;
 }
 
@@ -1825,24 +1824,24 @@ h1 {
 }
 
 .dropdown-toggle {
-    height: 2.5rem;
-    width: 10rem;
-    padding: 0 1rem 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all .5s;
+    height: 2.5rem;
+    width: 10rem;
+    padding: 0 1rem 0 1rem;
     border-style: none;
     border-radius: 0%;
-    background-color: #E9A8A5;
     font-family: 'Tajawal', sans-serif;
     font-size: 1rem;
     color: white;
-    transition: all .5s;
+    background-color: #E9A8A5;
 }
 
 .dropdown-toggle:hover {
-    background-color: #E8908F;
     color: white;
+    background-color: #E8908F;
 }
 
 .dropdown-toggle::after {
@@ -1854,9 +1853,9 @@ h1 {
 }
 
 .dropdown-item {
+    transition: all .5s;
     color: #173935;
     font-family: 'Tajawal', sans-serif;
-    transition: all .5s;
 }
 
 .dropdown-item:hover {
@@ -1939,10 +1938,10 @@ h1 {
 }
 
 .shop-menu-buttons button {
-    border-style: none;
-    padding: 0;
     display: flex;
     align-items: center;
+    border-style: none;
+    padding: 0;
     background-color: rgb(0, 0, 0, 0);
 }
 
@@ -1967,10 +1966,10 @@ h1 {
 }
 
 .bi-square {
+    transition: all .5s;
     width: 1.5rem;
     height: 1.5rem;
     color: #234843;
-    transition: all .5s;
 }
 
 .bi-square:hover {
@@ -1978,10 +1977,10 @@ h1 {
 }
 
 .shop-grid-button {
+    transition: all .5s;
     width: 1.5rem;
     height: 1.5rem;
     color: #234843;
-    transition: all .5s;
 }
 
 .shop-grid-button:hover {
@@ -2061,13 +2060,13 @@ h1 {
 }
 
 .grid3 {
-    width: 30%;
     transition: all .5s;
+    width: 30%;
 }
 
 .grid2 {
-    width: 47.5%;
     transition: all .5s;
+    width: 47.5%;
 }
 
 .product-card-container button {
@@ -2076,11 +2075,11 @@ h1 {
 }
 
 .product-image {
+    filter: sepia(15%) contrast(90%);
+    object-fit: cover;
+    aspect-ratio: 1/1;
     width: 100%;
     height: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    filter: sepia(15%) contrast(90%);
 }
 
 @media screen and (max-width: 428px) {
@@ -2096,11 +2095,11 @@ h1 {
 }
 
 .product-info {
-    width: 100%;
-    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: 100%;
+    height: 20%;
     padding: .5rem 0 0 0;
 }
 
@@ -2138,61 +2137,61 @@ h1 {
 }
 
 .view-product-container {
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0, 0, 0, .4);
     position: fixed;
     top: 0;
     z-index: 4;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .4);
 }
 
 .exit-view {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    padding: 0;
     display: flex;
-    background-color: rgb(0, 0, 0, 0);
+    padding: 0;
     border: none;
+    background-color: rgb(0, 0, 0, 0);
 }
 
 .exit-view i {
-    padding: 0;
-    font-size: 1.6rem;
+    z-index: 2;
     justify-self: end;
-    height: 1rem;
-    width: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    font-size: 1.6rem;
     color: white;
-    z-index: 2;
 }
 
 .view-product {
+    position: relative;
+    aspect-ratio: 4 / 2;
+    display: flex;
     width: 70vw;
     height: auto;
-    background-color: white;
     margin: auto;
-    display: flex;
-    aspect-ratio: 4 / 2;
-    position: relative;
+    background-color: white;
 }
 
 .view-product img {
-    width: 50%;
-    height: auto;
-    aspect-ratio: 1 /1;
     object-fit: cover;
     filter: sepia(15%) contrast(90%);
+    aspect-ratio: 1 /1;
+    width: 50%;
+    height: auto;
 }
 
 .details-panel {
-    width: 50%;
     display: flex;
     flex-direction: column;
+    width: 50%;
     padding: .5rem;
 }
 
