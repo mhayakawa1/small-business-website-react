@@ -13,8 +13,9 @@ import Error from './Components/Error';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [saveData, setSaveData] = useState('');
   const [productsData, setProductsData] = useState([]);
+  
+  const [saveData, setSaveData] = useState('');
 
   function parseCSV(csvText) {
       const rows = csvText.split(/\r?\n/);
@@ -28,19 +29,19 @@ function App() {
           }
           data.push(rowObject);
       }
-      return data;
+    return data;
   }
 
   const getProductsData = () => {
-      const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
-      axios.get(url)
-      .then((response) => {
-          const parsedData = parseCSV(response.data);
-          setProductsData(parsedData);
-      })
-      .catch((error) => {
-          console.error('Error', error);
-      })
+    const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+    axios.get(url)
+    .then((response) => {
+        const parsedData = parseCSV(response.data);
+        setProductsData(parsedData);
+    })
+    .catch((error) => {
+        console.error('Error', error);
+    })
   }
 
   const onStorageUpdate = (e) => {
@@ -52,9 +53,10 @@ function App() {
 
   useEffect(() => {
     getProductsData();
-    setSaveData(localStorage.getItem('saveData') || '');
-    if(saveData !== ''){
-      setCartItems(localStorage.getItem('saveData').split(',').filter(i => i !== ''))
+    setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+    
+    if(localStorage.getItem('saveData') !== null){
+      setCartItems(JSON.parse(localStorage.getItem('saveData')))
     }
     window.addEventListener('storage', onStorageUpdate);
     return () => {
@@ -63,22 +65,23 @@ function App() {
   }, []);
 
   const handleClick = (productQty, productName, cartChange) => {
-      let addToCart = []
+    let addToCart = [];
+    let newCartArray = cartItems.filter(i => i !== productName);
     if(productQty === 'clear' && productName === 'clear'){
-      setCartItems([])      
-      setSaveData(localStorage.getItem('saveData') || '');
-      localStorage.setItem('saveData', '')
+      setCartItems([]);
+      setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+      localStorage.setItem('saveData', '');
     }else if(cartChange === 'add'){
       for(let i = 0; i < productQty; i++){
         addToCart.push(productName)
       }
-      setCartItems(cartItems.filter(i => i !== productName).concat(addToCart))      
-      setSaveData(localStorage.getItem('saveData') || cartItems.filter(i => i !== productName).concat(addToCart).join(','));
-      localStorage.setItem('saveData', cartItems.filter(i => i !== productName).concat(addToCart).join(','))
+      setCartItems(newCartArray.concat(addToCart));
+      localStorage.setItem('saveData', JSON.stringify(newCartArray.concat(addToCart)));
+      setSaveData(JSON.stringify(newCartArray.concat(addToCart)));
     }else if(cartChange === 'delete'){
-      setCartItems(cartItems.filter(i => i !== productName))
-      setSaveData(localStorage.getItem('saveData') || cartItems.filter(i => i !== productName).join(','));
-      localStorage.setItem('saveData', cartItems.filter(i => i !== productName).join(','))
+      setCartItems(newCartArray);
+      localStorage.setItem('saveData', JSON.stringify(newCartArray));
+      setSaveData(JSON.stringify(newCartArray));
     }
   }
 
