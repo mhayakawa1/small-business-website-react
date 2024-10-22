@@ -8,7 +8,6 @@ function Cart(props){
     const navButtonStyles = () => ({
         width: '8rem'
     })
-
     const [productsData, setProductsData] = useState([]);
 
     function parseCSV(csvText) {
@@ -51,7 +50,7 @@ function Cart(props){
 
         for(let i = 0; i < productsData.length; i++){
             if(props.cart.includes(productsData[i].Name)){
-                const quantity = props.cart.filter(element => element === productsData[i].Name).length;
+                const quantity = props.cart.length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
@@ -80,7 +79,6 @@ function Cart(props){
             itemsArr
         )
     }
-console.log(props.cart)
     return(
         <main className='cart-page'>
             <div className='shop-header'>
