@@ -89,7 +89,7 @@ function Category(props){
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool);
         setProductInfo(product);
-        setProductQty(props.cart.filter(i => i === product.Name).length)
+        setProductQty(props.cart.length === 0 ? 0 : props.cart.filter(i => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
