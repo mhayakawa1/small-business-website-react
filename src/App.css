@@ -1833,15 +1833,15 @@ h1 {
     padding: 0 1rem 0 1rem;
     border-style: none;
     border-radius: 0%;
+    background-color: #E9A8A5;
     font-family: 'Tajawal', sans-serif;
     font-size: 1rem;
     color: white;
-    background-color: #E9A8A5;
 }
 
 .dropdown-toggle:hover {
-    color: white;
     background-color: #E8908F;
+    color: white;
 }
 
 .dropdown-toggle::after {
@@ -1859,8 +1859,8 @@ h1 {
 }
 
 .dropdown-item:hover {
-    color: white;
     background-color: #173935;
+    color: white;
 }
 
 .angle-down-div {
@@ -2445,9 +2445,9 @@ h1 {
     width: 100%;
     height: 2rem;
     border: none;
+    background-color: #173935;
     color: white;
     font-family: 'Tajawal', 'sans serif';
-    background-color: #173935;
 }
 
 .add-to-cart:hover {
@@ -2456,8 +2456,8 @@ h1 {
 
 .add-to-cart:active {
     border: 2px solid #173935;
-    color: #173935;
     background-color: white;
+    color: #173935;
 }
 
 .alter-total button {
@@ -2516,8 +2516,8 @@ h1 {
 }
 
 .share-social-media i {
-    color: #173935;
     cursor: pointer;
+    color: #173935;
 }
 
 .share-social-media i:hover {
@@ -2671,9 +2671,9 @@ h1 {
 .cart-empty {
     margin: 0;
     text-align: center;
+    background-color: white;
     color: #234843 !important;
     line-height: 10rem;
-    background-color: white;
 }
 
 @media screen and (min-width: 1921px) {
@@ -2850,10 +2850,10 @@ h1 {
     width: 8rem;
     height: 2.5rem;
     border-style: none;
+    background-color: white;
     color: #173935;
     font-family: 'Gloock', 'sans serif';
     font-size: 1rem;
-    background-color: white;
 }
 
 .checkout-button:hover {
@@ -2918,9 +2918,9 @@ h1 {
     padding: .5rem;
     width: 10rem;
     height: 4rem;
+    background-color: #E9A8A5;
     font-size: 1rem;
     color: #173935;
-    background-color: #E9A8A5;
 }
 
 .back-to-cart:hover {
@@ -3265,9 +3265,9 @@ footer {
 }
 
 .error-background {
-    object-fit: cover;
     position: absolute;
     z-index: -1;
+    object-fit: cover;
     filter: sepia(15%) contrast(90%) brightness(.5);
     width: 100%;
     height: 100vh;
