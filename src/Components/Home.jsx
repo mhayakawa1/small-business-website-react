@@ -22,7 +22,7 @@ function Home() {
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewNumber, setReviewNumber] = useState(0);
 
-    function renderHeroImage() {
+    function heroImage() {
         return (
             <div key={'key'} className='hero-image-container'>
                 <img key={image2} src={image2} className={`hero-image`} />
@@ -41,24 +41,24 @@ function Home() {
             setImage2(imagesArr[1]);
             setImage1(imagesArr[0]);
             setFadeIn('fade-in');
-            renderHeroImage();
+            heroImage();
         }, 10000);
         return () => clearInterval(interval);
     }, []);
 
     const reviewCarousel = (direction) => {
         if (direction === 'right' && reviewNumber < 2) {
-            setReviewNumber(reviewNumber + 1)
+            setReviewNumber(reviewNumber + 1);
         } else if (direction === 'right' && reviewNumber === 2) {
-            setReviewNumber(0)
+            setReviewNumber(0);
         } else if (direction === 'left' && reviewNumber > 0) {
-            setReviewNumber(reviewNumber - 1)
+            setReviewNumber(reviewNumber - 1);
         } else if (direction === 'left' && reviewNumber === 0) {
-            setReviewNumber(2)
+            setReviewNumber(2);
         }
     }
 
-    const renderIcons = () => {
+    const icons = () => {
         const platforms = ['Instagram', 'Facebook', 'TikTok'];
         let icons = [];
         for (let i = 0; i < platforms.length; i++) {
@@ -73,7 +73,7 @@ function Home() {
         )
     }
 
-    const renderBestsellerCards = () => {
+    const bestsellerCards = () => {
         const cardInfo = [
             {
                 src: Sympathy10,
@@ -113,7 +113,7 @@ function Home() {
         )
     }
 
-    const renderFeatures = () => {
+    const features = () => {
         const featuresInfo = [
             {
                 src: QuickDelivery,
@@ -142,7 +142,7 @@ function Home() {
         )
     }
 
-    const renderReviews = () => {
+    const reviews = () => {
         const reviewsInfo = [
             {
                 review: 'I received a surprise delivery from Green Oasis today, and I couldn\'t be happier. The bouquet is a masterpiece of colors and fragrances. It brightened my entire day, and I feel so appreciated.',
@@ -186,7 +186,7 @@ function Home() {
         )
     }
 
-    const renderIGPosts = () => {
+    const instagramPosts = () => {
         const igPostInfo = [
             {
                 src: IG1,
@@ -223,12 +223,12 @@ function Home() {
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
             <section className='hero'>
-                {renderHeroImage()}
+                {heroImage()}
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <div className='social-media-hero'>
-                        {renderIcons()}
+                        {icons()}
                     </div>
                 </div>
             </section>
@@ -238,18 +238,18 @@ function Home() {
                     <a href='/shop/bestsellers'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
-                    {renderBestsellerCards()}
+                    {bestsellerCards()}
                 </div>
             </section>
 
             <section className='features'>
-                {renderFeatures()}
+                {features()}
             </section>
             <section className='reviews'>
                 <h2>Customer Reviews</h2>
                 <div className='review-cards'>
                     <button onClick={() => reviewCarousel('left')}><i className='fa fa-chevron-left'></i></button>
-                    {renderReviews()}
+                    {reviews()}
                     <button onClick={() => reviewCarousel('right')}><i className='fa fa-chevron-right'></i></button>
                 </div>
             </section>
@@ -259,7 +259,7 @@ function Home() {
                     <button>Follow Us</button>
                 </div>
                 <div className='ig-posts'>
-                    {renderIGPosts()}
+                    {instagramPosts()}
                 </div>
             </section>
             <section className='newsletter'>
