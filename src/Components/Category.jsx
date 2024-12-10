@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-function Category(props){
+function Category({cart, category, products, clickHandler}){
     const [gridNum, setGridNum] = useState(3);
     const [viewProduct, setViewProduct] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [productInfo, setProductInfo] = useState({});
-    const [sortBy, setSortBy] = useState('featured');
     const [productQty, setProductQty] = useState(0);
-    const [productSorting, setProductSorting] = useState(props.products);
-
+    const [productSorting, setProductSorting] = useState([]);
+    
     useEffect(() => {
-        if(productSorting.length === 0){
-            setProductSorting(props.products)
+        if(!productSorting.length){
+            setProductSorting(products)
         }
     })
 
     const toggleSorting = (event) => {
         const value = event.target.value;
-        setSortBy(value);
 
         if(value === 'featured'){
-            setProductSorting(props.products)
+            setProductSorting(products)
         }else{
-            const productsData = [...props.products]
+            const productsData = [...products]
             let alphabetical = true
             if(value.length === 3){
                 alphabetical = true
@@ -46,30 +45,6 @@ function Category(props){
         }        
     }
 
-    const renderProducts = () =>{
-        const productsArr = []
-            for(let i = 0; i < productSorting.length; i++){
-                const productCard = 
-                <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
-                    <button onClick={() => toggleViewProduct(productSorting[i], i)}>
-                        <img src={productSorting[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
-                    </button>                    
-                    <div className='product-info'>
-                        <p className='product-name font-small'>{productSorting[i].Name}</p>
-                        <p className='product-price font-small'>${productSorting[i].Price}</p>
-                    </div>
-                </div>
-                if(props.category === 'Bestsellers' && (/true/).test(productSorting[i].Bestseller) === true){
-                    productsArr.push(productCard)
-                }else if(props.category === productSorting[i].Category){
-                    productsArr.push(productCard)
-                }
-            }
-        return(
-            productsArr
-        )
-    }
-
     const shopGridButton = (num) =>{
         setGridNum(num)
     }
@@ -83,17 +58,17 @@ function Category(props){
     }
 
     const addToCart = (productQty, productName) => {
-        props.clickHandler(productQty, productName, 'add')
+        clickHandler(productQty, productName, 'add')
     }
-    
+
     const toggleViewProduct = (product, i) =>{
         setViewProduct((bool) => !bool);
         setProductInfo(product);
-        setProductQty(props.cart.length === 0 ? 0 : props.cart.filter(i => i === product.Name).length)
+        setProductQty(cart.length === 0 ? 0 : cart.filter(i => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
-    }
+    } 
 
     const renderOptions = () =>{
         const optionNames = ['Featured', 'A-Z', 'Z-A', 'Low to High', 'High to Low'];
@@ -123,11 +98,35 @@ function Category(props){
         )
     }
 
+    const productItems = () =>{
+        const productsArr = []
+            for(let i = 0; i < productSorting.length; i++){
+                const productCard = 
+                <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
+                    <button onClick={() => toggleViewProduct(productSorting[i], i)}>
+                        <img src={productSorting[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
+                    </button>                    
+                    <div className='product-info'>
+                        <p className='product-name font-small'>{productSorting[i].Name}</p>
+                        <p className='product-price font-small'>${productSorting[i].Price}</p>
+                    </div>
+                </div>
+                if(category === 'Bestsellers' && (/true/).test(productSorting[i].Bestseller) === true){
+                    productsArr.push(productCard)
+                }else if(category === productSorting[i].Category){
+                    productsArr.push(productCard)
+                }
+            }
+        return(
+            productsArr
+        )
+    }
+
     return(
         <main className='shop-page'>
             <section className='shop-header'>
                 <div className='shop-header-container'>
-                    <h1>{props.category}</h1>
+                    <h1>{category}</h1>
                 </div>
             </section>
 
@@ -155,13 +154,13 @@ function Category(props){
                         </svg>
                     </button>
                 </div>
-            </div>            
+            </div>        
             
             <section className='products-container'>
-                {renderProducts()}
+                {productItems()}
             </section>
             
-            {viewProduct === false ? null : 
+            {viewProduct &&
                 <div className='view-product-container'>
                     <button className='exit-view' onClick={() => toggleViewProduct([], undefined)}>
                         <i className='fa-solid fa-x'></i>
@@ -198,7 +197,7 @@ function Category(props){
                         </div>
                     </div>
                 </div>
-            }
+            } 
         </main>
     )
 }
