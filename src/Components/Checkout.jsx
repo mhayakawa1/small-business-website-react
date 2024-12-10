@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-function Checkout(props){
+function Checkout({cart, clickHandler}){
+    const [isLoading, setIsLoading] = useState(false);
     const [inCart, setInCart] = useState('');
     const [subtotal, setSubtotal] = useState(0);
     let percentOff = 0;
 
-    //Get minimum date for order
     let date = new Date()    
     let today = date.getDate()
         if(today < 10){
@@ -103,15 +103,15 @@ function Checkout(props){
     }, []);
 
     function deleteItem(productQty, productName){
-        props.clickHandler(productQty, productName, 'delete');
+        clickHandler(productQty, productName, 'delete');
     }
     
     const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(props.cart.includes(productsData[i].Name)){
-                const quantity = props.cart.filter(element => element === productsData[i].Name).length;
+            if(cart.includes(productsData[i].Name)){
+                const quantity = cart.filter(element => element === productsData[i].Name).length;
                 itemsArr.push(
                     <div key={i} className='cart-product'>
                         <img src={productsData[i].ImageSource} className='cart-product-image'></img>
@@ -185,9 +185,9 @@ function Checkout(props){
                 </button>
             </NavLink>
             <h3>Checkout</h3>
-            <p>You have {props.cart.length} {props.cart.length === 1 ? 'item' : 'items'} in your cart.</p>
+            <p>You have {cart.length} {cart.length === 1 ? 'item' : 'items'} in your cart.</p>
             <div className='items-in-cart'>                
-                {props.cart.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
+                {cart.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
             {calculateTotal()}
