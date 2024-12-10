@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
 import axios from 'axios';
 
-function Cart(props){
+function Cart({cart, clickHandler}){
     let subtotal = 0
     const navButtonStyles = () => ({
         width: '8rem'
@@ -42,15 +42,15 @@ function Cart(props){
     }, []);
     
     function deleteItem(productQty, productName){
-        props.clickHandler(productQty, productName, 'delete')
+        clickHandler(productQty, productName, 'delete')
     }
     
     const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(props.cart.includes(productsData[i].Name)){
-                const quantity = props.cart.length;
+            if(cart.includes(productsData[i].Name)){
+                const quantity = cart.length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
@@ -90,7 +90,7 @@ function Cart(props){
                 <div className='cart-table'>
                     <h3>Shopping Cart</h3>
                     <div className='items-in-cart'>
-                        {props.cart.length > 0 ? 
+                        {cart.length > 0 ? 
                             <ul className='cart-table-headers'>
                                 <li className='font-small'>Product:</li>
                                 <li className='font-small'>Unit Price:</li>
@@ -98,7 +98,7 @@ function Cart(props){
                             </ul>
                         : null
                         }
-                    {props.cart.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
+                    {cart.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
@@ -106,11 +106,11 @@ function Cart(props){
                     <h3>Order Summary</h3>
                     <div className='summary'>
                         <div>
-                            <p className='font-small'>Items: {props.cart.length}</p>
+                            <p className='font-small'>Items: {cart.length}</p>
                             <p className='font-small'>Subtotal: ${subtotal}</p>
                             <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
                         </div>                        
-                        <button className={`checkout-button ${props.cart.length === 0 ? 'btn-disabled' : null}`}>
+                        <button className={`checkout-button ${cart.length === 0 ? 'btn-disabled' : null}`}>
                             <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
                                 Checkout<i className='fas fa-arrow-right'></i>
                             </NavLink>
