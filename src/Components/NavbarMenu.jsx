@@ -25,7 +25,7 @@ function NavbarMenu(props){
       let navLinks = [];
       for(let i = 0; i < navLinksNames.length; i++){
         navLinks.push(
-          <NavLink key={i} to={`/shop/${navLinksNames[i].replace(/ /g, '')}`}>{navLinksNames[i]}</NavLink>
+          <NavLink key={i} to={`/shop/${navLinksNames[i]}`}>{navLinksNames[i]}</NavLink>
         )
       }
       return(
