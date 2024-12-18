@@ -22,7 +22,7 @@ function Home() {
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewNumber, setReviewNumber] = useState(0);
 
-    function heroImage() {
+    function HeroImage() {
         return (
             <div key={'key'} className='hero-image-container'>
                 <img key={image2} src={image2} className={`hero-image`} />
@@ -58,7 +58,7 @@ function Home() {
         }
     }
 
-    const icons = () => {
+    const Icons = () => {
         const platforms = ['Instagram', 'Facebook', 'TikTok'];
         let icons = [];
         for (let i = 0; i < platforms.length; i++) {
@@ -73,7 +73,7 @@ function Home() {
         )
     }
 
-    const bestsellerCards = () => {
+    const BestsellerCards = () => {
         const cardInfo = [
             {
                 src: Sympathy10,
@@ -113,7 +113,7 @@ function Home() {
         )
     }
 
-    const features = () => {
+    const Features = () => {
         const featuresInfo = [
             {
                 src: QuickDelivery,
@@ -142,7 +142,7 @@ function Home() {
         )
     }
 
-    const reviews = () => {
+    const Reviews = () => {
         const reviewsInfo = [
             {
                 review: 'I received a surprise delivery from Green Oasis today, and I couldn\'t be happier. The bouquet is a masterpiece of colors and fragrances. It brightened my entire day, and I feel so appreciated.',
@@ -186,7 +186,7 @@ function Home() {
         )
     }
 
-    const instagramPosts = () => {
+    const InstagramPosts = () => {
         const igPostInfo = [
             {
                 src: IG1,
@@ -223,12 +223,12 @@ function Home() {
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
             <section className='hero'>
-                {heroImage()}
+                {HeroImage()}
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
                     <div className='social-media-hero'>
-                        {icons()}
+                        {Icons()}
                     </div>
                 </div>
             </section>
@@ -238,18 +238,18 @@ function Home() {
                     <a href='/shop/bestsellers'>Shop All</a>
                 </div>
                 <div className='bestseller-cards'>
-                    {bestsellerCards()}
+                    {BestsellerCards()}
                 </div>
             </section>
 
             <section className='features'>
-                {features()}
+                {Features()}
             </section>
             <section className='reviews'>
                 <h2>Customer Reviews</h2>
                 <div className='review-cards'>
                     <button onClick={() => reviewCarousel('left')}><i className='fa fa-chevron-left'></i></button>
-                    {reviews()}
+                    {Reviews()}
                     <button onClick={() => reviewCarousel('right')}><i className='fa fa-chevron-right'></i></button>
                 </div>
             </section>
@@ -259,7 +259,7 @@ function Home() {
                     <button>Follow Us</button>
                 </div>
                 <div className='ig-posts'>
-                    {instagramPosts()}
+                    {InstagramPosts()}
                 </div>
             </section>
             <section className='newsletter'>
@@ -269,7 +269,6 @@ function Home() {
                     <input placeholder='Email'></input>
                     <button>Subscribe</button>
                 </div>
-
             </section>
         </main>
     )
