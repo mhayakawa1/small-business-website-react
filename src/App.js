@@ -5,7 +5,6 @@ import axios from 'axios';
 import Home from './Components/Home';
 import About from './Components/About';
 import Shop from './Components/Shop';
-import Category from './Components/Category';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import NavbarMenu from './Components/NavbarMenu';
@@ -86,19 +85,6 @@ function App() {
     }
   }
 
-  // const shopRoutes = () => {
-  //   const categories = ['Bestsellers', 'Sympathy', 'Love & Romance', 'Get Well', 'Birthday'];
-  //   let shopRoutes = [];
-  //   for (let i = 0; i < categories.length; i++) {
-  //     shopRoutes.push(
-  //       <Route key={i} path={`shop/${categories[i].replace(/ /g, '').toLowerCase()}`} element={<Category clickHandler={handleClick} cart={cartItems} products={productsData} category={categories[i]} />} />
-  //     )
-  //   }
-  //   return (
-  //     shopRoutes
-  //   )
-  // }
-
   return (
     <div>
       <BrowserRouter>
@@ -107,9 +93,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            {/* <Route path='/shop' element={<Shop clickHandler={handleClick} cart={cartItems} />} /> */}
             <Route exact path="/shop/:category" element={<Shop clickHandler={handleClick} cart={cartItems} products={productsData} />} />
-            {/* {shopRoutes()} */}
             <Route path='/cart' element={<Cart clickHandler={handleClick} cart={cartItems} />} />
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} cart={cartItems} />} />
             <Route path='*' element={<Error />} />
