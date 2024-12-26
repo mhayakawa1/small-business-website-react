@@ -22,7 +22,7 @@ function Home() {
     const [image2, setImage2] = useState(imagesArr[1]);
     const [reviewNumber, setReviewNumber] = useState(0);
 
-    function HeroImage() {
+    function heroImage() {
         return (
             <div key={'key'} className='hero-image-container'>
                 <img key={image2} src={image2} className={`hero-image`} />
@@ -223,7 +223,7 @@ function Home() {
         <main>
             <img className='home-background' src={HomeBackground} alt=''></img>
             <section className='hero'>
-                {HeroImage()}
+                {heroImage()}
                 <div className='hero-headline'>
                     <h1>Explore arrangements for any occasion</h1>
                     <p className='font-small'>Order fresh flowers online today! Follow us on social media for floral inspiration.</p>
