@@ -89,7 +89,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div>
+        <CartItemsProvider>
           <NavbarMenu cart={cartItems} />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -99,7 +99,7 @@ function App() {
             <Route path='/checkout' element={<Checkout clickHandler={handleClick} cart={cartItems} />} />
             <Route path='*' element={<Error />} />
           </Routes>
-        </div>
+        </CartItemsProvider>
       </BrowserRouter>
       <Footer />
     </div>
