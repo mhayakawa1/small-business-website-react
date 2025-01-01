@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 function Category({cart, category, products, clickHandler}){
     const [gridNum, setGridNum] = useState(3);
     const [viewProduct, setViewProduct] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
     const [productInfo, setProductInfo] = useState({});
     const [productQty, setProductQty] = useState(0);
     const [productSorting, setProductSorting] = useState([]);
