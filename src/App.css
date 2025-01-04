@@ -1402,7 +1402,7 @@ h1 {
 
 .submit-email {
     display: flex;
-    gap: 1vh;
+    gap: 1vw;
     max-width: 632px;
     margin: 0 auto;
 }
