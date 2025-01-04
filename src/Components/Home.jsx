@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom'; 
 import heroImage1 from '../OtherImages/hero1.jpg';
 import heroImage2 from '../OtherImages/hero2.jpeg';
 import heroImage3 from '../OtherImages/hero3.jpg';
@@ -235,7 +236,7 @@ function Home() {
             <section className='bestsellers'>
                 <div className='section-header'>
                     <h2>Bestsellers</h2>
-                    <a href='/shop/bestsellers'>Shop All</a>
+                    <NavLink to="/shop/Bestsellers">Shop All</NavLink>
                 </div>
                 <div className='bestseller-cards'>
                     {BestsellerCards()}
