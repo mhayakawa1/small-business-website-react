@@ -1,45 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../logo.svg';
-import axios from 'axios';
+import { useCart } from '../Contexts/CartItemsContext';
 
 function Cart({cart, clickHandler}){
     let subtotal = 0
     const navButtonStyles = () => ({
         width: '8rem'
     })
-    const [productsData, setProductsData] = useState([]);
-
-    function parseCSV(csvText) {
-        const rows = csvText.split(/\r?\n/);
-        const headers = rows[0].split(',');
-        const data = [];
-        for (let i = 1; i < rows.length; i++) {
-            const rowData = rows[i].split(',');
-            const rowObject = {};
-            for (let j = 0; j < headers.length; j++) {
-                rowObject[headers[j]] = rowData[j];
-            }
-            data.push(rowObject);
-        }
-        return data;
-    }
-
-    const fetchProductsData = () => {
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
-        axios.get(url)
-        .then((response) => {
-            const parsedData = parseCSV(response.data);
-            setProductsData(parsedData);
-        })
-        .catch((error) => {
-            console.error('Error fetching CSV data:', error);
-        })
-    }
-
-    useEffect(() => {
-        fetchProductsData();
-    }, []);
+    const { productsData } = useCart();
     
     function deleteItem(productQty, productName){
         clickHandler(productQty, productName, 'delete')
