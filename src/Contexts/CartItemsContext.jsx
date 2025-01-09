@@ -1,39 +1,45 @@
 
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import axios from 'axios';
   
 export const CartItemsContext = React.createContext();
+
+export function useCart() {
+  const value = useContext(CartItemsContext);
+  return value;
+}
 
 export const CartItemsProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [productsData, setProductsData] = useState([]);  
     const [saveData, setSaveData] = useState('');
   
-    // function parseCSV(csvText) {
-    //   const rows = csvText.split(/\r?\n/);
-    //   const headers = rows[0].split(',');
-    //   const data = [];
-    //   for (let i = 1; i < rows.length; i++) {
-    //     const rowData = rows[i].split(',');
-    //     const rowObject = {};
-    //     for (let j = 0; j < headers.length; j++) {
-    //       rowObject[headers[j]] = rowData[j];
-    //     }
-    //     data.push(rowObject);
-    //   }
-    //   return data;
-    // }
+    function parseCSV(csvText) {
+      const rows = csvText.split(/\r?\n/);
+      const headers = rows[0].split(',');
+      const data = [];
+      for (let i = 1; i < rows.length; i++) {
+        const rowData = rows[i].split(',');
+        const rowObject = {};
+        for (let j = 0; j < headers.length; j++) {
+          rowObject[headers[j]] = rowData[j];
+        }
+        data.push(rowObject);
+      }
+      return data;
+    }
   
-    // const getProductsData = () => {
-    //   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
-    //   axios.get(url)
-    //     .then((response) => {
-    //       const parsedData = parseCSV(response.data);
-    //       setProductsData(parsedData);
-    //     })
-    //     .catch((error) => {
-    //       console.error('Error', error);
-    //     })
-    // }
+    const getProductsData = () => {
+      const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
+      axios.get(url)
+        .then((response) => {
+          const parsedData = parseCSV(response.data);
+          setProductsData(parsedData);
+        })
+        .catch((error) => {
+          console.error('Error', error);
+        })
+    }
   
     const onStorageUpdate = (e) => {
       const { key, newValue } = e;
@@ -42,18 +48,18 @@ export const CartItemsProvider = ({ children }) => {
       }
     };
   
-    // useEffect(() => {
-    //   getProductsData();
-    //   setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+    useEffect(() => {
+      getProductsData();
+      setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
   
-    //   if (localStorage.getItem('saveData') !== null) {
-    //     setCartItems(JSON.parse(localStorage.getItem('saveData')))
-    //   }
-    //   window.addEventListener('storage', onStorageUpdate);
-    //   return () => {
-    //     window.removeEventListener('storage', onStorageUpdate);
-    //   };
-    // }, []);
+      if (localStorage.getItem('saveData') !== null) {
+        setCartItems(JSON.parse(localStorage.getItem('saveData')))
+      }
+      window.addEventListener('storage', onStorageUpdate);
+      return () => {
+        window.removeEventListener('storage', onStorageUpdate);
+      };
+    }, []);
 
     const updateCart = (productQty, productName, add) => {
         let addToCart = [];
@@ -78,7 +84,7 @@ export const CartItemsProvider = ({ children }) => {
     
   
     return (
-        <CartItemsContext.Provider value={{ updateCart }}>
+        <CartItemsContext.Provider value={{ productsData, getProductsData, updateCart }}>
             {children}
         </CartItemsContext.Provider>
     );
