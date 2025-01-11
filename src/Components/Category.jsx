@@ -184,7 +184,7 @@ function Category({ cart, category, clickHandler }) {
                                         <p>{productQty}</p>
                                         <button onClick={() => setQuantity('add')}>+</button>
                                     </div>
-                                    <button className='add-to-cart font-small' onClick={() => addToCart(productQty, productInfo.Name)}>Add to Cart</button>
+                                    <button className='add-to-cart font-small' onClick={() => clickHandler(productQty, productInfo.Name, 'add')}>Add to Cart</button>
                                 </div>
                             </div>
                             <div className='share-container'>
