@@ -29,6 +29,14 @@ export const CartItemsProvider = ({ children }) => {
       return data;
     }
   
+    const onStorageUpdate = (e) => {
+      const { key, newValue } = e;
+      if (key === 'cartItems') {
+        //setSaveData(newValue);
+        setCartItems(newValue)
+      }
+    };
+  
     const getProductsData = () => {
       const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4r5F3JQ2tlhqi0PnFhlBvHcY-W-DWceYwlKITFz9afma_JAwDmH56Kmywig9tWNsxkUZ64MGT3Nnp/pub?output=csv';
       axios.get(url)
@@ -41,20 +49,11 @@ export const CartItemsProvider = ({ children }) => {
         })
     }
   
-    const onStorageUpdate = (e) => {
-      const { key, newValue } = e;
-      if (key === 'saveData') {
-        setSaveData(newValue);
-      }
-    };
-  
     useEffect(() => {
       getProductsData();
-      setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+      //setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+        setCartItems(JSON.parse(localStorage.getItem('saveData')) || '')
   
-      if (localStorage.getItem('saveData') !== null) {
-        setCartItems(JSON.parse(localStorage.getItem('saveData')))
-      }
       window.addEventListener('storage', onStorageUpdate);
       return () => {
         window.removeEventListener('storage', onStorageUpdate);
@@ -66,25 +65,26 @@ export const CartItemsProvider = ({ children }) => {
         let newCartArray = cartItems.filter(i => i !== productName);
         if (productQty === 'clear' && productName === 'clear') {
           setCartItems([]);
-          setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
-          localStorage.setItem('saveData', '');
+          //setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
+          localStorage.setItem('cartItems', '');
         } else if (add) {
           for (let i = 0; i < productQty; i++) {
             addToCart.push(productName)
           }
           setCartItems(newCartArray.concat(addToCart));
-          localStorage.setItem('saveData', JSON.stringify(newCartArray.concat(addToCart)));
-          setSaveData(JSON.stringify(newCartArray.concat(addToCart)));
+          localStorage.setItem('cartItems', JSON.stringify(newCartArray.concat(addToCart)));
+          //setSaveData(JSON.stringify(newCartArray.concat(addToCart)));
+          setCartItems(JSON.stringify(newCartArray.concat(addToCart)));
         } else if (!add) {
           setCartItems(newCartArray);
-          localStorage.setItem('saveData', JSON.stringify(newCartArray));
-          setSaveData(JSON.stringify(newCartArray));
+          localStorage.setItem('cartItems', JSON.stringify(newCartArray));
+          //setSaveData(JSON.stringify(newCartArray));
         }
       }
     
   
     return (
-        <CartItemsContext.Provider value={{ productsData, getProductsData, updateCart }}>
+        <CartItemsContext.Provider value={{ productsData, updateCart }}>
             {children}
         </CartItemsContext.Provider>
     );
