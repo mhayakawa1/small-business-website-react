@@ -267,7 +267,7 @@ function Home() {
                 <h2>Sign up for our newsletter</h2>
                 <p>Stay informed about store updates and receive discount codes.</p>
                 <div className='submit-email'>
-                    <input placeholder='Email'></input>
+                    <input placeholder='Email' id='email' type='email' autoComplete='on'></input>
                     <button>Subscribe</button>
                 </div>
             </section>
