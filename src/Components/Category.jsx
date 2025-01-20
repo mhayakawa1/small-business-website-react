@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../Contexts/CartItemsContext';
 
-function Category({ cart, category, clickHandler }) {
-    const { productsData } = useCart();
+function Category({ category }) {
+    const { productsData, cartItems, updateCart } = useCart();
     const [gridNum, setGridNum] = useState(3);
     const [viewProduct, setViewProduct] = useState(false);
     const [productInfo, setProductInfo] = useState({});
-    const [productQty, setProductQty] = useState(0);
+    const [quantity, setQuantity] = useState(0);
     const [productSorting, setProductSorting] = useState([]);
 
     useEffect(() => {
@@ -50,22 +50,18 @@ function Category({ cart, category, clickHandler }) {
         setGridNum(num)
     }
 
-    const setQuantity = (op) => {
-        if (op === 'add' && productQty < 15) {
-            setProductQty(productQty + 1);
-        } else if (op === 'sub' && productQty >= 1) {
-            setProductQty(productQty - 1);
+    const updateQuantity = (add) => {
+        if (add && quantity < 15) {
+            setQuantity(quantity + 1);
+        } else if (!add && quantity >= 1) {
+            setQuantity(quantity - 1);
         }
-    }
-
-    const addToCart = (productQty, productName) => {
-        clickHandler(productQty, productName, 'add')
     }
 
     const toggleViewProduct = (product, i) => {
         setViewProduct((bool) => !bool);
         setProductInfo(product);
-        setProductQty(cart.length === 0 ? 0 : cart.filter(i => i === product.Name).length)
+        setQuantity(cartItems.length === 0 ? 0 : cartItems.filter((i) => i === product.Name).length)
         Object.defineProperty(product, 'Index', {
             value: i
         })
@@ -105,7 +101,7 @@ function Category({ cart, category, clickHandler }) {
             const productCard =
                 <div key={i} className={`product-card-container ${gridNum === 3 ? 'grid3 grid1' : 'grid2'}`}>
                     <button onClick={() => toggleViewProduct(productSorting[i], i)}>
-                        <img src={productSorting[i].ImageSource} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
+                        <img src={productSorting[i].ImageSource.toString()} className={`product-image ${gridNum === 3 ? 'grid-image-3 grid-image-1' : 'grid-image-2'}`}></img>
                     </button>
                     <div className='product-info'>
                         <p className='product-name font-small'>{productSorting[i].Name}</p>
@@ -180,11 +176,11 @@ function Category({ cart, category, clickHandler }) {
                                 <p className='view-product-price'>${productInfo.Price}</p>
                                 <div className='quantity-cart-container' >
                                     <div className='quantity-container'>
-                                        <button onClick={() => setQuantity('sub')}>-</button>
-                                        <p>{productQty}</p>
-                                        <button onClick={() => setQuantity('add')}>+</button>
+                                        <button onClick={() => updateQuantity(false)}>-</button>
+                                        <p>{quantity}</p>
+                                        <button onClick={() => updateQuantity(true)}>+</button>
                                     </div>
-                                    <button className='add-to-cart font-small' onClick={() => clickHandler(productQty, productInfo.Name, 'add')}>Add to Cart</button>
+                                    <button className='add-to-cart font-small' onClick={() => updateCart(quantity, productInfo.Name, 'add')}>Add to Cart</button>
                                 </div>
                             </div>
                             <div className='share-container'>
