@@ -2,23 +2,23 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../Contexts/CartItemsContext';
 
-function Cart({cart, clickHandler}){
+function Cart(){
+    const { productsData, cartItems, updateCart } = useCart();
     let subtotal = 0
     const navButtonStyles = () => ({
         width: '8rem'
-    })
-    const { productsData } = useCart();
+    }); 
     
     function deleteItem(productQty, productName){
-        clickHandler(productQty, productName, 'delete')
+        updateCart(productQty, productName);
     }
     
     const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(cart.includes(productsData[i].Name)){
-                const quantity = cart.length;
+            if(cartItems.includes(productsData[i].Name)){
+                const quantity = cartItems.length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
@@ -58,7 +58,7 @@ function Cart({cart, clickHandler}){
                 <div className='cart-table'>
                     <h3>Shopping Cart</h3>
                     <div className='items-in-cart'>
-                        {cart.length > 0 ? 
+                        {cartItems.length > 0 ? 
                             <ul className='cart-table-headers'>
                                 <li className='font-small'>Product:</li>
                                 <li className='font-small'>Unit Price:</li>
@@ -66,7 +66,7 @@ function Cart({cart, clickHandler}){
                             </ul>
                         : null
                         }
-                    {cart.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
+                    {cartItems.length === 0 ? <p className='font-extra-small cart-empty'>Your cart is empty.</p>
                         : getItemsInCart()}
                     </div>
                 </div>
@@ -74,11 +74,11 @@ function Cart({cart, clickHandler}){
                     <h3>Order Summary</h3>
                     <div className='summary'>
                         <div>
-                            <p className='font-small'>Items: {cart.length}</p>
+                            <p className='font-small'>Items: {cartItems.length}</p>
                             <p className='font-small'>Subtotal: ${subtotal}</p>
                             <p className='font-extra-small'>Tax, shipping and discounts calculated at checkout</p>
                         </div>                        
-                        <button className={`checkout-button ${cart.length === 0 ? 'btn-disabled' : null}`}>
+                        <button className={`checkout-button ${cartItems.length === 0 ? 'btn-disabled' : null}`}>
                             <NavLink to='/checkout' style={{navButtonStyles}} className='nav-link-button'>
                                 Checkout<i className='fas fa-arrow-right'></i>
                             </NavLink>
