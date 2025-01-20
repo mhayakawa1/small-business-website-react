@@ -94,8 +94,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route exact path="/shop/:category" element={<Shop clickHandler={updateCart} cart={cartItems} products={productsData} />} />
-            <Route path='/cart' element={<Cart clickHandler={updateCart} cart={cartItems} />} />
+            <Route exact path="/shop/:category" element={<Shop />} />
+            <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout clickHandler={updateCart} cart={cartItems} />} />
             <Route path='*' element={<Error />} />
           </Routes>
