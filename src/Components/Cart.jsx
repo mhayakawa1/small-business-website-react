@@ -12,13 +12,13 @@ function Cart(){
     function deleteItem(productQty, productName){
         updateCart(productQty, productName);
     }
-    
+
     const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
             if(cartItems.includes(productsData[i].Name)){
-                const quantity = cartItems.length;
+                const quantity = cartItems.filter((item) => item === productsData[i].Name).length;
                 subtotal = subtotal+productsData[i].Price*quantity;
                 localStorage.setItem('subtotal', subtotal+productsData[i].Price*quantity);
                 itemsArr.push(
