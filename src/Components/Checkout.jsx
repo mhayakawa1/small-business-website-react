@@ -2,20 +2,19 @@ import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../Contexts/CartItemsContext';
 
-function Checkout({cart, clickHandler}){
-    const { productsData } = useCart();
+function Checkout(){
+    const { productsData, cartItems, updateCart } = useCart();
     const [inCart, setInCart] = useState('');
     const [subtotal, setSubtotal] = useState(0);
     let percentOff = 0;
-
-    let date = new Date()    
-    let today = date.getDate()
+    let date = new Date();
+    let today = date.getDate();
         if(today < 10){
             today = '0' + today;
         }
-    let tomorrow1 = new Date(date)
-        tomorrow1.setDate(tomorrow1.getDate() + 1)
-    let tomorrow2 = tomorrow1.getDate()
+    let tomorrow1 = new Date(date);
+        tomorrow1.setDate(tomorrow1.getDate() + 1);
+    let tomorrow2 = tomorrow1.getDate();
         if(tomorrow2 < 10){
             tomorrow2 = '0' + tomorrow2;
         }
@@ -26,13 +25,13 @@ function Checkout({cart, clickHandler}){
     let year = date.getUTCFullYear();
     let minDate = year + '-' + month + '-' + today;
     let tomorrowsDate = year + '-' + month + '-' + tomorrow2;
-    let time = new Date()
-        time = time.getHours()
+    let time = new Date();
+        time = time.getHours();
     const codes = [['REACTJS', 10], ['JAVASCRIPT', 20]];
     const [inputCode, setInputCode] = useState('');
-    let submittedCode = ''
+    let submittedCode = '';
     const [codeValid, setCodeValid] = useState('');
-    const [radioBtnVal, setRadioBtnVal] = useState('')
+    const [radioBtnVal, setRadioBtnVal] = useState('');
 
     const onStorageUpdate = (e) => {
         const { key, newValue } = e;
@@ -73,15 +72,15 @@ function Checkout({cart, clickHandler}){
     }, []);
 
     function deleteItem(productQty, productName){
-        clickHandler(productQty, productName, 'delete');
+        updateCart(productQty, productName, 'delete');
     }
     
     const getItemsInCart = () =>{
         const itemsArr = [];
 
         for(let i = 0; i < productsData.length; i++){
-            if(cart.includes(productsData[i].Name)){
-                const quantity = cart.filter(element => element === productsData[i].Name).length;
+            if(cartItems.includes(productsData[i].Name)){
+                const quantity = cartItems.filter(element => element === productsData[i].Name).length;
                 itemsArr.push(
                     <div key={i} className='cart-product'>
                         <img src={productsData[i].ImageSource} className='cart-product-image'></img>
@@ -155,9 +154,9 @@ function Checkout({cart, clickHandler}){
                 </button>
             </NavLink>
             <h3>Checkout</h3>
-            <p>You have {cart.length} {cart.length === 1 ? 'item' : 'items'} in your cart.</p>
+            <p>You have {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart.</p>
             <div className='items-in-cart'>                
-                {cart.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
+                {cartItems.length === 0 ? <p className='cart-empty'>Your cart is empty.</p>
                     : getItemsInCart()}
             </div>
             {calculateTotal()}
