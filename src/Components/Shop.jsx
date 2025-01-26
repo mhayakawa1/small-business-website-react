@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Category from './Category';
 
-function Shop({clickHandler, cart}){
+function Shop(){
     const { category } = useParams();
   
     return (
       <>
-        <Category category={category} clickHandler={clickHandler} cart={cart}/>
+        <Category category={category} />
       </>
     );
 }
