@@ -11,8 +11,7 @@ export function useCart() {
 
 export const CartItemsProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
-    const [productsData, setProductsData] = useState([]);  
-    const [saveData, setSaveData] = useState('');
+    const [productsData, setProductsData] = useState([]);
   
     function parseCSV(csvText) {
       const rows = csvText.split(/\r?\n/);
@@ -32,7 +31,6 @@ export const CartItemsProvider = ({ children }) => {
     const onStorageUpdate = (e) => {
       const { key, newValue } = e;
       if (key === 'cartItems') {
-        //setSaveData(newValue);
         setCartItems(newValue)
       }
     };
@@ -51,8 +49,7 @@ export const CartItemsProvider = ({ children }) => {
   
     useEffect(() => {
       getProductsData();
-      //setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
-        setCartItems(JSON.parse(localStorage.getItem('saveData')) || '')
+      setCartItems(JSON.parse(localStorage.getItem('cartItems')) || [])
   
       window.addEventListener('storage', onStorageUpdate);
       return () => {
@@ -60,31 +57,24 @@ export const CartItemsProvider = ({ children }) => {
       };
     }, []);
 
-    const updateCart = (productQty, productName, add) => {
+    const updateCart = (quantity, productName, add) => {
         let addToCart = [];
         let newCartArray = cartItems.filter(i => i !== productName);
-        if (productQty === 'clear' && productName === 'clear') {
-          setCartItems([]);
-          //setSaveData(JSON.parse(localStorage.getItem('saveData')) || '');
-          localStorage.setItem('cartItems', '');
-        } else if (add) {
-          for (let i = 0; i < productQty; i++) {
-            addToCart.push(productName)
+        if (add) {
+          for (let i = 0; i < quantity; i++) {
+            newCartArray.push(productName);
           }
-          setCartItems(newCartArray.concat(addToCart));
+          setCartItems(newCartArray);
           localStorage.setItem('cartItems', JSON.stringify(newCartArray.concat(addToCart)));
-          //setSaveData(JSON.stringify(newCartArray.concat(addToCart)));
-          setCartItems(JSON.stringify(newCartArray.concat(addToCart)));
-        } else if (!add) {
+        } else{
           setCartItems(newCartArray);
           localStorage.setItem('cartItems', JSON.stringify(newCartArray));
-          //setSaveData(JSON.stringify(newCartArray));
         }
       }
     
   
     return (
-        <CartItemsContext.Provider value={{ productsData, updateCart }}>
+        <CartItemsContext.Provider value={{ productsData, cartItems, updateCart }}>
             {children}
         </CartItemsContext.Provider>
     );
